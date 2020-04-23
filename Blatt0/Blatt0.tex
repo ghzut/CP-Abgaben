@@ -1,0 +1,38 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\begin{document}
+\section{Blatt 0}
+\subsection*{Aufgabe 0}
+\subsubsection*{a)}
+Die Stabilität eines numerischen Verfahrens oder Problems beschreibt seine Empfindlichkeit gegenüber kleinen Fehler in den Anfangsbedingung. Werden diese mit zunehmenden Iterationsschritten stark vergrößert, spricht man von numerischer Instabilität.
+\subsubsection*{b)}
+Eine höhere Genauigkeit, z.B. die Berücksichtigung höherer Ordnungen kann zu 
+\subsection*{Aufgabe 1}
+Das Distributivgesetz kann aufgrund der begrenzten Genauigkeit von Gleitkommazahlen entstehen.\\
+Bsp. mit $t=2$ und $l=1$
+\begin{align*}
+a &= 0,50\cdot 10^9,\\
+b &= 0,60\cdot 10^9,\\
+c &= 0,10\cdot 10^{-3}
+\end{align*}
+\begin{align*}
+(a+b)\cdot c &= \underbrace{(0,50\cdot 10^9 +0,60\cdot 10^9)}_{=0.11\cdot 10^{10},exponent overflow\rightarrow 0,99\cdot 10^{9}}\cdot 0,10\cdot 10^{-3} = 0,99\cdot 10^5}\\
+a\cdot c + b\cdot c &= 0,50\cdot 10^5 + 0,60\cdot 10^5 = 0,11\cdot 10^6
+\end{align*}
+\subsection*{2)}
+\subsubsection*{a)}
+Das Problem kann umgeschrieben werden zu:
+\begin{align*}
+\frac{1}{\sqrt{x}} - \frac{1}{\sqrt{x+1}} &= \frac{\sqrt{x+1}-\sqrt{x}}{\sqrt{x^2+x}}\\
+&= 
+\end{align*}
+\end{document}
+
+
+%♥
