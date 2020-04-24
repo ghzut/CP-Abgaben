@@ -1,10 +1,12 @@
 all: stable
 
-
-stable: stable.cc
-		g++ -O3 -ffast-math -march=native stable.cc -o stable
-		./stable
+stable: stable.cc build
+		g++ -O3 -ffast-math -march=native stable.cc -o build/stable
+		./build/stable
 		python stable.py
 
+build:
+	mkdir -p build
+
 clean:
-	  rm -f stable
+	rm -rf build

@@ -6,11 +6,11 @@ using namespace std;
 int main()
 {
   //Aufgabe 2
-  ofstream out_sqrts ("0_1a.txt", ofstream::trunc);
+  ofstream out_sqrts ("build/0_1a.txt", ofstream::trunc);
   out_sqrts << "#x, df\n";
-  ofstream out_frac_trig ("0_1b.txt", ofstream::trunc);
+  ofstream out_frac_trig ("build/0_1b.txt", ofstream::trunc);
   out_frac_trig << "#x, df\n";
-  ofstream out_sin ("0_1c.txt", ofstream::trunc);
+  ofstream out_sin ("build/0_1c.txt", ofstream::trunc);
 
   double result = 0.;
   double stable_result = 0.;
@@ -23,7 +23,7 @@ int main()
     stable_result = tan(1./(2. * x));
     out_frac_trig << 1./x << " " << abs((result-stable_result)/stable_result) << "\n";
     result = sin(x + 1./x) - sin(x);
-    stable_result = 2 * sin(1./(2. * x))*cos(x+1./(2. * x));
+    stable_result = 2 * sin(1./(2. * x)) * cos(x+1./(2. * x));
     out_sin << 1./x << " " << abs((result-stable_result)/stable_result) << "\n";
   }
   out_sqrts.flush();
