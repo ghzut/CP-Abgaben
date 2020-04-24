@@ -14,17 +14,17 @@ int main()
 
   double result = 0.;
   double stable_result = 0.;
-  for (double x = 0.01; x < 1000000.; x *= 10.)
+  for (double x = 0.0001; x < pow(10.,7.); x *= 10.)
   {
     result = 1./sqrt(x) - 1./sqrt(1 + x);
     stable_result = 1./(sqrt(x)*(x+1.)+sqrt(x+1.)*x);
-    out_sqrts << x << " " << abs(result-stable_result)/stable_result << "\n";
+    out_sqrts << x << " " << abs((result-stable_result)/stable_result) << "\n";
     result = (1. - cos(1./x))/sin(1./x);
     stable_result = tan(1./(2. * x));
-    out_frac_trig << 1./x << " " << abs(result-stable_result)/stable_result << "\n";
-    result = sin(M_PI/2. + 1./x) - sin(M_PI/2.);
+    out_frac_trig << 1./x << " " << abs((result-stable_result)/stable_result) << "\n";
+    result = sin(x + 1./x) - sin(x/2.);
     stable_result = 2 * sin(1./(2. * x))*cos(x+1./(2. * x));
-    out_sin << 1./x << " " << abs(result-stable_result)/stable_result << "\n";
+    out_sin << 1./x << " " << abs((result-stable_result)/stable_result) << "\n";
   }
   out_sqrts.flush();
   out_sqrts.close();
