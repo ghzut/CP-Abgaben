@@ -35,15 +35,15 @@ int main()
       v_var.push_back(var);
     }
     v_v_var.push_back(v_var);
-    v_var.clear();
   }
 
   VectorXd vec_x(v_v_var.at(0).size());
   VectorXd vec_y(v_v_var.at(1).size());
   for (int i = 0; i < v_v_var.at(0).size();++i)
   {
-    vec_x(0,i) = v_v_var.at(0).at(i);
-    vec_y(0,i) = v_v_var.at(1).at(i);
+
+    vec_x(i,0) = v_v_var.at(0).at(i);
+    vec_y(i,0) = v_v_var.at(1).at(i);
   }
 
   cout << "The vector is:\n" << vec_x << endl;
