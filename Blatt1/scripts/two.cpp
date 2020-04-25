@@ -40,7 +40,7 @@ int main()
 
   VectorXd vec_x(v_v_var.at(0).size());
   VectorXd vec_y(v_v_var.at(1).size());
-  for (int i = 0; i< v_v_var.at(0).size();++i)
+  for (int i = 0; i < v_v_var.at(0).size();++i)
   {
     vec_x(0,i) = v_v_var.at(0).at(i);
     vec_y(0,i) = v_v_var.at(1).at(i);
