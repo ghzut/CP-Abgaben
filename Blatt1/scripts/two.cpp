@@ -6,7 +6,7 @@
 using namespace std;
 
 typedef std::vector<vector<double>> double_vec;
-typedef Eigen::Matrix<double, Dynamic, 1> VectorXd;
+typedef Eigen::Matrix<double, Eigen::Dynamic, 1> VectorXd;
 
 void inputdata(const char *path, vector<string> &v_line)
 {
@@ -40,10 +40,13 @@ int main()
 
   VectorXd vec_x(v_v_var.at(0).size());
   VectorXd vec_y(v_v_var.at(1).size());
-  vec_x.col(0) = v_v_var.at(0);
-  vec_y.col(0) = v_v_var.at(1);
+  for (int i = 0; i< v_v_var.at(0).size();++i)
+  {
+    vec_x(0,i) = v_v_var.at(0).at(i);
+    vec_y(0,i) = v_v_var.at(1).at(i);
+  }
 
-  cout << "THe vector is" << vec_x << endl;
+  cout << "The vector is:\n" << vec_x << endl;
 
   return 0;
 }
