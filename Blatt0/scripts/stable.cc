@@ -3,6 +3,12 @@
 #include<cmath>
 using namespace std;
 
+
+double euler(double y_0, int n, int count)
+{
+
+}
+
 int main()
 {
   //Aufgabe 2
@@ -32,6 +38,9 @@ int main()
   out_frac_trig.close();
   out_sin.flush();
   out_sin.close();
+
+  //Aufgabe 3
+  int count = 0;
 
   return 0;
 }
