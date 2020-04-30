@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-﻿from table2 import makeTable
+from table2 import makeTable
 
 m,n = np.genfromtxt("A2/data/py_input_m_n.txt", unpack=True)
 x,y = np.genfromtxt("A2/data/py_input_x_y.txt", unpack=True)
