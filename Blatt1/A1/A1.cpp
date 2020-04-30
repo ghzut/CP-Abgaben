@@ -5,17 +5,17 @@ using namespace std;
 using namespace Eigen;
 
 
-
-
+//Funktion zur Berechnung der Lösung des LGS nach der LU-Zerlegung
 Vector3f solveLGS(Matrix3f L, Matrix3f U, Matrix3f P, Vector3f b)
 {
     Vector3f x, y, z;
     double xx = 0;
 
 
-    z = P.transpose() * b;
+    z = P.transpose() * b;  //Berechnung von z
 
 
+    // Berechnung von y
     y(0) = z(0)/L(0,0);
 
     for (int i=1; i<b.size(); i++){
@@ -27,6 +27,7 @@ Vector3f solveLGS(Matrix3f L, Matrix3f U, Matrix3f P, Vector3f b)
         y(i) = 1/L(i, i) * (z(i) - xx);
     }
 
+    //Berechnung von x
     x(b.size()-1) = y(b.size()-1)/U(b.size()-1,b.size()-1);
 
     xx = 0;
@@ -59,7 +60,6 @@ int main()
 
     // Bestimmung von L, U und P mittels Eigen
 
-    // x = A.partialPivLu().solve(b);
     L = A.partialPivLu().matrixLU().triangularView<UpLoType::UnitLower>();
     U = A.partialPivLu().matrixLU().triangularView<UpLoType::Upper>();
     P = A.partialPivLu().permutationP();
