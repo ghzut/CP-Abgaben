@@ -1,10 +1,15 @@
-all: A1
+all: A1 A2
 
-A1: Aufgabe1_LU-Zerlegung/lu.cpp
-	g++ -O3 -ffast-math -march=native -I /usr/include/eigen3 $< -o Aufgabe1_LU-Zerlegung/lu.out
-	cd Aufgabe1_LU-Zerlegung; ./lu.out
+%: %/%.cpp %/build
+	g++ -O3 -ffast-math -march=native -I /usr/include/eigen3 $< -o %/$@
+	cd %; ./$@
+	python %.py
 
+%/build:
+	cd %
+	mkdir -p build
 clean:
-	rm -f Aufgabe1_LU-Zerlegung/lu.out
-	
+	rm -f A1/A1
+	rm -f A2/A2
+
 .PHONY: clean
