@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-m,n = np.genfromtxt("data/py_input_m_n.txt", unpack=True)
-x,y = np.genfromtxt("data/py_input_x_y.txt", unpack=True)
+m,n = np.genfromtxt("A2/data/py_input_m_n.txt", unpack=True)
+x,y = np.genfromtxt("A2/data/py_input_x_y.txt", unpack=True)
 
 def f(x,m,n):
     return m*x+n
@@ -14,4 +14,4 @@ plt.plot(x_plot, f(x_plot, m, n), 'b-', label='Regression')
 plt.legend(loc='best')
 plt.xlabel(r'$x$')
 plt.ylabel(r'$y$')
-plt.savefig('build/Regression.pdf')
+plt.savefig('A2/build/Regression.pdf')

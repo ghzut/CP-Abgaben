@@ -5,6 +5,7 @@
 #include<Eigen/Dense>
 using namespace std;
 
+
 typedef std::vector<vector<double>> double_vec;
 typedef Eigen::Matrix<double, Eigen::Dynamic, 1> VectorXd;
 typedef Eigen::Matrix<double, 2, 2> Matrix2d;
@@ -64,9 +65,9 @@ int main()
   VectorXd b(2); b = A.transpose() * vec_y;
   VectorXd x(2);
 
-  cout << "The matrix:\n" << A << endl;
-  cout << "The matrix transpose:\n" << A.transpose() << endl;
-  cout << "The quadratic matrix:\n" << n << endl;
+  cout << "The matrix:\n\n" << A << endl;
+  cout << "The matrix transpose:\n\n" << A.transpose() << endl;
+  cout << "The quadratic matrix:\n\n" << n << endl;
   cout << "The new b vector is:\n" << b <<endl;
 
   x = n.partialPivLu().solve(b);

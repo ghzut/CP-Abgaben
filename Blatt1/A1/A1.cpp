@@ -7,7 +7,6 @@ using namespace Eigen;
 
 
 
-
 Vector3f solveLGS(Matrix3f L, Matrix3f U, Matrix3f P, Vector3f b)
 {
     Vector3f x, y, z;
