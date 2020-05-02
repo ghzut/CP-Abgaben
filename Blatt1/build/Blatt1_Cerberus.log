@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.23)  1 MAY 2020 00:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.23)  1 MAY 2020 01:09
 entering extended mode
 **./Blatt1_Cerberus.tex
 (Blatt1_Cerberus.tex
@@ -552,41 +552,119 @@ Package xtemplate Info: Declaring object type 'xfrac' taking 3 argument(s) on
 (xtemplate)             line 79.
 
 )
-No file Blatt1_Cerberus.aux.
+("C:\Program Files\MiKTeX 2.9\tex/latex/siunitx\siunitx.sty"
+Package: siunitx 2018/05/17 v2.7s A comprehensive (SI) units package
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\array.sty"
+Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
+\col@sep=\dimen152
+\ar@mcellbox=\box51
+\extrarowheight=\dimen153
+\NC@list=\toks22
+\extratabsurround=\skip69
+\backup@length=\skip70
+\ar@cellbox=\box52
+)
+\l__siunitx_tmp_box=\box53
+\l__siunitx_tmp_dim=\dimen154
+\l__siunitx_tmp_int=\count194
+\l__siunitx_number_mantissa_length_int=\count195
+\l__siunitx_number_uncert_length_int=\count196
+\l__siunitx_round_int=\count197
+\l__siunitx_process_decimal_int=\count198
+\l__siunitx_process_uncertainty_int=\count199
+\l__siunitx_process_fixed_int=\count266
+\l__siunitx_process_integer_min_int=\count267
+\l__siunitx_process_precision_int=\count268
+\l__siunitx_group_min_int=\count269
+\l__siunitx_angle_marker_box=\box54
+\l__siunitx_angle_unit_box=\box55
+\l__siunitx_angle_marker_dim=\dimen155
+\l__siunitx_angle_unit_dim=\dimen156
+\l__siunitx_unit_int=\count270
+\l__siunitx_unit_denominator_int=\count271
+\l__siunitx_unit_numerator_int=\count272
+\l__siunitx_unit_prefix_int=\count273
+\l__siunitx_unit_prefix_base_int=\count274
+\l__siunitx_unit_prefix_gram_int=\count275
+\l__siunitx_number_product_int=\count276
+\c__siunitx_one_fill_skip=\skip71
+\l__siunitx_table_unit_align_skip=\skip72
+\l__siunitx_table_exponent_dim=\dimen157
+\l__siunitx_table_integer_dim=\dimen158
+\l__siunitx_table_mantissa_dim=\dimen159
+\l__siunitx_table_marker_dim=\dimen160
+\l__siunitx_table_result_dim=\dimen161
+\l__siunitx_table_uncert_dim=\dimen162
+\l__siunitx_table_fill_pre_dim=\dimen163
+\l__siunitx_table_fill_post_dim=\dimen164
+\l__siunitx_table_fill_mid_dim=\dimen165
+\l__siunitx_table_pre_box=\box56
+\l__siunitx_table_post_box=\box57
+\l__siunitx_table_mantissa_box=\box58
+\l__siunitx_table_result_box=\box59
+\l__siunitx_table_number_align_skip=\skip73
+\l__siunitx_table_text_align_skip=\skip74
+
+("C:\Program Files\MiKTeX 2.9\tex/latex/translator\translator.sty"
+Package: translator 2018/01/04 v1.12 Easy translation of strings in LaTeX
+))
+("C:\Program Files\MiKTeX 2.9\tex/latex/booktabs\booktabs.sty"
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen166
+\lightrulewidth=\dimen167
+\cmidrulewidth=\dimen168
+\belowrulesep=\dimen169
+\belowbottomsep=\dimen170
+\aboverulesep=\dimen171
+\abovetopsep=\dimen172
+\cmidrulesep=\dimen173
+\cmidrulekern=\dimen174
+\defaultaddspace=\dimen175
+\@cmidla=\count277
+\@cmidlb=\count278
+\@aboverulesep=\dimen176
+\@belowrulesep=\dimen177
+\@thisruleclass=\count279
+\@lastruleclass=\count280
+\@thisrulewidth=\dimen178
+)
+(C:\Users\Jonah\Desktop\Projekte\CP-Abgaben\Blatt1\build\Blatt1_Cerberus.aux)
 \openout1 = `Blatt1_Cerberus.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 11.
+
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    ... okay on input line 11.
 
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count194
-\scratchdimen=\dimen152
-\scratchbox=\box51
-\nofMPsegments=\count195
-\nofMParguments=\count196
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count197
-\MPscratchDim=\dimen153
-\MPnumerator=\count198
-\makeMPintoPDFobject=\count199
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count281
+\scratchdimen=\dimen179
+\scratchbox=\box60
+\nofMPsegments=\count282
+\nofMParguments=\count283
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count284
+\MPscratchDim=\dimen180
+\MPnumerator=\count285
+\makeMPintoPDFobject=\count286
+\everyMPtoPDFconversion=\toks24
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -634,104 +712,88 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Calculating math sizes for size <7.665> on input line 24.
+("C:\Program Files\MiKTeX 2.9\tex/latex/translator\translator-basic-dictionary-
+English.dict"
+Dictionary: translator-basic-dictionary, Language: English 
+)
+("C:\Program Files\MiKTeX 2.9\tex/latex/siunitx\siunitx-abbreviations.cfg"
+File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
+)
+LaTeX Font Info:    Calculating math sizes for size <7.665> on input line 26.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.83249> not available
-(Font)              size <5> substituted on input line 24.
+(Font)              size <5> substituted on input line 26.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.83249> not available
-(Font)              size <5> substituted on input line 24.
+(Font)              size <5> substituted on input line 26.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.83249> not available
-(Font)              size <5> substituted on input line 24.
+(Font)              size <5> substituted on input line 26.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <3.83249> not available
-(Font)              size <5> substituted on input line 24.
+(Font)              size <5> substituted on input line 26.
 
 
-LaTeX Warning: Reference `eqn:1' on page 1 undefined on input line 65.
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <3.83249> not available
+(Font)              size <5> substituted on input line 26.
 
 
-LaTeX Warning: Reference `eqn:2' on page 1 undefined on input line 69.
-
-
-LaTeX Warning: Reference `eqn:3' on page 1 undefined on input line 74.
-
-
-LaTeX Warning: Reference `eqn:2' on page 1 undefined on input line 74.
+LaTeX Font Warning: Font shape `OT1/cmtt/m/n' in size <3.83249> not available
+(Font)              size <5> substituted on input line 26.
 
 [1
 
-{C:/Users/Jonah/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-
-LaTeX Warning: Reference `eqn:1' on page 2 undefined on input line 94.
-
-
-LaTeX Warning: Reference `eqn:3' on page 2 undefined on input line 94.
-
-[2]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 149.
-
-\openout2 = `build/data_tab.tex.aux'.
-
-No file build/data_tab.tex.tex.
-
-LaTeX Warning: Reference `fig:linreg' on page 3 undefined on input line 230.
+{C:/Users/Jonah/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+(build/data_tab.tex
+Overfull \hbox (3.04169pt too wide) detected at line 9
+ 
+ []
 
 
-LaTeX Warning: File `A2/build/Regression.pdf' not found on input line 233.
+Overfull \hbox (3.04169pt too wide) detected at line 9
+ 
+ []
 
 
-! Package pdftex.def Error: File `A2/build/Regression.pdf' not found: using dra
-ft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.233 ...idth=\textwidth]{A2/build/Regression.pdf}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+Overfull \hbox (3.04169pt too wide) detected at line 11
+ 
+ []
 
 
-LaTeX Warning: Reference `tab:data_tab' on page 3 undefined on input line 234.
+Overfull \hbox (3.04169pt too wide) detected at line 15
+ 
+ []
 
 
-LaTeX Warning: Reference `tab:data_tab' on page 3 undefined on input line 234.
+Overfull \hbox (3.04169pt too wide) detected at line 15
+ 
+ []
 
-[3
-
-
-] [4]
-(C:\Users\Jonah\Desktop\Projekte\CP-Abgaben\Blatt1\build\Blatt1_Cerberus.aux
-(C:\Users\Jonah\Desktop\Projekte\CP-Abgaben\Blatt1\build\build/data_tab.tex.aux
-))
+) [3]
+<A2/build/Regression.pdf, id=21, 462.52798pt x 346.89601pt>
+File: A2/build/Regression.pdf Graphic file (type pdf)
+<use A2/build/Regression.pdf>
+Package pdftex.def Info: A2/build/Regression.pdf  used on input line 234.
+(pdftex.def)             Requested size: 418.25555pt x 313.70679pt.
+ [4 <./A2/build/Regression.pdf>]
+(C:\Users\Jonah\Desktop\Projekte\CP-Abgaben\Blatt1\build\Blatt1_Cerberus.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.90001pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 14934 strings out of 492902
- 283111 string characters out of 3133550
- 428692 words of memory out of 3000000
- 18764 multiletter control sequences out of 15000+200000
- 540614 words of font info for 55 fonts, out of 3000000 for 9000
+ 17325 strings out of 492902
+ 349252 string characters out of 3133550
+ 480668 words of memory out of 3000000
+ 21130 multiletter control sequences out of 15000+200000
+ 542018 words of font info for 61 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 51i,17n,71p,9123b,324s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 51i,17n,71p,9123b,500s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKT
@@ -742,9 +804,9 @@ sfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
 8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
 Output written on C:\Users\Jonah\Desktop\Projekte\CP-Abgaben\Blatt1\build\Blatt
-1_Cerberus.pdf (4 pages, 118681 bytes).
+1_Cerberus.pdf (4 pages, 126326 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
+ 87 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

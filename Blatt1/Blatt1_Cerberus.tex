@@ -4,6 +4,8 @@
 \usepackage{natbib}
 \usepackage{graphicx}
 \usepackage{xfrac}
+\usepackage{siunitx}
+\usepackage{booktabs}
 
 
 \begin{document}
@@ -145,12 +147,11 @@
 
 \newpage
 \subsection*{Aufgabe 2}
-Für den Datensatz
-\begin{table}[]
+\begin{table}[h]
     \centering
-\include{build/data_tab.tex}
+\input{build/data_tab.tex}
 \end{table}
-soll eine lineare Regression der Form
+\noindent Für den vorliegenden Datensatz soll eine lineare Regression der Form
 \[
 y = mx + n
 \]
