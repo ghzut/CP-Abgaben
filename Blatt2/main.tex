@@ -74,6 +74,15 @@
         Die SVD scheint sich gut zur Kompression zu eignen, da sich das Bild, wie in Abbildung \ref{fig:A50} zu sehen, mit nur knapp
         $10 \, \%$ der Singulärwerte schon sehr gut rekonstruieren lässt. Selbst bei einer so extremen Kompression wie in Abbildung
         \ref{fig:A10} ist das Motiv noch ganz grob zu erkennen.
-        
-
+	
+	\subsection*{Aufgabe 2}
+		Ein Profiler wird verwendet um die Geschwindigkeit verschiedener Abschnitte einer LU-Zerlegung zu überprüfen.
+		Ein Timer überprüft die benötigte Zeit
+		\begin{enumerate}
+		\item eine $N\times N$-Matrix $M$ und einen $N$d-Vektor $b$ mit zufälligen Einträgen zu erzeugen
+		\item eine LU-Zerlegung durchzuführen
+		\item das Problem $Mx = b$ zu lösen
+		\end{enumerate}				
+		Die Zeit, die für die einzelnen Schritte benötigt wird, wird in Abhängigkeit von der Matrixgröße $N$ doppelt-logarithmisch 				aufgetragen.
+		
 \end{document}
