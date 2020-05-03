@@ -25,6 +25,6 @@ plt.yscale("log")
 plt.xlabel(r'$N$')
 plt.ylabel(r'$t/s$')
 plt.legend(loc='best')
-plt.savefig('A2/build/timers_lim.pdf')
+plt.savefig('A2/build/timers_lin.pdf')
 
 
