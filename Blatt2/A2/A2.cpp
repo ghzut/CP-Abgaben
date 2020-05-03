@@ -5,12 +5,15 @@
 #include <math.h>
 #include "profiler.cpp"
 #include <fstream>
+#include <thread>
 
 using namespace std;
 using namespace Eigen;
 
 int main()
 {
+  const auto nThreads = std::thread::hardware_concurrency();
+  Eigen::setNbThreads(nThreads);
   Profiler::init(3);
   ofstream outfile("build/times.txt", ofstream::trunc);
   outfile << "#N,1,2,3\n";

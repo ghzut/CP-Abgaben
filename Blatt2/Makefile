@@ -8,7 +8,7 @@ A1: A1/A1.cpp A1/build A1/A1.py
 
 
 A2: A2/A2.cpp A2/build
-	g++ -O3 -ffast-math -march=native -I /usr/include/eigen3 $< -o A2/$@
+	g++ -O3 -ffast-math -march=native -I /usr/include/eigen3 -fopenmp $< -o A2/$@
 	cd A2; ./$@ > log.txt
 	python A2/A2.py
 
@@ -36,5 +36,6 @@ clean:
 	rm -rf A2/build
 	rm -rf A3/build
 	rm -f A1/log.txt
+	rm -f A2/log.txt
 	rm -f A3/log.txt
 .PHONY: clean
