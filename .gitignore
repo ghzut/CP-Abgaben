@@ -1,2 +1,4 @@
 *.out
 .vscode
+eigen3_3_7
+build
