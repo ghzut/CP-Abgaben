@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{natbib}
 \usepackage{graphicx}
 \usepackage{subcaption}
@@ -85,7 +86,21 @@
 		\item eine LU-Zerlegung durchzuführen
 		\item das Problem $Mx = b$ zu lösen
 		\end{enumerate}				
-		Die Zeit $t$, die für die einzelnen Schritte benötigt wird, wird in Abhängigkeit von der Matrixgröße $N$ doppelt-logarithmisch aufgetragen. Die LU-Zerlegung mithilfe der \texttt{eigen}-Library unterstützt Multithreading und kann somit abhängig vom verwendeten Prozessor beschleunigt werden (in diesem Fall bis zu $15\%$). Generell zeigt sich, dass die benötigte Zeit von der verwendeten CPU abhängt, jedoch lässt sich sowohl bei logarithmisch (\ref{fig:time}) wie auch linear (\ref{fig:time_lin}) ansteigender Matrizengröße $N$ ein Trend erkennen.
+		Die Zeit $t$, die für die einzelnen Schritte benötigt wird, wird in Abhängigkeit von der Matrixgröße $N$ doppelt-logarithmisch aufgetragen. Die LU-Zerlegung mithilfe der \texttt{eigen}-Library unterstützt Multithreading und kann somit abhängig vom verwendeten Prozessor beschleunigt werden (in diesem Fall bis zu $15\%$). Generell zeigt sich, dass die benötigte Zeit von der verwendeten CPU abhängt, jedoch lässt sich sowohl bei logarithmisch (\ref{fig:time}) wie auch linear (\ref{fig:time_lin}) ansteigender Matrizengröße $N$ ein Trend erkennen.\\ Bei großen Problemen ($N\gtrsim 200$) lässt sich die benötigte Zeit für jeden der drei Teilschritte in Abb.\ref{fig:fit} als $\mathcal{O}(N^3)$ extrapolieren.
+ 		\begin{figure}[h!]
+ 		\centering
+ 		\begin{subfigure}{0.3\textwidth}
+		\includegraphics[width=\textwidth]{A2/build/t1_200.pdf}
+		\end{subfigure}
+		\begin{subfigure}{0.3\textwidth}
+		\includegraphics[width=\textwidth]{A2/build/t2_200.pdf}
+		\end{subfigure}
+		\begin{subfigure}{0.3\textwidth}
+		\includegraphics[width=\textwidth]{A2/build/t3_200.pdf}
+		\end{subfigure}
+		\caption{Die Daten der drei verschiedenen Teilschritte gefittet an ein Polynom 3. Grades für große $N$}
+		\label{fig:fit}
+ 		\end{figure}
 		\begin{figure}[h!]
 		\centering
 		\begin{subfigure}{0.8\textwidth}
@@ -114,7 +129,7 @@
 		\caption{Die benötigte Zeit für Operationen bei linear ansteigendem $N$ mit verschiedenen CPUs.}
 		\label{fig:time_lin}
         \end{figure}
-        
+
         \FloatBarrier
         \subsection*{Aufgabe 3}
         In dieser Aufgabe wurde ein Profiler genutzt, um die Laufzeiten verschiedener Algorithmen zum Lösen eines linearen Gleichungssystems der Form 
