@@ -44,18 +44,19 @@ Eigen::VectorXd full_LU(Eigen::MatrixXd matrix, Eigen::VectorXd vector, ofstream
     return x_vec;
 }
 
-double calc_dev(Eigen::VectorXd& exact, Eigen::VectorXd& estimate){
-    double abs_ex = exact.squaredNorm();
-    double abs_est = estimate.squaredNorm();
-    double deviation = abs(1 - abs_est/abs_ex)*100;
-    return deviation;
+double calc_SED(Eigen::VectorXd& vec1, Eigen::VectorXd& vec2){ //Squared Euclidean distance
+    Eigen::VectorXd diff = vec1-vec2;
+    double SED = diff.squaredNorm();
+    return SED;
 }
 
 int main(){
     
     srand(42);
 
+    //Frage ab, wie viele Threads im System zur Verfügung stehen
     const auto nThreads = std::thread::hardware_concurrency();
+    //Aktiviere Multithreading der Eigen Libary
     Eigen::setNbThreads(nThreads);
     Profiler::init(3);
 
@@ -66,7 +67,7 @@ int main(){
     devs << "#  Partial_LU     Full_LU \n\n";
 
 
-    for(int N = 1; N <= 1000; N+=2){
+    for(int N = 1; N <= 1000; N+=1){
 
     Eigen::MatrixXd M = Eigen::MatrixXd::Random(N,N);
     
@@ -82,10 +83,10 @@ int main(){
     Eigen::VectorXd x_vec_fLU = full_LU(M, b, times);
     times << "\n";
 
-    double partial_LU_err = calc_dev(x_vec_normal, x_vec_pLU);
-    double full_LU_err = calc_dev(x_vec_normal, x_vec_fLU);
+    double partial_LU_SED = calc_SED(x_vec_normal, x_vec_pLU);
+    double full_LU_SED = calc_SED(x_vec_normal, x_vec_fLU);
 
-    devs << N << "  " << partial_LU_err << "    " << full_LU_err << "\n";
+    devs << N << "  " << partial_LU_SED << "    " << full_LU_SED << "\n";
 
     Profiler::resetAll ();
     }

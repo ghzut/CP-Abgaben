@@ -15,10 +15,10 @@ plt.clf()
 
 N, dev1, dev2 = np.genfromtxt("A3/build/deviations.txt", unpack=True, skip_header = 2)
 
-plt.plot(N, dev1, "r-", label = "Abweichung der Partielle LU-Zerlegung")
-plt.plot(N, dev2, "g-", label = "Abweichung der Vollständige LU-Zerlegung")
+plt.plot(N, dev1, "r-", label = "Abstand der Partielle LU-Zerlegung")
+plt.plot(N, dev2, "g-", label = "Abstand der Vollständige LU-Zerlegung")
 plt.xlabel(r'$N$')
-plt.ylabel(r'Abweichung in Prozent')
+plt.ylabel(r'Abstand')
 plt.yscale("log")
 plt.legend(loc='best')
 plt.savefig('A3/build/devs.pdf')

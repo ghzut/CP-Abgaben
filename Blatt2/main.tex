@@ -140,7 +140,7 @@
             \label{fig:A3times}
         \end{figure}
 
-        Anschließend wurde verglichen, ob auch alle Algorithmen das gleiche Ergebnis liefern. Um diesen Vergleich für beliebige $N$ zu quantisieren und vergleichbar zu machen, wurde für jede Methode der Betrag des resultierenden Vektors $x$ gebildet. Anschließend wurde die Abweichung der partiellen und vollständigen LU-Zerlegung zu Methode \ref{M1}  berechnet. Wie in Abbildung \ref{fig:A3devs} zu sehen ist, ist die Abweichung der partiellen LU-Zerlegung am geringsten. 
+        Anschließend wurde verglichen, ob auch alle Algorithmen das gleiche Ergebnis liefern. Als Maß dafür wurde hier die "squared Euclidean distance" gewählt, die die zwischen der partiellen (vollstädnigen) LU-Zerlegung und der Methode \ref{M1} berechnet wurde. Wie in in Abbildung \label{fig:A3devs} zu sehen ist, sind die Abstände für die partielle LU-Zerlegung für nahezu alle $N$ kleiner.
 
         \begin{figure}[H]
             \centering
@@ -149,6 +149,6 @@
             \label{fig:A3devs}
         \end{figure}
 
-        Insgesamt ist also die partielle LU-Zerlegung zu bevorzugen, da die Laufzeit  – bis auf wenige Ausnahmen  – für alle N im untersuchten Intervall am geringsten ist. Zusätzlich liefert zu relative geringe Abweichungen im Vergleich zu Methode \ref{M1}.
+        Insgesamt ist also die partielle LU-Zerlegung zu bevorzugen, da die Laufzeit  – bis auf wenige Ausnahmen  – für alle N im untersuchten Intervall am geringsten ist. Ebenso scheinen die Ergebnisse genauer als die der vollständigen LU-Zerlegung zu sein.
 
 \end{document}
