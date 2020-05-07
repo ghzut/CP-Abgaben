@@ -1,7 +1,7 @@
 #include <Eigen/Dense>
 #include <Eigen/Core>
 #include <iostream>
-#include <stdexcept>
+#include <cstdlib>
 #include <string>
 #include <vector>
 #include <math.h>
@@ -44,16 +44,29 @@ Eigen::VectorXd full_LU(Eigen::MatrixXd matrix, Eigen::VectorXd vector, ofstream
     return x_vec;
 }
 
+double calc_dev(Eigen::VectorXd& exact, Eigen::VectorXd& estimate){
+    double abs_ex = exact.squaredNorm();
+    double abs_est = estimate.squaredNorm();
+    double deviation = abs(1 - abs_est/abs_ex)*100;
+    return deviation;
+}
 
 int main(){
- 
+    
+    srand(42);
+
     const auto nThreads = std::thread::hardware_concurrency();
     Eigen::setNbThreads(nThreads);
     Profiler::init(3);
+
     ofstream times("build/times.txt", ofstream::trunc);
     times << "#     Normal     Partial_LU     Full_LU \n\n";
 
-    for(int N = 1; N <= pow(2, 13); N*=2){
+    ofstream devs("build/deviations.txt", ofstream::trunc);
+    devs << "#  Partial_LU     Full_LU \n\n";
+
+
+    for(int N = 1; N <= 1000; N+=2){
 
     Eigen::MatrixXd M = Eigen::MatrixXd::Random(N,N);
     
@@ -68,10 +81,18 @@ int main(){
     Eigen::VectorXd x_vec_pLU = partial_LU(M, b, times);
     Eigen::VectorXd x_vec_fLU = full_LU(M, b, times);
     times << "\n";
+
+    double partial_LU_err = calc_dev(x_vec_normal, x_vec_pLU);
+    double full_LU_err = calc_dev(x_vec_normal, x_vec_fLU);
+
+    devs << N << "  " << partial_LU_err << "    " << full_LU_err << "\n";
+
+    Profiler::resetAll ();
     }
     times.flush();
     times.close();
-    //results << x_vec_normal <<  x_vec_pLU  << x_vec_fLU << "\n" ;
+    devs.flush();
+    devs.close();
 
     return 0;
 }
