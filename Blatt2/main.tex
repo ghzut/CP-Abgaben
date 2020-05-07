@@ -86,34 +86,34 @@
 		\item das Problem $Mx = b$ zu lösen
 		\end{enumerate}				
 		Die Zeit $t$, die für die einzelnen Schritte benötigt wird, wird in Abhängigkeit von der Matrixgröße $N$ doppelt-logarithmisch aufgetragen. Die LU-Zerlegung mithilfe der \texttt{eigen}-Library unterstützt Multithreading und kann somit abhängig vom verwendeten Prozessor beschleunigt werden (in diesem Fall bis zu $15\%$). Generell zeigt sich, dass die benötigte Zeit von der verwendeten CPU abhängt, jedoch lässt sich sowohl bei logarithmisch (\ref{fig:time}) wie auch linear (\ref{fig:time_lin}) ansteigender Matrizengröße $N$ ein Trend erkennen.
-		%\begin{figure}[h]
-		%\centering
-		%\begin{subfigure}{0.8\textwidth}
-		%\includegraphics[width=\textwidth]{A2/build/timers.pdf}
-		%\end{subfigure}
-		%\begin{subfigure}{0.4\textwidth}
-		%\includegraphics[width=\textwidth]{build/timers_PC.pdf}
-		%\end{subfigure}
-		%\begin{subfigure}{0.4\textwidth}
-		%\includegraphics[width=\textwidth]{build/timers_Prd.pdf}
-		%\end{subfigure}
-		%\caption{Die benötigte Zeit für Operationen bei logarithmisch ansteigendem $N$ mit verschiedenen CPUs.}
-		%\label{fig:time}
-		%\end{figure}
-		%\begin{figure}[h]
-		%\centering
-		%\begin{subfigure}{0.8\textwidth}
-		%\includegraphics[width=\textwidth]{A2/build/timers_lin.pdf}
-		%\end{subfigure}
-		%\begin{subfigure}{0.4\textwidth}
-		%\includegraphics[width=\textwidth]{build/timers_lin_PC.pdf}
-		%\end{subfigure}
-		%\begin{subfigure}{0.4\textwidth}
-		%\includegraphics[width=\textwidth]{build/timers_lin_Prd.pdf}
-		%\end{subfigure}
-		%\caption{Die benötigte Zeit für Operationen bei linear ansteigendem $N$ mit verschiedenen CPUs.}
-		%\label{fig:time_lin}
-        %\end{figure}
+		\begin{figure}[h]
+		\centering
+		\begin{subfigure}{0.8\textwidth}
+		\includegraphics[width=\textwidth]{A2/build/timers.pdf}
+		\end{subfigure}
+		\begin{subfigure}{0.4\textwidth}
+		\includegraphics[width=\textwidth]{A2/Dann_halt_so/timers_PC.pdf}
+		\end{subfigure}
+		\begin{subfigure}{0.4\textwidth}
+		\includegraphics[width=\textwidth]{A2/Dann_halt_so/timers_Prd.pdf}
+		\end{subfigure}
+		\caption{Die benötigte Zeit für Operationen bei logarithmisch ansteigendem $N$ mit verschiedenen CPUs.}
+		\label{fig:time}
+		\end{figure}
+		\begin{figure}[h]
+		\centering
+		\begin{subfigure}{0.8\textwidth}
+		\includegraphics[width=\textwidth]{A2/build/timers_lin.pdf}
+		\end{subfigure}
+		\begin{subfigure}{0.4\textwidth}
+		\includegraphics[width=\textwidth]{A2/Dann_halt_so/timers_lin_PC.pdf}
+		\end{subfigure}
+		\begin{subfigure}{0.4\textwidth}
+		\includegraphics[width=\textwidth]{A2/Dann_halt_so/timers_lin_Prd.pdf}
+		\end{subfigure}
+		\caption{Die benötigte Zeit für Operationen bei linear ansteigendem $N$ mit verschiedenen CPUs.}
+		\label{fig:time_lin}
+        \end{figure}
         
         \subsection*{Aufgabe 2}
         In dieser Aufgabe wurde ein Profiler genutzt, um die Laufzeiten verschiedener Algorithmen zum Lösen eines linearen Gleichungssystems der Form 
