@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.optimize as opt
 
-N, t1, t2, t3 = np.genfromtxt("build/times.txt", unpack=True)
+N, t1, t2, t3 = np.genfromtxt("A2/build/times.txt", unpack=True)
 
 plt.plot(N, t1, "b-", label = "Initialisierung")
 plt.plot(N, t2, "r-", label = "LU-Zerlegung")
@@ -12,9 +12,9 @@ plt.yscale("log")
 plt.xlabel(r'$N$')
 plt.ylabel(r'$t/s$')
 plt.legend(loc='best')
-plt.savefig('build/timers.pdf')
+plt.savefig('A2/build/timers.pdf')
 
-N, t1, t2, t3 = np.genfromtxt("build/times_lin.txt", unpack=True)
+N, t1, t2, t3 = np.genfromtxt("A2/build/times_lin.txt", unpack=True)
 
 plt.cla()
 plt.clf()
@@ -26,7 +26,7 @@ plt.yscale("log")
 plt.xlabel(r'$N$')
 plt.ylabel(r'$t/s$')
 plt.legend(loc='best')
-plt.savefig('build/timers_lin.pdf')
+plt.savefig('A2/build/timers_lin.pdf')
 
 a,b = opt.curve_fit(lambda x,a,b,c,d: a*x**3+b*x**2+c*x+d,  N,  t1)
 
@@ -40,7 +40,7 @@ plt.yscale("log")
 plt.xlabel(r'$N$')
 plt.ylabel(r'$t/s$')
 plt.legend(loc='best')
-plt.savefig("build/t1_200.pdf")
+plt.savefig("A2/build/t1_200.pdf")
 
 c,d = opt.curve_fit(lambda x,a,b,c,d: a*x**3+b*x**2+c*x+d,  N,  t2)
 
@@ -53,7 +53,7 @@ plt.yscale("log")
 plt.xlabel(r'$N$')
 plt.ylabel(r'$t/s$')
 plt.legend(loc='best')
-plt.savefig("build/t2_200.pdf")
+plt.savefig("A2/build/t2_200.pdf")
 
 e,f = opt.curve_fit(lambda x,a,b,c,d: a*x**3+b*x**2+c*x+d,  N,  t3)
 
@@ -66,4 +66,4 @@ plt.yscale("log")
 plt.xlabel(r'$N$')
 plt.ylabel(r'$t/s$')
 plt.legend(loc='best')
-plt.savefig("build/t3_200.pdf")
+plt.savefig("A2/build/t3_200.pdf")
