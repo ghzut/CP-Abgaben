@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 #include <math.h>
-#include "../profiler/profiler.cpp"
+#include "profiler.cpp"
 #include <fstream>
 #include <thread>
 
@@ -56,7 +56,7 @@ int main(){
 
     //Frage ab, wie viele Threads im System zur Verfügung stehen
     const auto nThreads = std::thread::hardware_concurrency();
-    //Aktiviere Multithreading der Eigen Libary
+    //Aktiviere Multithreading der Eigen Libary, nutze alle Threads
     Eigen::setNbThreads(nThreads);
     Profiler::init(3);
 
