@@ -38,8 +38,8 @@ MatrixXf initMatrix(int n)
   MatrixXf A(n,n);
   first = init_first_last(n, true);
   last = init_first_last(n, false);
-  A.block(0,0,1,2) = first.block(0,0,1,2);
-  A.block(n,n-1,1,2) = last.block(0,0,1,2);
+  A.block(0,0,1,2) << -n+1., n-1.;
+  A.block(n,n-1,1,2) << 1./n, -1./n;
   for (int i = 1; i < n - 1; ++i)
   {
     m = i+1;
