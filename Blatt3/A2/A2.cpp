@@ -57,13 +57,13 @@ int main()
 {
   int n = 10;
   MatrixXf A(n,n);
-  A = initMatrix(n);
-  JacobiSVD<MatrixXf> svd(A, ComputeThinU | ComputeThinV);
+  //A = initMatrix(n);
+  //JacobiSVD<MatrixXf> svd(A, ComputeThinU | ComputeThinV);
   VectorXf ew(n);
   //ew = svd.singularValues();
   for (int i = 0; i < n; ++i)
   {
-    ew(i) = sqrt(ew(i));
+    //ew(i) = sqrt(ew(i));
   }
   cout << "Die Eigenfrequenzen des Systems sind: " << endl << ew;
 
