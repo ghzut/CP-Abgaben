@@ -1,6 +1,7 @@
 #pragma once
-#include<iostream>
-#include<fstream>
+#include <iostream>
+#include <fstream>
+#include <cmath>
 #include <Eigen/Dense>
 #include <Eigen/SVD>
 
@@ -55,6 +56,12 @@ int main()
   MatrixXf A(n,n);
   A = initMatrix(n);
   JacobiSVD<MatrixXf> svd(A, ComputeThinU | ComputeThinV);
-  cout << "Die Eigenfrequenzen des Systems sind: ", sqrt(svd.singularValues());
+  VectorXf ew(n);
+  ew = svd.singularValues();
+  for (int i = 0; i < n; ++i)
+  {
+    ew(i) = sqrt(ew(i));
+  }
+  cout << "Die Eigenfrequenzen des Systems sind: " << endl << ew;
 
 }
