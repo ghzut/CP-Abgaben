@@ -28,7 +28,7 @@ RowVector2f init_first_last(int n, bool first = true)
   return rv;
 }
 
-
+/*
 MatrixXf initMatrix(int n)
 {
   float m;
@@ -51,7 +51,7 @@ MatrixXf initMatrix(int n)
   }
   return A;
 }
-
+*/
 
 int main()
 {
