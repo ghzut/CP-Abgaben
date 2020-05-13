@@ -21,11 +21,15 @@ float k_j(int n, int j)
   return float(n-j);
 }
 
-RowVector2f init_first_last(int n, bool first = true)
+RowVectorXf init_first_last(int n, bool first = true)
 {
-  RowVector2f rv;
+  RowVectorXf rv(n);
   if(first) rv << -n+1., n-1.;
-  else rv << 1./n, -1./n;
+  else
+  {
+    rv(n-2) = 1./n;
+    rv(n-1) = -1./n;
+  }
   return rv;
 }
 
@@ -38,8 +42,8 @@ MatrixXf initMatrix(int n)
   MatrixXf A(n,n);
   first = init_first_last(n, true);
   last = init_first_last(n, false);
-  A.block(0,0,1,2) << -n+1., n-1.;
-  A.block(n,n-1,1,2) << 1./n, -1./n;
+  A.col(0) = first;
+  A.col(n-1) = last;
   for (int i = 1; i < n - 1; ++i)
   {
     m = i+1;
