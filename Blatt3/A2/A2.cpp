@@ -28,14 +28,14 @@ RowVector2f init_first_last(int n, bool first = true)
   return rv;
 }
 
-/*
+/
 MatrixXf initMatrix(int n)
 {
   float m;
   RowVector2f first;
   RowVector2f last;
   MatrixXf A(n,n);
-  A = MatrixXf::Zero(n);
+  A = MatrixXf::Zero(n);/*
   first = init_first_last(n, true);
   last = init_first_last(n, false);
   A.block(0,0,1,2) = first;
@@ -48,22 +48,22 @@ MatrixXf initMatrix(int n)
       A(i,j) = -kroeningerdelta(i, j) * (k_j(n, j - 1) + k_j(n, j)) + kroeningerdelta(i - 1, j) * k_j(n, j) + kroeningerdelta(i+1,j) * k_j(n, i);
       A(i,j) /= m;
     }
-  }
+  }*/
   return A;
 }
-*/
+
 
 int main()
 {
   int n = 10;
   MatrixXf A(n,n);
-  //A = initMatrix(n);
-  //JacobiSVD<MatrixXf> svd(A, ComputeThinU | ComputeThinV);
+  A = initMatrix(n);
+  JacobiSVD<MatrixXf> svd(A, ComputeThinU | ComputeThinV);
   VectorXf ew(n);
-  //ew = svd.singularValues();
+  ew = svd.singularValues();
   for (int i = 0; i < n; ++i)
   {
-    //ew(i) = sqrt(ew(i));
+    ew(i) = sqrt(ew(i));
   }
   cout << "Die Eigenfrequenzen des Systems sind: " << endl;// << ew;
 
