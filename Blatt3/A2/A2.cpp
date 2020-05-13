@@ -16,9 +16,9 @@ int kroeningerdelta(int a, int b)
   return c;
 }
 
-double k_j(int n, int j)
+long double k_j(int n, int j)
 {
-  return double(n-j);
+  return long double(n-j);
 }
 
 RowVectorXd init_first_last(int n, bool first = true)
@@ -40,7 +40,7 @@ RowVectorXd init_first_last(int n, bool first = true)
 
 MatrixXd initMatrix(int n)
 {
-  double m;
+  long double m;
   RowVectorXd first;
   RowVectorXd last;
   MatrixXd A(n,n);
