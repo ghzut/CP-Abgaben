@@ -9,7 +9,7 @@
 using namespace std;
 using namespace Eigen;
 
-typedef Matrix<float, 1, Dynamic> RowVectorXf;
+typedef Matrix<float, Dynamic, 1> RowVectorXf;
 
 int kroeningerdelta(int a, int b)
 {
