@@ -1,0 +1,22 @@
+all: build/main.pdf
+
+Suffix = Cerberus
+Filename = $(addprefix $(notdir $(CURDIR))_, $(addsuffix .pdf, $(Suffix)))
+
+build/main.pdf: main.tex | build
+	latexmk \
+	  --lualatex \
+	  --output-directory=build \
+	  --interaction=nonstopmode \
+	  --halt-on-error \
+	main.tex
+
+	cp build/main.pdf $(Filename)
+
+build:
+	mkdir -p build
+
+clean:
+	rm -rf build
+
+.PHONY: clean
