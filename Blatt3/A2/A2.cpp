@@ -19,7 +19,7 @@ double k_j(int n, int j)
   return double(n-j);
 }
 
-void init_first_last(int n, double *arr[2], bool first = true)
+void init_first_last(int n, double arr[2], bool first = true)
 {
   if(first) arr = {-n+1., n-1};
   else arr = {1./n,-1./n};
@@ -31,10 +31,10 @@ MatrixXf initMatrix(int n)
   double m;
   double first[2], last[2]
   MatrixXf A(n,n) = MatrixXf::Zero(n);
-  first = init_first_last(n, true);
-  last = init_first_last(n, false);
+  first = init_first_last(n, first true);
+  last = init_first_last(n, last, false);
   A.block(0,0,1,2) = first;
-  A.block(n,n-1,1,2) = last; 
+  A.block(n,n-1,1,2) = last;
   for (int i = 1; i < n - 1; ++i)
   {
     m = i+1;
@@ -51,7 +51,8 @@ MatrixXf initMatrix(int n)
 int main()
 {
   int n = 10;
-  MatrixXf A(n,n) = initMatrix(n);
+  MatrixXf A(n,n);
+  A = initMatrix(n);
   JacobiSVD<MatrixXf> svd(A, ComputeThinU | ComputeThinV);
   cout << "Die Eigenfrequenzen des Systems sind: ", sqrt(svd.SingularValues());
 
