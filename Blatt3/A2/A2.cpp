@@ -8,7 +8,6 @@
 using namespace std;
 using namespace Eigen;
 
-
 int kroeningerdelta(int a, int b)
 {
   int c;
@@ -30,14 +29,13 @@ RowVector2f init_first_last(int n, bool first = true)
 }
 
 
-int main()
+MatrixXf initMatrix(int n)
 {
-  int n = 3;
-  MatrixXf A(n,n);
   float m;
   RowVector2f first;
   RowVector2f last;
-  /*A = MatrixXf::Zero(n);
+  MatrixXf A(n,n);
+  //A = MatrixXf::Zero(n);
   first = init_first_last(n, true);
   last = init_first_last(n, false);
   A.block(0,0,1,2) = first;
@@ -51,6 +49,15 @@ int main()
       A(i,j) /= m;
     }
   }
+  return A;
+}
+
+
+int main()
+{
+  int n = 10;
+  MatrixXf A(n,n);
+  A = initMatrix(n);
   JacobiSVD<MatrixXf> svd(A, ComputeThinU | ComputeThinV);
   VectorXf ew(n);
   ew = svd.singularValues();
@@ -58,6 +65,6 @@ int main()
   {
     ew(i) = sqrt(ew(i));
   }
-  cout << "Die Eigenfrequenzen des Systems sind: " << endl << ew;*/
+  cout << "Die Eigenfrequenzen des Systems sind: " << endl << ew;
 
 }
