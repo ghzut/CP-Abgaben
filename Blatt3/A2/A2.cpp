@@ -29,7 +29,8 @@ void init_first_last(int n, double arr[2], bool first = true)
 MatrixXf initMatrix(int n)
 {
   double m;
-  double first[2], last[2]
+  double first[2];
+  double last[2];
   MatrixXf A(n,n) = MatrixXf::Zero(n);
   first = init_first_last(n, first true);
   last = init_first_last(n, last, false);
