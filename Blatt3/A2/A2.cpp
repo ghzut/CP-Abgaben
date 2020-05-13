@@ -26,13 +26,13 @@ RowVectorXd init_first_last(int n, bool first = true)
   RowVectorXd rv(n);
   if(first)
   {
-    rv(0) = -n+1.;
-    rv(1) =  n-1.;
+    rv(1) = -n+1.;
+    rv(0) =  n-1.;
   }
   else
   {
-    rv(n-2) = 1./n;
-    rv(n-1) = -1./n;
+    rv(n-2) = -1./n;
+    rv(n-1) = 1./n;
   }
   return rv;
 }
@@ -54,7 +54,7 @@ MatrixXd initMatrix(int n)
     for (int j = i-1; j < i + 2; ++j)
     {
       A(i,j) = -kroeningerdelta(i, j) * (k_j(n, j - 1) + k_j(n, j)) + kroeningerdelta(i - 1, j) * k_j(n, j) + kroeningerdelta(i+1,j) * k_j(n, i);
-      A(i,j) /= m;
+      A(i,j) /= -m;
     }
   }
   return A;
