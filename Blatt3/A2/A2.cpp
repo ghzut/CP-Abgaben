@@ -60,7 +60,7 @@ int main()
   A = initMatrix(n);
   JacobiSVD<MatrixXf> svd(A, ComputeThinU | ComputeThinV);
   VectorXf ew(n);
-  ew = svd.singularValues();
+  //ew = svd.singularValues();
   for (int i = 0; i < n; ++i)
   {
     ew(i) = sqrt(ew(i));
