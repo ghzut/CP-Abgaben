@@ -69,7 +69,7 @@ int main()
   cout << "A:" << endl << A << endl;
   JacobiSVD<MatrixXd> svd(A, ComputeThinU | ComputeThinV);
   VectorXd ew(n);
-  ew = svd.singularValues();/*
+  ew = A.eigenvalues();/*
   for (int i = 0; i < n; ++i)
   {
     ew(i) = sqrt(ew(i));
