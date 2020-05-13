@@ -37,7 +37,7 @@ int main()
   float m;
   RowVector2f first;
   RowVector2f last;
-  A = MatrixXf::Zero(n);
+  /*A = MatrixXf::Zero(n);
   first = init_first_last(n, true);
   last = init_first_last(n, false);
   A.block(0,0,1,2) = first;
@@ -58,6 +58,6 @@ int main()
   {
     ew(i) = sqrt(ew(i));
   }
-  cout << "Die Eigenfrequenzen des Systems sind: " << endl << ew;
+  cout << "Die Eigenfrequenzen des Systems sind: " << endl << ew;*/
 
 }
