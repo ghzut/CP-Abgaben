@@ -59,7 +59,7 @@ int main()
   int n = 10;
   MatrixXf A(n,n);
   A = initMatrix(n);
-  cout << "A:" << endl << A;
+  cout << "A:" << endl << A << endl;
   JacobiSVD<MatrixXf> svd(A, ComputeThinU | ComputeThinV);
   VectorXf ew(n);
   ew = svd.singularValues();
