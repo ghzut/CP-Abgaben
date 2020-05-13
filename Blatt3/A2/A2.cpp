@@ -30,12 +30,11 @@ RowVector2f init_first_last(int n, bool first = true)
 }
 
 
-MatrixXf initMatrix(int n)
+void initMatrix(int n, MatrixXf *A)
 {
   float m;
   RowVector2f first;
   RowVector2f last;
-  MatrixXf A(n,n);
   A = MatrixXf::Zero(n);/*
   first = init_first_last(n, true);
   last = init_first_last(n, false);
@@ -50,7 +49,6 @@ MatrixXf initMatrix(int n)
       A(i,j) /= m;
     }
   }*/
-  return A;
 }
 
 
