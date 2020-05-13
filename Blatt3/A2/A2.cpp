@@ -41,8 +41,8 @@ RowVectorXf init_first_last(int n, bool first = true)
 MatrixXf initMatrix(int n)
 {
   float m;
-  RowVector2f first;
-  RowVector2f last;
+  RowVectorXf first;
+  RowVectorXf last;
   MatrixXf A(n,n);
   first = init_first_last(n, true);
   last = init_first_last(n, false);
