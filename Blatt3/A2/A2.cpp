@@ -15,26 +15,29 @@ int kroeningerdelta(int a, int b)
   return c;
 }
 
-double k_j(int n, int j)
+float k_j(int n, int j)
 {
-  return double(n-j);
+  return float(n-j);
 }
 
-void init_first_last(int n, double arr[2], bool first = true)
+RowVector2f init_first_last(int n, bool first = true)
 {
-  if(first) arr = {-n+1., n-1};
-  else arr = {1./n,-1./n};
+  RowVector2f rv;
+  if(first) rv << -n+1., n-1.;
+  else rv << 1./n, -1./n;
+  return rv;
 }
 
 
 MatrixXf initMatrix(int n)
 {
-  double m;
-  double first[2];
-  double last[2];
-  MatrixXf A(n,n) = MatrixXf::Zero(n);
-  first = init_first_last(n, first true);
-  last = init_first_last(n, last, false);
+  float m;
+  RowVector2f first;
+  RowVector2f last;
+  MatrixXf A(n,n);
+  A = MatrixXf::Zero(n);
+  first = init_first_last(n, true);
+  last = init_first_last(n, false);
   A.block(0,0,1,2) = first;
   A.block(n,n-1,1,2) = last;
   for (int i = 1; i < n - 1; ++i)
