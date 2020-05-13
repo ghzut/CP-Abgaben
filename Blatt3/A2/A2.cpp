@@ -63,17 +63,17 @@ MatrixXd initMatrix(int n)
 
 int main()
 {
-  int n = 3;
+  int n = 10;
   MatrixXd A(n,n);
   A = initMatrix(n);
   cout << "A:" << endl << A << endl;
   JacobiSVD<MatrixXd> svd(A, ComputeThinU | ComputeThinV);
   VectorXd ew(n);
-  ew = A.eigenvalues();/*
+  ew = A.eigenvalues();
   for (int i = 0; i < n; ++i)
   {
     ew(i) = sqrt(ew(i));
-  }*/
+  }
   cout << "Die Eigenfrequenzen des Systems sind: " << endl << ew;
 
 }
