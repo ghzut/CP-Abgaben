@@ -24,7 +24,11 @@ float k_j(int n, int j)
 RowVectorXf init_first_last(int n, bool first = true)
 {
   RowVectorXf rv(n);
-  if(first) rv << -n+1., n-1.;
+  if(first)
+  {
+    rv(0) = -n+1.;
+    rv(1) =  n-1.;
+  }
   else
   {
     rv(n-2) = 1./n;
