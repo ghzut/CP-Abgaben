@@ -16,9 +16,9 @@ int kroeningerdelta(int a, int b)
   return c;
 }
 
-long double k_j(int n, int j)
+float k_j(int n, int j)
 {
-  return double(n-j);
+  return float(n-j);
 }
 
 RowVectorXd init_first_last(int n, bool first = true)
@@ -40,7 +40,7 @@ RowVectorXd init_first_last(int n, bool first = true)
 
 MatrixXd initMatrix(int n)
 {
-  long double m;
+  float m;
   RowVectorXd first;
   RowVectorXd last;
   MatrixXd A(n,n);
@@ -69,11 +69,11 @@ int main()
   cout << "A:" << endl << A << endl;
   JacobiSVD<MatrixXd> svd(A, ComputeThinU | ComputeThinV);
   VectorXd ew(n);
-  ew = svd.singularValues();
+  ew = svd.singularValues();/*
   for (int i = 0; i < n; ++i)
   {
     ew(i) = sqrt(ew(i));
-  }
+  }*/
   cout << "Die Eigenfrequenzen des Systems sind: " << endl << ew;
 
 }
