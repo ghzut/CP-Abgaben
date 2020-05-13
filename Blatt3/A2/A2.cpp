@@ -9,6 +9,8 @@
 using namespace std;
 using namespace Eigen;
 
+typedef Matrix<float, 1, n> RowVectorXf;
+
 int kroeningerdelta(int a, int b)
 {
   int c;
