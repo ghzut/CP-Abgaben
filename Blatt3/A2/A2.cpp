@@ -36,11 +36,10 @@ MatrixXf initMatrix(int n)
   RowVector2f first;
   RowVector2f last;
   MatrixXf A(n,n);
-  //A = MatrixXf::Zero(n);
   first = init_first_last(n, true);
   last = init_first_last(n, false);
-  //A.block(0,0,1,2) = first;
-  //A.block(n,n-1,1,2) = last;
+  A.block(0,0,1,2) = first.block(0,0,1,2);
+  A.block(n,n-1,1,2) = last.block(0,0,1,2);
   for (int i = 1; i < n - 1; ++i)
   {
     m = i+1;
