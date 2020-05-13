@@ -43,14 +43,13 @@ MatrixXf initMatrix(int n)
   float m;
   RowVectorXf first;
   RowVectorXf last;
-  cout << first << endl;
   MatrixXf A(n,n);
   first = init_first_last(n, true);
   cout << first << endl;
   last = init_first_last(n, false);
-  A.col(0) = first;
-  A.col(n-1) = last;
-  /*for (int i = 1; i < n - 1; ++i)
+  A.row(0) = first;
+  A.row(n-1) = last;
+  for (int i = 1; i < n - 1; ++i)
   {
     m = i+1;
     for (int j = i-1; j < i + 2; ++j)
@@ -58,7 +57,7 @@ MatrixXf initMatrix(int n)
       A(i,j) = -kroeningerdelta(i, j) * (k_j(n, j - 1) + k_j(n, j)) + kroeningerdelta(i - 1, j) * k_j(n, j) + kroeningerdelta(i+1,j) * k_j(n, i);
       A(i,j) /= m;
     }
-  }*/
+  }
   return A;
 }
 
