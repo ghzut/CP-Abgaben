@@ -9,8 +9,6 @@
 using namespace std;
 using namespace Eigen;
 
-typedef Matrix<float, Dynamic, 1> RowVectorXf;
-
 int kroeningerdelta(int a, int b)
 {
   int c;
@@ -45,8 +43,10 @@ MatrixXf initMatrix(int n)
   float m;
   RowVectorXf first;
   RowVectorXf last;
+  cout << first << endl;
   MatrixXf A(n,n);
   first = init_first_last(n, true);
+  cout << first << endl;
   last = init_first_last(n, false);
   A.col(0) = first;
   A.col(n-1) = last;
