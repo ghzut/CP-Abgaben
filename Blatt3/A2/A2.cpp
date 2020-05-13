@@ -16,34 +16,34 @@ int kroeningerdelta(int a, int b)
   return c;
 }
 
-double k_j(int n, int j)
+float k_j(int n, int j)
 {
-  return double(n-j);
+  return float(n-j);
 }
 
-RowVectorXd init_first_last(int n, bool first = true)
+RowVectorXf init_first_last(int n, bool first = true)
 {
-  RowVectorXd rv(n);
+  RowVectorXf rv(n);
   if(first)
   {
-    rv(1) = -n+1.;
-    rv(0) =  n-1.;
+    rv(0) = -n+1.;
+    rv(1) =  n-1.;
   }
   else
   {
-    rv(n-2) = -1./n;
-    rv(n-1) = 1./n;
+    rv(n-2) = 1./n;
+    rv(n-1) = -1./n;
   }
   return rv;
 }
 
 
-MatrixXd initMatrix(int n)
+MatrixXf initMatrix(int n)
 {
-  double m;
-  RowVectorXd first;
-  RowVectorXd last;
-  MatrixXd A(n,n);
+  float m;
+  RowVectorXf first;
+  RowVectorXf last;
+  MatrixXf A(n,n);
   first = init_first_last(n, true);
   last = init_first_last(n, false);
   A.row(0) = first;
@@ -54,7 +54,7 @@ MatrixXd initMatrix(int n)
     for (int j = i-1; j < i + 2; ++j)
     {
       A(i,j) = -kroeningerdelta(i, j) * (k_j(n, j - 1) + k_j(n, j)) + kroeningerdelta(i - 1, j) * k_j(n, j) + kroeningerdelta(i+1,j) * k_j(n, i);
-      A(i,j) /= -m;
+      A(i,j) /= m;
     }
   }
   return A;
@@ -63,12 +63,12 @@ MatrixXd initMatrix(int n)
 
 int main()
 {
-  int n = 10;
-  MatrixXd A(n,n);
+  int n = 3;
+  MatrixXf A(n,n);
   A = initMatrix(n);
   cout << "A:" << endl << A << endl;
-  JacobiSVD<MatrixXd> svd(A, ComputeThinU | ComputeThinV);
-  VectorXd ew(n);
+  JacobiSVD<MatrixXf> svd(A, ComputeThinU | ComputeThinV);
+  VectorXf ew(n);
   ew = svd.singularValues();
   for (int i = 0; i < n; ++i)
   {
