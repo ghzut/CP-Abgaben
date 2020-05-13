@@ -35,7 +35,6 @@ int main()
 {
   int n = 3;
   MatrixXf A(n,n);
-  A = initMatrix(n);
   float m;
   RowVector2f first;
   RowVector2f last;
