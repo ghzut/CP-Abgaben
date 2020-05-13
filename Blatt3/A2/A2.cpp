@@ -53,7 +53,7 @@ MatrixXd initMatrix(int n)
     m = i+1;
     for (int j = i-1; j < i + 2; ++j)
     {
-      A(i,j) = -kroeningerdelta(i, j) * (k_j(n, j - 1) + k_j(n, j)) + kroeningerdelta(i - 1, j) * k_j(n, j) + kroeningerdelta(i+1,j) * k_j(n, i);
+      A(i,j) = double(-kroeningerdelta(i, j) * (k_j(n, j - 1) + k_j(n, j)) + kroeningerdelta(i - 1, j) * k_j(n, j) + kroeningerdelta(i+1,j) * k_j(n, i));
       A(i,j) /= m;
     }
   }
