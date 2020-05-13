@@ -55,6 +55,6 @@ int main()
   MatrixXf A(n,n);
   A = initMatrix(n);
   JacobiSVD<MatrixXf> svd(A, ComputeThinU | ComputeThinV);
-  cout << "Die Eigenfrequenzen des Systems sind: ", sqrt(svd.SingularValues());
+  cout << "Die Eigenfrequenzen des Systems sind: ", sqrt(svd.singularValues());
 
 }
