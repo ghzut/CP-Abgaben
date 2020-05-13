@@ -9,7 +9,9 @@ using namespace Eigen;
 
 int kroeningerdelta(int a, int b)
 {
-  (a != b)? return 0 : return 1;
+  int c;
+  c = (a != b)? 0:1;
+  return c;
 }
 
 double k_j(int n, int j)
@@ -17,19 +19,22 @@ double k_j(int n, int j)
   return double(n-j);
 }
 
-double init_first_last[2](int n, bool first = true)
+void init_first_last(int n, double *arr[2], bool first = true)
 {
-  if(first) return {-n+1., n-1};
-  else return {1./n,-1./n};
+  if(first) arr = {-n+1., n-1};
+  else arr = {1./n,-1./n};
 }
 
 
 MatrixXf initMatrix(int n)
 {
   double m;
+  double first[2], last[2]
   MatrixXf A(n,n) = MatrixXf::Zero(n);
-  A.block(0,0,1,2) = init_first_last(n, true);
-  A.block(n,n-1,1,2) = init_first_last(n, false);
+  first = init_first_last(n, true);
+  last = init_first_last(n, false);
+  A.block(0,0,1,2) = first;
+  A.block(n,n-1,1,2) = last; 
   for (int i = 1; i < n - 1; ++i)
   {
     m = i+1;
