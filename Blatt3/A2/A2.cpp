@@ -4,6 +4,7 @@
 #include <cmath>
 #include <Eigen/Dense>
 #include <Eigen/SVD>
+#include <Eigen/Core>
 
 using namespace std;
 using namespace Eigen;
