@@ -65,6 +65,6 @@ int main()
   {
     //ew(i) = sqrt(ew(i));
   }
-  cout << "Die Eigenfrequenzen des Systems sind: " << endl << ew;
+  cout << "Die Eigenfrequenzen des Systems sind: " << endl;// << ew;
 
 }
