@@ -26,8 +26,8 @@ RowVectorXd init_first_last(int n, bool first = true)
   RowVectorXd rv(n);
   if(first)
   {
-    rv(0) = -n+1.;
-    rv(1) =  n-1.;
+    rv(0) = double(-n+1.);
+    rv(1) =  double(n-1.);
   }
   else
   {
