@@ -2,13 +2,12 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
-#include <Eigen/Sparse>
+#include <Eigen/Dense>
 #include <Eigen/SVD>
 #include <Eigen/Core>
 
 using namespace std;
 using namespace Eigen;
-typedef Eigen::SparseMatrix<float> SpMat;
 
 int kroeningerdelta(int a, int b)
 {
@@ -31,13 +30,13 @@ RowVector2f init_first_last(int n, bool first = true)
 }
 
 
-SpMat initMatrix(int n)
+MatrixXf initMatrix(int n)
 {
   float m;
   RowVector2f first;
   RowVector2f last;
-  SpMat A(n,n);
-  //A = SpMat::Zero(n);
+  MatrixXf A(n,n);
+  //A = MatrixXf::Zero(n);
   first = init_first_last(n, true);
   last = init_first_last(n, false);
   //A.block(0,0,1,2) = first;
@@ -58,9 +57,10 @@ SpMat initMatrix(int n)
 int main()
 {
   int n = 10;
-  SpMat A(n,n);
+  MatrixXf A(n,n);
   A = initMatrix(n);
-  JacobiSVD<SpMat> svd(A, ComputeThinU | ComputeThinV);
+  cout << "A:" << endl << A << endl;
+  JacobiSVD<MatrixXf> svd(A, ComputeThinU | ComputeThinV);
   VectorXf ew(n);
   ew = svd.singularValues();
   for (int i = 0; i < n; ++i)
