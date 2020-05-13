@@ -8,6 +8,7 @@
 using namespace std;
 using namespace Eigen;
 
+
 int kroeningerdelta(int a, int b)
 {
   int c;
@@ -57,7 +58,7 @@ int main()
 {
   int n = 10;
   MatrixXf A(n,n);
-  A = initMatrix(n);
+  /*A = initMatrix(n);
   JacobiSVD<MatrixXf> svd(A, ComputeThinU | ComputeThinV);
   VectorXf ew(n);
   ew = svd.singularValues();
@@ -65,6 +66,6 @@ int main()
   {
     ew(i) = sqrt(ew(i));
   }
-  cout << "Die Eigenfrequenzen des Systems sind: " << endl;// << ew;
+  cout << "Die Eigenfrequenzen des Systems sind: " << endl;// << ew;*/
 
 }
