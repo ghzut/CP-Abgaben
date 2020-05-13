@@ -30,7 +30,6 @@ RowVector2f init_first_last(int n, bool first = true)
 }
 
 
-
 int main()
 {
   int n = 3;
