@@ -30,7 +30,7 @@ RowVector2f init_first_last(int n, bool first = true)
 }
 
 
-void initMatrix(int n, MatrixXf *A)
+void initMatrix(int n, Matrix3f *A)
 {
   float m;
   RowVector2f first;
@@ -54,7 +54,7 @@ void initMatrix(int n, MatrixXf *A)
 
 int main()
 {
-  int n = 10;
+  int n = 3;
   MatrixXf A(n,n);
   /*A = initMatrix(n);
   JacobiSVD<MatrixXf> svd(A, ComputeThinU | ComputeThinV);
