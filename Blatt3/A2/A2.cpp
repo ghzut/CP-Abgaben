@@ -24,17 +24,17 @@ int kroeningerdelta(int a, int b)
 }
 
 //Funktion zur berechnung der benötigten Federkonstante.
-float k_j(int n, int j)
+double k_j(int n, int j)
 {
-  return float(n-j);
+  return double(n-j);
 }
 
 //Funktion zur Berechnung der 1. und letzten Reihe der Kopplungsmatrix.
 //Diese müssen gesondert betrachtet werden, da die äußersten Massen nur einen Nachbarn haben.
 //Seltsamerweise funktionierte es nicht einen 1x2 Vektor zu initialisieren und per Matrix.block() zuzuweisen?
-RowVectorXf init_first_last(int n, bool first = true)
+RowVectorXd init_first_last(int n, bool first = true)
 {
-  RowVectorXf rv(n);
+  RowVectorXd rv(n);
   if(first)
   {
     rv(1) = -n+1.;
@@ -49,12 +49,12 @@ RowVectorXf init_first_last(int n, bool first = true)
 }
 
 //Funktion zur Initialisierung der gesamten Kopplungsmatrix mit variabler Dimension n x n.
-MatrixXf initMatrix(int n)
+MatrixXd initMatrix(int n)
 {
-  float m;
-  RowVectorXf first;
-  RowVectorXf last;
-  MatrixXf A(n,n);
+  double m;
+  RowVectorXd first;
+  RowVectorXd last;
+  MatrixXd A(n,n);
   first = init_first_last(n, true);
   last = init_first_last(n, false);
   A.row(0) = first;
@@ -79,8 +79,8 @@ int main()
   int n = 10;
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
   //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
-  MatrixXf A(n,n);
-  VectorXf ew(n);
+  MatrixXd A(n,n);
+  VectorXd ew(n);
   A = initMatrix(n);
   ew = A.eigenvalues().real();
   for (int i = 0; i < n; ++i)
