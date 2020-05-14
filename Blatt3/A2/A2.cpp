@@ -77,7 +77,7 @@ int main()
   ofstream outfile("build/spektrum.txt", ofstream::trunc);
   outfile << "#n, w_i\n";
   int n = 10;
-  for (int i = 2; i < n; ++i)
+  for (int i = 3; i < n; ++i)
   {
     MatrixXd M = initMatrix(i);
     VectorXd ev = M.eigenvalues().real();
