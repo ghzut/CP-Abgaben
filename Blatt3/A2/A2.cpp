@@ -80,7 +80,7 @@ int main()
 
   //Zur Untersuchung der Veränderung des Spektrums mit zunehmendem N, initialisiere Probleme verschiedener Größen.
   //i=0,1 fallen logischerweise weg, da minestens zwei Massen benötigt werden.
-  for (int i = 2; i < n; ++i)
+/*  for (int i = 2; i < n; ++i)
   {
     MatrixXd A(i,i);
     A = initMatrix(i);
@@ -92,12 +92,13 @@ int main()
       ew(j) = sqrt(ew(j));
     }
     cout << ew << "\n\n\n";
-  }
+  }*/
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
   //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
   VectorXd ew(n);
   MatrixXd A(n,n);
   A = initMatrix(n);
+  cout << A << "\n\n\n";
   ew = A.eigenvalues().real();
   for (int i = 0; i < n; ++i)
   {
