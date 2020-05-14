@@ -84,7 +84,7 @@ int main()
   {
     MatrixXd A(i,i);
     A = initMatrix(i);
-    cout << A << "\n\n\n"
+    cout << A << "\n\n\n";
     VectorXd ew(i);
     ew = A.eigenvalues().real();
     for (int j = 0; j < i; ++j)
