@@ -84,7 +84,7 @@ int main()
   {
     MatrixXd A(i,i);
     A = initMatrix(i);
-    ew.block(0,0,1,i) = A.eigenvalues().real();
+    ew.row(0) = A.eigenvalues().real();
     for (int i = 0; i < n; ++i)
     {
       ew(i) = sqrt(ew(i));
