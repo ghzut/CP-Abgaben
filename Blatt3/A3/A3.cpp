@@ -5,6 +5,7 @@
 using namespace std;
 
 
+//Zu integrierende Funktionen
 double f1(double x)
 {
     return exp(-x)/x;
@@ -15,6 +16,8 @@ double f2(double x)
     return x * sin(1/x);
 }
 
+
+//Integrationsroutinen
 double mittelpunkt(double (*f)(double), double a, double b, int n)
 {
     double h, result;
@@ -37,8 +40,6 @@ double trapez(double (*f)(double), double a, double b, int n)
     h = (b-a)/n;
     result = 0;
 
-    //cout << result << "\n";
-
     for (int k = 1; k<n; k++)
     {
         result += f(a+k*h);
@@ -55,7 +56,6 @@ double simpson(double (*f)(double), double a, double b, int n)
 	double h, x[n+1], result = 0;
 	int j;
 	h = (b-a)/n;
-	
 	x[0] = a;
 	
 	for(j=1; j<=n; j++)
@@ -71,6 +71,8 @@ double simpson(double (*f)(double), double a, double b, int n)
 	return result*h/3;
 }
 
+
+//Funktion zum testen der Integrationsroutinen
 void test(double (*integrate)(double (*f)(double), double, double, int), double (*y)(double), double a, double b, string filename)
 {
     double err, result, new_result;
@@ -100,18 +102,16 @@ void test(double (*integrate)(double (*f)(double), double, double, int), double 
 
 int main()
 {
-
+    //Integral I1
     test(&mittelpunkt, &f1, 1, 100, "mittelpunktsregel_f1");
     test(&trapez, &f1, 1, 100, "trapezregel_f1");
     test(&simpson, &f1, 1, 100, "simpsonregel_f1");
     
+
+    //Integral I2
     test(&mittelpunkt, &f2, 1, 100, "mittelpunktsregel_f2");
     test(&trapez, &f2, 1, 100, "trapezregel_f2");
     test(&simpson, &f2, 1, 100, "simpsonregel_f2");
-
-    //cout << mittelpunkt(&f1, 1, 100, 10000000) << "\n";
-    //cout << trapez(&f2, 0, 1, 10000000) << "\n";
-    //cout << simpson(&f1, 1, 100, 10000000) << "\n";
 
     return 0;
 }
