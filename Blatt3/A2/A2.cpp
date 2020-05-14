@@ -1,4 +1,7 @@
-#pragma once
+//Anmerkung: Ich habe die Ruhelängen l_j nicht benutzt,
+//da in den Differentialgleichungen nur die Auslenkungen
+//aus der Ruhelage und nicht die absolute Position im Raum benötigt wird.
+
 #include <iostream>
 #include <fstream>
 #include <cmath>
@@ -9,6 +12,9 @@
 using namespace std;
 using namespace Eigen;
 
+// Lange Geschichte, ich sollte das so nennen.
+// Nicht irritieren lassen, gemeint ist natürlich das Kronecker-Delta,
+// um zu überprüfen in welchem Matrixeintrag wir sind.
 int kroeningerdelta(int a, int b)
 {
   int c;
@@ -16,11 +22,15 @@ int kroeningerdelta(int a, int b)
   return c;
 }
 
+//Funktion zur berechnung der benötigten Federkonstante.
 float k_j(int n, int j)
 {
   return float(n-j);
 }
 
+//Funktion zur Berechnung der 1. und letzten Reihe der Kopplungsmatrix.
+//Diese müssen gesondert betrachtet werden, da die äußersten Massen nur einen Nachbarn haben.
+//Seltsamerweise funktionierte es nicht einen 1x2 Vektor zu initialisieren und per Matrix.block() zuzuweisen?
 RowVectorXd init_first_last(int n, bool first = true)
 {
   RowVectorXd rv(n);
@@ -37,7 +47,7 @@ RowVectorXd init_first_last(int n, bool first = true)
   return rv;
 }
 
-
+//Funktion zur Initialisierung der gesamten Kopplungsmatrix mit variabler Dimension n x n.
 MatrixXd initMatrix(int n)
 {
   float m;
@@ -63,17 +73,38 @@ MatrixXd initMatrix(int n)
 
 int main()
 {
+  ofstream outfile("build/spektrum.txt", ofstream::trunc);
+  outfile << "#n, w_i\n"
   int n = 10;
+  RowVectorXd ew(n);
+
+  //Zur Untersuchung der Veränderung des Spektrums mit zunehmendem N, initialisiere Probleme verschiedener Größen.
+  //i=0,1 fallen logischerweise weg, da minestens zwei Massen benötigt werden.
+  for(int i = 2; i < n; ++i)
+  {
+    MatrixXd A(i,i);
+    A = initMatrix(i);
+    ew = A.eigenvalues().real();
+    for (int i = 0; i < n; ++i)
+    {
+      ew(i) = sqrt(ew(i));
+    }
+    outfile << i << ew;
+    outfile << "\n";
+  }
+
+  //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
+  //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
   MatrixXd A(n,n);
   A = initMatrix(n);
-  cout << "A:" << endl << A << endl;
-  JacobiSVD<MatrixXd> svd(A, ComputeThinU | ComputeThinV);
-  VectorXd ew(n);
   ew = A.eigenvalues().real();
   for (int i = 0; i < n; ++i)
   {
     ew(i) = sqrt(ew(i));
   }
-  cout << "Die Eigenfrequenzen^2 des Systems sind: " << endl << ew;
+  outfile << n << ew << "\n";
+  outfile.flush();
+  outfile.close();
+  cout << "Die Eigenfrequenzen des 10x10 Systems sind: " << endl << ew;
 
 }
