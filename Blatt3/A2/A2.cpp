@@ -55,7 +55,7 @@ MatrixXd initMatrix(int n)
   RowVectorXd first;
   RowVectorXd last;
   MatrixXd A(n,n);
-  A =  = MatrixXd::Zero(n,n);
+  A = MatrixXd::Zero(n,n);
   first = init_first_last(n, true);
   last = init_first_last(n, false);
   A.row(0) = first;
