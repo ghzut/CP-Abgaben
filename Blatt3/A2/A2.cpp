@@ -81,7 +81,7 @@ int main()
   {
     MatrixXd M = initMatrix(i);
     VectorXd ev = M.eigenvalues().real();
-    cout << A << "\n\n" << ev << "\n\n";
+    cout << M << "\n\n" << ev << "\n\n";
   }
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
   //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
