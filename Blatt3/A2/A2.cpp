@@ -68,12 +68,12 @@ int main()
   A = initMatrix(n);
   cout << "A:" << endl << A << endl;
   JacobiSVD<MatrixXd> svd(A, ComputeThinU | ComputeThinV);
-  /*VectorXd ew(n);
-  ew = A.eigenvalues();
+  VectorXd ew(n);
+  ew = A.eigenvalues().real();
   for (int i = 0; i < n; ++i)
   {
     ew(i) = sqrt(ew(i));
-  }*/
-  cout << "Die Eigenfrequenzen^2 des Systems sind: " << endl << A.eigenvalues();;
+  }
+  cout << "Die Eigenfrequenzen^2 des Systems sind: " << endl << ew;
 
 }
