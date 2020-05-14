@@ -1,0 +1,43 @@
+\section*{Aufgabe 2}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{content/images/Federn.png}
+\label{fig:federn}
+\end{figure}
+
+\noindent In Abbildung \ref{fig:federn} ist eine Konfiguration von Federn der Ruhelänge $l_j$ mit Federkonstanten $k_j$ und Massen $m_i$ zu sehen, mit $i=1,...,N$ und $j = 1,...,N-1$. Des Weiteren gilt
+\begin{align*}
+m_i &= i\\
+k_j &= N - j\\
+l_j &= |5 - j| + 1
+\end{align*}
+Über den Kraftansatz für eine einzelne mit der Auslenkung aus der Ruhelage $x(t)$
+\[
+F = -kx(t) = m \ddot{x}(t) \Leftrightarrow {\frac{k}{m}}x + \ddot{x} = 0
+\]
+und auf Grund der Tatsache, dass nur die nächsten Nachbarn direkt über Federn verbunden sind lässt sich die Bewegung der $i$-ten Masse beschreiben als
+\begin{align*}
+\ddot{x_1} - \frac{k_1}{m_1}(x_2-x_1) &= 0\\
+\ddot{x_i} - \frac{k_{i-1}}{m_i}(x_{i-1}-x_i)+\frac{k_i}{m_i}(x_{i+1}-x_i) &= 0\\
+\ddot{x_N} - \frac{k_{N-1}}{m_N}(x_{N-1}-x_N) &= 0
+\end{align*}
+Mit dem Ansatz $x_i = \hat{x}_i\mathrm{e}^{i\omega t}$ lässt sich dieses $N\times N$-Gleichungssystem darstellen als
+\begin{align*}
+\begin{pmatrix}
+\frac{k_1}{m_1}-\omega^2 & \frac{k_1}{m_1} & 0 & ... & 0 & 0\\
+\frac{k_1}{m_2} & \frac{k_1+k_2}{m_2}- \omega^2 & \frac{k_2}{m_2} & 0 & ... & 0\\
+0 & . & . & . & 0 & 0\\
+. & 0 & . & . & . & 0\\
+\end{pmatrix}\cdot\vec{\hat{x}} &= \vec{0}\\
+\left(\begin{pmatrix}
+\frac{k_1}{m_1} & \frac{k_1}{m_1} & 0 & ... & 0 & 0\\
+\frac{k_1}{m_2} & \frac{k_1+k_2}{m_2} & \frac{k_2}{m_2} & 0 & ... & 0\\
+0 & . & . & . & 0 & 0\\
+. & 0 & . & . & . & 0\\
+\end{pmatrix} - \omega^2\mathds{1}\right) \cdot\vec{\hat{x}} &= \vec{0}\\
+\left(\mathbf{A}- \omega^2\mathds{1}\right) \cdot\vec{\hat{x}} &= \vec{0}
+\end{align*}
+Somit sind die Eigenwerte der Matrix $\mathbf{A}$ die Quadrate der Eigenfrequenzen $\omega$.
+
+%☺☻
