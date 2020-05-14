@@ -13,10 +13,10 @@
 using namespace std;
 using namespace Eigen;
 
-// Lange Geschichte, ich sollte das so nennen.
-// Nicht irritieren lassen, gemeint ist natürlich das Kronecker-Delta,
-// um zu überprüfen in welchem Matrixeintrag wir sind.
-int kroeningerdelta(int a, int b)
+
+
+
+int kroneckerdelta(int a, int b)
 {
   int c;
   c = (a != b)? 0:1;
@@ -49,7 +49,7 @@ void initMatrix(int n, MatrixXd &A)
     m = i+1;
     for (int j = i-1; j < i + 2; ++j)
     {
-      A(i,j) = -kroeningerdelta(i, j) * (k_j(n, j) + k_j(n, j + 1)) + kroeningerdelta(i - 1, j) * k_j(n, j+1) + kroeningerdelta(i+1,j) * k_j(n, j);
+      A(i,j) = -kroneckerdelta(i, j) * (k_j(n, j) + k_j(n, j + 1)) + kroneckerdelta(i - 1, j) * k_j(n, j+1) + kroneckerdelta(i+1,j) * k_j(n, j);
       A(i,j) /= -m;
     }
   }
