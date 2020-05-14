@@ -101,6 +101,7 @@ int main()
   {
     ew(i) = sqrt(ew(i));
   }
+    cout << "Matrix:\n" << A << "\n\n" << "Werte:\n" << ew << "\n\n";
 //  cout << "Die Eigenfrequenzen des 10x10 Systems sind: " << endl << ew;
 
 }
