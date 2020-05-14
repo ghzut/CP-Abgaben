@@ -74,14 +74,16 @@ MatrixXd initMatrix(int n)
 
 int main()
 {
+  vector<MatrixXd> v_Mat;
   ofstream outfile("build/spektrum.txt", ofstream::trunc);
   outfile << "#n, w_i\n";
   int n = 10;
   for (int i = 2; i < n; ++i)
   {
     MatrixXd M = initMatrix(i);
-    VectorXd ev = M.eigenvalues().real();
-    cout << M << "\n\n" << ev << "\n\n";
+    v_Mat.push_back(M);
+    VectorXd ev = v_Mat.at(i).eigenvalues().real();
+    cout << v_Mat.at(i) << "\n\n" << ev << "\n\n";
     M.resize(0,0);
   }
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
