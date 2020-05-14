@@ -74,7 +74,7 @@ MatrixXd initMatrix(int n)
 int main()
 {
   ofstream outfile("build/spektrum.txt", ofstream::trunc);
-  outfile << "#n, w_i\n"
+  outfile << "#n, w_i\n";
   int n = 10;
   RowVectorXd ew(n);
 
