@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include <cmath>
 #include <Eigen/Dense>
 #include <Eigen/SVD>
@@ -76,25 +77,24 @@ int main()
   ofstream outfile("build/spektrum.txt", ofstream::trunc);
   outfile << "#n, w_i\n";
   int n = 10;
-  RowVectorXd ew(n);
 
   //Zur Untersuchung der Veränderung des Spektrums mit zunehmendem N, initialisiere Probleme verschiedener Größen.
   //i=0,1 fallen logischerweise weg, da minestens zwei Massen benötigt werden.
-  for(int i = 2; i < n; ++i)
+  for (int i = 2; i < n; ++i)
   {
     MatrixXd A(i,i);
     A = initMatrix(i);
-    ew.row(0) = A.eigenvalues().real();
-    for (int i = 0; i < n; ++i)
+    VectorXd ew(i)
+    ew = A.eigenvalues().real();
+    for (int j = 0; j < i; ++j)
     {
-      ew(i) = sqrt(ew(i));
+      ew(j) = sqrt(ew(j));
     }
-    outfile << i << ew;
-    outfile << "\n";
+    outfile << ew << " ";
   }
-
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
   //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
+  VectorXd ew(n);
   MatrixXd A(n,n);
   A = initMatrix(n);
   ew = A.eigenvalues().real();
@@ -102,7 +102,7 @@ int main()
   {
     ew(i) = sqrt(ew(i));
   }
-  outfile << n << ew << "\n";
+  outfile << ew;
   outfile.flush();
   outfile.close();
   cout << "Die Eigenfrequenzen des 10x10 Systems sind: " << endl << ew;
