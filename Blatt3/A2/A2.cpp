@@ -55,6 +55,7 @@ MatrixXd initMatrix(int n)
   RowVectorXd first;
   RowVectorXd last;
   MatrixXd A(n,n);
+  A =  = MatrixXd::Zero(n,n);
   first = init_first_last(n, true);
   last = init_first_last(n, false);
   A.row(0) = first;
@@ -79,7 +80,7 @@ int main()
   int n = 10;
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
   //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
-  MatrixXd A(n,n) = MatrixXd::Zero(n,n);
+  MatrixXd A(n,n);
   VectorXd ew(n);
   A = initMatrix(n);
   ew = A.eigenvalues().real();
