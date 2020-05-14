@@ -82,8 +82,8 @@ int main()
   {
     MatrixXd M = initMatrix(i);
     v_Mat.push_back(M);
-    VectorXd ev = v_Mat.at(i).eigenvalues().real();
-    cout << v_Mat.at(i) << "\n\n" << ev << "\n\n";
+    VectorXd ev = v_Mat.at(i-2).eigenvalues().real();
+    cout << v_Mat.at(i-2) << "\n\n" << ev << "\n\n";
     M.resize(0,0);
   }
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
