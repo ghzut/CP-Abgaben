@@ -5,8 +5,12 @@
 \usepackage{amssymb}
 \usepackage{natbib}
 \usepackage{graphicx}
-\usepackage{subcaption}
 \usepackage{float}
+\usepackage[
+  locale=DE,                   % deutsche Einstellungen
+  separate-uncertainty=true,   % immer Fehler mit \pm
+  per-mode=symbol-or-fraction, % / in inline math, fraction in display math
+]{siunitx}
 \floatplacement{figure}{htbp}
 \floatplacement{table}{htbp}
 \usepackage[
@@ -17,8 +21,17 @@
 \usepackage{xfrac}
 \usepackage{enumitem}
 \usepackage{dsfont}
+\usepackage[
+  labelfont=bf,        % Tabelle x: Abbildung y: ist jetzt fett
+  font=small,          % Schrift etwas kleiner als Dokument
+  width=0.9\textwidth, % maximale Breite einer Caption schmaler
+]{caption}
 
 \begin{document}
+    \setlength{\parindent}{0em}
+
+    \section*{Übungsblatt 3 -- Cerberus}
+
 	\input{content/Aufgabe1.tex}
 	\input{content/Aufgabe2.tex}
 	\input{content/Aufgabe3.tex}
