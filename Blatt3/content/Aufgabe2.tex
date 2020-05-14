@@ -38,6 +38,19 @@ Mit dem Ansatz $x_i = \hat{x}_i\mathrm{e}^{i\omega t}$ lässt sich dieses $N\tim
 \end{pmatrix} - \omega^2\mathds{1}\right) \cdot\vec{\hat{x}} &= \vec{0}\\
 \left(\mathbf{A}- \omega^2\mathds{1}\right) \cdot\vec{\hat{x}} &= \vec{0}
 \end{align*}
-Somit sind die Eigenwerte der Matrix $\mathbf{A}$ die Quadrate der Eigenfrequenzen $\omega$.
-
+Somit sind die Eigenwerte der Matrix $\mathbf{A}$, die beispielsweise über das Diagonalisieren der Tridiagonalmatrix bestimmt werden können, die Quadrate der Eigenfrequenzen $\omega$.
+Für ein System mit $N=10$ Massen ergeben sich so die Eigenfrequenzen:
+\begin{align*}
+   \omega_1 = 3.95439\\
+   \omega_2 = 2.62228\\
+   \omega_3 = 1.95382\\
+   \omega_4 = 1.51083\\
+   \omega_5 = 1.17586\\
+   \omega_6 = 0.901365\\
+   \omega_7 = 0.663369\\
+   \omega_8 = 1.23909\cdot 10^{-8}\\
+   \omega_9 = 0.44762\\
+   \omega_10 = 0.243446
+\end{align*}
+Die Frequenz $\omega_8$ sticht dabei auf Grund ihre niedrigen Potenz heraus. Der zugehörige Eigenwert der Matrix $\lambda_8 = 1.53534403\cdot 10^{-16}$ kommt vermutlich auf Grund von numerischer Instabilität und Rundungsfehlern zustande und sollte eigentlich bei $0$ liegen. Diese Vermutung wird auch dadurch unterstützt, dass bei Verwendung von \texttt{float}- statt \texttt{double}-Präzision der Wert dieser Eigenfrequenz ansteigt und bei $\omega_8 = 0.000241474$ liegt, während alle anderen Frequenzen unverändert bleiben.
 %☺☻

@@ -24,41 +24,26 @@ int kroeningerdelta(int a, int b)
 }
 
 //Funktion zur berechnung der benötigten Federkonstante.
-float k_j(int n, int j)
+double k_j(int n, int j)
 {
-  return float(n-j);
+  return double(n-j);
 }
 
 //Funktion zur Berechnung der 1. und letzten Reihe der Kopplungsmatrix.
 //Diese müssen gesondert betrachtet werden, da die äußersten Massen nur einen Nachbarn haben.
-//Seltsamerweise funktionierte es nicht einen 1x2 Vektor zu initialisieren und per Matrix.block() zuzuweisen?
-RowVectorXd init_first_last(int n, bool first = true)
+void init_first_last(int n, MatrixXd &M)
 {
-  RowVectorXd rv(n);
-  if(first)
-  {
-    rv(1) = -n+1.;
-    rv(0) =  n-1.;
-  }
-  else
-  {
-    rv(n-1) = 1./n;
-    rv(n-2) = -1./n;
-  }
-  return rv;
+  M(0,1) = -n+1.;
+  M(0,0) =  n-1.;
+  M(n-1,n-1) = 1./n;
+  M(n-1,n-2) = -1./n;
 }
 
 //Funktion zur Initialisierung der gesamten Kopplungsmatrix mit variabler Dimension n x n.
-MatrixXd initMatrix(int n)
+void initMatrix(int n, MatrixXd &A)
 {
-  float m;
-  RowVectorXd first;
-  RowVectorXd last;
-  MatrixXd A(n,n);
-  first = init_first_last(n, true);
-  last = init_first_last(n, false);
-  A.row(0) = first;
-  A.row(n-1) = last;
+  double m;
+  init_first_last(n, A);
   for (int i = 1; i < n - 1; ++i)
   {
     m = i+1;
@@ -68,7 +53,6 @@ MatrixXd initMatrix(int n)
       A(i,j) /= -m;
     }
   }
-  return A;
 }
 
 
@@ -77,16 +61,30 @@ int main()
   ofstream outfile("build/spektrum.txt", ofstream::trunc);
   outfile << "#n, w_i\n";
   int n = 10;
+  MatrixXd ew_Mat(n-2,n);
+  for (int i = 3; i < n; ++i)
+  {
+    MatrixXd M(i,i);
+    initMatrix(i, M);
+    VectorXd ev = M.eigenvalues().real();
+    for (int j = 0; j < i; ++j)
+    {
+      if(ev(i) > 0.00001) ev(i) = sqrt(ev(i)); //einige Egenwerte werden aufgrund von
+      else ev(i) = 0; //RUndungsfehlern als sehr kleine negative Zahlen zurückgegeben
+    }
+    ew_Mat.col(i-3) = ev;
+  }
+
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
   //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
   MatrixXd A(n,n);
-  VectorXd ew(n);
-  A = initMatrix(n);
-  ew = A.eigenvalues().real();
+  initMatrix(n, A);
+  VectorXd ew = A.eigenvalues().real();
   for (int i = 0; i < n; ++i)
   {
     ew(i) = sqrt(ew(i));
   }
-  cout << "Die Eigenfrequenzen des 10x10 Systems sind: " << endl << ew;
-
+  ew_Mat.col(n-3) = ew;
+  outfile << ew_Mat << endl;
+  outfile.close();
 }

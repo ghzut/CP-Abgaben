@@ -6,6 +6,6 @@ Die Eigenfrequenzen des 10x10 Systems sind:
     1.17586
    0.901365
    0.663369
-1.25268e-08
+1.23909e-08
     0.44762
    0.243446
