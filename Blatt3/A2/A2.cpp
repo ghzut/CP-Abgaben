@@ -24,9 +24,9 @@ int kroeningerdelta(int a, int b)
 }
 
 //Funktion zur berechnung der benötigten Federkonstante.
-float k_j(int n, int j)
+double k_j(int n, int j)
 {
-  return float(n-j);
+  return double(n-j);
 }
 
 //Funktion zur Berechnung der 1. und letzten Reihe der Kopplungsmatrix.
@@ -51,7 +51,7 @@ RowVectorXd init_first_last(int n, bool first = true)
 //Funktion zur Initialisierung der gesamten Kopplungsmatrix mit variabler Dimension n x n.
 MatrixXd initMatrix(int n)
 {
-  float m;
+  double m;
   RowVectorXd first;
   RowVectorXd last;
   MatrixXd A(n,n);
