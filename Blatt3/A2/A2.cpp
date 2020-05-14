@@ -77,12 +77,13 @@ int main()
   ofstream outfile("build/spektrum.txt", ofstream::trunc);
   outfile << "#n, w_i\n";
   int n = 10;
-  for (int i = 3; i < n; ++i)
+  for (int i = 2; i < n; ++i)
   {
     MatrixXd M = initMatrix(i);
     VectorXd ev = M.eigenvalues().real();
     cout << M << "\n\n" << ev << "\n\n";
     M = MatrixXd::Zero(i,i);
+    cout << M << "\n\n";
   }
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
   //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
