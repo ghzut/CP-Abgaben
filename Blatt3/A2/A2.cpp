@@ -54,8 +54,7 @@ MatrixXd initMatrix(int n)
   double m;
   RowVectorXd first;
   RowVectorXd last;
-  MatrixXd A(n,n);
-  A = MatrixXd::Zero(n,n);
+  MatrixXd A = MatrixXd::Zero(n,n);
   first = init_first_last(n, true);
   last = init_first_last(n, false);
   A.row(0) = first;
@@ -78,6 +77,10 @@ int main()
   ofstream outfile("build/spektrum.txt", ofstream::trunc);
   outfile << "#n, w_i\n";
   int n = 10;
+/*  for (int i = 2; i < n; ++i)
+  {
+    A
+  }*/
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
   //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
   MatrixXd A(n,n);
