@@ -53,7 +53,7 @@ MatrixXd initMatrix(int n)
     m = i+1;
     for (int j = i-1; j < i + 2; ++j)
     {
-      A(i,j) = -kroeningerdelta(i, j) * (k_j(n, j - 1) + k_j(n, j)) + kroeningerdelta(i - 1, j) * k_j(n, j) + kroeningerdelta(i+1,j) * k_j(n, i);
+      A(i,j) = -kroeningerdelta(i, j) * (k_j(n, j) + k_j(n, j + 1)) + kroeningerdelta(i - 1, j) * k_j(n, j+1) + kroeningerdelta(i+1,j) * k_j(n, j);
       A(i,j) /= -m;
     }
   }
@@ -74,6 +74,6 @@ int main()
   {
     ew(i) = sqrt(ew(i));
   }*/
-  cout << "Die Eigenfrequenzen des Systems sind: " << endl << A.eigenvalues();;
+  cout << "Die Eigenfrequenzen^2 des Systems sind: " << endl << A.eigenvalues();;
 
 }
