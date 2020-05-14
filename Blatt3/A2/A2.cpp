@@ -79,13 +79,12 @@ int main()
   int n = 10;
 /*  for (int i = 2; i < n; ++i)
   {
-    A
+    MatrixXd
   }*/
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
   //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
-  MatrixXd A(n,n);
+  MatrixXd A = initMatrix(n);
   VectorXd ew(n);
-  A = initMatrix(n);
   ew = A.eigenvalues().real();
   for (int i = 0; i < n; ++i)
   {
