@@ -77,8 +77,8 @@ int main()
   int n = 10;
   for (int i = 2; i < n; ++i)
   {
-    MatrixXd M(n,n);
-    initMatrix(n, M);
+    MatrixXd M(i,i);
+    initMatrix(i, M);
     VectorXd ev = M.eigenvalues().real();
     cout << "Matrix:\n" << M << "\n\n" << "Werte:\n" << ev << "\n\n";
   }
