@@ -63,7 +63,7 @@ int main()
   int n = 10;
 
   //Um das Spektrum verschiedener Problemgrößen zu untersuchen
-/*  MatrixXd ew_Mat(n,n-2);
+  MatrixXd ew_Mat(n,n-2);/*
   for (int i = 2; i < n; ++i)
   {
     MatrixXd M(i,i);
