@@ -52,8 +52,9 @@ RowVectorXd init_first_last(int n, bool first)
 void initMatrix(int n, MatrixXd &A)
 {
   double m;
-  A.row(0) = init_first_last(n, true);
-  A.row(n-1) = init_first_last(n, false);
+  cout << init_first_last(n, true) << endl << init_first_last(n, false);
+  //A.row(0) = init_first_last(n, true);
+  //A.row(n-1) = init_first_last(n, false);
   for (int i = 1; i < n - 1; ++i)
   {
     m = i+1;
