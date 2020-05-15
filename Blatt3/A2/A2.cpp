@@ -61,6 +61,9 @@ int main()
   ofstream outfile("build/spektrum.txt", ofstream::trunc);
   outfile << "#n, w_i\n";
   int n = 10;
+
+  //Um das Spektrum verschiedener Problemgrößen zu untersuchen
+  /*
   MatrixXd ew_Mat(n-2,n);
   for (int i = 3; i < n; ++i)
   {
@@ -73,7 +76,7 @@ int main()
       else ev(j) = 0; //RUndungsfehlern als sehr kleine negative Zahlen zurückgegeben
     }
     ew_Mat.block(0,i-3,i,1) = ev;
-  }
+  }*/
 
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
   //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
