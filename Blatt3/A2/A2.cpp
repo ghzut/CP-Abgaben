@@ -61,7 +61,7 @@ int main()
   ofstream outfile("build/spektrum.txt", ofstream::trunc);
   outfile << "#n, w_i\n";
   int n = 10;
-  MatrixXd ew_Mat(n,n)
+  MatrixXd ew_Mat(n-2,n)
   for (int i = 3; i < n; ++i)
   {
     MatrixXd M(i,i);
@@ -72,7 +72,7 @@ int main()
       if(ev(i) > 0.00001) ev(i) = sqrt(ev(i)); //einige Egenwerte werden aufgrund von
       else ev(i) = 0; //RUndungsfehlern als sehr kleine negative Zahlen zurückgegeben
     }
-    ew_Mat.col(i-1) = ev;
+    ew_Mat.col(i-3) = ev;
   }
 
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
@@ -84,7 +84,7 @@ int main()
   {
     ew(i) = sqrt(ew(i));
   }
-  ew_Mat.col(n-1) = ew;
+  ew_Mat.col(n-3) = ew;
   outfile << ew_Mat << endl;
   outfile.close();
 }
