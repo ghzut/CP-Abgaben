@@ -66,18 +66,17 @@ int main()
   //Um das Spektrum verschiedener Problemgrößen zu untersuchen
 
   MatrixXd ew_Mat(n-2,n);
-  /*for (int i = 3; i < n; ++i)
+  for (int i = 3; i < n; ++i)
   {
     MatrixXd M(i,i);
     initMatrix(i, M);
-    VectorXd ev(n);
-    ev.block(i,1,0,0) = M.eigenvalues().real();
+    VectorXd ev = M.eigenvalues().real();
     for (int j = 0; j < i; ++j)
     {
       if(ev(j) > 0.00001) ev(j) = sqrt(ev(j)); //einige Egenwerte werden aufgrund von
       else ev(j) = 0; //RUndungsfehlern als sehr kleine negative Zahlen zurückgegeben
     }
-    ew_Mat.col(i-3) = ev;
+    //ew_Mat.col(i-3) = ev;
   }*/
 
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
@@ -89,7 +88,8 @@ int main()
   {
     ew(i) = sqrt(ew(i));
   }
-  ew_Mat.col(n-3) = ew;
-  outfile << ew_Mat << endl;
+  //ew_Mat.col(n-3) = ew;
+  //outfile << ew_Mat << endl;
   outfile.close();
+  cout << A.block(0,0,2,3);
 }
