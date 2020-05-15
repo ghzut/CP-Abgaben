@@ -65,12 +65,13 @@ int main()
   //Um das Spektrum verschiedener Problemgrößen zu untersuchen
 
   MatrixXd ew_Mat(n-2,n);
-  for (const int i = 3; i < n; ++i)
+  for (int i = 3; i < n; ++i)
   {
     MatrixXd M(i,i);
     initMatrix(i, M);
+    const int k = i;
     VectorXd ev(n);
-    ev.block<0,i>(0,0) = M.eigenvalues().real();
+    ev.block<0,k>(0,0) = M.eigenvalues().real();
     for (int j = 0; j < i; ++j)
     {
       if(ev(j) > 0.00001) ev(j) = sqrt(ev(j)); //einige Egenwerte werden aufgrund von
