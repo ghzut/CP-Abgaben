@@ -61,7 +61,7 @@ int main()
   ofstream outfile("build/spektrum.txt", ofstream::trunc);
   outfile << "#n, w_i\n";
   int n = 10;
-  MatrixXd ew_Mat(n-2,n)
+  MatrixXd ew_Mat(n-2,n);
   for (int i = 3; i < n; ++i)
   {
     MatrixXd M(i,i);
