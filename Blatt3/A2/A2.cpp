@@ -70,7 +70,7 @@ int main()
     MatrixXd M(i,i);
     initMatrix(i, M);
     VectorXd ev(n);
-    ev.col(0) = M.eigenvalues().real();
+    ev.block<0,i>(0,0) = M.eigenvalues().real();
     for (int j = 0; j < i; ++j)
     {
       if(ev(j) > 0.00001) ev(j) = sqrt(ev(j)); //einige Egenwerte werden aufgrund von
