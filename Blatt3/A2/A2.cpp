@@ -84,7 +84,7 @@ int main()
   {
     ew(i) = sqrt(ew(i));
   }
-  ew_Mat.col(n-3) = ew;
+  //ew_Mat.col(n-3) = ew;
   outfile << ew_Mat << endl;
   outfile.close();
 }
