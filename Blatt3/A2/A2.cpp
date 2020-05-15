@@ -63,8 +63,8 @@ int main()
   int n = 10;
 
   //Um das Spektrum verschiedener Problemgrößen zu untersuchen
-  MatrixXd ew_Mat(n-2,n);
-/*  for (int i = 2; i < n; ++i)
+  MatrixXd ew_Mat(n,n-2);
+  for (int i = 2; i < n; ++i)
   {
     MatrixXd M(i,i);
     initMatrix(i, M);
@@ -74,7 +74,7 @@ int main()
       if(ev(j) > 0.00001) ew_Mat(i-2,j) = sqrt(ev(j)); //einige Egenwerte werden aufgrund von
       else ew_Mat(i-2,j) = 0.; //RUndungsfehlern als sehr kleine negative Zahlen zurückgegeben
     }
-  }*/
+  }
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
   //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
   MatrixXd A(n,n);
