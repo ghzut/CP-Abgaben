@@ -72,7 +72,7 @@ int main()
       if(ev(j) > 0.00001) ev(j) = sqrt(ev(j)); //einige Egenwerte werden aufgrund von
       else ev(j) = 0; //RUndungsfehlern als sehr kleine negative Zahlen zurückgegeben
     }
-    ew_Mat.col(i-3) = ev;
+    ew_Mat.block(0,i-3,i,1) = ev;
   }
 
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
