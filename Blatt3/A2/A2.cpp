@@ -91,5 +91,5 @@ int main()
   //ew_Mat.col(n-3) = ew;
   //outfile << ew_Mat << endl;
   outfile.close();
-  cout << A.block(0,0,2,3);
+  cout << A.block(0,0,n,1);
 }
