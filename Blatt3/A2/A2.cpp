@@ -32,26 +32,19 @@ double k_j(int n, int j)
 //Funktion zur Berechnung der 1. und letzten Reihe der Kopplungsmatrix.
 //Diese müssen gesondert betrachtet werden, da die äußersten Massen nur einen Nachbarn haben.
 //Seltsamerweise funktionierte es nicht einen 1x2 Vektor zu initialisieren und per Matrix.block() zuzuweisen?
-void init_first_last(int n, MAtrixXd &M, bool first)
+void init_first_last(int n, MAtrixXd &M)
 {
-  if(first)
-  {
-    M(0,1) = -n+1.;
-    M(0,0) =  n-1.;
-  }
-  else
-  {
-    M(n-1,n-1) = 1./n;
-    M(n-1,n-2) = -1./n;
-  }
+  M(0,1) = -n+1.;
+  M(0,0) =  n-1.;
+  M(n-1,n-1) = 1./n;
+  M(n-1,n-2) = -1./n;
 }
 
 //Funktion zur Initialisierung der gesamten Kopplungsmatrix mit variabler Dimension n x n.
 void initMatrix(int n, MatrixXd &A)
 {
   double m;
-  init_first_last(n, A, true);
-  init_first_last(n, A, false);
+  init_first_last(n, A);
   for (int i = 1; i < n - 1; ++i)
   {
     m = i+1;
