@@ -52,6 +52,7 @@ void initMatrix(int n, MatrixXd &A)
       A(i,j) = -kroneckerdelta(i, j) * (k_j(n, j) + k_j(n, j + 1)) + kroneckerdelta(i - 1, j) * k_j(n, j+1) + kroneckerdelta(i+1,j) * k_j(n, j);
       A(i,j) /= -m;
     }
+    A.block(0,0,2,3) = A.block(2,1,2,3);
   }
 }
 
@@ -65,7 +66,7 @@ int main()
   //Um das Spektrum verschiedener Problemgrößen zu untersuchen
 
   MatrixXd ew_Mat(n-2,n);
-  for (int i = 3; i < n; ++i)
+  /*for (int i = 3; i < n; ++i)
   {
     MatrixXd M(i,i);
     initMatrix(i, M);
@@ -77,7 +78,7 @@ int main()
       else ev(j) = 0; //RUndungsfehlern als sehr kleine negative Zahlen zurückgegeben
     }
     ew_Mat.col(i-3) = ev;
-  }
+  }*/
 
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
   //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
