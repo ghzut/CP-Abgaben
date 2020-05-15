@@ -32,7 +32,7 @@ double k_j(int n, int j)
 //Funktion zur Berechnung der 1. und letzten Reihe der Kopplungsmatrix.
 //Diese müssen gesondert betrachtet werden, da die äußersten Massen nur einen Nachbarn haben.
 //Seltsamerweise funktionierte es nicht einen 1x2 Vektor zu initialisieren und per Matrix.block() zuzuweisen?
-void init_first_last(int n, MAtrixXd &M)
+void init_first_last(int n, MatrixXd &M)
 {
   M(0,1) = -n+1.;
   M(0,0) =  n-1.;
