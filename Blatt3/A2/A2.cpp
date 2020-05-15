@@ -52,7 +52,6 @@ void initMatrix(int n, MatrixXd &A)
       A(i,j) = -kroneckerdelta(i, j) * (k_j(n, j) + k_j(n, j + 1)) + kroneckerdelta(i - 1, j) * k_j(n, j+1) + kroneckerdelta(i+1,j) * k_j(n, j);
       A(i,j) /= -m;
     }
-    A.block(0,0,2,3) = A.block(2,1,2,3);
   }
 }
 
