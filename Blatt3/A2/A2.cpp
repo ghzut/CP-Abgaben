@@ -62,7 +62,7 @@ int main()
   outfile << "#n, w_i\n";
   int n = 10;
 
-  //Um das Spektrum verschiedener Problemgrößen zu untersuchen
+  //Um das Spektrum verschiedener Problemgrößen zu untersuchen, kann man verschiedene n untersuchen
   MatrixXd ew_Mat(n,n-2);
   for (int i = 2; i < n; ++i)
   {
