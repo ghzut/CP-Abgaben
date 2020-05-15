@@ -82,9 +82,8 @@ int main()
   VectorXd ew = A.eigenvalues().real();
   for (int i = 0; i < n; ++i)
   {
-    ew(i) = sqrt(ew(i));
+    ew_Mat(n-3, i) = sqrt(ew(i));
   }
-  ew_Mat.col(n-3) = ew;
-  //outfile << ew_Mat << endl;
+  outfile << ew_Mat << endl;
   outfile.close();
 }
