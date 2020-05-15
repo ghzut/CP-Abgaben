@@ -69,8 +69,8 @@ int main()
     VectorXd ev = M.eigenvalues().real();
     for (int j = 0; j < i; ++j)
     {
-      if(ev(i) > 0.00001) ev(i) = sqrt(ev(i)); //einige Egenwerte werden aufgrund von
-      else ev(i) = 0; //RUndungsfehlern als sehr kleine negative Zahlen zurückgegeben
+      if(ev(j) > 0.00001) ev(j) = sqrt(ev(j)); //einige Egenwerte werden aufgrund von
+      else ev(j) = 0; //RUndungsfehlern als sehr kleine negative Zahlen zurückgegeben
     }
     ew_Mat.col(i-3) = ev;
   }
