@@ -31,7 +31,6 @@ double k_j(int n, int j)
 
 //Funktion zur Berechnung der 1. und letzten Reihe der Kopplungsmatrix.
 //Diese müssen gesondert betrachtet werden, da die äußersten Massen nur einen Nachbarn haben.
-//Seltsamerweise funktionierte es nicht einen 1x2 Vektor zu initialisieren und per Matrix.block() zuzuweisen?
 void init_first_last(int n, MatrixXd &M)
 {
   M(0,1) = -n+1.;
@@ -62,22 +61,30 @@ int main()
   ofstream outfile("build/spektrum.txt", ofstream::trunc);
   outfile << "#n, w_i\n";
   int n = 10;
+  MatrixXd ew_Mat(n,n)
   for (int i = 3; i < n; ++i)
   {
     MatrixXd M(i,i);
     initMatrix(i, M);
     VectorXd ev = M.eigenvalues().real();
-    cout << "Matrix:\n" << M << "\n\n" << "Werte:\n" << ev << "\n\n";
+    for (int j = 0; j < i; ++j)
+    {
+      if(ev(i) > 0.00001) ev(i) = sqrt(ev(i)); //einige Egenwerte werden aufgrund von
+      else ev(i) = 0; //RUndungsfehlern als sehr kleine negative Zahlen zurückgegeben
+    }
+    ew_Mat.col(i-1) = ev;
   }
+
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
   //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
-  MatrixXd A = MatrixXd::Zero(n,n);
+  MatrixXd A(n,n);
   initMatrix(n, A);
   VectorXd ew = A.eigenvalues().real();
   for (int i = 0; i < n; ++i)
   {
     ew(i) = sqrt(ew(i));
   }
-    cout << "Matrix:\n" << A << "\n\n" << "Werte:\n" << ew << "\n\n";
-
+  ew_Mat.col(n-1) = ew;
+  outfile << ew_Mat << endl;
+  outfile.close();
 }
