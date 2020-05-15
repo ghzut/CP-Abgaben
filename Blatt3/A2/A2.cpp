@@ -68,7 +68,6 @@ int main()
     initMatrix(i, M);
     VectorXd ev = M.eigenvalues().real();
     cout << "Matrix:\n" << M << "\n\n" << "Werte:\n" << ev << "\n\n";
-    M.resize(0,0);
   }
   //Initialisierung der 10x10 Kopplungsmatrix und Bestimmung der Eigenwerte mithilfe von eigen.
   //Da die Matrix bereits tridiagonal ist kann sie mit n-1 Jacobi-Drehungen diagonalisiert werden.
@@ -80,6 +79,5 @@ int main()
     ew(i) = sqrt(ew(i));
   }
     cout << "Matrix:\n" << A << "\n\n" << "Werte:\n" << ew << "\n\n";
-//  cout << "Die Eigenfrequenzen des 10x10 Systems sind: " << endl << ew;
 
 }
