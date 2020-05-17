@@ -68,12 +68,12 @@ void integrate_b(double a, double max_err, double limit)
   outfile << "#i, int, err\n";
   long double result, result2;
 
-  for (double i = 10.; i < limit; i*=10)
+  /*for (double i = 10.; i < limit; i*=10)
   {
     result = get_Int(&f2, a, max_err, limit);
     result2 = get_Int(&f2, a, max_err, 2*limit);
     outfile << i << " " << result2 << " " << abs(result2-result) << "\n";
-  }
+  }*/
   outfile.flush();
   outfile.close();
 }
