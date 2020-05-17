@@ -79,7 +79,7 @@ void integrate_b(double a, double max_err, double limit)
 }
 int main()
 {
-  integrate_b(0., 0.001, 1000.);
+  integrate_b(0., 0.00000001, 1000.);
 
   return 0;
 }
