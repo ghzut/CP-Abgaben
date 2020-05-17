@@ -45,16 +45,16 @@ double simpson(double (*f)(double), double a, double b, int n)
 	return result*h/3;
 }
 
-long double get_Int(double (*f)(double), double a, double max_err, double b)
+long double get_Int(double a, double max_err, double b)
 {
   long double temp, new_res;
   double err = 10000.;
   double n=2.;
-  temp = simpson(f, a, b, n);
+  temp = simpson(&f2, a, b, n);
   while (err >= max_err)
   {
     n = 2*n;
-    new_res = simpson(f, a, b, n);
+    new_res = simpson(&f2, a, b, n);
     err = abs(temp-new_res);
     temp = new_res;
   }
@@ -68,12 +68,12 @@ void integrate_b(double a, double max_err, double limit)
   outfile << "#i, int, err\n";
   long double result, result2;
 
-  /*for (double i = 10.; i < limit; i*=10)
+  for (double i = 10.; i < limit; i*=10)
   {
-    result = get_Int(&f2, a, max_err, limit);
-    result2 = get_Int(&f2, a, max_err, 2*limit);
+    result = get_Int(a, max_err, limit);
+    result2 = get_Int(a, max_err, 2*limit);
     outfile << i << " " << result2 << " " << abs(result2-result) << "\n";
-  }*/
+  }
   outfile.flush();
   outfile.close();
 }
