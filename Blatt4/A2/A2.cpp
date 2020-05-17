@@ -4,8 +4,6 @@
 #include <fstream>
 
 using namespace std;
-cout << fixed;
-cout << setprecision(8);
 //Zu integrierende Funktionen a)
 long double f1(long double x)
 {
@@ -83,6 +81,8 @@ void integrate_b(long double a, long double max_err, long double limit)
 }
 int main()
 {
+  cout << fixed;
+  cout << setprecision(8);
   integrate_b(0., 0.00000001, 20.);
 
   return 0;
