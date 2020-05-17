@@ -51,13 +51,13 @@ long double get_Int(double (*f)(double), double a, double max_err, double b)
   double err = 10000.;
   double n=2.;
   temp = simpson(f, a, b, n);
-  while (err >= max_err)
+  /*while (err >= max_err)
   {
     n = 2*n;
     new_res = simpson(f, a, b, n);
     err = abs(temp-new_res);
     temp = new_res;
-  }
+  }*/
   return temp;
 }
 
