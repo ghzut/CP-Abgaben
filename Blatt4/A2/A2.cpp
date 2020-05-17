@@ -14,7 +14,7 @@ double f1(double x)
 //Zu integrierende Funktionen b)
 double f2(double x)
 {
-    return exp(-pow(x,2));
+    return 2*sexp(-pow(x,2));
 }
 
 
@@ -79,7 +79,7 @@ void integrate_b(double a, double max_err, double limit)
 }
 int main()
 {
-  integrate_b(0., 0.0001, 1000.);
+  integrate_b(0., 0.1, 10000.);
 
   return 0;
 }
