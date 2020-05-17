@@ -83,7 +83,7 @@ int main()
 {
   cout << fixed;
   cout << setprecision(8);
-  integrate_b(0., 0.00000001, 20.);
+  integrate_b(0., 0.001, 20.);
 
   return 0;
 }
