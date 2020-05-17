@@ -70,7 +70,7 @@ void integrate_b(long double a, long double max_err, long double limit)
   outfile << "#i, int, err\n";
   long double result, result2;
 
-  for (long double i = 10.; i < limit; i*=10)
+  for (long double i = 1.; i < limit; ++i)
   {
     result = get_Int(&f2, a, max_err, limit);
     result2 = get_Int(&f2, a, max_err, 2*limit);
@@ -81,7 +81,7 @@ void integrate_b(long double a, long double max_err, long double limit)
 }
 int main()
 {
-  integrate_b(0., 0.00000001, 10000.);
+  integrate_b(0., 0.00000001, 20.);
 
   return 0;
 }
