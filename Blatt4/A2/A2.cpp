@@ -14,7 +14,7 @@ double f1(double x)
 //Zu integrierende Funktionen b)
 double f2(double x)
 {
-    return exp(-x)/sqrt(x);
+    return exp(-pow(x,2);
 }
 
 
@@ -45,36 +45,41 @@ double simpson(double (*f)(double), double a, double b, int n)
 	return result*h/3;
 }
 
-void integrate_exe(double (*f)(double), double a, double b, double max_err, string aufgabe)
+double get_Int(double (*f)(double), double a, double max_err, double b)
 {
-  string outfilename = "build/A2"+aufgabe+".txt";
-  ofstream outfile(outfilename, ofstream::trunc);
-  outfile << "#n, int, err\n";
-  double err, temp_result, new_result;
-
-  err = 10000;
-  temp_result = simpson(y, a, b, n);
-  new_result = 0;
-
+  double temp, new_res;
+  double err = 10000.;
+  double n=2.;
+  temp = simpson(f, a, b, n);
   while (err >= max_err)
   {
     n = 2*n;
-    new_result = integrate(y, a, b, n);
-    err = abs(temp_result-new_result)/temp_result;
-    temp_result = new_result;
-    outfile << n << " " << temp_result << " " << err << "\n";
+    new_res = simpson(f, a, b, n);
+    err = abs(temp-new_res);
+    temp = new_res;
+  }
+  return temp;
+}
+
+void integrate_b(double a, double max_err, double limit)
+{
+  string outfilename = "build/A2b.txt";
+  ofstream outfile(outfilename, ofstream::trunc);
+  outfile << "#i, int, err\n";
+  double result, result2;
+
+  for (double i = 10.; i < limit; i*=10)
+  {
+    result = get_Int(&f2, a, max_err, limit);
+    result2 = get_Int(&f2, a, max_err, 2*limit);
+    outfile << i << " " << temp_result2 << " " << abs(result2-result) << "\n";
   }
   outfile.flush();
   outfile.close();
 }
-
 int main()
 {
-  integrate_exe(&f1, -1., 1., 1e-7, "a");
-
-  integrate_exe(&f1, 0., 1e, 1e-8, "b");
-
-  integrate_exe(&f1, -1., 1., 1e-7, "c");
+  integrate_b(0., 1e-8, 1e7);
 
   return 0;
 }
