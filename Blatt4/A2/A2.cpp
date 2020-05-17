@@ -1,9 +1,11 @@
 #include <iostream>
+#include <iomanip>
 #include <math.h>
 #include <fstream>
 
 using namespace std;
-
+cout << fixed;
+cout << setprecision(8);
 //Zu integrierende Funktionen a)
 long double f1(long double x)
 {
