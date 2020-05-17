@@ -55,7 +55,7 @@ long double get_Int(long double (*f)(long double), long double a, long double ma
   {
     n = 2*n;
     new_res = simpson(f, a, b, n);
-    err = abs(temp-new_res)/temp;
+    err = abs(temp-new_res);
     temp = new_res;
   }
   return temp;
@@ -73,14 +73,14 @@ void integrate_b(long double a, long double max_err, long double limit)
     result = get_Int(&f2, a, max_err, limit);
     result2 = get_Int(&f2, a, max_err, 2*limit);
     outfile << i << " " << result2 << " " << abs(result2-result) << "\n";
-    cout << result2;
+    cout << result2 << endl;
   }
   outfile.flush();
   outfile.close();
 }
 int main()
 {
-  integrate_b(0., 0.00001, 10000.);
+  integrate_b(0., 0.00000001, 10000.);
 
   return 0;
 }
