@@ -59,6 +59,7 @@ long double get_Int(long double (*f)(long double), long double a, long double ma
     temp = new_res;
     cout << temp << endl;
   }
+  cout << endl;
   return temp;
 }
 
