@@ -72,8 +72,8 @@ void integrate_b(long double a, long double max_err, long double limit)
 
   for (long double i = 1.; i < limit; ++i)
   {
-    result = get_Int(&f2, a, max_err, limit);
-    result2 = get_Int(&f2, a, max_err, 2*limit);
+    result = get_Int(&f2, a, max_err, i);
+    result2 = get_Int(&f2, a, max_err, 2*i);
     outfile << i << " " << result2 << " " << abs(result2-result) << "\n";
   }
   outfile.flush();
