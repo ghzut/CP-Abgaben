@@ -5,29 +5,29 @@
 using namespace std;
 
 //Zu integrierende Funktionen a)
-double f1(double x)
+long double f1(long double x)
 {
     return exp(x)/x;
 }
 
 
 //Zu integrierende Funktionen b)
-double f2(double x)
+long double f2(long double x)
 {
     return 2*exp(-pow(x,2));
 }
 
 
 //Zu integrierende Funktionen c)
-double f3(double x)
+long double f3(long double x)
 {
     return sin(x)/x;
 }
 
 //Wir verwenden die Simpsonregel, da diese die wenigsten Iterationen benötigt
-double simpson(double (*f)(double), double a, double b, int n)
+long double simpson(long double (*f)(long double), long double a, long double b, int n)
 {
-	double h, x[n+1], result = 0;
+	long double h, x[n+1], result = 0;
 	int j;
 	h = (b-a)/n;
 	x[0] = a;
@@ -45,11 +45,11 @@ double simpson(double (*f)(double), double a, double b, int n)
 	return result*h/3;
 }
 
-long double get_Int(double (*f)(double), double a, double max_err, double b)
+long double get_Int(long double (*f)(long double), long double a, long double max_err, long double b)
 {
   long double temp, new_res;
-  double err = 10000.;
-  double n=2.;
+  long double err = 10000.;
+  long double n=2.;
   temp = simpson(f, a, b, n);
   while (err > max_err)
   {
@@ -61,14 +61,14 @@ long double get_Int(double (*f)(double), double a, double max_err, double b)
   return temp;
 }
 
-void integrate_b(double a, double max_err, double limit)
+void integrate_b(long double a, long double max_err, long double limit)
 {
   string outfilename = "build/A2b.txt";
   ofstream outfile(outfilename, ofstream::trunc);
   outfile << "#i, int, err\n";
   long double result, result2;
 
-  for (double i = 10.; i < limit; i*=10)
+  for (long double i = 10.; i < limit; i*=10)
   {
     result = get_Int(&f2, a, max_err, limit);
     result2 = get_Int(&f2, a, max_err, 2*limit);
