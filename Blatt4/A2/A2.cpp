@@ -45,9 +45,9 @@ double simpson(double (*f)(double), double a, double b, int n)
 	return result*h/3;
 }
 
-double get_Int(double (*f)(double), double a, double max_err, double b)
+long double get_Int(double (*f)(double), double a, double max_err, double b)
 {
-  double temp, new_res;
+  long double temp, new_res;
   double err = 10000.;
   double n=2.;
   temp = simpson(f, a, b, n);
@@ -66,7 +66,7 @@ void integrate_b(double a, double max_err, double limit)
   string outfilename = "build/A2b.txt";
   ofstream outfile(outfilename, ofstream::trunc);
   outfile << "#i, int, err\n";
-  double result, result2;
+  long double result, result2;
 
   for (double i = 10.; i < limit; i*=10)
   {
