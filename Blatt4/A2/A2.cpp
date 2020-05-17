@@ -55,7 +55,7 @@ long double get_Int(double (*f)(double), double a, double max_err, double b)
   {
     n = 2*n;
     new_res = simpson(f, a, b, n);
-    err = abs(temp-new_res);
+    err = abs(temp-new_res)/temp;
     temp = new_res;
   }
   return temp;
@@ -79,7 +79,7 @@ void integrate_b(double a, double max_err, double limit)
 }
 int main()
 {
-  integrate_b(0., 0.1, 10000.);
+  integrate_b(0., 0.00001, 10000.);
 
   return 0;
 }
