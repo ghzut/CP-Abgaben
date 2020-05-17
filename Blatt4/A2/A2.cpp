@@ -69,17 +69,17 @@ void integrate_b(long double a, long double max_err, long double limit)
   outfile.precision(10);
   long double result, result2;
 
-  for (long double i = 1.; i < limit; i*=10.)
+  for (long double i = 1.; i < limit; i*=2.)
   {
     result = get_Int(&f2, a, max_err, i);
-    result2 = get_Int(&f2, a, max_err, 2*i);
-    outfile << i << " " << result2 << " " << abs(result2-result) << "\n";
+    result2 = get_Int(&f2, a, max_err, i+1.);
+    outfile << i << " " << result << " " << abs(result2-result) << "\n";
   }
   outfile.flush();
   outfile.close();
 }
 int main()
 {
-  integrate_b(0., 0.00000001, 1000.);
+  integrate_b(0., 0.00000001, );
   return 0;
 }
