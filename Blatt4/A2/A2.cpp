@@ -14,7 +14,7 @@ double f1(double x)
 //Zu integrierende Funktionen b)
 double f2(double x)
 {
-    return exp(-pow(x,2);
+    return exp(-pow(x,2));
 }
 
 
