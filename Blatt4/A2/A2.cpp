@@ -66,6 +66,7 @@ void integrate_b(long double a, long double max_err, long double limit)
   string outfilename = "build/A2b.txt";
   ofstream outfile(outfilename, ofstream::trunc);
   outfile << "#i, int, err\n";
+  outfile.precision(10);
   long double result, result2;
 
   for (long double i = 1.; i < limit; i*=10.)
@@ -79,7 +80,6 @@ void integrate_b(long double a, long double max_err, long double limit)
 }
 int main()
 {
-  ofstream::precision(10);
   integrate_b(0., 0.00000001, 1000.);
   return 0;
 }
