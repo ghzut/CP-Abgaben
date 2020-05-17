@@ -57,7 +57,7 @@ long double get_Int(long double (*f)(long double), long double a, long double ma
     new_res = simpson(f, a, b, n);
     err = abs(temp-new_res);
     temp = new_res;
-    cout << temp << endl;
+    cout << temp << " " << err << endl;
   }
   cout << endl;
   return temp;
