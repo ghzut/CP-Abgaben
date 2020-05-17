@@ -80,6 +80,6 @@ void integrate_b(long double a, long double max_err, long double limit)
 }
 int main()
 {
-  integrate_b(0., 0.00000001, pow(2.,7.);
+  integrate_b(0., 0.00000001, pow(2.,7.));
   return 0;
 }
