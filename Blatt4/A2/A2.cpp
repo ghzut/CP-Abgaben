@@ -79,7 +79,7 @@ void integrate_b(long double a, long double max_err, long double limit)
 }
 int main()
 {
-  ofstream::setprecision(10);
+  ofstream::precision(10);
   integrate_b(0., 0.00000001, 1000.);
   return 0;
 }
