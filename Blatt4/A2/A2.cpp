@@ -81,8 +81,6 @@ void integrate_b(long double a, long double max_err, long double limit)
 }
 int main()
 {
-  cout << fixed;
-  cout << setprecision(8);
   integrate_b(0., 0.5, 20.);
 
   return 0;
