@@ -33,12 +33,10 @@ double mittelpunkt(double (*f)(double), double a, double b, int n)
 
     for (int k = 1; k<n+1; k++)
     {
-        result += 2*f(a-h/4. + k*h);
-        result -= f(a-2.*h/4. + k*h);
-        result += 2*f(a-3.*h/4. + k*h);
+        result += f(a-h/2. + k*h);
     }
 
-    result = result * 1./3.* h;
+    result = result * h;
 
     return result;
 }
