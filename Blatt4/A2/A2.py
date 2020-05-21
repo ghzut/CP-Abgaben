@@ -36,17 +36,15 @@ plt.clf()
 
 x, phi = np.genfromtxt("A2/build/ausserhalb_b.txt", unpack=True)
 
-# def f(x, a):
-#     return a/x
+def g(x, a):
+    return a/x**2
 
 
 
-# xx = np.linspace(1.1, 8, 100000)
-# param, cov = curve_fit(f, x, phi)
-# plt.plot(xx, f(xx, *param), color='b', linestyle='-', label="Anpassung")
+xx = np.linspace(1.1, 8, 100000)
+param, cov = curve_fit(g, x, phi)
+plt.plot(xx, g(xx, *param), color='b', linestyle='-', label="Anpassung")
 
-
-# plt.plot(xx, f(xx), "b-")
 plt.plot(x, phi, "rx")
 
 plt.xlabel(r"$x$")

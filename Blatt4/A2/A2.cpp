@@ -83,8 +83,8 @@ int main()
 
     for (int i=0; i<x.size(); i++)
     {
-        phi = integrate3D(x(i), &f1, -1, 1, 10);
-        phi_b = integrate3D(x(i), &f2, -1, 1, 10);
+        phi = integrate3D(x(i), &f1, -1, 1, 100);
+        phi_b = integrate3D(x(i), &f2, -1, 1, 100);
         file_1 << x(i) << "       " << phi << "\n";
         file_2 << x(i) << "       " << phi_b << "\n";
     }
@@ -102,8 +102,8 @@ int main()
 
     for (int i=0; i<x.size(); i++)
     {
-        phi = integrate3D(x(i), &f1, -1, 1, 10);
-        phi_b = integrate3D(x(i), &f2, -1, 1, 10);
+        phi = integrate3D(x(i), &f1, -1, 1, 100);
+        phi_b = integrate3D(x(i), &f2, -1, 1, 100);
         file_1 << x(i) << "       " << phi << "\n";
         file_2 << x(i) << "       " << phi_b << "\n";
     }
