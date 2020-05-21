@@ -51,7 +51,7 @@ class Cube {
 
 };
 
-//Eigentlich sollten die beiden Funktionen Teil der Klasse sein...wenn ich aber später versuche via cube.f1 bzw cube.f2 darauf zuzugreifen, kriege ich einen "invalid-use-of-non-static-member-function"-error. Ich habe es jetzt nicht anders behoben bekommen, kennt ihr eine gute Lösung?
+//Eigentlich sollten die beiden Funktionen Teil der Klasse sein...wenn ich aber später versuche via cube.f1 bzw cube.f2 darauf zuzugreifen (z.B. Zeile 81)) , kriege ich einen "invalid-use-of-non-static-member-function"-error. Ich habe es jetzt nicht anders behoben bekommen, kennt ihr eine gute Lösung?
 
 double f1(const double& x, const double& x_s, const double& y_s, const double& z_s){
         return 1/sqrt((x-x_s)*(x-x_s)+y_s*y_s+z_s*z_s);
