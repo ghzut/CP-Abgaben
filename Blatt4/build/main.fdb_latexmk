@@ -1,5 +1,5 @@
 # Fdb version 3
-["lualatex"] 1590083045 "main.tex" "build/main.pdf" "main" 1590083046
+["lualatex"] 1590084689 "main.tex" "build/main.pdf" "main" 1590084690
   "/home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf" 1480098679 111240 0af0b64d6d3df41bead3f9de314afbd4 ""
   "/home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf" 1480098679 111536 ae9d1b331000d544f47e5223081b7b54 ""
   "/home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf" 1480098679 111948 cee9e390fd6d23cfb4d6871ba2a9ee5b ""
@@ -128,15 +128,16 @@
   "/home/julia/.local/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-regular.luc" 1556375765 130235 bb7a73867a1598b38d0159338753ccfc ""
   "/home/julia/.local/texlive/2018/texmf-var/tex/generic/config/language.dat" 1556373322 6602 6dcee75a2c99a98e568d143ab404f702 ""
   "/home/julia/.local/texlive/2018/texmf-var/web2c/luatex/lualatex.fmt" 1556373377 1370329 636103ccd82549bbddb8bbc12ef1abf0 ""
-  "A2/build/ausserhalb_a.pdf" 1590079258 9987 bbf40b3c73aaee53f7b407fdbb2bb83a ""
-  "A2/build/ausserhalb_b.pdf" 1590079258 10379 fc934da48be4649b686959ef8e01e8d6 ""
-  "A2/build/innerhalb_a.pdf" 1590079258 9253 40c7484245180169a71109a5272b9ec1 ""
-  "A2/build/innerhalb_b.pdf" 1590079258 9319 997eb14bb246b5722215be1e70b3088d ""
-  "build/main.aux" 1590083046 800 25fb77c4ae3a91b28bb86076cb03c9a2 ""
+  "A2/build/ausserhalb_a.pdf" 1590084686 14190 f128df01780583c232739bb2a429aa8b ""
+  "A2/build/ausserhalb_b.pdf" 1590084686 11272 e6db56f2e3c7d582e3836ac48abd24a0 ""
+  "A2/build/ausserhalb_b_fit.pdf" 1590084686 13819 43a948997da38d5fa4261757ef6e2891 ""
+  "A2/build/innerhalb_a.pdf" 1590084686 10312 06f9d911bbb763022b5ef64ccdaf1ac5 ""
+  "A2/build/innerhalb_b.pdf" 1590084686 10384 c0152a88f407f1cf258049f005a6b810 ""
+  "build/main.aux" 1590084690 871 e0938561683b0cfd2842e08d40420ca3 ""
   "content/Aufgabe1.tex" 1589979327 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "content/Aufgabe2.tex" 1590083042 4021 e4b0da4c798e11c0b4b1b79963da7a45 ""
+  "content/Aufgabe2.tex" 1590084622 4435 46b73cf96192bb6236d25f8d8b7578c3 ""
   "main.tex" 1590080241 1091 2aca5bfc08e4c2acd1d7cf378faab62a ""
   (generated)
-  "build/main.log"
   "build/main.pdf"
   "build/main.aux"
+  "build/main.log"

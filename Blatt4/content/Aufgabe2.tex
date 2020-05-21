@@ -68,7 +68,7 @@ Die erste nicht verschwindende Ordnung der Multipolentwicklung stellt dieses Mal
   \tilde{\Phi}(x) \: \propto \: \frac{\vec{e}_\text{r}}{\rho_0 x^2} \int \int \int \vec{r}' \rho(x', y', z') \mathrm{d}x'\mathrm{d}y'\mathrm{d}z' = \frac{1}{x^2}
 \end{equation*}
 genähert werden.
-In Abbildung \ref{fig:aus_b} sind \(\tilde{\Phi}(x)\) und die Näherung aufgetragen. Dieses Mal beschreibt die Näherung die tatsächlichen Werte nur sehr schlecht.
+In Abbildung \ref{fig:aus_b} ist \(\tilde{\Phi}(x)\) und in Abbildung \ref{fig:aus_b_fit} die Näherung aufgetragen. Dieses Mal beschreibt die Näherung die tatsächlichen Werte nur sehr schlecht, was möglicherweise daran liegt, dass die Terme höherer Ordnung in diesem Fall einen großen Einfluss auf den Verlauf von \(\tilde{\Phi}(x)\) haben.
 \begin{figure}
   \centering
   \begin{subfigure}[b]{0.45\textwidth}
@@ -82,6 +82,12 @@ In Abbildung \ref{fig:aus_b} sind \(\tilde{\Phi}(x)\) und die Näherung aufgetra
       \includegraphics[width=\textwidth]{A2/build/ausserhalb_b.pdf}
       \caption{Potential außerhalb des Würfels.}
       \label{fig:aus_b}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.45\textwidth}
+      \includegraphics[width=\textwidth]{A2/build/ausserhalb_b_fit.pdf}
+      \caption{Näherung des Potential außerhalb des Würfels.}
+      \label{fig:aus_b_fit}
     \end{subfigure}
     \caption{Berechnung von \(\tilde{\Phi}(x)\).}\label{fig:b}
 \end{figure}

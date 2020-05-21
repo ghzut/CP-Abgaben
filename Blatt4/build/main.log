@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.27)  21 MAY 2020 19:44
+This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.27)  21 MAY 2020 20:11
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.068 seconds
+luaotfload | main : initialization completed in 0.073 seconds
 (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2019/02/01 v3.26b KOMA-Script document class (article)
 (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrkbase.sty
@@ -906,8 +906,19 @@ File: A2/build/ausserhalb_b.pdf Graphic file (type pdf)
 <use A2/build/ausserhalb_b.pdf>
 Package luatex.def Info: A2/build/ausserhalb_b.pdf  used on input line 82.
 (luatex.def)             Requested size: 188.21371pt x 141.15906pt.
-) [2<./A2/build/innerhalb_a.pdf><./A2/build/ausserhalb_a.pdf><./A2/build/innerha
-lb_b.pdf><./A2/build/ausserhalb_b.pdf>] (./build/main.aux)
+<A2/build/ausserhalb_b_fit.pdf, id=20, 462.52798pt x 346.89601pt>
+File: A2/build/ausserhalb_b_fit.pdf Graphic file (type pdf)
+<use A2/build/ausserhalb_b_fit.pdf>
+Package luatex.def Info: A2/build/ausserhalb_b_fit.pdf  used on input line 88.
+(luatex.def)             Requested size: 188.21371pt x 141.15906pt.
+
+Underfull \hbox (badness 2452) in paragraph at lines 89--89
+[][]|\TU/lmr/m/n/9 Nä-he-rung des Po-ten-ti-al au-ßer-halb des
+ []
+
+) [2<./A2/build/innerhalb_a.pdf><./A2/build/ausserhalb_a.pdf>] [3<./A2/build/inn
+erhalb_b.pdf><./A2/build/ausserhalb_b.pdf><./A2/build/ausserhalb_b_fit.pdf>]
+(./build/main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 2.90001pt have occurred.
@@ -915,13 +926,13 @@ LaTeX Font Warning: Size substitutions with differences
 )
 
 Here is how much of LuaTeX's memory you used:
- 19748 strings out of 494383
+ 19760 strings out of 494383
  100000,552014 words of node,token memory allocated
  613 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 4 sub_mlist, 1 glyph, 21 attribute,
  62 glue_spec, 21 attribute_list, 1 write nodes
-   avail lists: 2:712,3:141,4:5,5:198,6:24,7:2102,8:68,9:372,10:4,11:171
- 23332 multiletter control sequences out of 65536+600000
+   avail lists: 2:712,3:141,4:6,5:198,6:24,7:2102,8:68,9:372,10:4,11:171
+ 23338 multiletter control sequences out of 65536+600000
  124 fonts using 12616623 bytes
  51i,13n,73p,9109b,567s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman8-re
@@ -940,10 +951,10 @@ e/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><
 fb></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy8.pfb>
-Output written on main.pdf (2 pages, 109799 bytes).
+Output written on main.pdf (3 pages, 126693 bytes).
 
-PDF statistics: 200 PDF objects out of 1000 (max. 8388607)
- 114 compressed objects within 2 object streams
+PDF statistics: 265 PDF objects out of 1000 (max. 8388607)
+ 131 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

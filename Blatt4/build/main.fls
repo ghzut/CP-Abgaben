@@ -269,6 +269,9 @@ INPUT ./A2/build/innerhalb_b.pdf
 INPUT ./A2/build/ausserhalb_b.pdf
 INPUT ./A2/build/ausserhalb_b.pdf
 INPUT ./A2/build/ausserhalb_b.pdf
+INPUT ./A2/build/ausserhalb_b_fit.pdf
+INPUT ./A2/build/ausserhalb_b_fit.pdf
+INPUT ./A2/build/ausserhalb_b_fit.pdf
 INPUT build/main.aux
 INPUT /home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
