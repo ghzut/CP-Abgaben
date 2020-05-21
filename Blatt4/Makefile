@@ -1,4 +1,4 @@
-all: A2 #A3 # A1
+all: A1 A2
 
 
 A1: A1/A1.cpp A1/build A1/A1.py
