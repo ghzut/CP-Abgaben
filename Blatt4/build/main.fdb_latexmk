@@ -1,5 +1,5 @@
 # Fdb version 3
-["lualatex"] 1590087244 "main.tex" "build/main.pdf" "main" 1590087246
+["lualatex"] 1590088299 "main.tex" "build/main.pdf" "main" 1590088301
   "/home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf" 1480098679 111240 0af0b64d6d3df41bead3f9de314afbd4 ""
   "/home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf" 1480098679 111536 ae9d1b331000d544f47e5223081b7b54 ""
   "/home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf" 1480098679 111948 cee9e390fd6d23cfb4d6871ba2a9ee5b ""
@@ -133,11 +133,11 @@
   "A2/build/ausserhalb_b_fit.pdf" 1590084686 13819 43a948997da38d5fa4261757ef6e2891 ""
   "A2/build/innerhalb_a.pdf" 1590084686 10312 06f9d911bbb763022b5ef64ccdaf1ac5 ""
   "A2/build/innerhalb_b.pdf" 1590084686 10384 c0152a88f407f1cf258049f005a6b810 ""
-  "build/main.aux" 1590087245 871 e0938561683b0cfd2842e08d40420ca3 ""
+  "build/main.aux" 1590088301 871 e0938561683b0cfd2842e08d40420ca3 ""
   "content/Aufgabe1.tex" 1589979327 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "content/Aufgabe2.tex" 1590087235 4634 c6b90a8e3741b5bc726dcbd40381d3df ""
+  "content/Aufgabe2.tex" 1590088256 4716 79177e1e826e2d6dfce92a6ba20ca3c5 ""
   "main.tex" 1590080241 1091 2aca5bfc08e4c2acd1d7cf378faab62a ""
   (generated)
+  "build/main.log"
   "build/main.pdf"
   "build/main.aux"
-  "build/main.log"
