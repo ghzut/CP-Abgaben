@@ -7,16 +7,18 @@ using namespace Eigen;
 
 
 class Cube {
-    private:
-    	const double a = -1;
-        const double b = 1;
-        const int n = 100;
-        const double h = (b-a)/n;
-
     public:
 
+    double a;
+    double b;
+    int n;
+    
+    double h(){
+        return (b-a)/n;
+    } 
+
     double arg (int k) {
-        return a-h/2 + k*h;
+        return a-h()/2 + k*h();
     }
 
     double integrate1D(const double& x, double (*f)(const double&, const double&, const double&, const double&), double y_s,    double z_s){
@@ -25,7 +27,7 @@ class Cube {
         for (int k = 1; k <= n; ++k){
             result += f(x, arg(k), y_s, z_s);
         }
-        result = result * h;
+        result = result * h();
         return result;
     }
 
@@ -35,7 +37,7 @@ class Cube {
         for (int k = 1; k <= n; ++k){
             result += integrate1D(x, f, arg(k), z_s);
         }
-        result = result * h;
+        result = result * h();
         return result;
     }
 
@@ -45,7 +47,7 @@ class Cube {
         for (int k = 1; k <= n; ++k){
             result += integrate2D(x, f, arg(k));
         }
-        result = result * h;
+        result = result * h();
         return result;
     }
 
@@ -68,6 +70,9 @@ int main()
     double phi=0, phi_b=0; 
 
     Cube cube; 
+    cube.a = -1;
+    cube.b = 1;
+    cube.n = 100;
 
     ofstream file_1, file_2;
     file_1.open("build/ausserhalb_a.txt");
