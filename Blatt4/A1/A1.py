@@ -27,6 +27,7 @@ plt.savefig("A1/build/1b_err.pdf")
 
 n, int, err = np.genfromtxt("A1/build/A1c.txt", unpack=True)
 
+plt.clf()
 x = np.linspace(0.1, np.max(n))
 plt.plot(n, int, "b-", label= r'Integral $\sin{x}/x$ Mittelpunktsregel')
 plt.plot(x, np.pi+0*x, "r--")
