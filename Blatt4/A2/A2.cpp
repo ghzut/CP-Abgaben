@@ -1,85 +1,100 @@
 #include <iostream>
-#include <iomanip>
-#include <math.h>
+#include <Eigen/Dense>
 #include <fstream>
 
 using namespace std;
-//Zu integrierende Funktionen a)
-long double f1(long double x)
+using namespace Eigen;
+
+double f1(double x, double x_s, double y_s, double z_s)
 {
-    return exp(x)/x;
+    return 1/sqrt((x-x_s)*(x-x_s)+y_s*y_s+z_s*z_s);
 }
 
 
-//Zu integrierende Funktionen b)
-long double f2(long double x)
+double integrate1D(double x, double (*f)(double, double, double, double), double a, double b, int n, double y_s, double z_s)
 {
-    return 2*exp(-pow(x,2));
+    double h, result; 
+    h = (b-a)/n;
+    result = 0;
+
+    for (int k = 1; k<n+1; k++)
+    {
+        result += f(x, a-h/2 + k*h, y_s, z_s);
+    }
+
+    result = result * h;
+
+    return result;
 }
 
-
-//Zu integrierende Funktionen c)
-long double f3(long double x)
+double integrate2D(double x, double (*f)(double, double, double, double), double a, double b, int n, VectorXd y_s, double z_s)
 {
-    return sin(x)/x;
+    double h, result;
+    h = (b-a)/n;
+    result = 0;
+
+    for (int k = 1; k<n+1; k++)
+    {
+        result += integrate1D(x, f, a, b, n, y_s(k-1), z_s);
+    }
+
+    result = result * h;
+
+    return result;
+}
+ 
+double integrate3D(double x, double (*f)(double, double, double, double), double a, double b, int n)
+{
+    double h, result;
+    h = (b-a)/n;
+    result = 0;
+
+    VectorXd y_s = VectorXd::LinSpaced(n, a, b);
+    VectorXd z_s = y_s;
+
+    for (int k = 1; k<n+1; k++)
+    {
+        result += integrate2D(x, f, a, b, n, y_s, z_s(k-1));
+    }
+
+    result = result * h;
+
+    return result;
 }
 
-//Wir verwenden die Simpsonregel, da diese die wenigsten Iterationen benötigt
-long double simpson(long double (*f)(long double), long double a, long double b, int n)
-{
-	long double h, x[n+1], result = 0;
-	int j;
-	h = (b-a)/n;
-	x[0] = a;
-
-	for(j=1; j<=n; j++)
-	{
-		x[j] = a + h*j;
-	}
-
-	for(j=1; j<=n/2; j++)
-	{
-		result += f(x[2*j - 2]) + 4*f(x[2*j - 1]) + f(x[2*j]);
-	}
-
-	return result*h/3;
-}
-
-long double get_Int(long double (*f)(long double), long double a, long double max_err, long double b)
-{
-  long double temp, new_res;
-  long double err = 10000.;
-  long double n=2.;
-  temp = simpson(f, a, b, n);
-  while (err > max_err)
-  {
-    n = 2*n;
-    new_res = simpson(f, a, b, n);
-    err = abs(temp-new_res);
-    temp = new_res;
-  }
-  return temp;
-}
-
-void integrate_b(long double a, long double max_err, long double limit)
-{
-  string outfilename = "build/A2b.txt";
-  ofstream outfile(outfilename, ofstream::trunc);
-  outfile << "#i, int, err\n";
-  outfile.precision(10);
-  long double result, result2;
-
-  for (long double i = 1.; i < limit; i*=2.)
-  {
-    result = get_Int(&f2, a, max_err, i);
-    result2 = get_Int(&f2, a, max_err, i+1.);
-    outfile << i << " " << result << " " << abs(result2-result) << "\n";
-  }
-  outfile.flush();
-  outfile.close();
-}
 int main()
 {
-  integrate_b(0., 0.00000001, pow(2.,7.));
-  return 0;
+
+    VectorXd x = 0.1*VectorXd::LinSpaced(70, 11, 80);
+    double phi=0;
+
+
+
+    ofstream file;
+    file.open("build/ausserhalb.txt");
+    file << "# x      phi \n\n";
+
+
+    for (int i=0; i<x.size(); i++)
+    {
+        phi = integrate3D(x(i), &f1, -1, 1, 10);
+        file << x(i) << "       " << phi << "\n";
+    }
+
+    file.close();
+
+    file.open("build/innerhalb.txt");
+    file << "# x      phi \n\n";
+
+    x = 0.1*VectorXd::LinSpaced(11, 0, 10);
+
+    for (int i=0; i<x.size(); i++)
+    {
+        phi = integrate3D(x(i), &f1, -1, 1, 10);
+        file << x(i) << "       " << phi << "\n";
+    }
+
+    file.close();
+
+    return 0;
 }

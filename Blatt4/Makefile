@@ -1,4 +1,4 @@
-all: A2 A3 # A1
+all: A2 #A3 # A1
 
 
 A1: A1/A1.cpp A1/build A1/A1.py
@@ -7,9 +7,10 @@ A1: A1/A1.cpp A1/build A1/A1.py
 	python A1/A1.py
 
 
-A2: A2/A2.cpp A2/build
-	g++ -O3 -ffast-math -march=native -I /usr/include/eigen3 $< -o A2/$@
+A2: A2/A2.cpp A2/build A2/A2.py
+	g++ -O3 -ffast-math -march=native -I /usr/include/eigen3 -Wall $< -o A2/$@
 	cd A2; ./$@ > log.txt
+	python A2/A2.py
 
 A3: A3/A3.cpp A3/build A3/A3.py
 	g++ -O3 -ffast-math -march=native -I /usr/include/eigen3 -fopenmp $< -o A3/$@
