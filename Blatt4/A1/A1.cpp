@@ -21,7 +21,7 @@ double f2(double x)
 //Zu integrierende Funktionen c)
 double f3(double x)
 {
-    return 2*(sin(x)+sin(1./x))/x;
+    return 2*(sin(x))/x;
 }
 
 //Um Polstellen zu umgehen wird ein offenes Verfahren benötigt
@@ -74,22 +74,17 @@ double get_Int(double (*integrate)(double (*f)(double), double, double, int), do
   {
     n = 2*n;
     new_res = integrate(func, a, b, n);
-    if(abs(temp-new_res) < err)
-    {
     err = abs(temp-new_res);
     temp = new_res;
-    cout << err << endl;
-    }
-    else continue;
   }
   return temp;
 }
 
 
 
-void int_a_c(double (*func)(double),double a, double max_err, double limit, string part)
+void int_a(double (*func)(double),double a, double max_err, double limit, string part)
 {
-  ofstream outfile("build/A2"+part+".txt", ofstream::trunc);
+  ofstream outfile("build/A1"+part+".txt", ofstream::trunc);
   outfile << "#result\n";
   outfile.precision(8);
   double result;
@@ -98,17 +93,17 @@ void int_a_c(double (*func)(double),double a, double max_err, double limit, stri
   outfile.close();
 }
 
-void int_b(double a, double max_err, double limit)
+void int_b_c(double (*integrate)(double (*f)(double), double, double, int),double (*func)(double), double a, double max_err, double limit, string part)
 {
-  ofstream outfile("build/A2b.txt", ofstream::trunc);
+  ofstream outfile("build/A1"+part+".txt", ofstream::trunc);
   outfile << "#i, int, err\n";
   outfile.precision(9);
   double result, result2;
 
-  for (double i = 1.; i < limit; i*=2.)
+  for (double i = 1.; i < limit; i*=5.)
   {
-    result = get_Int(&simpson, &f2, a, max_err, i);
-    result2 = get_Int(&simpson, &f2, a, max_err, i+1.);
+    result = get_Int(integrate, func, a, max_err, i);
+    result2 = get_Int(integrate, func, a, max_err, i*2.);
     outfile << i << " " << result << " " << abs(result2-result) << "\n";
   }
   outfile.flush();
@@ -116,10 +111,9 @@ void int_b(double a, double max_err, double limit)
 }
 int main()
 {
-  int_a_c(&f1, 0., 1e-7, 1., "a");
-  cout << endl << endl;
-  int_b(0., 1e-10, pow(2.,7.));
-  //cout << endl << endl;
-  //int_a_c(&f3, 0., 1e-7, 1., "c");
+  cout << setprecision(10);
+  int_a(&f1, 0., 1e-7, 1., "a");
+  int_b_c(&simpson, &f2, 0., 1e-10, pow(5.,6.), "b");
+  int_b_c(&mittelpunkt, &f3, 0., 1e-7, pow(5.,10.), "c");
   return 0;
 }
