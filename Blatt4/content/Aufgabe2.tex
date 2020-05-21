@@ -33,7 +33,7 @@ Das Potential außerhalb des Würfels kann mithilfe einer Multipolentwicklung zu
 In Abbildung \ref{fig:aus_a} sind \(\tilde{\Phi}(x)\) sowie die Näherung aufgetragen. Daran ist zu sehen, dass die Näherung den Trend der Werte sehr gut abbildet.
 In Abbildung \ref{fig:inn_a} ist das Potential innerhalb des Würfels aufgetragen.
 Beim Integrieren könnte der Nenner Null werden, wodurch das Integral divergiert. Um dies zu verhindern, kann ein kleines \(\varepsilon\) auf denn Nenner addiert werden, sobald dieser zu klein wird. Alternativ kann auch eine andere Anzahl an Teilintervallen \(n\) gewählt werden.
-\begin{figure}
+\begin{figure}[h!]
   \centering
   \begin{subfigure}[b]{0.45\textwidth}
       \includegraphics[width=\textwidth]{A2/build/innerhalb_a.pdf}
@@ -49,7 +49,7 @@ Beim Integrieren könnte der Nenner Null werden, wodurch das Integral divergiert
     \end{subfigure}
     \caption{Berechnung von \(\tilde{\Phi}(x)\).}\label{fig:a}
 \end{figure}
-
+\FloatBarrier
 \subsubsection*{b)}
 
 Nun soll das elektrostatsische Potential \eqref{eqn:phi} mit der Ladungsverteilung
@@ -70,7 +70,7 @@ Die erste nicht verschwindende Ordnung der Multipolentwicklung stellt dieses Mal
 \end{equation*}
 genähert werden.
 In Abbildung \ref{fig:aus_b} ist \(\tilde{\Phi}(x)\) und in Abbildung \ref{fig:aus_b_fit} die Näherung aufgetragen. Dieses Mal beschreibt die Näherung die tatsächlichen Werte nur sehr schlecht, was möglicherweise daran liegt, dass die Terme höherer Ordnung in diesem Fall einen großen Einfluss auf den Verlauf von \(\tilde{\Phi}(x)\) haben.
-\begin{figure}
+\begin{figure}[!h]
   \centering
   \begin{subfigure}[b]{0.45\textwidth}
       \includegraphics[width=\textwidth]{A2/build/innerhalb_b.pdf}
@@ -92,3 +92,4 @@ In Abbildung \ref{fig:aus_b} ist \(\tilde{\Phi}(x)\) und in Abbildung \ref{fig:a
     \end{subfigure}
     \caption{Berechnung von \(\tilde{\Phi}(x)\).}\label{fig:b}
 \end{figure}
+\FloatBarrier

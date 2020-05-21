@@ -5,7 +5,7 @@
 using namespace std;
 using namespace Eigen;
 
-//Lars: ich hatte erst einen Header geschrieben und wurde dann freundlich von Julia darauf hingewiesen, dass wir das nicht sollen ... daher die Klasse
+
 class Cube {
     private:
     	double a = -1;
@@ -50,6 +50,8 @@ class Cube {
     }
 
 };
+
+//Eigentlich sollten die beiden Funktionen Teil der Klasse sein...wenn ich aber später versuche via cube.f1 bzw cube.f2 darauf zuzugreifen, kriege ich einen "invalid-use-of-non-static-member-function"-error. Ich habe es jetzt nicht anders behoben bekommen, kennt ihr eine gute Lösung?
 
 double f1(const double& x, const double& x_s, const double& y_s, const double& z_s){
         return 1/sqrt((x-x_s)*(x-x_s)+y_s*y_s+z_s*z_s);
