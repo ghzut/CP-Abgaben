@@ -10,6 +10,10 @@ double f1(double x, double x_s, double y_s, double z_s)
     return 1/sqrt((x-x_s)*(x-x_s)+y_s*y_s+z_s*z_s);
 }
 
+double f2(double x, double x_s, double y_s, double z_s)
+{
+    return x/sqrt((x-x_s)*(x-x_s)+y_s*y_s+z_s*z_s);
+}
 
 double integrate1D(double x, double (*f)(double, double, double, double), double a, double b, int n, double y_s, double z_s)
 {
@@ -66,35 +70,46 @@ int main()
 {
 
     VectorXd x = 0.1*VectorXd::LinSpaced(70, 11, 80);
-    double phi=0;
+    double phi=0, phi_b=0;
 
 
 
-    ofstream file;
-    file.open("build/ausserhalb.txt");
-    file << "# x      phi \n\n";
+    ofstream file_1, file_2;
+    file_1.open("build/ausserhalb_a.txt");
+    file_2.open("build/ausserhalb_b.txt");
 
+    file_1 << "# x      phi \n\n";
+    file_2 << "# x      phi \n\n";
 
     for (int i=0; i<x.size(); i++)
     {
         phi = integrate3D(x(i), &f1, -1, 1, 10);
-        file << x(i) << "       " << phi << "\n";
+        phi_b = integrate3D(x(i), &f2, -1, 1, 10);
+        file_1 << x(i) << "       " << phi << "\n";
+        file_2 << x(i) << "       " << phi_b << "\n";
     }
 
-    file.close();
+    file_1.close();
+    file_2.close();
 
-    file.open("build/innerhalb.txt");
-    file << "# x      phi \n\n";
+    file_1.open("build/innerhalb_a.txt");
+    file_2.open("build/innerhalb_b.txt");
+
+    file_1 << "# x      phi \n\n";
+    file_2 << "# x      phi \n\n";
 
     x = 0.1*VectorXd::LinSpaced(11, 0, 10);
 
     for (int i=0; i<x.size(); i++)
     {
         phi = integrate3D(x(i), &f1, -1, 1, 10);
-        file << x(i) << "       " << phi << "\n";
+        phi_b = integrate3D(x(i), &f2, -1, 1, 10);
+        file_1 << x(i) << "       " << phi << "\n";
+        file_2 << x(i) << "       " << phi_b << "\n";
     }
 
-    file.close();
+    file_1.close();
+    file_2.close();
 
     return 0;
 }
