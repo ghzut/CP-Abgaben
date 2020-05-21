@@ -1,6 +1,56 @@
-#include "cube.h"
+#include <iostream>
+#include <Eigen/Dense>
+#include <fstream>
 
-//Wenn ich die Funktionen im Header inkludiere kriege ich immer "invalid use of non-static member function" als Fehlermeldung wenn ich sie später benutzen will, daher stehen sie erstmal hier. Ich habe die Lösung nicht rausgefunden, sonst ständen sie im header :(
+using namespace std;
+using namespace Eigen;
+
+//Lars: ich hatte erst einen Header geschrieben und wurde dann freundlich von Julia darauf hingewiesen, dass wir das nicht sollen ... daher die Klasse
+class Cube {
+    private:
+    	double a = -1;
+        double b = 1;
+        int n = 100;
+        double h = (b-a)/n;
+
+    public:
+
+    double arg (int k) {
+        return a-h/2 + k*h;
+    }
+
+    double integrate1D(const double& x, double (*f)(const double&, const double&, const double&, const double&), double y_s,    double z_s){
+        double result = 0;
+
+        for (int k = 1; k <= n; ++k){
+            result += f(x, arg(k), y_s, z_s);
+        }
+        result = result * h;
+        return result;
+    }
+
+    double integrate2D(const double x, double (*f)(const double&, const double&, const double&, const double&), double z_s){
+        double result = 0;
+
+        for (int k = 1; k <= n; ++k){
+            result += integrate1D(x, f, arg(k), z_s);
+        }
+        result = result * h;
+        return result;
+    }
+
+    double integrate3D(const double& x, double (*f)(const double&, const double&, const double&, const double&)){
+        double result = 0;
+
+        for (int k = 1; k <= n; ++k){
+            result += integrate2D(x, f, arg(k));
+        }
+        result = result * h;
+        return result;
+    }
+
+};
+
 double f1(const double& x, const double& x_s, const double& y_s, const double& z_s){
         return 1/sqrt((x-x_s)*(x-x_s)+y_s*y_s+z_s*z_s);
 }
