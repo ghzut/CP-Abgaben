@@ -8,10 +8,10 @@ using namespace Eigen;
 
 class Cube {
     private:
-    	double a = -1;
-        double b = 1;
-        int n = 100;
-        double h = (b-a)/n;
+    	const double a = -1;
+        const double b = 1;
+        const int n = 100;
+        const double h = (b-a)/n;
 
     public:
 
