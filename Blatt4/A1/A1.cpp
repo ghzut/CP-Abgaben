@@ -111,7 +111,7 @@ int main()
 {
   cout << setprecision(10);
   int_a(&f1, 0., 1e-7, 1., "a");
-  int_b_c(&simpson, &f2, 0., 1e-10, pow(5.,6.), 2., "b");
+  int_b_c(&simpson, &f2, 0., 1e-10, pow(2.,5.), 2., "b");
   int_b_c(&mittelpunkt, &f3, 0., 1e-7, pow(5.,10.), 5., "c");
   return 0;
 }
