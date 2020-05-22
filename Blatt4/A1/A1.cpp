@@ -94,7 +94,7 @@ void int_a(double (*func)(double),double a, double max_err, double limit, string
 void int_b_c(double (*integrate)(double (*f)(double), double, double, int),double (*func)(double), double a, double max_err, double limit, double increment, string part)
 {
   ofstream outfile("build/A1"+part+".txt", ofstream::trunc);
-  outfile << "#i, int, err\n";
+  outfile << "#i, int, int 2, err\n";
   outfile.precision(9);
   double result, result2;
 
@@ -102,7 +102,7 @@ void int_b_c(double (*integrate)(double (*f)(double), double, double, int),doubl
   {
     result = get_Int(integrate, func, a, max_err, i);
     result2 = get_Int(integrate, func, a, max_err, i+increment/2.);
-    outfile << i << " " << result << " " << abs(result2-result) << "\n";
+    outfile << i << " " << result << " " << result2 << " " << abs(result2-result) << "\n";
   }
   outfile.flush();
   outfile.close();
