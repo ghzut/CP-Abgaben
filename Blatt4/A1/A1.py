@@ -24,7 +24,7 @@ plt.savefig("A1/build/1b_err.pdf")
 
 #c)
 
-n, int, int, err = np.genfromtxt("A1/build/A1c.txt", unpack=True)
+n, int, int2, err = np.genfromtxt("A1/build/A1c.txt", unpack=True)
 
 plt.clf()
 x = np.linspace(0.1, np.max(n))
