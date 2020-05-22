@@ -91,17 +91,17 @@ void int_a(double (*func)(double),double a, double max_err, double limit, string
   outfile.close();
 }
 
-void int_b_c(double (*integrate)(double (*f)(double), double, double, int),double (*func)(double), double a, double max_err, double limit, string part)
+void int_b_c(double (*integrate)(double (*f)(double), double, double, int),double (*func)(double), double a, double max_err, double limit, double increment, string part)
 {
   ofstream outfile("build/A1"+part+".txt", ofstream::trunc);
   outfile << "#i, int, err\n";
   outfile.precision(9);
   double result, result2;
 
-  for (double i = 1.; i < limit; i*=5.)
+  for (double i = 1.; i < limit; i*=increment)
   {
     result = get_Int(integrate, func, a, max_err, i);
-    result2 = get_Int(integrate, func, a, max_err, i*2.);
+    result2 = get_Int(integrate, func, a, max_err, i+increment/2.);
     outfile << i << " " << result << " " << abs(result2-result) << "\n";
   }
   outfile.flush();
@@ -111,7 +111,7 @@ int main()
 {
   cout << setprecision(10);
   int_a(&f1, 0., 1e-7, 1., "a");
-  int_b_c(&simpson, &f2, 0., 1e-10, pow(5.,6.), "b");
-  int_b_c(&mittelpunkt, &f3, 0., 1e-7, pow(5.,10.), "c");
+  int_b_c(&simpson, &f2, 0., 1e-10, pow(5.,6.), 2., "b");
+  int_b_c(&mittelpunkt, &f3, 0., 1e-7, pow(5.,10.), 5., "c");
   return 0;
 }
