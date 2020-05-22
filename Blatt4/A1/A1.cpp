@@ -101,7 +101,7 @@ void int_b_c(double (*integrate)(double (*f)(double), double, double, int),doubl
   for (double i = 1.; i < limit; i*=increment)
   {
     result = get_Int(integrate, func, a, max_err, i);
-    result2 = get_Int(integrate, func, a, max_err, i+increment/2.);
+    result2 = get_Int(integrate, func, a, max_err, i+1.);//increment/2.);
     outfile << i << " " << result << " " << result2 << " " << abs(result2-result) << "\n";
   }
   outfile.flush();
