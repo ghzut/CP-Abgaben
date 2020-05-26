@@ -21,7 +21,7 @@ double f2(double x)
 //Zu integrierende Funktionen c)
 double f3(double x)
 {
-    return 2*(sin(x)+sin(1./x))/x;
+    return 2*(sin(x))/x;
 }
 
 //Um Polstellen zu umgehen wird ein offenes Verfahren benötigt
@@ -33,12 +33,10 @@ double mittelpunkt(double (*f)(double), double a, double b, int n)
 
     for (int k = 1; k<n+1; k++)
     {
-        result += 2*f(a-h/4. + k*h);
-        result -= f(a-2.*h/4. + k*h);
-        result += 2*f(a-3.*h/4. + k*h);
+        result += f(a-h/2. + k*h);
     }
 
-    result = result * 1./3.* h;
+    result = result * h;
 
     return result;
 }
@@ -74,22 +72,17 @@ double get_Int(double (*integrate)(double (*f)(double), double, double, int), do
   {
     n = 2*n;
     new_res = integrate(func, a, b, n);
-    if(abs(temp-new_res) < err)
-    {
     err = abs(temp-new_res);
     temp = new_res;
-    cout << err << endl;
-    }
-    else continue;
   }
   return temp;
 }
 
 
 
-void int_a_c(double (*func)(double),double a, double max_err, double limit, string part)
+void int_a(double (*func)(double),double a, double max_err, double limit, string part)
 {
-  ofstream outfile("build/A2"+part+".txt", ofstream::trunc);
+  ofstream outfile("build/A1"+part+".txt", ofstream::trunc);
   outfile << "#result\n";
   outfile.precision(8);
   double result;
@@ -98,28 +91,27 @@ void int_a_c(double (*func)(double),double a, double max_err, double limit, stri
   outfile.close();
 }
 
-void int_b(double a, double max_err, double limit)
+void int_b_c(double (*integrate)(double (*f)(double), double, double, int),double (*func)(double), double a, double max_err, double limit, double increment, string part)
 {
-  ofstream outfile("build/A2b.txt", ofstream::trunc);
-  outfile << "#i, int, err\n";
+  ofstream outfile("build/A1"+part+".txt", ofstream::trunc);
+  outfile << "#i, int, int 2, err\n";
   outfile.precision(9);
   double result, result2;
 
-  for (double i = 1.; i < limit; i*=2.)
+  for (double i = 1.; i < limit; i*=increment)
   {
-    result = get_Int(&simpson, &f2, a, max_err, i);
-    result2 = get_Int(&simpson, &f2, a, max_err, i+1.);
-    outfile << i << " " << result << " " << abs(result2-result) << "\n";
+    result = get_Int(integrate, func, a, max_err, i);
+    result2 = get_Int(integrate, func, a, max_err, i+1.);//increment/2.);
+    outfile << i << " " << result << " " << result2 << " " << abs(result2-result) << "\n";
   }
   outfile.flush();
   outfile.close();
 }
 int main()
 {
-  int_a_c(&f1, 0., 1e-7, 1., "a");
-  cout << endl << endl;
-  int_b(0., 1e-10, pow(2.,7.));
-  //cout << endl << endl;
-  //int_a_c(&f3, 0., 1e-7, 1., "c");
+  cout << setprecision(10);
+  int_a(&f1, 0., 1e-7, 1., "a");
+  int_b_c(&simpson, &f2, 0., 1e-10, pow(2.,5.), 2., "b");
+  int_b_c(&mittelpunkt, &f3, 0., 1e-7, pow(5.,10.), 5., "c");
   return 0;
 }
