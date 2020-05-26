@@ -51,17 +51,15 @@ class Cube {
         return result;
     }
 
-};
-
-//Eigentlich sollten die beiden Funktionen Teil der Klasse sein...wenn ich aber später versuche via cube.f1 bzw cube.f2 darauf zuzugreifen (z.B. Zeile 81)) , kriege ich einen "invalid-use-of-non-static-member-function"-error. Ich habe es jetzt nicht anders behoben bekommen, kennt ihr eine gute Lösung?
-
-double f1(const double& x, const double& x_s, const double& y_s, const double& z_s){
+    static double f1(const double& x, const double& x_s, const double& y_s, const double& z_s){
         return 1/sqrt((x-x_s)*(x-x_s)+y_s*y_s+z_s*z_s);
-}
+    }
 
-double f2(const double& x, const double& x_s, const double& y_s, const double& z_s){
-            return x/sqrt((x-x_s)*(x-x_s)+y_s*y_s+z_s*z_s);
-}
+    static double f2(const double& x, const double& x_s, const double& y_s, const double& z_s){
+            return x_s/sqrt((x-x_s)*(x-x_s)+y_s*y_s+z_s*z_s);
+    }
+
+};
 
 
 int main() 
@@ -83,8 +81,8 @@ int main()
 
     for (int i=0; i<x.size(); i++)
     {
-        phi = cube.integrate3D(x(i), f1);
-        phi_b = cube.integrate3D(x(i), f2);
+        phi = cube.integrate3D(x(i), cube.f1);
+        phi_b = cube.integrate3D(x(i), cube.f2);
         file_1 << x(i) << "       " << phi << "\n";
         file_2 << x(i) << "       " << phi_b << "\n";
     }
@@ -102,8 +100,8 @@ int main()
 
     for (int i=0; i<x.size(); i++)
     {
-        phi = cube.integrate3D(x(i), f1);
-        phi_b = cube.integrate3D(x(i), f2);
+        phi = cube.integrate3D(x(i), cube.f1);
+        phi_b = cube.integrate3D(x(i), cube.f2);
         file_1 << x(i) << "       " << phi << "\n";
         file_2 << x(i) << "       " << phi_b << "\n";
     }
