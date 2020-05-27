@@ -6,105 +6,119 @@ using namespace std;
 using namespace Eigen;
 
 
-class Cube {
-    private:
-    	double a = -1;
-        double b = 1;
-        int n = 100;
-        double h = (b-a)/n;
-
-    public:
-
-    double arg (int k) {
-        return a-h/2 + k*h;
-    }
-
-    double integrate1D(const double& x, double (*f)(const double&, const double&, const double&, const double&), double y_s,    double z_s){
-        double result = 0;
-
-        for (int k = 1; k <= n; ++k){
-            result += f(x, arg(k), y_s, z_s);
-        }
-        result = result * h;
-        return result;
-    }
-
-    double integrate2D(const double x, double (*f)(const double&, const double&, const double&, const double&), double z_s){
-        double result = 0;
-
-        for (int k = 1; k <= n; ++k){
-            result += integrate1D(x, f, arg(k), z_s);
-        }
-        result = result * h;
-        return result;
-    }
-
-    double integrate3D(const double& x, double (*f)(const double&, const double&, const double&, const double&)){
-        double result = 0;
-
-        for (int k = 1; k <= n; ++k){
-            result += integrate2D(x, f, arg(k));
-        }
-        result = result * h;
-        return result;
-    }
-
-};
-
-//Eigentlich sollten die beiden Funktionen Teil der Klasse sein...wenn ich aber später versuche via cube.f1 bzw cube.f2 darauf zuzugreifen (z.B. Zeile 81)) , kriege ich einen "invalid-use-of-non-static-member-function"-error. Ich habe es jetzt nicht anders behoben bekommen, kennt ihr eine gute Lösung?
-
-double f1(const double& x, const double& x_s, const double& y_s, const double& z_s){
-        return 1/sqrt((x-x_s)*(x-x_s)+y_s*y_s+z_s*z_s);
-}
-
-double f2(const double& x, const double& x_s, const double& y_s, const double& z_s){
-            return x/sqrt((x-x_s)*(x-x_s)+y_s*y_s+z_s*z_s);
-}
-
-
-int main() 
+//Funktion, die minimiert werden soll
+double f(double x)
 {
-    VectorXd x = 0.1*VectorXd::LinSpaced(70, 11, 80);
-    double phi=0, phi_b=0; 
+    return x*x-2;
+}
 
-    Cube cube; 
 
-    ofstream file_1, file_2;
-    file_1.open("build/ausserhalb_a.txt");
-    file_2.open("build/ausserhalb_b.txt");
+//Funktionen zur numerischen Bestimmung der ersten und zweiten Ableitung einer Funktion
+double erste_ableitung(double (*f)(double), double x)
+{
+    double h = 0.001;
 
-    file_1 << "# x      phi \n\n";
-    file_2 << "# x      phi \n\n";
+    return (f(x+h) - f(x-h))/(2*h);
+}
 
-    for (int i=0; i<x.size(); i++)
+double zweite_ableitung(double (*f)(double), double x)
+{
+    double h = 0.001;
+
+    return (f(x+h) - 2*f(x) + f(x-h))/(h*h);
+}
+
+
+//Minimierungsroutinen
+void intervallhalbierung(double (*f)(double), double a, double b, double c, double x_c)
+{
+    double d;
+    int n = 0;
+
+    ofstream file;
+    file.open("build/intervallhalbierung.txt");
+    file << "# n      a       b       c\n\n";
+    file << n << "  " << a << "  " << b << "  " << c << "\n";
+
+    
+    while (c-a > x_c)
     {
-        phi = cube.integrate3D(x(i), f1);
-        phi_b = cube.integrate3D(x(i), f2);
-        file_1 << x(i) << "       " << phi << "\n";
-        file_2 << x(i) << "       " << phi_b << "\n";
+        if (b-a < c-b)
+        {
+            d = (c+b)/2;
+
+            if (f(d) < f(b))
+            {
+                a = b;
+                b = d;
+            }
+            else
+            {
+                c = d;
+            }
+        }
+        else
+        {
+            d = (a+b)/2;
+
+            if (f(d) < f(b))
+            {
+                c = b;
+                b = d;
+            }
+            else
+            {
+                a = d;
+            }
+            
+        }
+
+        n += 1;
+
+        file << n << "  " << a << "  " << b << "  " << c << "\n";
     }
 
-    file_1.close();
-    file_2.close();
+    file.close();
+}
 
-    file_1.open("build/innerhalb_a.txt");
-    file_2.open("build/innerhalb_b.txt");
+void newton(double (*f)(double), double x_0, double x_c)
+{
+    double dx;
+    int n = 0;
 
-    file_1 << "# x      phi \n\n";
-    file_2 << "# x      phi \n\n";
+    dx = erste_ableitung(f, x_0)/zweite_ableitung(f, x_0);
 
-    x = 0.1*VectorXd::LinSpaced(11, 0, 10);
+    ofstream file;
+    file.open("build/newton.txt");
+    file << "# n      x_0\n\n";
+    file << n << "  " << x_0 << "\n";
 
-    for (int i=0; i<x.size(); i++)
+
+    while (dx > x_c)
     {
-        phi = cube.integrate3D(x(i), f1);
-        phi_b = cube.integrate3D(x(i), f2);
-        file_1 << x(i) << "       " << phi << "\n";
-        file_2 << x(i) << "       " << phi_b << "\n";
-    }
+        n += 1;
+        x_0 = x_0 - dx;
+        
+        file << n << "  " << x_0 << "\n";
 
-    file_1.close();
-    file_2.close();
+        dx = erste_ableitung(f, x_0)/zweite_ableitung(f, x_0);
+    }
+}
+
+
+
+int main()
+{   
+    double a, b, c, x_0, x_c;
+
+    x_c = 1e-9;
+    a = -0.5;
+    b = -0.1;
+    c = 2;
+    x_0 = 1;
+
+    intervallhalbierung(&f, a, b, c, x_c);
+    newton(&f, x_0, x_c);
 
     return 0;
 }
