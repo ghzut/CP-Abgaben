@@ -25,9 +25,9 @@ MatrixXcd init_Mat(int n)
 {
   MatrixXcd M = MatrixXcd::Zero(n,n);
   double n_l;
-  for(int j = 0; j < n-1; ++j)
+  for(int j = 0; j < n; ++j)
   {
-    for(int l = 0; l < n-1; ++l)
+    for(int l = 0; l < n; ++l)
     {
       n_l = double(l)/n;
       M(j, l) = omega_j_N(j, n_l);
