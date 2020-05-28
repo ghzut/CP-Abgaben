@@ -72,7 +72,7 @@ int main()
     }
     VectorXcd v_dir, v_fft;
     v_dir = v_dir_F(v_f_m, dim);
-    v_fft = v_F_FFT(n, v_f);
+    v_fft = v_F_FFT(dim, v_f_m);
     for(int i = 0; i < dim; ++i)
     {
       outfile1 << real(v_dir(i)) << " " << imag(v_dir(i)) << " " << real(v_fft(i)) << " " << imag(v_fft(i)) << "\n";
