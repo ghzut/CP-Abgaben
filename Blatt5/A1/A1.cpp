@@ -59,7 +59,7 @@ VectorXcd v_dir_F(const VectorXcd &v_f, int dim)
 int main()
 {
   //1. f_l = sqrt(1 + l), l aus 2^m mit m=3,4
-  ofstream outfile1("A1/build/1_1.txt", ofstream::trunc);
+  ofstream outfile1("build/1_1.txt", ofstream::trunc);
   outfile1 << "# Direkt(Re,Im), FFT(Re,Im)\n";
   for(int m = 3; m < 5; ++m)
   {
