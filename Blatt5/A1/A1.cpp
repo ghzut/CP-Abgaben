@@ -61,9 +61,9 @@ int main()
     {
       v_f_m(l) = sqrt(1.+l);
     }
+    cout << v_f_m << endl << endl;
     VectorXcd v_dir, v_fft;
     v_dir = v_dir_F(v_f_m, dim);
-    cout << v_dir << endl << endl;
   }
   return 0;
 }
