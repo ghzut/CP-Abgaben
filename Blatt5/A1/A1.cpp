@@ -60,7 +60,8 @@ int main()
 {
   //1. f_l = sqrt(1 + l), l aus 2^m mit m=3,4
   ofstream outfile1("A1/build/1_1.txt", ofstream::trunc);
-  outfile1 << "# Direkt(Re,Im), FFT(Re,Im)";
+  outfile1 << "# Direkt(Re,Im), FFT(Re,Im)\n";
+  outfile1 << "m=3\n";
   for(int m = 3; m < 5; ++m)
   {
     int dim = pow(2,m);
@@ -71,6 +72,14 @@ int main()
     }
     VectorXcd v_dir, v_fft;
     v_dir = v_dir_F(v_f_m, dim);
+    v_fft = v_F_FFT(n, v_f);
+    for(int i = 0; i < dim; ++i)
+    {
+      outfile1 << real(v_dir(i)) << " " << imag(v_dir(i)) << " " << real(v_fft(i)) << " " << imag(v_fft(i)) << "\n";
+    }
+    outfile1 << "\n";
   }
+  outfile1.flush();
+  outfile1.close();
   return 0;
 }
