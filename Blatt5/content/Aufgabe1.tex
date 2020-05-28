@@ -15,36 +15,36 @@ Für $m = 3$ ergibt sich der Vektor
 \begin{equation}
     f = 
     \begin{pmatrix} 
-        -1.38233 - i \cdot 2.23154 \\
-        -1.14173 - i \cdot 0.964724 \\
-        -1.0898  - i \cdot 0.404137 \\
-        -1.07826 + i \cdot 1.36888e-15 \\
-        -1.0898  + i \cdot 0.404137 \\
-        -1.14173 + i \cdot 0.964724 \\
-        -1.38233 + i \cdot 2.23154 \\
-        16.306   - i \cdot 1.65924e-14
+        -&1.3823 -& i \cdot 2.23154 \\
+        -&1.1417 -& i \cdot 0.964724 \\
+        -&1.0898 -& i \cdot 0.404137 \\
+        -&1.0782 +& i \cdot 1.36888e-15 \\
+        -&1.0898 +& i \cdot 0.404137 \\
+        -&1.1417 +& i \cdot 0.964724 \\
+        -&1.3823 +& i \cdot 2.23154 \\
+         &16.306 -& i \cdot 1.65924e-14
     \end{pmatrix}
 \end{equation}
 Für $m = 4$ ergibt die direkte Rechnung:
 \begin{equation}
     f =
     \begin{pmatrix}
-        -2.85108 - i \cdot 7.02149  \\
-        -2.01863 - i \cdot 3.57652 \\
-        -1.80909 - i \cdot 2.26138 \\
-        -1.72579 - i \cdot 1.52489 \\
-        -1.68555 - i \cdot 1.02385 \\
-        -1.66461 - i \cdot 0.636399 \\
-        -1.65427 - i \cdot 0.306027 \\
-        -1.65114 + i \cdot 1.71106e-14 \\
-        -1.65427 + i \cdot 0.306027 \\
-        -1.66461 + i \cdot 0.636399 \\
-        -1.68555 + i \cdot 1.02385 \\
-        -1.72579 + i \cdot 1.52489 \\
-        -1.80909 + i \cdot 2.26138 \\
-        -2.01863 + i \cdot 3.57652 \\
-        -2.85108 + i \cdot 7.02149 \\
-         44.4692 - i \cdot 1.23835e-13
+        -&2.85108 -& i \cdot 7.02149  \\
+        -&2.01863 -& i \cdot 3.57652 \\
+        -&1.80909 -& i \cdot 2.26138 \\
+        -&1.72579 -& i \cdot 1.52489 \\
+        -&1.68555 -& i \cdot 1.02385 \\
+        -&1.66461 -& i \cdot 0.636399 \\
+        -&1.65427 -& i \cdot 0.306027 \\
+        -&1.65114 +& i \cdot 1.71106e-14 \\
+        -&1.65427 +& i \cdot 0.306027 \\
+        -&1.66461 +& i \cdot 0.636399 \\
+        -&1.68555 +& i \cdot 1.02385 \\
+        -&1.72579 +& i \cdot 1.52489 \\
+        -&1.80909 +& i \cdot 2.26138 \\
+        -&2.01863 +& i \cdot 3.57652 \\
+        -&2.85108 +& i \cdot 7.02149 \\
+         &44.4692 -& i \cdot 1.23835e-13
     \end{pmatrix}
 \end{equation}
 Die schnelle Fouriertransformation liefert folgende Ergebnisse:
@@ -99,13 +99,13 @@ für $ m = 7 $ bestimmt.
 Analytisch ergibt sich $c_n$ durch 
 % Quelle: http://www.chemgapedia.de/vsengine/vlu/vsc/de/ma/1/mc/ma_12/ma_12_02/ma_12_02_04.vlu/Page/vsc/de/ma/1/mc/ma_12/ma_12_02/ma_12_02_11.vscml.html
 \begin{align}
-    c_n = \frac{1}{2} \left( a_n + i b_n \right)
+    c_n = \frac{1}{2} \left( a_n + i b_n \right) \\
     a_n = \frac{2}{L} \int_L f(x) \cdot \cos(  2\pi \frac{n}{L}) dx \\
     b_n = \frac{2}{L} \int_L f(x) \cdot \sin(  2\pi \frac{n}{L}) dx
 \end{align}
 Mit Gleichung \eqref{eqn:recht} ergibt sich 
 \begin{align}
-    a_n = 0 \text{für alle n}
-    b_n = \frac{1}{n} \cdot \frac{4}{\pi} \text{für ungerade n}
-    c_n = i \cdot \frac{1}{n} \cdot \frac{4}{\pi} \text{für ungerade n}
+    a_n = 0 \text{  für alle n} \\
+    b_n = \frac{1}{n} \cdot \frac{4}{\pi} \text{    für ungerade n} \\
+    c_n = i \cdot \frac{1}{n} \cdot \frac{4}{\pi} \text{    für ungerade n}
 \end{align}

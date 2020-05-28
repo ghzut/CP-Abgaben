@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019)  (format=lualatex 2019.11.17)  29 MAY 2020 00:55
+This is LuaTeX, Version 1.10.0 (TeX Live 2019)  (format=lualatex 2019.11.17)  29 MAY 2020 01:00
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -59,7 +59,7 @@ Lua module: luaotfload-tounicode 2019-11-10 3.11 luaotfload submodule / tounicod
 e
 Inserting `luaotfload.rewrite_fontname' at position 6 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.148 seconds
+luaotfload | main : initialization completed in 0.143 seconds
 (/home/lars/.local/texlive/2019/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2019/10/12 v3.27 KOMA-Script document class (article)
 (/home/lars/.local/texlive/2019/texmf-dist/tex/latex/koma-script/scrkbase.sty
@@ -897,7 +897,7 @@ Here is how much of LuaTeX's memory you used:
  660 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 44 attribute, 63 glue_spec
 , 24 attribute_list, 1 write nodes
-   avail lists: 2:547,3:92,4:7,5:147,6:12,7:1373,8:59,9:312,10:3,11:92
+   avail lists: 2:707,3:84,4:7,5:162,6:12,7:1704,8:59,9:369,10:3,11:80
  25177 multiletter control sequences out of 65536+600000
  56 fonts using 7961519 bytes
  62i,10n,78p,10089b,429s stack positions out of 5000i,500n,10000p,200000b,100000s
@@ -914,7 +914,7 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></home/lars/.local/texlive/2019/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/lars/.local/texlive/20
 19/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/lars/.local/texli
 ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (2 pages, 98565 bytes).
+Output written on main.pdf (2 pages, 98531 bytes).
 
 PDF statistics: 68 PDF objects out of 1000 (max. 8388607)
  45 compressed objects within 1 object stream

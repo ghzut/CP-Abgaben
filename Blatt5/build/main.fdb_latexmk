@@ -1,5 +1,5 @@
 # Fdb version 3
-["lualatex"] 1590706511 "main.tex" "build/main.pdf" "main" 1590706513
+["lualatex"] 1590706827 "main.tex" "build/main.pdf" "main" 1590706829
   "/home/lars/.local/texlive/2019/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf" 1255129361 111240 0af0b64d6d3df41bead3f9de314afbd4 ""
   "/home/lars/.local/texlive/2019/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf" 1255129361 111536 ae9d1b331000d544f47e5223081b7b54 ""
   "/home/lars/.local/texlive/2019/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf" 1255129361 107448 a9e5b7aaaf5f74194deee407f2fd1552 ""
@@ -120,10 +120,10 @@
   "/home/lars/.local/texlive/2019/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-regular.luc" 1581263601 123482 f465cce94e0ab034f84d10ef1bf17d58 ""
   "/home/lars/.local/texlive/2019/texmf-var/tex/generic/config/language.dat" 1574016689 6580 bb954d7269c2c5635fee694f35d543cc ""
   "/home/lars/.local/texlive/2019/texmf-var/web2c/luatex/lualatex.fmt" 1574016829 1399186 35e56fbb828a7205a3ae8f4f4f1aaa7f ""
-  "build/main.aux" 1590706513 142 9aaf65573c88890407e4d306ac714b53 "lualatex"
-  "content/Aufgabe1.tex" 1590706473 3593 4249ff924ba853b07be1c0101d057623 ""
+  "build/main.aux" 1590706829 142 9aaf65573c88890407e4d306ac714b53 "lualatex"
+  "content/Aufgabe1.tex" 1590706825 3652 b9dd6a95b2acec42980cd0ed248c5195 ""
   "main.tex" 1590706507 1092 80015fa1f8c0dfe1ab4f1a2dadadadd0 ""
   (generated)
+  "build/main.aux"
   "build/main.pdf"
   "build/main.log"
-  "build/main.aux"
