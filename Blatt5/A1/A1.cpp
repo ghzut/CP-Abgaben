@@ -11,7 +11,7 @@ typedef complex<double> cdouble;
 cdouble omega_j_N(int j, double n_l)
 {
   cdouble o = -1.;
-  o = pow(o, 2*(j+1.)/n_l);
+  o = pow(o, 2*(j+1.)*n_l);
   return o;
 }
 
@@ -42,10 +42,8 @@ VectorXcd v_dir_F(const VectorXcd &v_f, int dim)
   {
     for(int l = 0; l < dim; ++l)
     {
-      cout << omega_j_N(j, double(l)/dim) << endl;
       v_dir(j) += omega_j_N(j, double(l)/dim)*v_f(l);
     }
-    cout << endl;
   }
   return v_dir;
 }
@@ -65,8 +63,7 @@ int main()
     }
     VectorXcd v_dir, v_fft;
     v_dir = v_dir_F(v_f_m, dim);
-    cout << endl;
-    //cout << v_dir << endl << endl;
+    cout << v_dir << endl << endl;
   }
   return 0;
 }
