@@ -21,9 +21,9 @@ VectorXcd init_v_f(double (*func)(double), int n)
   return vec;
 }
 
-void init_Mat(MatrixXcd &M, int n, const VectorXcd &v_f)
+MatrixXcd init_Mat(int n)
 {
-  M = MatrixXd::Zero(n,n);
+  MatrixXcd M = MatrixXcd::Zero(n,n);
   double n_l;
   for(int j = 0; j < n-1; ++j)
   {
@@ -33,6 +33,14 @@ void init_Mat(MatrixXcd &M, int n, const VectorXcd &v_f)
       M(j, l) = omega_j_N(j, n_l);
     }
   }
+  return M;
+}
+
+VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
+{
+  MatrixXcd M = init_Mat(n);
+  VectorXcd v_FFT = M * v_f;
+  return v_FFT;
 }
 
 VectorXcd v_dir_F(const VectorXcd &v_f, int dim)
@@ -63,7 +71,6 @@ int main()
     }
     VectorXcd v_dir, v_fft;
     v_dir = v_dir_F(v_f_m, dim);
-    cout << v_dir << endl << endl;
   }
   return 0;
 }
