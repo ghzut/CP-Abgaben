@@ -18,8 +18,7 @@ cdouble omega_j_N(int j, double n_l)
 VectorXcd init_v_f(double (*func)(double), int n)
 {
   VectorXcd vec = VectorXcd::Zero(n);
-
-
+  return vec;
 }
 
 void init_Mat(MatrixXcd &M, int n, const VectorXcd &v_f)
@@ -53,7 +52,7 @@ int main()
 {
   //1. f_l = sqrt(1 + l), l aus 2^m mit m=3,4
   ofstream outfile1("A1/build/1_1.txt", ofstream::trunc);
-  outfile1 << "# Direkt(Re,Im), FFT(Re,Im)"
+  outfile1 << "# Direkt(Re,Im), FFT(Re,Im)";
   for(int m = 3; m < 5; ++m)
   {
     int dim = pow(2,m);
