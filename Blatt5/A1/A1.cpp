@@ -33,6 +33,7 @@ MatrixXcd init_Mat(int n)
       M(j, l) = omega_j_N(j, n_l);
     }
   }
+  cout << M << endl;
   return M;
 }
 
@@ -55,6 +56,7 @@ VectorXcd v_dir_F(const VectorXcd &v_f, int dim)
   }
   return v_dir;
 }
+
 
 int main()
 {
