@@ -42,8 +42,10 @@ VectorXcd v_dir_F(const VectorXcd &v_f, int dim)
   {
     for(int l = 0; l < dim; ++l)
     {
+      cout << omega_j_N(j, double(l)/dim) << endl;
       v_dir(j) += omega_j_N(j, double(l)/dim)*v_f(l);
     }
+    cout << endl;
   }
   return v_dir;
 }
@@ -61,9 +63,10 @@ int main()
     {
       v_f_m(l) = sqrt(1.+l);
     }
-    cout << v_f_m << endl << endl;
     VectorXcd v_dir, v_fft;
     v_dir = v_dir_F(v_f_m, dim);
+    cout << endl;
+    //cout << v_dir << endl << endl;
   }
   return 0;
 }
