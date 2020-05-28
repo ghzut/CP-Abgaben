@@ -23,7 +23,7 @@ VectorXcd init_v_f(double (*func)(double), int n)
 
 MatrixXcd init_Mat(int n)
 {
-  MatrixXcd M = MatrixXcd::Zero(n,n);
+  MatrixXcd M = MatrixXcd::Zero(n,n-1);
   double n_l;
   for(int j = 0; j < n-1; ++j)
   {
@@ -33,7 +33,7 @@ MatrixXcd init_Mat(int n)
       M(j, l) = omega_j_N(j, n_l);
     }
   }
-  cout << M << endl;
+  cout << M << endl << endl;
   return M;
 }
 
