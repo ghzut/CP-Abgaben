@@ -30,7 +30,7 @@ MatrixXcd init_Mat(int n)
     for(int l = 0; l < n-2; ++l)
     {
       n_l = double(l)/n;
-      M(j, l) = omega_j_N(j, n_l);
+      M(l, j) = omega_j_N(j, n_l);
     }
   }
   cout << M << endl << endl;
