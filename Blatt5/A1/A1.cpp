@@ -78,7 +78,7 @@ VectorXcd v_F_FFT( int m, VectorXcd f) {
     {
         for (int l = 0; l < n; ++l)
         {
-            int lquer =reverse(l,m);
+            int lquer =lbar(l,m);
             s0(j,l)=f(lquer);
         }
     }
