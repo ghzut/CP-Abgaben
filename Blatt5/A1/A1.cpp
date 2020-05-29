@@ -97,7 +97,7 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
   }
   for(int j = 0; j < n; ++j)
   {
-    v_FFT << v_vFj.at(j).at(0);
+    v_FFT << v_v_Fj.at(j).at(0);
   }
   return v_FFT;
 }
