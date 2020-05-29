@@ -82,12 +82,12 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
   for(int i = 1; pow(2,i) <= n; ++i)
   {
     MatrixXcd M_i = MatrixXcd::Zero(n,n);
-    RowVectorXcd v_Fj = RowVectorXcd::Zero(n);
     for(int j = 0; j < pow(2,i); ++j)
     {
+      cdouble J=j;
       for(int a = 0; a < n/pow(2,i); ++a)
       {
-        M_i(j,a)= v_M_temp.at(i-1)(j, 2 * a) + v_M_temp.at(i-1)(j,2 * a + 1) * omega_j_N(j,pow(2,i));
+        M_i(j,a)= v_M_temp.at(i-1)(j, 2 * a) + v_M_temp.at(i-1)(j,2 * a + 1) * exp(2.0*pi*I*J/pow(2.0, i));
         for(int b = 0; b < n/pow(2,i); ++b)
         {
           M_i(j+b*pow(2,i),a) = M_i(j,a);
@@ -104,6 +104,49 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
   return v_FFT;
 }
 
+/*
+
+VectorXcd FFT( int m, VectorXcd f) {
+    int n = pow(2,m);
+    vector<MatrixXcd> s;
+    MatrixXcd s0(n,n);
+    for (int j = 0; j < n; ++j)
+    {
+        for (int l = 0; l < n; ++l)
+        {
+            int lquer =reverse(l,m);
+            s0(j,l)=f(lquer);
+        }
+    }
+    s.push_back(s0);
+    for (int k = 1; k <= m; ++k)
+    {
+        MatrixXcd sk(n,n);
+        sk.setZero();
+        for (int j = 0; j < pow(2.0, k); ++j)
+        {
+            dcomp J=j;
+            for (int l = 0; l < pow(2.0, m-k); ++l)
+            {
+                sk(j,l)=s[k-1](j,2*l)+exp(2.0*pi*I*J/pow(2.0, k))*s[k-1](j,2*l+1);
+                for (int i = 0; i < pow(2.0, m-k); ++i)
+                {
+                    sk(j+i*pow(2,k),l)=sk(j,l);
+                }
+            }
+        }
+        //cout << sk <<"\n" << "\n";
+        s.push_back(sk);
+    }
+    VectorXcd Fj(n);
+    for (int j = 0; j < n; ++j)
+    {
+        Fj(j)=s[m](j,0);
+    }
+
+    return Fj;
+}
+*/
 
 
 VectorXcd v_dir_F(const VectorXcd &v_f, int dim)
