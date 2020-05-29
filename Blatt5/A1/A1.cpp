@@ -3,15 +3,11 @@
 #include <fstream>
 #include <vector>
 #include <complex>
-#include "math.h"
 #include "Eigen/Dense"
 using namespace Eigen;
 using namespace std;
 
-
 typedef complex<double> cdouble;
-const complex<double> I(0.0,1.0);
-const complex<double> pi(M_PI,0.0);
 
 double f1(int l)
 {
@@ -62,12 +58,10 @@ MatrixXcd init_Mat(int n, const VectorXcd &v_f)
   double n_l;
   for(int j = 0; j < n; ++j)
   {
-    cdouble J=j;
     for(int l = 0; l < n; ++l)
     {
-      cdouble L=l;
       n_l = double(l)/n;
-      M(j, l) =  omega_j_N(j,n_l) * v_f(lbar(l, log2(n)));
+      M(j, l) = omega_j_N(j, n_l) * v_f(lbar(l, log2(n)));
     }
   }
   return M;
@@ -77,77 +71,36 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
 {
   MatrixXcd M = init_Mat(n, v_f);
   VectorXcd v_FFT = VectorXcd::Zero(n);
-  vector<MatrixXcd> v_M_temp;
-  v_M_temp.push_back(M);
-  for(int i = 1; pow(2,i) <= n; ++i)
+  vector<vector<cdouble>> v_v_Fj;
+  vector<cdouble> v_Fj;
+  for(int j = 0; j < n; ++j)
   {
-    MatrixXcd M_i = MatrixXcd::Zero(n,n);
-    for(int j = 0; j < pow(2,i); ++j)
+    for(int l = 0; l < n/2; ++l)
     {
-      cdouble J=j;
-      for(int a = 0; a < n/pow(2,i); ++a)
-      {
-        M_i(j,a)= v_M_temp.at(i-1)(j, 2 * a) + v_M_temp.at(i-1)(j,2 * a + 1) * exp(2.0*pi*I*J/pow(2.0, i));
-        for(int b = 0; b < n/pow(2,i); ++b)
-        {
-          M_i(j+b*pow(2,i),a) = M_i(j,a);
-        }
-      }
+      v_Fj.push_back(M(j,2*l) + M(j,2*l+1) * omega_j_N(j, 2));
     }
-    v_M_temp.push_back(M_i);
-    M_i.resize(0,0);
+    v_v_Fj.push_back(v_Fj);
+    v_Fj.clear();
+  }
+  for(int i = 2; i < n; i*=2)
+  {
+    for(int j = 0; j < n; ++j)
+    {
+      int size = v_v_Fj.at(j).size();
+      for(int a = 0; a < size/2; ++a)
+      {
+        v_Fj.push_back(v_v_Fj.at(j).at(2 * a) + v_v_Fj.at(j).at(2 * a + 1) * omega_j_N(j, pow(2,i)));
+      }
+      v_v_Fj.at(j) = v_Fj;
+      v_Fj.clear();
+    }
   }
   for(int j = 0; j < n; ++j)
   {
-    v_FFT(j) = v_M_temp.at(log2(n))(j,0);
+    v_FFT(j) = v_v_Fj.at(j).at(0);
   }
   return v_FFT;
 }
-
-/*
-
-VectorXcd FFT( int m, VectorXcd f) {
-    int n = pow(2,m);
-    vector<MatrixXcd> s;
-    MatrixXcd s0(n,n);
-    for (int j = 0; j < n; ++j)
-    {
-        for (int l = 0; l < n; ++l)
-        {
-            int lquer =reverse(l,m);
-            s0(j,l)=f(lquer);
-        }
-    }
-    s.push_back(s0);
-    for (int k = 1; k <= m; ++k)
-    {
-        MatrixXcd sk(n,n);
-        sk.setZero();
-        for (int j = 0; j < pow(2.0, k); ++j)
-        {
-            dcomp J=j;
-            for (int l = 0; l < pow(2.0, m-k); ++l)
-            {
-                sk(j,l)=s[k-1](j,2*l)+exp(2.0*pi*I*J/pow(2.0, k))*s[k-1](j,2*l+1);
-                for (int i = 0; i < pow(2.0, m-k); ++i)
-                {
-                    sk(j+i*pow(2,k),l)=sk(j,l);
-                }
-            }
-        }
-        //cout << sk <<"\n" << "\n";
-        s.push_back(sk);
-    }
-    VectorXcd Fj(n);
-    for (int j = 0; j < n; ++j)
-    {
-        Fj(j)=s[m](j,0);
-    }
-
-    return Fj;
-}
-*/
-
 
 VectorXcd v_dir_F(const VectorXcd &v_f, int dim)
 {
