@@ -22,7 +22,7 @@ double f1(int l)
 cdouble omega_j_N(int j, double n_l)
 {
   cdouble o = -1.;
-  o = pow(o, 2*(j+1.)*n_l);
+  o = pow(o, 2*(j)*n_l);
   return o;
 }
 
@@ -67,7 +67,7 @@ MatrixXcd init_Mat(int n, const VectorXcd &v_f)
     {
       cdouble L=l;
       n_l = double(l)/n;
-      M(j, l) =  exp(2.0*pi*I*L*J/cdouble(n)) * v_f(lbar(l, log2(n)));
+      M(j, l) =  omega_j_N(j,n_l) * v_f(lbar(l, log2(n)));
     }
   }
   return M;
