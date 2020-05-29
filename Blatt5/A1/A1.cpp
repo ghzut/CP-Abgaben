@@ -84,9 +84,9 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
   }
   for(int i = 2; i < n; i*=2)
   {
-    int size = v_v_Fj.at(0).size();
     for(int j = 0; j < n; ++j)
     {
+      int size = v_v_Fj.at(j).size();
       for(int a = 0; a < size/2; ++a)
       {
         v_Fj.push_back(v_v_Fj.at(j).at(2 * a) + v_v_Fj.at(j).at(2 * a + 1) * omega_j_N(j, pow(2,i)));
