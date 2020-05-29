@@ -85,7 +85,9 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
       }
       M_i.row(j) = v_Fj;
       for(int b = 0; b < n/pow(2,i); ++b)
+      {
       M_i.row(j+b*pow(2,i)) = v_Fj;
+      }
     }
     v_M_temp.push_back(M_i);
   }
