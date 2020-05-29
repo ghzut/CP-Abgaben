@@ -62,10 +62,12 @@ MatrixXcd init_Mat(int n, const VectorXcd &v_f)
   double n_l;
   for(int j = 0; j < n; ++j)
   {
+    cdouble J=j;
     for(int l = 0; l < n; ++l)
     {
+      cdouble L=l;
       n_l = double(l)/n;
-      M(j, l) =  exp(2.0*pi*I*l*j/N) * v_f(lbar(l, log2(n)));
+      M(j, l) =  exp(2.0*pi*I*L*J/N) * v_f(lbar(l, log2(n)));
     }
   }
   return M;
