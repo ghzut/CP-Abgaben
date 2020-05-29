@@ -126,9 +126,12 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
     v_v_Fj.push_back(v_Fj);
     v_Fj.clear();
   }
+  int sizevv = v_v_Fj.size():
+  cout << sizevv << endl;
+
   for(int i = 2; i < n; i*=2)
   {
-    for(int j = 0; j < n; ++j)
+    for(int j = 0; j < sizevv; ++j)
     {
       int size = v_v_Fj.at(j).size();
       for(int a = 0; a < size/2; ++a)
@@ -139,7 +142,7 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
       v_Fj.clear();
     }
   }
-  for(int j = 0; j < n; ++j)
+  //for(int j = 0; j < n; ++j)
   {
     v_FFT(j) = v_v_Fj.at(j).at(0);
   }
