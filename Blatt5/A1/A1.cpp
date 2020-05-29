@@ -82,9 +82,9 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
     v_v_Fj.push_back(v_Fj);
     v_Fj.clear();
   }
-  int size = v_v_Fj.at(0).size();
   for(int i = 2; i < n; i*=2)
   {
+    int size = v_v_Fj.at(0).size();
     for(int j = 0; j < n; ++j)
     {
       for(int a = 0; a < size/2; ++a)
