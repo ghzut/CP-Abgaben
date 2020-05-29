@@ -72,7 +72,7 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
   MatrixXcd M = init_Mat(n, v_f);
   VectorXcd v_FFT = VectorXcd::Zero(n);
   MatrixXcd M_temp = MatrixXcd::Zero(n,n);
-  RowVectorXcd v_Fj;
+  RowVectorXcd v_Fj = RowVectorXcd::Zero(n);
   for(int j = 0; j < n; ++j)
   {
     for(int l = 0; l < n/2; ++l)
