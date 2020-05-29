@@ -2,10 +2,13 @@
 #include <math.h>
 #include <fstream>
 #include <vector>
+#include <math.h>
 #include <complex>
 #include "Eigen/Dense"
 using namespace Eigen;
 using namespace std;
+const complex<double> I(0.0,1.0);
+const complex<double> pi(M_PI,0.0);
 
 typedef complex<double> cdouble;
 
@@ -86,7 +89,7 @@ VectorXcd v_F_FFT( int m, VectorXcd f) {
         sk.setZero();
         for (int j = 0; j < pow(2.0, k); ++j)
         {
-            dcomp J=j;
+            cdouble J=j;
             for (int l = 0; l < pow(2.0, m-k); ++l)
             {
                 sk(j,l)=s[k-1](j,2*l)+exp(2.0*pi*I*J/pow(2.0, k))*s[k-1](j,2*l+1);
