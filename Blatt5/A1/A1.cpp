@@ -136,10 +136,6 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
         v_Fj.push_back(v_v_Fj.at(j).at(2 * a) + v_v_Fj.at(j).at(2 * a + 1) * omega_j_N(j, pow(2,i)));
       }
       v_v_Fj.at(j) = v_Fj;
-      /*for(int b = 0; b < size/2; ++b)
-      {
-        v_v_Fj.at(+)
-      }*/
       v_Fj.clear();
     }
   }
