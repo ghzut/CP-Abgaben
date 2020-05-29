@@ -101,7 +101,7 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
   }
   for(int j = 0; j < n; ++j)
   {
-    v_FFT(j) = v_M_temp.at(h_M_temp.size()-1)(j,0);
+    v_FFT(j) = v_M_temp.at(v_M_temp.size()-1)(j,0);
   }
   return v_FFT;
 }
