@@ -72,26 +72,16 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
   MatrixXcd M = init_Mat(n, v_f);
   VectorXcd v_FFT = VectorXcd::Zero(n);
   vector<MatrixXcd> v_M_temp;
-  MatrixXcd M_temp = MatrixXcd::Zero(n,n);
-  RowVectorXcd v_Fj= VectorXcd::Zero(n);
-  for(int j = 0; j < n; ++j)
-  {
-    for(int l = 0; l < n/2; ++l)
-    {
-      v_Fj(l) = (M(j,2*l) + M(j,2*l+1) * omega_j_N(j, 2));
-    }
-    M_temp.row(j) = v_Fj;
-  }
-  v_M_temp.push_back(M_temp);
-  for(int i = 2; pow(2,i) <= n; ++i)
+  v_M_temp.push_back(M);
+  for(int i = 1; pow(2,i) <= n; ++i)
   {
     MatrixXcd M_i = MatrixXcd::Zero(n,n);
-    v_Fj= VectorXcd::Zero(n);
+    RowVectorXcd v_Fj= RowVectorXcd::Zero(n);
     for(int j = 0; j < pow(2,i); ++j)
     {
       for(int a = 0; a < n/pow(2,i); ++a)
       {
-        v_Fj(a)= v_M_temp.at(i-2)(j, 2 * a) + v_M_temp.at(i-2)(j,2 * a + 1) * omega_j_N(j, pow(2,i));
+        v_Fj(a)= v_M_temp.at(i-1)(j, 2 * a) + v_M_temp.at(i-1)(j,2 * a + 1) * pow(-1., 2*j/pow(2,i));
       }
       M_i.row(j) = v_Fj;
       for(int b = 0; b < n/pow(2,i); ++b)
