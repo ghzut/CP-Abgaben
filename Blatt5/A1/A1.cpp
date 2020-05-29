@@ -128,7 +128,7 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
   }
   for(int i = 2; i < n; i*=2)
   {
-    for(int j = 0; j < pow(2,i); ++j)
+    for(int j = 0; j < n; ++j)
     {
       int size = v_v_Fj.at(j).size();
       for(int a = 0; a < size/2; ++a)
