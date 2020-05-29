@@ -82,18 +82,20 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
     v_v_Fj.push_back(v_Fj);
     v_Fj.clear();
   }
-  //int sizevv = v_v_Fj.size();
-  //cout << sizevv << endl;
-  for(int i = 2; i < n; i*=2)
+  for(int i = 2; pow(2,i) < n; ++i)
   {
-    for(int j = 0; j < n; ++j)
+    for(int j = 0; j < pow(2,i); ++j)
     {
       int size = v_v_Fj.at(j).size();
-      for(int a = 0; a < size/2; ++a)
+      for(int a = 0; a < n/pow(2,i); ++a)
       {
         v_Fj.push_back(v_v_Fj.at(j).at(2 * a) + v_v_Fj.at(j).at(2 * a + 1) * omega_j_N(j, pow(2,i)));
       }
       v_v_Fj.at(j) = v_Fj;
+      for (int b = 0; b < n/pow(2.0, i); ++b)
+      {
+        v_v_Fj.at(j+b*pow(2,i))=v_v_Fj.at(j);
+      }
       v_Fj.clear();
     }
   }
