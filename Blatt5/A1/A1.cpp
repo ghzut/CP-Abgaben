@@ -70,7 +70,7 @@ MatrixXcd init_Mat(int n, const VectorXcd &v_f)
   return M;
 }
 
-VectorXcd v_F_FFT( int m, VectorXcd f) {
+/*VectorXcd v_F_FFT( int m, VectorXcd f) {
     int n = pow(2,m);
     vector<MatrixXcd> s;
     MatrixXcd s0(n,n);
@@ -109,8 +109,8 @@ VectorXcd v_F_FFT( int m, VectorXcd f) {
     }
 
     return Fj;
-}
-/*
+}*/
+
 VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
 {
   MatrixXcd M = init_Mat(n, v_f);
@@ -128,14 +128,18 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
   }
   for(int i = 2; i < n; i*=2)
   {
-    for(int j = 0; j < n; ++j)
+    for(int j = 0; j < pow(2,i); ++j)
     {
       int size = v_v_Fj.at(j).size();
       for(int a = 0; a < size/2; ++a)
       {
         v_Fj.push_back(v_v_Fj.at(j).at(2 * a) + v_v_Fj.at(j).at(2 * a + 1) * omega_j_N(j, pow(2,i)));
       }
-      v_v_Fj.at(i) = v_Fj;
+      v_v_Fj.at(j) = v_Fj;
+      /*for(int b = 0; b < size/2; ++b)
+      {
+        v_v_Fj.at(+)
+      }*/
       v_Fj.clear();
     }
   }
@@ -144,7 +148,7 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
     v_FFT(j) = v_v_Fj.at(j).at(0);
   }
   return v_FFT;
-}*/
+}
 
 VectorXcd v_dir_F(const VectorXcd &v_f, int dim)
 {
