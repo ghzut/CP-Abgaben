@@ -93,7 +93,7 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
       }
     }
     v_M_temp.push_back(M_i);
-    M_i.reshaped(0,0);
+    m_i.resize(0,0);
   }
   for(int j = 0; j < n; ++j)
   {
