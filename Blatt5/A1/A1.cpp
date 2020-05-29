@@ -1,6 +1,7 @@
 #include <iostream>
 #include <math.h>
 #include <fstream>
+#include <vector>
 #include <complex>
 #include "Eigen/Dense"
 using namespace Eigen;
@@ -29,7 +30,7 @@ VectorXcd init_v_f(double (*func)(double), int n)
 
 int lbar(int l, int m)
 {
-  VectorXd biNum = VectorXd::Zero(m);
+  VectorXd binNum = VectorXd::Zero(m);
   for (int i = 0; i < m; ++i)
   {
     binNum(i) = l % 2;
@@ -60,7 +61,7 @@ MatrixXcd init_Mat(int n, const VectorXcd &v_f)
     for(int l = 0; l < n; ++l)
     {
       n_l = double(l)/n;
-      M(j, l) = omega_j_N(j, n_l) * v_f(lbar(l, log2(n));
+      M(j, l) = omega_j_N(j, n_l) * v_f(lbar(l, log2(n)));
     }
   }
   return M;
@@ -81,7 +82,7 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
     v_v_Fj.push_back(v_Fj);
     v_F_j.clear();
   }
-  int size = v_v_Fj.at(i).size();
+  int size = v_v_Fj.at(0).size();
   for(int i = 2; i < n; i*=2)
   {
     for(int j = 0; j < n; ++j)
