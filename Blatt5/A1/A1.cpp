@@ -3,11 +3,15 @@
 #include <fstream>
 #include <vector>
 #include <complex>
+#include "math.h"
 #include "Eigen/Dense"
 using namespace Eigen;
 using namespace std;
 
+
 typedef complex<double> cdouble;
+const complex<double> I(0.0,1.0);
+const complex<double> pi(M_PI,0.0);
 
 double f1(int l)
 {
@@ -58,10 +62,12 @@ MatrixXcd init_Mat(int n, const VectorXcd &v_f)
   double n_l;
   for(int j = 0; j < n; ++j)
   {
+    cdouble J=j;
     for(int l = 0; l < n; ++l)
     {
+      cdouble L=l;
       n_l = double(l)/n;
-      M(j, l) = omega_j_N(j, n_l) * v_f(lbar(l, log2(n)));
+      M(j, l) =  omega_j_N(j,n_l) * v_f(lbar(l, log2(n)));
     }
   }
   return M;
@@ -71,36 +77,34 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
 {
   MatrixXcd M = init_Mat(n, v_f);
   VectorXcd v_FFT = VectorXcd::Zero(n);
-  vector<vector<cdouble>> v_v_Fj;
-  vector<cdouble> v_Fj;
-  for(int j = 0; j < n; ++j)
+  vector<MatrixXcd> v_M_temp;
+  v_M_temp.push_back(M);
+  for(int i = 1; pow(2,i) <= n; ++i)
   {
-    for(int l = 0; l < n/2; ++l)
+    MatrixXcd M_i = MatrixXcd::Zero(n,n);
+    RowVectorXcd v_Fj = RowVectorXcd::Zero(n);
+    for(int j = 0; j < pow(2,i); ++j)
     {
-      v_Fj.push_back(M(j,2*l) + M(j,2*l+1) * omega_j_N(j, 2));
-    }
-    v_v_Fj.push_back(v_Fj);
-    v_Fj.clear();
-  }
-  for(int i = 2; i < n; i*=2)
-  {
-    for(int j = 0; j < n; ++j)
-    {
-      int size = v_v_Fj.at(j).size();
-      for(int a = 0; a < size/2; ++a)
+      for(int a = 0; a < n/pow(2,i); ++a)
       {
-        v_Fj.push_back(v_v_Fj.at(j).at(2 * a) + v_v_Fj.at(j).at(2 * a + 1) * omega_j_N(j, pow(2,i)));
+        M_i(j,a)= v_M_temp.at(i-1)(j, 2 * a) + v_M_temp.at(i-1)(j,2 * a + 1) * omega_j_N(j,pow(2,i));
+        for(int b = 0; b < n/pow(2,i); ++b)
+        {
+          M_i(j+b*pow(2,i),a) = M_i(j,a);
+        }
       }
-      v_v_Fj.at(j) = v_Fj;
-      v_Fj.clear();
     }
+    v_M_temp.push_back(M_i);
+    M_i.resize(0,0);
   }
   for(int j = 0; j < n; ++j)
   {
-    v_FFT(j) = v_v_Fj.at(j).at(0);
+    v_FFT(j) = v_M_temp.at(log2(n))(j,0);
   }
   return v_FFT;
 }
+
+
 
 VectorXcd v_dir_F(const VectorXcd &v_f, int dim)
 {
