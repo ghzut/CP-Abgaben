@@ -87,7 +87,7 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
     {
       for(int a = 0; a < n/pow(2,i); ++a)
       {
-        v_Fj(a)= M_temp(j, 2 * a) + M_temp(j,2 * a + 1) * omega_j_N(j, pow(2,i)));
+        v_Fj(a)= M_temp(j, 2 * a) + M_temp(j,2 * a + 1) * omega_j_N(j, pow(2,i));
       }
       M_temp.row(j) = v_Fj;
       for(int b = 0; b < n/pow(2,i); ++b)
