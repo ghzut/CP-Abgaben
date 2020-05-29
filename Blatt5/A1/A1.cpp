@@ -80,7 +80,7 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
       v_Fj.push_back(M(j,2*l) + M(j,2*l+1) * omega_j_N(j, 2));
     }
     v_v_Fj.push_back(v_Fj);
-    v_F_j.clear();
+    v_Fj.clear();
   }
   int size = v_v_Fj.at(0).size();
   for(int i = 2; i < n; i*=2)
