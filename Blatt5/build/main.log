@@ -1,102 +1,91 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019)  (format=lualatex 2019.11.17)  29 MAY 2020 01:00
+This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.27)  29 MAY 2020 09:11
  restricted system commands enabled.
 **main.tex
 (./main.tex
-LaTeX2e <2019-10-01> patch level 3
-Lua module: luaotfload-main 2019-11-10 3.11 luaotfload entry point
-Lua module: luaotfload-init 2019-11-10 3.11 luaotfload submodule / initializatio
+LaTeX2e <2018-12-01>
+Lua module: luaotfload-main 2019-02-14 2.96 luaotfload entry point
+Lua module: luaotfload-init 2019-02-14 2.96 luaotfload submodule / initializatio
 n
-Lua module: lualibs 2019-11-06 2.69 ConTeXt Lua standard libraries.
-Lua module: lualibs-extended 2019-11-06 2.69 ConTeXt Lua libraries -- extended c
+Lua module: lualibs 2019-02-14 2.64 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2019-02-14 2.64 ConTeXt Lua libraries -- extended c
 ollection.
-Lua module: luaotfload-log 2019-11-10 3.11 luaotfload submodule / logging
-Lua module: luaotfload-parsers 2019-11-10 3.11 luaotfload submodule / filelist
-Lua module: luaotfload-configuration 2019-11-10 3.11 luaotfload submodule / conf
+Lua module: luaotfload-log 2019-02-14 2.96 luaotfload submodule / logging
+Lua module: luaotfload-parsers 2019-02-14 2.96 luaotfload submodule / filelist
+Lua module: luaotfload-configuration 2019-02-14 2.96 luaotfload submodule / conf
 ig file reader
-luaotfload | conf : Root cache directory is /home/lars/.local/texlive/2019/texmf
--var/luatex-cache/generic/names.
-luaotfload | init : Loading fontloader “fontloader-2019-10-29.lua” from kpse
--resolved path “/home/lars/.local/texlive/2019/texmf-dist/tex/luatex/luaotfloa
-d/fontloader-2019-10-29.lua”.
-Lua-only attribute luaotfload@state = 2
-Lua-only attribute luaotfload@noligature = 3
-Lua-only attribute luaotfload@syllabe = 4
-luaotfload | init : Context OpenType loader version “3.11”
+luaotfload | conf : Root cache directory is /home/julia/.local/texlive/2018/texm
+f-var/luatex-cache/generic/names.
+luaotfload | init : Loading fontloader “fontloader-2019-02-14.lua” from kpse
+-resolved path “/home/julia/.local/texlive/2018/texmf-dist/tex/luatex/luaotflo
+ad/fontloader-2019-02-14.lua”.
+Lua-only attribute luaotfload@state = 1
+Lua-only attribute luaotfload@noligature = 2
+Lua-only attribute luaotfload@syllabe = 3
+luaotfload | init : Context OpenType loader version “3.107”
 Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
 Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
-Lua module: luaotfload-loaders 2019-11-10 3.11 luaotfload submodule / callback h
+Lua module: luaotfload-loaders 2019-02-14 2.96 luaotfload submodule / callback h
 andling
 Inserting `luaotfload.define_font' at position 1 in `define_font'.
-Lua module: luaotfload-database 2019-11-10 3.11 luaotfload submodule / database
-Lua module: luaotfload-unicode 2019-11-10 3.11 luaotfload submodule / Unicode he
-lpers
-Lua module: luaotfload-colors 2019-11-10 3.11 luaotfload submodule / color
-Lua-only attribute luaotfload_color_attribute = 5
-Lua module: luaotfload-resolvers 2019-11-10 3.11 luaotfload submodule / resolver
+Lua module: luaotfload-database 2019-02-14 2.96 luaotfload submodule / database
+Lua module: luaotfload-colors 2019-02-14 2.96 luaotfload submodule / color
+Lua-only attribute luaotfload_color_attribute = 4
+Lua module: luaotfload-resolvers 2019-02-14 2.96 luaotfload submodule / resolver
 s
-luaotfload | conf : Root cache directory is /home/lars/.local/texlive/2019/texmf
--var/luatex-cache/generic/names.
-Lua module: luaotfload-features 2019-11-10 3.11 luaotfload submodule / features
-Lua module: luaotfload-letterspace 2019-11-10 3.11 luaotfload submodule / color
-Lua module: luaotfload-embolden 2019-11-10 3.11 luaotfload submodule / color
-Lua module: luaotfload-notdef 2019-11-10 3.11 luaotfload submodule / color
-Lua module: luaotfload-auxiliary 2019-11-10 3.11 luaotfload submodule / auxiliar
+luaotfload | conf : Root cache directory is /home/julia/.local/texlive/2018/texm
+f-var/luatex-cache/generic/names.
+Lua module: luaotfload-features 2019-02-14 2.96 luaotfload submodule / features
+Lua module: luaotfload-letterspace 2019-02-14 2.96 luaotfload submodule / color
+Lua module: luaotfload-auxiliary 2019-02-14 2.96 luaotfload submodule / auxiliar
 y functions
 Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
 font'.
-Inserting `luaotfload.aux.set_font_index' at position 2 in `luaotfload.patch_fon
-t'.
-Inserting `luaotfload.aux.patch_cambria_domh' at position 3 in `luaotfload.patch
+Inserting `luaotfload.aux.patch_cambria_domh' at position 2 in `luaotfload.patch
 _font'.
 Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_fon
 t_unsafe'.
-Inserting `luaotfload.aux.set_capheight' at position 4 in `luaotfload.patch_font
+Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
-Inserting `luaotfload.aux.set_xheight' at position 5 in `luaotfload.patch_font'.
-Lua module: luaotfload-multiscript 2019-11-10 3.11 luaotfload submodule / multis
-cript
-Lua module: luaotfload-tounicode 2019-11-10 3.11 luaotfload submodule / tounicod
-e
-Inserting `luaotfload.rewrite_fontname' at position 6 in `luaotfload.patch_font'
+Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.143 seconds
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/koma-script/scrartcl.cls
-Document Class: scrartcl 2019/10/12 v3.27 KOMA-Script document class (article)
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/koma-script/scrkbase.sty
-Package: scrkbase 2019/10/12 v3.27 KOMA-Script package (KOMA-Script-dependent ba
-sics and keyval usage)
-
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/koma-script/scrbase.sty
-Package: scrbase 2019/10/12 v3.27 KOMA-Script package (KOMA-Script-independent b
+luaotfload | main : initialization completed in 0.075 seconds
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrartcl.cls
+Document Class: scrartcl 2019/02/01 v3.26b KOMA-Script document class (article)
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrkbase.sty
+Package: scrkbase 2019/02/01 v3.26b KOMA-Script package (KOMA-Script-dependent b
 asics and keyval usage)
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2019/02/01 v3.26b KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/koma-script/scrlfile.sty
-Package: scrlfile 2019/10/12 v3.27 KOMA-Script package (loading files)
-))) (/home/lars/.local/texlive/2019/texmf-dist/tex/latex/koma-script/tocbasic.s
-ty
-Package: tocbasic 2019/10/12 v3.27 KOMA-Script package (handling toc-files)
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2019/02/01 v3.26b KOMA-Script package (loading files)
+)))
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/tocbasic.sty
+Package: tocbasic 2019/02/01 v3.26b KOMA-Script package (handling toc-files)
 \scr@dte@tocline@numberwidth=\skip41
 \scr@dte@tocline@numbox=\box27
 )
 Package tocbasic Info: omitting babel extension for `toc'
 (tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `toc' on input line 137.
+(tocbasic)             for `toc' on input line 134.
 Class scrartcl Info: File `scrsize11pt.clo' used instead of
-(scrartcl)           file `scrsize11.clo' to setup font sizes on input line 2208
+(scrartcl)           file `scrsize11.clo' to setup font sizes on input line 2162
 .
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/koma-script/scrsize11pt.cl
-o
-File: scrsize11pt.clo 2019/10/12 v3.27 KOMA-Script font size class option (11pt)
-
-luaotfload | db : Font names database loaded from /home/lars/.local/texlive/2019
-/texmf-var/luatex-cache/generic/names/luaotfload-names.luc)
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/koma-script/typearea.sty
-Package: typearea 2019/10/12 v3.27 KOMA-Script package (type area)
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrsize11pt.c
+lo
+File: scrsize11pt.clo 2019/02/01 v3.26b KOMA-Script font size class option (11pt
+)
+luaotfload | db : Font names database loaded from /home/julia/.local/texlive/201
+8/texmf-var/luatex-cache/generic/names/luaotfload-names.luc)
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/typearea.sty
+Package: typearea 2019/02/01 v3.26b KOMA-Script package (type area)
 \ta@bcor=\skip42
 \ta@div=\count80
 \ta@hblk=\skip43
@@ -119,7 +108,7 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 11.0pt
 (typearea)              \footskip       = 47.6pt
 (typearea)              \baselineskip   = 13.6pt
-(typearea)              on input line 1716.
+(typearea)              on input line 1715.
 )
 \c@part=\count81
 \c@section=\count82
@@ -129,48 +118,48 @@ Package typearea Info: These are the values describing the layout:
 \c@subparagraph=\count86
 \scr@dte@section@maxnumwidth=\skip47
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\section on input line 4702.
+(scrartcl)           for `\section on input line 4489.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\section on input line 4702.
+(scrartcl)           for `\section on input line 4489.
 \scr@dte@part@maxnumwidth=\skip48
 Class scrartcl Info: using compatibility default `afterindent=false'
-(scrartcl)           for `\part on input line 4710.
+(scrartcl)           for `\part on input line 4497.
 \scr@dte@subsection@maxnumwidth=\skip49
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\subsection on input line 4720.
+(scrartcl)           for `\subsection on input line 4507.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\subsection on input line 4720.
+(scrartcl)           for `\subsection on input line 4507.
 \scr@dte@subsubsection@maxnumwidth=\skip50
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\subsubsection on input line 4730.
+(scrartcl)           for `\subsubsection on input line 4517.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\subsubsection on input line 4730.
+(scrartcl)           for `\subsubsection on input line 4517.
 \scr@dte@paragraph@maxnumwidth=\skip51
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\paragraph on input line 4740.
+(scrartcl)           for `\paragraph on input line 4527.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\paragraph on input line 4740.
+(scrartcl)           for `\paragraph on input line 4527.
 \scr@dte@subparagraph@maxnumwidth=\skip52
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\subparagraph on input line 4750.
+(scrartcl)           for `\subparagraph on input line 4537.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\subparagraph on input line 4750.
+(scrartcl)           for `\subparagraph on input line 4537.
 \abovecaptionskip=\skip53
 \belowcaptionskip=\skip54
 \c@pti@nb@sid@b@x=\box28
 Package tocbasic Info: omitting babel extension for `lof'
 (tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `lof' on input line 5969.
+(tocbasic)             for `lof' on input line 5781.
 \scr@dte@figure@maxnumwidth=\skip55
 \c@figure=\count87
 Package tocbasic Info: omitting babel extension for `lot'
 (tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `lot' on input line 5981.
+(tocbasic)             for `lot' on input line 5793.
 \scr@dte@table@maxnumwidth=\skip56
 \c@table=\count88
-Class scrartcl Info: Redefining `\numberline' on input line 6145.
+Class scrartcl Info: Redefining `\numberline' on input line 5957.
 \bibindent=\dimen102
-) (/home/lars/.local/texlive/2019/texmf-dist/tex/latex/base/inputenc.sty
+) (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
@@ -178,18 +167,18 @@ Package: inputenc 2018/08/11 v1.3c Input encoding file
 
 Package inputenc Warning: inputenc package ignored with utf8 based engines.
 
-) (/home/lars/.local/texlive/2019/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2019/11/14 3.36 The Babel package
+) (/home/julia/.local/texlive/2018/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/11/13 3.27 The Babel package
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/babel/switch.def
-File: switch.def 2019/11/14 3.36 Babel switching mechanism
+(/home/julia/.local/texlive/2018/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/11/13 3.27 Babel switching mechanism
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/babel/luababel.def
+(/home/julia/.local/texlive/2018/texmf-dist/tex/generic/babel/luababel.def
 \l@dumylang=\language2
 Package babel Info: Non-standard hyphenation setup on input line 114.
 \l@nohyphenation=\language3
-\l@german-x-2019-04-04=\language4
-\l@ngerman-x-2019-04-04=\language5
+\l@german-x-2018-03-31=\language4
+\l@ngerman-x-2018-03-31=\language5
 \l@afrikaans=\language6
 \l@ancientgreek=\language7
 \l@ibycus=\language8
@@ -271,64 +260,63 @@ Package babel Info: Non-standard hyphenation setup on input line 114.
 \l@uppersorbian=\language84
 \l@welsh=\language85
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/babel-german/german.ldf
+(/home/julia/.local/texlive/2018/texmf-dist/tex/generic/babel-german/german.ldf
 Language: german 2018/12/08 v2.11 German support for babel (pre-1996 orthography
 )
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/babel-german/germanb.ldf
+(/home/julia/.local/texlive/2018/texmf-dist/tex/generic/babel-german/germanb.ld
+f
 Language: germanb 2018/12/08 v2.11 German support for babel (pre-1996 orthograph
 y)
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2019/11/14 3.36 Babel common definitions
+ (/home/julia/.local/texlive/2018/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/11/13 3.27 Babel common definitions
 \babel@savecnt=\count89
 \U@D=\dimen103
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/babel/luababel.def
-\bbl@attr@locale=\attribute6
-))
+(/home/julia/.local/texlive/2018/texmf-dist/tex/generic/babel/luababel.def))
 Package babel Info: Making " an active character on input line 135.
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/hyph-utf8/loadhyph/loadh
-yph-de-1901.tex UTF-8 German hyphenation patterns (traditional orthography)
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/hyph-utf8/patterns/tex/h
-yph-de-1901.tex
-German Hyphenation Patterns (Traditional Orthography) `dehypht-x' 2019-04-04 (W
+(/home/julia/.local/texlive/2018/texmf-dist/tex/generic/hyph-utf8/loadhyph/load
+hyph-de-1901.tex UTF-8 German hyphenation patterns (traditional orthography)
+(/home/julia/.local/texlive/2018/texmf-dist/tex/generic/hyph-utf8/patterns/tex/
+hyph-de-1901.tex
+German Hyphenation Patterns (Traditional Orthography) `dehypht-x' 2018-03-31 (W
 L))))))
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2019/04/01 v2.17c AMS math features
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2018/12/01 v2.17b AMS math features
 \@mathmargin=\skip57
 
 For additional information on amsmath, use the `?' option.
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/amsmath/amstext.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks17
 \ex@=\dimen104
 ))
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen105
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/amsmath/amsopn.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count90
-LaTeX Info: Redefining \frac on input line 227.
+LaTeX Info: Redefining \frac on input line 223.
 \uproot@=\count91
 \leftroot@=\count92
-LaTeX Info: Redefining \overline on input line 389.
+LaTeX Info: Redefining \overline on input line 385.
 \classnum@=\count93
 \DOTSCASE@=\count94
-LaTeX Info: Redefining \ldots on input line 486.
-LaTeX Info: Redefining \dots on input line 489.
-LaTeX Info: Redefining \cdots on input line 610.
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
 \Mathstrutbox@=\box29
 \strutbox@=\box30
 \big@size=\dimen106
-LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
 \macc@depth=\count95
 \c@MaxMatrixCols=\count96
 \dotsspace@=\muskip10
@@ -349,46 +337,45 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \multlinegap=\skip58
 \multlinetaggap=\skip59
 \mathdisplay@stack=\toks21
-LaTeX Info: Redefining \[ on input line 2855.
-LaTeX Info: Redefining \] on input line 2856.
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/natbib/natbib.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip60
 \bibsep=\skip61
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count102
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/graphics/graphicx.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2019/11/01 v1.3d Standard LaTeX Graphics (DPC,SPQR)
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/graphics/trig.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: luatex.def on input line 105.
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/graphics-def/luatex.def
+Package graphics Info: Driver file: luatex.def on input line 99.
+ (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/graphics-def/luatex.def
 File: luatex.def 2018/01/08 v1.0l Graphics/color driver for luatex
 ))
 \Gin@req@height=\dimen113
 \Gin@req@width=\dimen114
-) (/home/lars/.local/texlive/2019/texmf-dist/tex/latex/float/float.sty
+) (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count103
 \float@exts=\toks22
@@ -396,26 +383,24 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks23
 \@floatcapt=\box32
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/siunitx/siunitx.sty
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2019-11-07 L3 programming layer (loader) 
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/siunitx/siunitx.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2019-02-15 L3 programming layer (loader) 
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3-code.tex
-Package: expl3 2019-11-07 L3 programming layer (code)
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2019-02-15 L3 programming layer (code)
+\ucharcat@table=\catcodetable5
 \c_max_int=\count104
 \l_tmpa_int=\count105
 \l_tmpb_int=\count106
 \g_tmpa_int=\count107
 \g_tmpb_int=\count108
-\l__seq_internal_a_int=\count109
-\l__seq_internal_b_int=\count110
-\g__kernel_prg_map_int=\count111
-\c__ior_term_noprompt_ior=\count112
-\c_log_iow=\count113
-\l_iow_line_count_int=\count114
-\l__iow_line_target_int=\count115
-\l__iow_one_indent_int=\count116
-\l__iow_indent_int=\count117
+\g__kernel_prg_map_int=\count109
+\c_log_iow=\count110
+\l_iow_line_count_int=\count111
+\l__iow_line_target_int=\count112
+\l__iow_one_indent_int=\count113
+\l__iow_indent_int=\count114
 \c_zero_dim=\dimen115
 \c_max_dim=\dimen116
 \l_tmpa_dim=\dimen117
@@ -434,76 +419,75 @@ Package: expl3 2019-11-07 L3 programming layer (code)
 \l_tmpb_muskip=\muskip14
 \g_tmpa_muskip=\muskip15
 \g_tmpb_muskip=\muskip16
-\l_keys_choice_int=\count118
-\l__intarray_loop_int=\count119
+\l_keys_choice_int=\count115
+\l__intarray_loop_int=\count116
 \c__intarray_sp_dim=\dimen121
-\g__intarray_font_int=\count120
-\c__fp_leading_shift_int=\count121
-\c__fp_middle_shift_int=\count122
-\c__fp_trailing_shift_int=\count123
-\c__fp_big_leading_shift_int=\count124
-\c__fp_big_middle_shift_int=\count125
-\c__fp_big_trailing_shift_int=\count126
-\c__fp_Bigg_leading_shift_int=\count127
-\c__fp_Bigg_middle_shift_int=\count128
-\c__fp_Bigg_trailing_shift_int=\count129
-\g__fp_array_int=\count130
-\l__fp_array_loop_int=\count131
-\l__sort_length_int=\count132
-\l__sort_min_int=\count133
-\l__sort_top_int=\count134
-\l__sort_max_int=\count135
-\l__sort_true_max_int=\count136
-\l__sort_block_int=\count137
-\l__sort_begin_int=\count138
-\l__sort_end_int=\count139
-\l__sort_A_int=\count140
-\l__sort_B_int=\count141
-\l__sort_C_int=\count142
-\l__str_internal_int=\count143
-\l__tl_analysis_normal_int=\count144
-\l__tl_analysis_index_int=\count145
-\l__tl_analysis_nesting_int=\count146
-\l__tl_analysis_type_int=\count147
-\l__regex_internal_a_int=\count148
-\l__regex_internal_b_int=\count149
-\l__regex_internal_c_int=\count150
-\l__regex_balance_int=\count151
-\l__regex_group_level_int=\count152
-\l__regex_mode_int=\count153
-\c__regex_cs_in_class_mode_int=\count154
-\c__regex_cs_mode_int=\count155
-\l__regex_catcodes_int=\count156
-\l__regex_default_catcodes_int=\count157
-\c__regex_catcode_L_int=\count158
-\c__regex_catcode_O_int=\count159
-\c__regex_catcode_A_int=\count160
-\c__regex_all_catcodes_int=\count161
-\l__regex_show_lines_int=\count162
-\l__regex_min_state_int=\count163
-\l__regex_max_state_int=\count164
-\l__regex_left_state_int=\count165
-\l__regex_right_state_int=\count166
-\l__regex_capturing_group_int=\count167
-\l__regex_min_pos_int=\count168
-\l__regex_max_pos_int=\count169
-\l__regex_curr_pos_int=\count170
-\l__regex_start_pos_int=\count171
-\l__regex_success_pos_int=\count172
-\l__regex_curr_char_int=\count173
-\l__regex_curr_catcode_int=\count174
-\l__regex_last_char_int=\count175
-\l__regex_case_changed_char_int=\count176
-\l__regex_curr_state_int=\count177
-\l__regex_step_int=\count178
-\l__regex_min_active_int=\count179
-\l__regex_max_active_int=\count180
-\l__regex_replacement_csnames_int=\count181
-\l__regex_match_count_int=\count182
-\l__regex_min_submatch_int=\count183
-\l__regex_submatch_int=\count184
-\l__regex_zeroth_submatch_int=\count185
-\g__regex_trace_regex_int=\count186
+\g__intarray_font_int=\count117
+\c__fp_leading_shift_int=\count118
+\c__fp_middle_shift_int=\count119
+\c__fp_trailing_shift_int=\count120
+\c__fp_big_leading_shift_int=\count121
+\c__fp_big_middle_shift_int=\count122
+\c__fp_big_trailing_shift_int=\count123
+\c__fp_Bigg_leading_shift_int=\count124
+\c__fp_Bigg_middle_shift_int=\count125
+\c__fp_Bigg_trailing_shift_int=\count126
+\g__fp_array_int=\count127
+\l__fp_array_loop_int=\count128
+\l__sort_length_int=\count129
+\l__sort_min_int=\count130
+\l__sort_top_int=\count131
+\l__sort_max_int=\count132
+\l__sort_true_max_int=\count133
+\l__sort_block_int=\count134
+\l__sort_begin_int=\count135
+\l__sort_end_int=\count136
+\l__sort_A_int=\count137
+\l__sort_B_int=\count138
+\l__sort_C_int=\count139
+\l__tl_analysis_normal_int=\count140
+\l__tl_analysis_index_int=\count141
+\l__tl_analysis_nesting_int=\count142
+\l__tl_analysis_type_int=\count143
+\l__regex_internal_a_int=\count144
+\l__regex_internal_b_int=\count145
+\l__regex_internal_c_int=\count146
+\l__regex_balance_int=\count147
+\l__regex_group_level_int=\count148
+\l__regex_mode_int=\count149
+\c__regex_cs_in_class_mode_int=\count150
+\c__regex_cs_mode_int=\count151
+\l__regex_catcodes_int=\count152
+\l__regex_default_catcodes_int=\count153
+\c__regex_catcode_L_int=\count154
+\c__regex_catcode_O_int=\count155
+\c__regex_catcode_A_int=\count156
+\c__regex_all_catcodes_int=\count157
+\l__regex_show_lines_int=\count158
+\l__regex_min_state_int=\count159
+\l__regex_max_state_int=\count160
+\l__regex_left_state_int=\count161
+\l__regex_right_state_int=\count162
+\l__regex_capturing_group_int=\count163
+\l__regex_min_pos_int=\count164
+\l__regex_max_pos_int=\count165
+\l__regex_curr_pos_int=\count166
+\l__regex_start_pos_int=\count167
+\l__regex_success_pos_int=\count168
+\l__regex_curr_char_int=\count169
+\l__regex_curr_catcode_int=\count170
+\l__regex_last_char_int=\count171
+\l__regex_case_changed_char_int=\count172
+\l__regex_curr_state_int=\count173
+\l__regex_step_int=\count174
+\l__regex_min_active_int=\count175
+\l__regex_max_active_int=\count176
+\l__regex_replacement_csnames_int=\count177
+\l__regex_match_count_int=\count178
+\l__regex_min_submatch_int=\count179
+\l__regex_submatch_int=\count180
+\l__regex_zeroth_submatch_int=\count181
+\g__regex_trace_regex_int=\count182
 \c_empty_box=\box33
 \l_tmpa_box=\box34
 \l_tmpb_box=\box35
@@ -533,77 +517,75 @@ Package: expl3 2019-11-07 L3 programming layer (code)
 \l_tmpb_coffin=\box44
 \g_tmpa_coffin=\box45
 \g_tmpb_coffin=\box46
-\l__coffin_bounding_shift_dim=\dimen137
-\l__coffin_left_corner_dim=\dimen138
-\l__coffin_right_corner_dim=\dimen139
-\l__coffin_bottom_corner_dim=\dimen140
-\l__coffin_top_corner_dim=\dimen141
-\l__coffin_scaled_total_height_dim=\dimen142
-\l__coffin_scaled_width_dim=\dimen143
 \c__coffin_empty_coffin=\box47
 \l__coffin_display_coffin=\box48
 \l__coffin_display_coord_coffin=\box49
 \l__coffin_display_pole_coffin=\box50
-\l__coffin_display_offset_dim=\dimen144
-\l__coffin_display_x_dim=\dimen145
-\l__coffin_display_y_dim=\dimen146
-\g__char_data_ior=\read1
-
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/l3kernel/l3deprecation.def
-File: l3deprecation.def 2019-04-06 v L3 Deprecated functions
-))
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/l3backend/l3backend-pdfmod
-e.def
-File: l3backend-pdfmode.def 2019-04-06 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count187
-\l__pdf_internal_box=\box51
-))
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/l3packages/xparse/xparse.s
-ty
-Package: xparse 2019-10-11 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count188
-\g__xparse_grabber_int=\count189
-\l__xparse_m_args_int=\count190
-\l__xparse_v_nesting_int=\count191
+\l__coffin_display_offset_dim=\dimen137
+\l__coffin_display_x_dim=\dimen138
+\l__coffin_display_y_dim=\dimen139
+\g__file_internal_ior=\read1
+\l__coffin_bounding_shift_dim=\dimen140
+\l__coffin_left_corner_dim=\dimen141
+\l__coffin_right_corner_dim=\dimen142
+\l__coffin_bottom_corner_dim=\dimen143
+\l__coffin_top_corner_dim=\dimen144
+\l__coffin_scaled_total_height_dim=\dimen145
+\l__coffin_scaled_width_dim=\dimen146
+\l__seq_internal_a_int=\count183
+\l__seq_internal_b_int=\count184
 )
-Package: siunitx 2019/10/10 v2.7t A comprehensive (SI) units package
- (/home/lars/.local/texlive/2019/texmf-dist/tex/latex/tools/array.sty
-Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
+File: l3pdfmode.def 2019-02-15 v L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count185
+))
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/l3packages/xparse/xparse.
+sty
+Package: xparse 2018-10-17 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count186
+\g__xparse_grabber_int=\count187
+\l__xparse_m_args_int=\count188
+\l__xparse_mandatory_args_int=\count189
+\l__xparse_v_nesting_int=\count190
+)
+Package: siunitx 2018/05/17 v2.7s A comprehensive (SI) units package
+ (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/tools/array.sty
+Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
 \col@sep=\dimen147
-\ar@mcellbox=\box52
+\ar@mcellbox=\box51
 \extrarowheight=\dimen148
 \NC@list=\toks24
 \extratabsurround=\skip68
 \backup@length=\skip69
-\ar@cellbox=\box53
+\ar@cellbox=\box52
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys
-2e.sty
-Package: l3keys2e 2019-10-11 LaTeX2e option processing using LaTeX3 keys
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/l3packages/l3keys2e/l3key
+s2e.sty
+Package: l3keys2e 2018-10-17 LaTeX2e option processing using LaTeX3 keys
 )
-\l__siunitx_tmp_box=\box54
+\l__siunitx_tmp_box=\box53
 \l__siunitx_tmp_dim=\dimen149
-\l__siunitx_tmp_int=\count192
-\l__siunitx_number_mantissa_length_int=\count193
-\l__siunitx_number_uncert_length_int=\count194
-\l__siunitx_round_int=\count195
-\l__siunitx_process_decimal_int=\count196
-\l__siunitx_process_uncertainty_int=\count197
-\l__siunitx_process_fixed_int=\count198
-\l__siunitx_process_integer_min_int=\count199
-\l__siunitx_process_precision_int=\count266
-\l__siunitx_group_min_int=\count267
-\l__siunitx_angle_marker_box=\box55
-\l__siunitx_angle_unit_box=\box56
+\l__siunitx_tmp_int=\count191
+\l__siunitx_number_mantissa_length_int=\count192
+\l__siunitx_number_uncert_length_int=\count193
+\l__siunitx_round_int=\count194
+\l__siunitx_process_decimal_int=\count195
+\l__siunitx_process_uncertainty_int=\count196
+\l__siunitx_process_fixed_int=\count197
+\l__siunitx_process_integer_min_int=\count198
+\l__siunitx_process_precision_int=\count199
+\l__siunitx_group_min_int=\count266
+\l__siunitx_angle_marker_box=\box54
+\l__siunitx_angle_unit_box=\box55
 \l__siunitx_angle_marker_dim=\dimen150
 \l__siunitx_angle_unit_dim=\dimen151
-\l__siunitx_unit_int=\count268
-\l__siunitx_unit_denominator_int=\count269
-\l__siunitx_unit_numerator_int=\count270
-\l__siunitx_unit_prefix_int=\count271
-\l__siunitx_unit_prefix_base_int=\count272
-\l__siunitx_unit_prefix_gram_int=\count273
-\l__siunitx_number_product_int=\count274
+\l__siunitx_unit_int=\count267
+\l__siunitx_unit_denominator_int=\count268
+\l__siunitx_unit_numerator_int=\count269
+\l__siunitx_unit_prefix_int=\count270
+\l__siunitx_unit_prefix_base_int=\count271
+\l__siunitx_unit_prefix_gram_int=\count272
+\l__siunitx_number_product_int=\count273
 \c__siunitx_one_fill_skip=\skip70
 \l__siunitx_table_unit_align_skip=\skip71
 \l__siunitx_table_exponent_dim=\dimen152
@@ -615,26 +597,25 @@ Package: l3keys2e 2019-10-11 LaTeX2e option processing using LaTeX3 keys
 \l__siunitx_table_fill_pre_dim=\dimen158
 \l__siunitx_table_fill_post_dim=\dimen159
 \l__siunitx_table_fill_mid_dim=\dimen160
-\l__siunitx_table_pre_box=\box57
-\l__siunitx_table_post_box=\box58
-\l__siunitx_table_mantissa_box=\box59
-\l__siunitx_table_result_box=\box60
+\l__siunitx_table_pre_box=\box56
+\l__siunitx_table_post_box=\box57
+\l__siunitx_table_mantissa_box=\box58
+\l__siunitx_table_result_box=\box59
 \l__siunitx_table_number_align_skip=\skip72
 \l__siunitx_table_text_align_skip=\skip73
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/translator/translator.sty
-Package: translator 2019-05-31 v1.12a Easy translation of strings in LaTeX
-)) (/home/lars/.local/texlive/2019/texmf-dist/tex/latex/placeins/placeins.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/translator/translator.sty
+Package: translator 2018/01/04 v1.12 Easy translation of strings in LaTeX
+)) (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
-)
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2019/09/01 v1.3a Sub-captions (AR)
+) (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2019/09/01 v3.3d Customizing captions (AR)
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2019/09/01 v1.8d caption3 kernel (AR)
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 64.
 \captionmargin=\dimen161
 \captionmargin@=\dimen162
@@ -645,15 +626,15 @@ Package caption3 Info: TeX engine: e-TeX on input line 64.
 \caption@hangindent=\dimen167
 )
 Package caption Info: KOMA-Script document class.
-\c@caption@flags=\count275
-\c@ContinuedFloat=\count276
+\c@caption@flags=\count274
+\c@ContinuedFloat=\count275
 Package caption Info: float package is loaded.
 )
-\c@subfigure=\count277
-\c@subtable=\count278
+\c@subfigure=\count276
+\c@subtable=\count277
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/l3packages/xfrac/xfrac.sty
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/base/textcomp.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/l3packages/xfrac/xfrac.st
+y (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -668,7 +649,7 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/base/ts1enc.def
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
 LaTeX Info: Redefining \oldstylenums on input line 334.
@@ -734,17 +715,17 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/l3packages/xtemplate/xtemp
-late.sty
-Package: xtemplate 2019-10-11 L3 Experimental prototype document functions
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/l3packages/xtemplate/xtem
+plate.sty
+Package: xtemplate 2018-10-17 L3 Experimental prototype document functions
 \l__xtemplate_tmp_dim=\dimen168
-\l__xtemplate_tmp_int=\count279
+\l__xtemplate_tmp_int=\count278
 \l__xtemplate_tmp_muskip=\muskip17
 \l__xtemplate_tmp_skip=\skip74
 )
-Package: xfrac 2019-10-11 L3 Experimental split-level fractions
-\l__xfrac_slash_box=\box61
-\l__xfrac_tmp_box=\box62
+Package: xfrac 2018-10-17 L3 Experimental split-level fractions
+\l__xfrac_slash_box=\box60
+\l__xfrac_tmp_box=\box61
 \l__xfrac_denominator_bot_sep_dim=\dimen169
 \l__xfrac_numerator_bot_sep_dim=\dimen170
 \l__xfrac_numerator_top_sep_dim=\dimen171
@@ -754,19 +735,19 @@ Package: xfrac 2019-10-11 L3 Experimental split-level fractions
 \l__xfrac_slash_right_muskip=\muskip19
 
 Package xtemplate Info: Declaring object type 'xfrac' taking 3 argument(s) on
-(xtemplate)             line 79.
+(xtemplate)             line 80.
 
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/enumitem/enumitem.sty
-Package: enumitem 2019/06/20 v3.9 Customized lists
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/02/04 v3.8 Customized lists
 \labelindent=\skip75
 \enit@outerparindent=\dimen174
 \enit@toks=\toks25
-\enit@inbox=\box63
-\enit@count@id=\count280
-\enitdp@description=\count281
+\enit@inbox=\box62
+\enit@count@id=\count279
+\enitdp@description=\count280
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/doublestroke/dsfont.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/doublestroke/dsfont.sty
 Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 )
 (./build/main.aux)
@@ -787,137 +768,159 @@ LaTeX Font Info:    ... okay on input line 30.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
 LaTeX Font Info:    ... okay on input line 30.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 30
-.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 30.
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/base/ts1cmr.fd
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 30.
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/home/julia/.local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count282
+\scratchcounter=\count281
 \scratchdimen=\dimen175
-\scratchbox=\box64
-\nofMPsegments=\count283
-\nofMParguments=\count284
+\scratchbox=\box63
+\nofMPsegments=\count282
+\nofMParguments=\count283
 \everyMPshowfont=\toks26
-\MPscratchCnt=\count285
+\MPscratchCnt=\count284
 \MPscratchDim=\dimen176
-\MPnumerator=\count286
-\makeMPintoPDFobject=\count287
+\MPnumerator=\count285
+\makeMPintoPDFobject=\count286
 \everyMPtoPDFconversion=\toks27
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.st
+y
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+
+(/home/julia/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/oberdiek/grfext.sty
+) (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/oberdiek/kvdefinekeys.st
-y
+(/home/julia/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvdefinekeys.s
+ty
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
- (/home/lars/.local/texlive/2019/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+ (/home/julia/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-))) (/home/lars/.local/texlive/2019/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+)))
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/home/julia/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/iftex/ifluatex.sty
-Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+(/home/julia/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX detected.
+))))
+(/home/julia/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO)
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2019/11/07 v1.0c TeX engine tests
-)))))
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2019/07/25 v0.30 Utility functions of pdfTeX for LuaTeX (HO)
-
-
-(/home/lars/.local/texlive/2019/texmf-dist/tex/generic/iftex/ifpdf.sty
-Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+(/home/julia/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 \pdftexcmds@toks=\toks28
 )
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 44
-1.
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 43
+8.
 Package grfext Info: Graphics extension search list:
 (grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG
 ,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 459.
+(grfext)             \AppendGraphicsExtensions on input line 456.
 
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/latexconfig/epstopdf-sys.c
-fg
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.
+cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 
 ))
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/translator/translator-basi
-c-dictionary-English.dict
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/translator/translator-bas
+ic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 )
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/siunitx/siunitx-abbreviati
-ons.cfg
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/siunitx/siunitx-abbreviat
+ions.cfg
 File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
- (/home/lars/.local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Try loading font information for U+msa on input line 30.
+
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
-(/home/lars/.local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
+LaTeX Font Info:    Try loading font information for U+msb on input line 30.
+
+(/home/julia/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (./content/Aufgabe1.tex [1
 
-{/home/lars/.local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{/home/julia/.local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
 
 LaTeX Warning: Reference `fig:F' on page 2 undefined on input line 81.
 
-) [2] (./build/main.aux)
+) (./content/Aufgabe2.tex [2]
+<A2/build/intervallhalbierung.pdf, id=21, 462.52798pt x 346.89601pt>
+File: A2/build/intervallhalbierung.pdf Graphic file (type pdf)
+<use A2/build/intervallhalbierung.pdf>
+Package luatex.def Info: A2/build/intervallhalbierung.pdf  used on input line 12
+.
+(luatex.def)             Requested size: 188.21371pt x 141.15906pt.
+<A2/build/intervallhalbierung2.pdf, id=22, 462.52798pt x 346.89601pt>
+File: A2/build/intervallhalbierung2.pdf Graphic file (type pdf)
+<use A2/build/intervallhalbierung2.pdf>
+Package luatex.def Info: A2/build/intervallhalbierung2.pdf  used on input line 1
+3.
+(luatex.def)             Requested size: 188.21371pt x 141.15906pt.
+<A2/build/newton.pdf, id=23, 462.52798pt x 346.89601pt>
+File: A2/build/newton.pdf Graphic file (type pdf)
+<use A2/build/newton.pdf>
+Package luatex.def Info: A2/build/newton.pdf  used on input line 20.
+(luatex.def)             Requested size: 292.7776pt x 219.59369pt.
+) [3<./A2/build/intervallhalbierung.pdf><./A2/build/intervallhalbierung2.pdf><./
+A2/build/newton.pdf>] [4] (./build/main.aux)
 
 LaTeX Warning: There were undefined references.
 
 )
 
 Here is how much of LuaTeX's memory you used:
- 20955 strings out of 493861
- 100000,662416 words of node,token memory allocated
- 660 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 44 attribute, 63 glue_spec
-, 24 attribute_list, 1 write nodes
-   avail lists: 2:707,3:84,4:7,5:162,6:12,7:1704,8:59,9:369,10:3,11:80
- 25177 multiletter control sequences out of 65536+600000
- 56 fonts using 7961519 bytes
- 62i,10n,78p,10089b,429s stack positions out of 5000i,500n,10000p,200000b,100000s
-</home/lars/.local/texlive/2019/texmf-dist/fonts/opentype/public/lm/lmroman10-bo
-ld.otf></home/lars/.local/texlive/2019/texmf-dist/fonts/opentype/public/lm/lmrom
-an10-regular.otf></home/lars/.local/texlive/2019/texmf-dist/fonts/opentype/publi
-c/lm/lmsans10-bold.otf></home/lars/.local/texlive/2019/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmex10.pfb></home/lars/.local/texlive/2019/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi10.pfb></home/lars/.local/texlive/2019/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi6.pfb></home/lars/.local/texlive/2019/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/lars/.local/texlive/2019/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/lars/.local/texlive/2019/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></home/lars/.local/texlive/2019/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/lars/.local/texlive/20
-19/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/lars/.local/texli
-ve/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (2 pages, 98531 bytes).
+ 19502 strings out of 494383
+ 100000,552014 words of node,token memory allocated
+ 626 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 26 attribute, 63 glue_spec
+, 26 attribute_list, 1 write nodes
+   avail lists: 2:468,3:88,4:11,5:181,6:13,7:1704,8:60,9:354,10:7,11:123
+ 23224 multiletter control sequences out of 65536+600000
+ 66 fonts using 8719639 bytes
+ 51i,10n,71p,9109b,558s stack positions out of 5000i,500n,10000p,200000b,100000s
+</home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman8-re
+gular.otf></home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/l
+mroman10-bold.otf></home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/pub
+lic/lm/lmroman10-regular.otf></home/julia/.local/texlive/2018/texmf-dist/fonts/o
+pentype/public/lm/lmsans10-bold.otf></home/julia/.local/texlive/2018/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmex10.pfb></home/julia/.local/texlive/2018/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/julia/.local/texlive/2018
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></home/julia/.local/texlive
+/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/julia/.local/te
+xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/julia/.loc
+al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></home/julia/
+.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/ju
+lia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></h
+ome/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
+b>
+Output written on main.pdf (4 pages, 128878 bytes).
 
-PDF statistics: 68 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+PDF statistics: 209 PDF objects out of 1000 (max. 8388607)
+ 98 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
