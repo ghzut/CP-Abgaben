@@ -85,7 +85,7 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
       cdouble J=j;
       for(int a = 0; a < n/pow(2,i); ++a)
       {
-        M_i(j,a)= v_M_temp.at(i-1)(j, 2 * a) + v_M_temp.at(i-1)(j,2 * a + 1) * exp(2.0*pi*I*J/pow(2.0, i)));
+        M_i(j,a)= v_M_temp.at(i-1)(j, 2 * a) + v_M_temp.at(i-1)(j,2 * a + 1) * exp(2.0*pi*I*J/pow(2.0, i));
         for(int b = 0; b < n/pow(2,i); ++b)
         {
           M_i(j+b*pow(2,i),a) = M_i(j,a);
@@ -93,7 +93,7 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
       }
     }
     v_M_temp.push_back(M_i);
-    M_i.reshape(0,0);
+    M_i.reshaped(0,0);
   }
   for(int j = 0; j < n; ++j)
   {
