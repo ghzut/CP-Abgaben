@@ -71,33 +71,32 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
 {
   MatrixXcd M = init_Mat(n, v_f);
   VectorXcd v_FFT = VectorXcd::Zero(n);
-  vector<vector<cdouble>> v_v_Fj;
-  vector<cdouble> v_Fj;
+  MatrixXcd M_temp = MatrixXcd::Zero(n,n);
+  RowVectorXcd v_Fj;
   for(int j = 0; j < n; ++j)
   {
     for(int l = 0; l < n/2; ++l)
     {
-      v_Fj.push_back(M(j,2*l) + M(j,2*l+1) * omega_j_N(j, 2));
+      v_Fj(l) = (M(j,2*l) + M(j,2*l+1) * omega_j_N(j, 2));
     }
-    v_v_Fj.push_back(v_Fj);
-    v_Fj.clear();
+    M_temp.row(j) = v_Fj;
   }
-  for(int i = 4; i < n; i*=2)
+  for(int i = 2; pow(2,i) < n; ++i)
   {
-    for(int j = 0; j < n; ++j)
+    for(int j = 0; j < pow(2,i); ++j)
     {
-      int size = v_v_Fj.at(j).size();
-      for(int a = 0; a < size/2; ++a)
+      for(int a = 0; a < n/pow(2,i); ++a)
       {
-        v_Fj.push_back(v_v_Fj.at(j).at(2 * a) + v_v_Fj.at(j).at(2 * a + 1) * omega_j_N(j, pow(2,i)));
+        v_Fj(a)= M_temp(j, 2 * a) + M_temp(j,2 * a + 1) * omega_j_N(j, pow(2,i)));
       }
-      v_v_Fj.at(j) = v_Fj;
-      v_Fj.clear();
+      M_temp.row(j) = v_Fj;
+      for(int b = 0; b < n/pow(2,i); ++b)
+      M_temp.row(j+b*pow(2,i)) = v_Fj;
     }
   }
   for(int j = 0; j < n; ++j)
   {
-    v_FFT(j) = v_v_Fj.at(j).at(0);
+    v_FFT(j) = M_temp(j,0);
   }
   return v_FFT;
 }
