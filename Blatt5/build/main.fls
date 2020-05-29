@@ -68,6 +68,8 @@ INPUT /home/lars/.local/texlive/2019/texmf-dist/tex/latex/graphics-def/luatex.de
 INPUT /home/lars/.local/texlive/2019/texmf-dist/tex/latex/graphics-def/luatex.def
 INPUT /home/lars/.local/texlive/2019/texmf-dist/tex/latex/float/float.sty
 INPUT /home/lars/.local/texlive/2019/texmf-dist/tex/latex/float/float.sty
+INPUT /home/lars/.local/texlive/2019/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT /home/lars/.local/texlive/2019/texmf-dist/tex/latex/booktabs/booktabs.sty
 INPUT /home/lars/.local/texlive/2019/texmf-dist/tex/latex/siunitx/siunitx.sty
 INPUT /home/lars/.local/texlive/2019/texmf-dist/tex/latex/siunitx/siunitx.sty
 INPUT /home/lars/.local/texlive/2019/texmf-dist/tex/latex/l3kernel/expl3.sty
@@ -187,9 +189,9 @@ INPUT /home/lars/.local/texlive/2019/texmf-var/luatex-cache/generic/fonts/otl/lm
 INPUT /home/lars/.local/texlive/2019/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-bold.luc
 INPUT ./content/Aufgabe1.tex
 INPUT ./content/Aufgabe1.tex
+INPUT /home/lars/.local/texlive/2019/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
 OUTPUT build/main.pdf
 INPUT /home/lars/.local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT /home/lars/.local/texlive/2019/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
 INPUT /home/lars/.local/texlive/2019/texmf-var/luatex-cache/generic/fonts/otl/lmroman8-regular.luc
 INPUT /home/lars/.local/texlive/2019/texmf-var/luatex-cache/generic/fonts/otl/lmroman6-regular.luc
 INPUT build/main.aux

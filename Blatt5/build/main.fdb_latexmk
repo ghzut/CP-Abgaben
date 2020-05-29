@@ -1,5 +1,5 @@
 # Fdb version 3
-["lualatex"] 1590706827 "main.tex" "build/main.pdf" "main" 1590706829
+["lualatex"] 1590737450 "main.tex" "build/main.pdf" "main" 1590737452
   "/home/lars/.local/texlive/2019/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf" 1255129361 111240 0af0b64d6d3df41bead3f9de314afbd4 ""
   "/home/lars/.local/texlive/2019/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf" 1255129361 111536 ae9d1b331000d544f47e5223081b7b54 ""
   "/home/lars/.local/texlive/2019/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf" 1255129361 107448 a9e5b7aaaf5f74194deee407f2fd1552 ""
@@ -66,6 +66,7 @@
   "/home/lars/.local/texlive/2019/texmf-dist/tex/latex/base/textcomp.sty" 1570222634 16154 aa2e2ccb4112a609f28cbe297c11ef1d ""
   "/home/lars/.local/texlive/2019/texmf-dist/tex/latex/base/ts1cmr.fd" 1570222634 2431 cc3b740992f1bf33ee159b31f0710d60 ""
   "/home/lars/.local/texlive/2019/texmf-dist/tex/latex/base/ts1enc.def" 1570222634 7767 e781dcaece5057ee9243d19755558b5a ""
+  "/home/lars/.local/texlive/2019/texmf-dist/tex/latex/booktabs/booktabs.sty" 1570658243 5950 e9cdc09d1426cd2e1a36fffb0c90bfa9 ""
   "/home/lars/.local/texlive/2019/texmf-dist/tex/latex/caption/caption.sty" 1567373752 68688 0117141b30e5c5fec86154f541dec0d0 ""
   "/home/lars/.local/texlive/2019/texmf-dist/tex/latex/caption/caption3.sty" 1567373752 68575 41af57b9d23e31041c5fb63021aa6d56 ""
   "/home/lars/.local/texlive/2019/texmf-dist/tex/latex/caption/subcaption.sty" 1567373752 6122 bfe7acc131951843bf919759c3c339a6 ""
@@ -120,10 +121,10 @@
   "/home/lars/.local/texlive/2019/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-regular.luc" 1581263601 123482 f465cce94e0ab034f84d10ef1bf17d58 ""
   "/home/lars/.local/texlive/2019/texmf-var/tex/generic/config/language.dat" 1574016689 6580 bb954d7269c2c5635fee694f35d543cc ""
   "/home/lars/.local/texlive/2019/texmf-var/web2c/luatex/lualatex.fmt" 1574016829 1399186 35e56fbb828a7205a3ae8f4f4f1aaa7f ""
-  "build/main.aux" 1590706829 142 9aaf65573c88890407e4d306ac714b53 "lualatex"
-  "content/Aufgabe1.tex" 1590706825 3652 b9dd6a95b2acec42980cd0ed248c5195 ""
-  "main.tex" 1590706507 1092 80015fa1f8c0dfe1ab4f1a2dadadadd0 ""
+  "build/main.aux" 1590737452 515 f4e7e532569981b809671ae727536226 "lualatex"
+  "content/Aufgabe1.tex" 1590737446 4298 fc7ac0922f4134b2b1e7cb40ab13fc93 ""
+  "main.tex" 1590737265 1114 a0e4db06c9f89a50659cdddd965d7475 ""
   (generated)
   "build/main.aux"
-  "build/main.pdf"
   "build/main.log"
+  "build/main.pdf"
