@@ -8,6 +8,12 @@ using namespace std;
 
 typedef complex<double> cdouble;
 
+double f1(int l)
+{
+  return sqrt(1.+l);
+}
+
+
 cdouble omega_j_N(int j, double n_l)
 {
   cdouble o = -1.;
@@ -21,7 +27,31 @@ VectorXcd init_v_f(double (*func)(double), int n)
   return vec;
 }
 
-MatrixXcd init_Mat(int n)
+int lbar(int l, int m)
+{
+  VectorXd biNum = VectorXd::Zero(m);
+  for (int i = 0; i < m; ++i)
+  {
+    binNum(i) = l % 2;
+    l = l / 2;
+  }
+  VectorXd lqu(m);
+  for (int i = 0; i < m; ++i)
+  {
+    lqu(i)=binNum(m-i-1);
+  }
+  int dec = 0;
+  int base = 1;
+  for (int i = 0; i < m; ++i)
+  {
+    dec += lqu(i)*base;
+    base = base*2;
+  }
+  return dec;
+}
+
+
+MatrixXcd init_Mat(int n, const VectorXcd &v_f)
 {
   MatrixXcd M = MatrixXcd::Zero(n,n);
   double n_l;
@@ -30,17 +60,44 @@ MatrixXcd init_Mat(int n)
     for(int l = 0; l < n; ++l)
     {
       n_l = double(l)/n;
-      M(j, l) = omega_j_N(j, n_l);
+      M(j, l) = omega_j_N(j, n_l) * v_f(lbar(l, log2(n));
     }
   }
-  cout << M << endl << endl;
   return M;
 }
 
 VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
 {
-  MatrixXcd M = init_Mat(n);
-  VectorXcd v_FFT = M * v_f;
+  MatrixXcd M = init_Mat(n, v_f);
+  VectorXcd v_FFT = VectorXcd::Zero(n);
+  vector<vector<cdouble>> v_v_Fj;
+  vector<cdouble> v_Fj;
+  for(int j = 0; j < n; ++j)
+  {
+    for(int l = 0; l < n/2; ++l)
+    {
+      v_Fj.push_back(M(j,2*l) + M(j,2*l+1) * omega_j_N(j, 2));
+    }
+    v_v_Fj.push_back(v_Fj);
+    v_F_j.clear();
+  }
+  int size = v_v_Fj.at(i).size();
+  for(int i = 2; i < n; i*=2)
+  {
+    for(int j = 0; j < n; ++j)
+    {
+      for(int a = 0; a < size; ++a)
+      {
+        v_Fj.push_back(v_v_Fj.at(j).at(2 * a) + v_v_Fj.at(i).at(2 * a + 1) * omega_j_N(j, pow(2,i)));
+      }
+      v_v_Fj.at(i) = v_Fj;
+      v_Fj.clear()
+    }
+  }
+  for(int j = 0; j < n; ++j)
+  {
+    v_FFT << v_v_Fj.at(j).at(0);
+  }
   return v_FFT;
 }
 
@@ -69,7 +126,7 @@ int main()
     VectorXcd v_f_m = VectorXcd::Zero(dim);
     for(int l = 0; l < dim; ++l)
     {
-      v_f_m(l) = sqrt(1.+l);
+      v_f_m(l) = f1(l);
     }
     VectorXcd v_dir, v_fft;
     v_dir = v_dir_F(v_f_m, dim);
