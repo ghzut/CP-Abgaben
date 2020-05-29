@@ -104,6 +104,22 @@ VectorXcd v_F_FFT(int n, const VectorXcd &v_f)
   return v_FFT;
 }
 
+void bubble_sort(VectorXcd &v_f, int n)
+{
+  cdouble tmp;
+  for (int k=1; k < n; k++)
+  {
+    for(int b = 0; b < (zahlen-k); b++)
+    {
+      if(v_f(b)> v_f(b+1))
+      {
+        tmp=v_f(b+1);
+        v_f(b+1)=v_f(b);
+        v_f(b)=tmp;
+      }
+    }
+  }
+}
 /*
 
 VectorXcd FFT( int m, VectorXcd f) {
@@ -179,6 +195,7 @@ int main()
     VectorXcd v_dir, v_fft;
     v_dir = v_dir_F(v_f_m, dim);
     v_fft = v_F_FFT(dim, v_f_m);
+    bubble_sort(v_fft, dim);
     for(int i = 0; i < dim; ++i)
     {
       outfile1 << real(v_dir(i)) << " " << imag(v_dir(i)) << " " << real(v_fft(i)) << " " << imag(v_fft(i)) << "\n";
