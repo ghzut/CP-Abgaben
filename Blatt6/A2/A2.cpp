@@ -10,7 +10,7 @@ double f(VectorXd &x)
   return x.sum();
 }
 
-double bfgs(function<double(VectorXd)> f, const VectorXd &x0)//, MatrixXd C0, double epsilon)
+double bfgs(function<double(VectorXd&)> f, const VectorXd &x0)//, MatrixXd C0, double epsilon)
 {
   double result = f(x0);
   return result;
