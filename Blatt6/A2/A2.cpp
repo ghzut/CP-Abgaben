@@ -5,12 +5,12 @@
 using namespace std;
 using namespace Eigen;
 
-double f(VectorXd &x)
+double f(const VectorXd &x)
 {
   return x.sum();
 }
 
-double bfgs(function<double(VectorXd&)> f, const VectorXd &x0)//, MatrixXd C0, double epsilon)
+double bfgs(function<double(const VectorXd&)> f, const VectorXd &x0)//, MatrixXd C0, double epsilon)
 {
   double result = f(x0);
   return result;
