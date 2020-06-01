@@ -32,6 +32,42 @@ VectorXd g1(const VectorXd& x)
 }
 
 
+
+double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
+{
+  if (x0.size() != 2)
+  {
+    cerr << "Dieser Vektor ist nicht geeignet für diese Funktion." << endl;
+    return -1.;
+  }
+  return pow(1.-x0(0)-l0*b0(0), 2.) + 100*pow(-pow(b0(0)*l0,2.)-(2*x0(0)*b0(0)-b0(1))*l0 + x0(1) - pow(b0(0),2.), 2.);
+}
+
+
+double erste_ableitung(function<double(const VectorXd&, const VectorXd&, double)> f, double x, const VectorXd &x0, const VectorXd &b0)
+{
+    double h = 0.001;
+
+    return (f(x0, b0, x+h) - f(x0, b0, x-h))/(2*h);
+}
+
+double zweite_ableitung(function<double(const VectorXd&, const VectorXd&, double)> f, double x, const VectorXd &x0, const VectorXd &b0)
+{
+    double h = 0.001;
+
+    return (f(x0, b0, x+h) - 2*f(x0, b0, x) + f(x0, b0, x-h))/(h*h);
+}
+
+VectorXd newton(function<double(const VectorXd&, const VectorXd&, double)> f, const VectorXd &x0, const VectorXd &b0)
+{
+  double dx;
+  double l_0 = 4.;
+  VectorXd x_new(x0.size());
+  dx = erste_ableitung(f, l_0, x0, b0)/zweite_ableitung(f, l_0, x0, b0);
+  x_new = x0 + (l_0+dx) *b0;
+  return x_new;
+}
+
 void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&)> g, const VectorXd &x0, const MatrixXd &C0, const double epsilon, string init)
 {
   if(C0.rows() != C0.cols())
@@ -53,16 +89,15 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   {
     I(i,i) = 1.;
   }
+  // Ersten Liniensuchschritt anwenden.
   VectorXd bk = g(x0);
-  VectorXd pk = C0 * bk;
-  VectorXd xk = x0 + pk;
+  err = bk.norm();
+  VectorXd xk = newton(f1_lambda, x0, bk);
+  VectorXd pk = xk - x0;
   VectorXd bk1 = g(xk);
   VectorXd yk = bk1 - bk;
-  bk = bk1;
   double rho = 1./(pk.transpose()*yk);
   MatrixXd Ck = C0 - rho * (C0 * yk) * pk.transpose() + pk * (yk.transpose() * C0) + pk * pk.transpose() * pow(rho,2.) * (yk.transpose() * (C0 * yk)) + rho * pk * pk.transpose();
-  err = bk.norm();
-  cout << Ck << endl;
   int iter = 1;
   outfile << iter << " " << err << "\n";
   while (err > epsilon)
@@ -75,18 +110,21 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
     bk = bk1;
     rho = 1./(pk.transpose()*yk);
     Ck = Ck - rho*(Ck*yk)*pk.transpose() + pk*(yk.transpose()*Ck) + pk*pk.transpose() * pow(rho,2.)* (yk.transpose()*(Ck*yk)) + rho*pk*pk.transpose();
-    err = bk.norm();
-    outfile << iter << " " << err << "\n";
-    if(err > 1e6)
+    if(err < 100*bk.norm())
     {
-      cout << "Nope, so nicht" << endl;
+      cout << "Nope, so nicht. Fehler wird deutlich größer." << endl;
       break;
     }
+    err = bk.norm();
+    outfile << iter << " " << err << "\n";
   }
   outfile.flush();
   outfile.close();
   cout << "Der minimierte Vektor ist\n\n" << xk << endl;
 }
+
+
+
 
 int main()
 {
