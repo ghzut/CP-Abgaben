@@ -41,7 +41,7 @@ double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
     return -1.;
   }
   cout << x0 << endl << endl << b0 << endl << endl << l0 << endl << endl;
-  cout << pow(1.-x0(0)-l0*b0(0), 2.) + 100*pow(-pow(b0(0)*l0,2.)-(2*x0(0)*b0(0)-b0(1))*l0 + x0(1) - pow(b0(0),2.), 2.) << endl;
+  cout << pow(1.-x0(0)-l0*b0(0), 2.) << endl << endl;
   return pow(1.-x0(0)-l0*b0(0), 2.) + 100*pow(-pow(b0(0)*l0,2.)-(2*x0(0)*b0(0)-b0(1))*l0 + x0(1) - pow(b0(0),2.), 2.);
 }
 
