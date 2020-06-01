@@ -25,7 +25,7 @@ VectorXd g1(const VectorXd& x)
   }
   else
   {
-    grad(0) = 2. * x(0) * (1. + 200.* (x(1)- pow(x(0),2.))) - 1.;
+    grad(0) = 2.* (-1. + x(0) + 200 * pow(x(0),3.) - 200 * x(0) * x(1))
     grad(1) = 200 * (x(1) - pow(x(0), 2.));
     return grad;
   }
@@ -33,7 +33,7 @@ VectorXd g1(const VectorXd& x)
 
 
 
-double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
+/*double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
 {
   if (x0.size() != 2)
   {
@@ -67,7 +67,7 @@ VectorXd newton(function<double(const VectorXd&, const VectorXd&, double)> f, co
   x_new = x0 + (l_0+dx) *b0;
   return x_new;
 }
-
+*/
 void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&)> g, const VectorXd &x0, const MatrixXd &C0, const double epsilon, string init)
 {
   if(C0.rows() != C0.cols())
