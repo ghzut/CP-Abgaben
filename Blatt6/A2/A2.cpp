@@ -40,6 +40,7 @@ double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
     cerr << "Dieser Vektor ist nicht geeignet für diese Funktion." << endl;
     return -1.;
   }
+  cout << x0 << endl << endl << b0 << endl << endl << l0 << endl << endl;
   return pow(1.-x0(0)-l0*b0(0), 2.) + 100*pow(-pow(b0(0)*l0,2.)-(2*x0(0)*b0(0)-b0(1))*l0 + x0(1) - pow(b0(0),2.), 2.);
 }
 
@@ -63,7 +64,6 @@ VectorXd newton(function<double(const VectorXd&, const VectorXd&, double)> f, co
   double dx = 1e4;
   double l_0 = 1./2.;
   VectorXd x_new(x0.size());
-  cout << x0 << endl << endl << b0 << endl << endl;
   while (dx > 1e-5)
   {
     dx = f(x0, b0, l_0)/erste_ableitung(f, l_0, x0, b0);
