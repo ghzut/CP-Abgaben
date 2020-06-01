@@ -90,20 +90,21 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
     I(i,i) = 1.;
   }
   // Ersten Liniensuchschritt anwenden.
+  VectorXd pk;
+  VectorXd yk;
+  double rho;
   VectorXd bk = g(x0);
-  err = bk.norm();
   VectorXd xk = newton(f1_lambda, x0, bk);
-  VectorXd pk = xk - x0;
   VectorXd bk1 = g(xk);
-  VectorXd yk = bk1 - bk;
-  double rho = 1./(pk.transpose()*yk);
-  MatrixXd Ck = C0 - rho * (C0 * yk) * pk.transpose() + pk * (yk.transpose() * C0) + pk * pk.transpose() * pow(rho,2.) * (yk.transpose() * (C0 * yk)) + rho * pk * pk.transpose();
+  MatrixXd Ck = C0;
   int iter = 1;
+  bk = bk1;
+  err = bk.norm();
   outfile << iter << " " << err << "\n";
   while (err > epsilon)
   {
     ++iter;
-    pk = Ck * bk1;
+    pk = Ck * bk;
     xk += pk;
     bk1 = g(xk);
     yk = bk1 - bk;
