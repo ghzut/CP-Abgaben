@@ -86,11 +86,11 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
 int main()
 {
   VectorXd x0(2);
-  x0 << -1.,1.; cout << x0;
+  x0 << -1.,1.;
   MatrixXd I = MatrixXd::Zero(2,2);
   I << 1., 0., 0., 1.;
   double init_3 = f1(x0);
-  MatrixXd C0_3 = init_3 * I;
+  MatrixXd C0_3 = init_3 * I; cout << C0_3;
   //bfgs(f1, g1, x0, C0_3, 1e-5, "3");
   return 0;
 }
