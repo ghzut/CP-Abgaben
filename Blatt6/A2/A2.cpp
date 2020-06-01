@@ -63,7 +63,7 @@ VectorXd newton(function<double(const VectorXd&, const VectorXd&, double)> f, co
   double dx = 1e4;
   double l_0 = 1./4.;
   VectorXd x_new(x0.size());
-  while (dx > 0.01)
+  while (dx > 1e-5)
   {
     dx = erste_ableitung(f, l_0, x0, b0)/zweite_ableitung(f, l_0, x0, b0);
     l_0-=dx;
