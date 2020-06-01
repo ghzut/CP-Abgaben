@@ -30,7 +30,7 @@ VectorXd g1(const VectorXd& x)
     return -grad;
   }
 }
-
+/*
 MatrixXd hesse1(const VectorXd& x)
 {
   MatrixXd H = MatrixXd::Zero(2);
@@ -48,7 +48,7 @@ MatrixXd hesse1(const VectorXd& x)
     return H;
   }
 }
-
+*/
 
 double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
 {
