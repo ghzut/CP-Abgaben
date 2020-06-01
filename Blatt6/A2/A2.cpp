@@ -99,9 +99,9 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   MatrixXd Ck = C0;
   int iter = 0;
   err = bk.norm();
-  
+
   cout << xk << endl << endl;
-  cout << bk1 << endl << endl;
+  cout << bk << endl << endl;
   cout << Ck << endl << endl;
 
   outfile << iter << " " << err << "\n";
