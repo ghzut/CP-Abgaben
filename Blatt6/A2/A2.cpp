@@ -65,7 +65,8 @@ VectorXd newton(function<double(const VectorXd&, const VectorXd&, double)> f, co
   VectorXd x_new(x0.size());
   while (dx > 1e-5)
   {
-    dx = f(x0, b0, l_0)/erste_ableitung(f, l_0, x0, b0);
+    //dx = f(x0, b0, l_0)/erste_ableitung(f, l_0, x0, b0);
+    dx = erste_ableitung(f, l_0, x0, b0)/zweite_ableitung(f, l_0, x0, b0);
     l_0-=dx;
   }
   x_new = x0 + l_0 * b0;
@@ -106,7 +107,6 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   yk = bk1 - bk;
   bk = bk1;
   rho = 1./(pk.transpose()*yk);
-  //Ck = Ck - rho * pk * (yk.transpose() * Ck) - rho * (Ck * yk) * pk.transpose() + pow(rho, 2.) * pk * (yk.transpose() * (Ck * yk)) * pk.transpose() + rho * pk * pk.transpose();
   int iter = 0;
   err = bk.norm();
 
