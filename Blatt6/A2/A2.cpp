@@ -31,9 +31,9 @@ VectorXd g1(const VectorXd& x)
   }
 }
 
-Matrix2d hesse1(const VectorXd& x)
+MatrixXd hesse1(const VectorXd& x)
 {
-  Matrix2d H = Matrix2d::Zero();
+  MatrixXd H = MatrixXd::Zero(x.size(),x.size());
   if (x.size() != 2)
   {
     cerr << "Dieser Vektor ist nicht geeignet für diese Hesse-Matrix." << endl;
@@ -47,6 +47,16 @@ Matrix2d hesse1(const VectorXd& x)
     H(1,1) = 200.;
     return H;
   }
+}
+
+double f2(const VectorXd& x)
+{
+  if (x.size() != 2)
+  {
+    cerr << "Dieser Vektor ist nicht geeignet für diese Funktion." << endl;
+    return -1.;
+  }
+  else return 1./(1. + exp(-10. * pow(x(0) * x(1) - 3., 2.))/(pow(x(0),2.) + pow(x(1),2.)));
 }
 
 
@@ -157,6 +167,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
 
 int main()
 {
+  //Funktion 1
   Vector2d x0(2);
   x0 << -1.,1.;
   Matrix2d I;
@@ -172,5 +183,8 @@ int main()
   bfgs(f1, g1, x0, C0_1, 1e-5, "1");
   bfgs(f1, g1, x0, C0_2, 1e-5, "2");
   bfgs(f1, g1, x0, C0_3, 1e-5, "3");
+
+  //Funktion 2
+
   return 0;
 }
