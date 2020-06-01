@@ -60,9 +60,9 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   VectorXd yk = bk1 - bk;
   bk = bk1;
   double rho = 1./(pk.transpose()*yk);
-  MatrixXd Ck = C0/rho - (C0*yk)*pk.transpose() + pk*(yk.transpose()*C0) + pk*pk.transpose() * rho* (yk.transpose()*(C0*yk)) + pk*pk.transpose();
-  Ck *= rho;
+  MatrixXd Ck = C0 - rho * (C0 * yk) * pk.transpose() + pk * (yk.transpose() * C0) + pk * pk.transpose() * pow(rho,2.) * (yk.transpose() * (C0 * yk)) + rho * pk * pk.transpose();
   err = bk.norm();
+  cout << Ck << endl;
   int iter = 1;
   outfile << iter << " " << err << "\n";
   while (err > epsilon)
@@ -74,8 +74,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
     yk = bk1 - bk;
     bk = bk1;
     rho = 1./(pk.transpose()*yk);
-    Ck = Ck/rho - (Ck*yk)*pk.transpose() + pk*(yk.transpose()*Ck) + pk*pk.transpose() * rho* (yk.transpose()*(Ck*yk)) + pk*pk.transpose();
-    Ck *= rho;
+    Ck = Ck - rho*(Ck*yk)*pk.transpose() + pk*(yk.transpose()*Ck) + pk*pk.transpose() * pow(rho,2.)* (yk.transpose()*(Ck*yk)) + rho*pk*pk.transpose();
     err = bk.norm();
     outfile << iter << " " << err << "\n";
     if(err > 1e6)
