@@ -106,7 +106,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   yk = bk1 - bk;
   bk = bk1;
   rho = 1./(pk.transpose()*yk);
-  Ck = Ck - rho * pk * (yk.transpose() * Ck) - rho * (Ck * yk) * pk.transpose() + pow(rho, 2.) * sk * (yk.transpose() * (Ck * yk)) * sk.transpose() + rho * sk * sk.transpose();
+  Ck = Ck - rho * pk * (yk.transpose() * Ck) - rho * (Ck * yk) * pk.transpose() + pow(rho, 2.) * pk * (yk.transpose() * (Ck * yk)) * pk.transpose() + rho * pk * pk.transpose();
   int iter = 0;
   err = bk.norm();
 
@@ -126,7 +126,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
     yk = bk1 - bk;
     bk = bk1;
     rho = 1./(pk.transpose()*yk);
-    Ck = Ck - rho * pk * (yk.transpose() * Ck) - rho * (Ck * yk) * pk.transpose() + pow(rho, 2.) * sk * (yk.transpose() * (Ck * yk)) * sk.transpose() + rho * sk * sk.transpose();
+    Ck = Ck - rho * pk * (yk.transpose() * Ck) - rho * (Ck * yk) * pk.transpose() + pow(rho, 2.) * pk * (yk.transpose() * (Ck * yk)) * pk.transpose() + rho * pk * pk.transpose();
     cout << Ck << endl << endl;
     err = bk.norm();
     outfile << iter << " " << err << "\n";
