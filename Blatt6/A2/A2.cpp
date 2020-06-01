@@ -92,13 +92,12 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   // Ersten Liniensuchschritt anwenden.
   VectorXd pk;
   VectorXd yk;
+  VectorXd bk1;
   double rho;
   VectorXd bk = g(x0);
-  VectorXd xk = newton(f1_lambda, x0, bk);
-  VectorXd bk1 = g(xk);
+  VectorXd xk = x0;
   MatrixXd Ck = C0;
-  int iter = 1;
-  bk = bk1;
+  int iter = 0;
   err = bk.norm();
   outfile << iter << " " << err << "\n";
   while (err > epsilon && iter < 10)
