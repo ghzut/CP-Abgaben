@@ -61,7 +61,7 @@ double zweite_ableitung(function<double(const VectorXd&, const VectorXd&, double
 VectorXd newton(function<double(const VectorXd&, const VectorXd&, double)> f, const VectorXd &x0, const VectorXd &b0)
 {
   double dx = 1e4;
-  double l_0 = 1./2.;
+  double l_0 = 0.;
   VectorXd x_new(x0.size());
   while (dx > 1e-5)
   {
