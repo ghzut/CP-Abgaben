@@ -25,7 +25,7 @@ VectorXd g1(const VectorXd& x)
   }
   else
   {
-    grad(0) = 2.* (-1. + x(0) + 200 * pow(x(0),3.) - 200 * x(0) * x(1))
+    grad(0) = 2.* (-1. + x(0) + 200 * pow(x(0),3.) - 200 * x(0) * x(1));
     grad(1) = 200 * (x(1) - pow(x(0), 2.));
     return grad;
   }
