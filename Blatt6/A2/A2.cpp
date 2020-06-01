@@ -114,7 +114,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   cout << Ck << endl << endl;
 
   outfile << iter << " " << err << "\n";
-  while (err > epsilon && iter < 10)
+  while (err > epsilon)
   {
     ++iter;
     pk = -Ck * bk;
