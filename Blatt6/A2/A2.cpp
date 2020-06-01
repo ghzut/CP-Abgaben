@@ -101,21 +101,19 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   bk = bk1;
   err = bk.norm();
   outfile << iter << " " << err << "\n";
-  while (err > epsilon && iter < 50)
+  while (err > epsilon && iter < 10)
   {
     ++iter;
     pk = Ck * bk;
     xk += pk;
+    cout << xk << endl << endl;
     bk1 = g(xk);
+    cout << bk1 << endl << endl;
     yk = bk1 - bk;
     bk = bk1;
     rho = 1./(pk.transpose()*yk);
     Ck = Ck - rho*(Ck*yk)*pk.transpose() + pk*(yk.transpose()*Ck) + pk*pk.transpose() * pow(rho,2.)* (yk.transpose()*(Ck*yk)) + rho*pk*pk.transpose();
-    /*if(err < 100*bk.norm())
-    {
-      cout << "Nope, so nicht. Fehler wird deutlich größer." << endl;
-      break;
-    }*/
+    cout << Ck << endl << endl;
     err = bk.norm();
     outfile << iter << " " << err << "\n";
   }
