@@ -103,9 +103,9 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   while (err > epsilon)
   {
     ++iter;
-    bk1 = g(xk);
     pk = Ck * bk1;
     xk += pk;
+    bk1 = g(xk);
     yk = bk1 - bk;
     bk = bk1;
     rho = 1./(pk.transpose()*yk);
