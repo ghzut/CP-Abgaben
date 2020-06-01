@@ -64,7 +64,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   Ck = C0 - Ck;
   err = bk.norm();
   int iter = 0;
-  while (err > epsilon)
+  /*while (err > epsilon)
   {
     ++iter;
     bk1 = g(xk);
@@ -77,7 +77,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
     Ck *= rho;
     err = bk.norm();
     outfile << iter << " " << err << "\n";
-  }
+  }*/
   outfile.flush();
   outfile.close();
   cout << "Der minimierte Vektor ist\n\n" << xk << endl;
