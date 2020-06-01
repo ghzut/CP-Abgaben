@@ -110,11 +110,11 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
     bk = bk1;
     rho = 1./(pk.transpose()*yk);
     Ck = Ck - rho*(Ck*yk)*pk.transpose() + pk*(yk.transpose()*Ck) + pk*pk.transpose() * pow(rho,2.)* (yk.transpose()*(Ck*yk)) + rho*pk*pk.transpose();
-    if(err < 100*bk.norm())
+    /*if(err < 100*bk.norm())
     {
       cout << "Nope, so nicht. Fehler wird deutlich größer." << endl;
       break;
-    }
+    }*/
     err = bk.norm();
     outfile << iter << " " << err << "\n";
   }
