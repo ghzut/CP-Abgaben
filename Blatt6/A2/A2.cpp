@@ -61,11 +61,12 @@ double zweite_ableitung(function<double(const VectorXd&, const VectorXd&, double
 VectorXd newton(function<double(const VectorXd&, const VectorXd&, double)> f, const VectorXd &x0, const VectorXd &b0)
 {
   double dx = 1e4;
-  double l_0 = 0.;
+  double l_0 = 1./2.;
   VectorXd x_new(x0.size());
   while (dx > 1e-5)
   {
     dx = f(x0, b0, l_0)/erste_ableitung(f, l_0, x0, b0);
+    cout << dx << endl;
     l_0-=dx;
   }
   x_new = x0 + l_0 * b0;
@@ -103,25 +104,25 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   MatrixXd Ck = C0;
   int iter = 0;
   err = bk.norm();
-
+/*
   cout << xk << endl << endl;
   cout << bk << endl << endl;
   cout << Ck << endl << endl;
-
+*/
   outfile << iter << " " << err << "\n";
   while (err > epsilon && iter < 10)
   {
     ++iter;
     pk = -Ck * bk;
     xk += pk;
-    cout << xk << endl << endl;
+//    cout << xk << endl << endl;
     bk1 = g(xk);
-    cout << bk1 << endl << endl;
+  //  cout << bk1 << endl << endl;
     yk = bk1 - bk;
     bk = bk1;
     rho = 1./(pk.transpose()*yk);
     Ck -= rho*(Ck*yk)*pk.transpose() - pk*(yk.transpose()*Ck) + pk*pk.transpose() * pow(rho,2.)* (yk.transpose()*(Ck*yk)) - rho*pk*pk.transpose();
-    cout << Ck << endl << endl;
+    //cout << Ck << endl << endl;
     err = bk.norm();
     outfile << iter << " " << err << "\n";
   }
