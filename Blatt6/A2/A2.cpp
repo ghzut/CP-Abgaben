@@ -5,7 +5,7 @@
 using namespace std;
 using namespace Eigen;
 
-double f1(VectorXd& x)
+double f1(const VectorXd& x)
 {
   if (x.size() != 2)
   {
@@ -59,7 +59,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   VectorXd xk = x0 + pk;
   VectorXd yk = bk;
   double rho = 1./(pk.transpose()*yk);
-  MatrixXd Ck = (C0*yk)*pk.transpose() + pk*(yk.transpose()*C0) - (yk.transpose()*(C0*yk)*rho + 1.)*pk*pk.transpose();
+  MatrixXd Ck = (C0*yk)*pk.transpose() + pk*(yk.transpose()*C0) - (yk.transpose()*(C0*yk)*rho)*pk*pk.transpose() - pk*pk.transpose();
   Ck *= rho;
   Ck = C0 - Ck;
   err = bk.abs();
@@ -73,7 +73,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
     yk = bk1 - bk;
     bk = bk1;
     rho = 1./(pk.transpose()*yk);
-    Ck = Ck/rho - (Ck*yk)*pk.transpose() + pk*(yk.transpose()*Ck) + (yk.transpose()*(Ck*yk)*rho + 1.)*pk*pk.transpose();
+    Ck = Ck/rho - (Ck*yk)*pk.transpose() + pk*(yk.transpose()*Ck) + (yk.transpose()*(Ck*yk)*rho)*pk*pk.transpose() + pk*pk.transpose();
     Ck *= rho;
     err = bk.abs();
     outfile << iter << " " << err << "\n";
@@ -88,10 +88,7 @@ int main()
   VectorXd x0(2);
   x0 << -1.,1.;
   MatrixXd I = MatrixXd::Zero(2,2);
-  for(int i = 0; i < n; ++i)
-  {
-    I(i,i) = 1.;
-  }
+  I << 1., 0., 0., 1.;
   double init_3 = f1(x0);
   MatrixXd C0_3 = init_3 * I;
   bfgs(f1, g1, x0, C0_3, 1e-5, "3");
