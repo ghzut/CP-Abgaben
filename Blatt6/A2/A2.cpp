@@ -78,7 +78,11 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
     Ck *= rho;
     err = bk.norm();
     outfile << iter << " " << err << "\n";
-    if(err > 1e6) break;
+    if(err > 1e6)
+    {
+      cout << "Nope, so nicht" << endl;
+      break;
+    }
   }
   outfile.flush();
   outfile.close();
@@ -92,7 +96,7 @@ int main()
   MatrixXd I = MatrixXd::Zero(2,2);
   I << 1., 0., 0., 1.;
   double init_3 = f1(x0);
-  MatrixXd C0_3 = init_3 * I; cout << C0_3;
-  //bfgs(f1, g1, x0, C0_3, 1e-5, "3");
+  MatrixXd C0_3 = init_3 * I;
+  bfgs(f1, g1, x0, C0_3, 1e-5, "3");
   return 0;
 }
