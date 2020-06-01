@@ -54,7 +54,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
     I(i,i) = 1.;
   }
   VectorXd bk1(n);
-  VectorXd bk = g(x0));
+  VectorXd bk = g(x0);
   VectorXd pk = C0 * bk;
   VectorXd xk = x0 + pk;
   VectorXd yk = bk;
@@ -62,7 +62,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   MatrixXd Ck = (C0*yk)*pk.transpose() + pk*(yk.transpose()*C0) - (yk.transpose()*(C0*yk)*rho)*pk*pk.transpose() - pk*pk.transpose();
   Ck *= rho;
   Ck = C0 - Ck;
-  err = bk.abs();
+  err = bk.norm();
   int iter = 0;
   while (err > epsilon)
   {
@@ -75,7 +75,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
     rho = 1./(pk.transpose()*yk);
     Ck = Ck/rho - (Ck*yk)*pk.transpose() + pk*(yk.transpose()*Ck) + (yk.transpose()*(Ck*yk)*rho)*pk*pk.transpose() + pk*pk.transpose();
     Ck *= rho;
-    err = bk.abs();
+    err = bk.norm();
     outfile << iter << " " << err << "\n";
   }
   outfile.flush();
