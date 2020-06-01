@@ -44,7 +44,7 @@ MatrixXd hesse1(const VectorXd& x)
     H(0,0) = 1200. * pow(x(0), 2.) - 400. * x(1) + 2.;
     H(0,1) = -400. * x(0);
     H(1,0) = H(0,1);
-    H(1,1) = 200.
+    H(1,1) = 200.;
     return H;
   }
 }
