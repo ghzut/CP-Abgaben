@@ -40,9 +40,7 @@ double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
     cerr << "Dieser Vektor ist nicht geeignet für diese Funktion." << endl;
     return -1.;
   }
-  cout << x0 << endl << endl << b0 << endl << endl << l0 << endl << endl;
-  cout << pow(1.-x0(0)-l0*b0(0), 2.) << endl << endl;
-  return pow(1.-x0(0)-l0*b0(0), 2.) + 100*pow(-pow(b0(0)*l0,2.)-(2*x0(0)*b0(0)-b0(1))*l0 + x0(1) - pow(b0(0),2.), 2.);
+  return pow(1.-x0(0)-l0*b0(0), 2.) + 100*pow(-pow(b0(0)*l0,2.)-(2*x0(0)*b0(0)-b0(1))*l0 + x0(1) - pow(x0(0),2.), 2.);
 }
 
 
@@ -107,25 +105,25 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   MatrixXd Ck = C0;
   int iter = 0;
   err = bk.norm();
-/*
+
   cout << xk << endl << endl;
   cout << bk << endl << endl;
   cout << Ck << endl << endl;
-*/
+
   outfile << iter << " " << err << "\n";
   while (err > epsilon && iter < 10)
   {
     ++iter;
     pk = -Ck * bk;
     xk += pk;
-//    cout << xk << endl << endl;
+    cout << xk << endl << endl;
     bk1 = g(xk);
-  //  cout << bk1 << endl << endl;
+    cout << bk1 << endl << endl;
     yk = bk1 - bk;
     bk = bk1;
     rho = 1./(pk.transpose()*yk);
     Ck -= rho*(Ck*yk)*pk.transpose() - pk*(yk.transpose()*Ck) + pk*pk.transpose() * pow(rho,2.)* (yk.transpose()*(Ck*yk)) - rho*pk*pk.transpose();
-    //cout << Ck << endl << endl;
+    cout << Ck << endl << endl;
     err = bk.norm();
     outfile << iter << " " << err << "\n";
   }
