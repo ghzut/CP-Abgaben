@@ -59,7 +59,8 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   VectorXd xk = x0 + pk;
   VectorXd yk = bk;
   double rho = 1./(pk.transpose()*yk);
-  MatrixXd Ck = (C0*yk)*pk.transpose() + pk*(yk.transpose()*C0)- pk*pk.transpose();// - rho*(yk.transpose()*(C0*yk))*pk*pk.transpose() - pk*pk.transpose();
+  cout << yk.transpose()*(C0*yk);
+  MatrixXd Ck = (C0*yk)*pk.transpose() + pk*(yk.transpose()*C0);// - rho*(yk.transpose()*(C0*yk))*pk*pk.transpose() - pk*pk.transpose();
   Ck *= rho;
   Ck = C0 - Ck;
   err = bk.norm();
@@ -80,7 +81,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   }*/
   outfile.flush();
   outfile.close();
-  cout << "Der minimierte Vektor ist\n\n" << xk << endl;
+  //cout << "Der minimierte Vektor ist\n\n" << xk << endl;
 }
 
 int main()
