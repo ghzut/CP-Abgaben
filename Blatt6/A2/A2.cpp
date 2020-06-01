@@ -157,14 +157,20 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
 
 int main()
 {
-  VectorXd x0(2);
+  Vector2d x0(2);
   x0 << -1.,1.;
-  MatrixXd I = MatrixXd::Zero(2,2);
+  Matrix2d I;
   I << 1., 0., 0., 1.;
   double init_3 = f1(x0);
-  MatrixXd C0_1 = hesse1(x0).inverse();
-  MatrixXd C0_3 = I / init_3;
+  Matrix2d C0_1 = hesse1(x0).inverse();
+  Matrix2d C0_2 = hesse1(x0);
+  C0_2(0,1) = 0.;
+  C0_2(1,0) = 0.;
+  C0_2(0,0) = 1./C0_2(0,0);
+  C0_2(1,1) = 1./C0_2(1,1);
+  Matrix2d C0_3 = I / init_3;
   bfgs(f1, g1, x0, C0_1, 1e-5, "1");
+  bfgs(f1, g1, x0, C0_2, 1e-5, "2");
   bfgs(f1, g1, x0, C0_3, 1e-5, "3");
   return 0;
 }
