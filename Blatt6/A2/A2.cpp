@@ -31,6 +31,23 @@ VectorXd g1(const VectorXd& x)
   }
 }
 
+MatrixXd hesse1(const VectorXd& x)
+{
+  MatrixXd H = MatrixXd::Zero(2);
+  if (x.size() != 2)
+  {
+    cerr << "Dieser Vektor ist nicht geeignet für diese Hesse-Matrix." << endl;
+    return H;
+  }
+  else
+  {
+    H(0,0) = 1200. * pow(x(0), 2.) - 400. * x(1) + 2.;
+    H(0,1) = -400. * x(0);
+    H(1,0) = H(0,1);
+    H(1,1) = 200.
+    return H;
+  }
+}
 
 
 double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
@@ -145,7 +162,9 @@ int main()
   MatrixXd I = MatrixXd::Zero(2,2);
   I << 1., 0., 0., 1.;
   double init_3 = f1(x0);
+  MatrixXd C0_1 = hesse1(x0).inverse();
   MatrixXd C0_3 = I / init_3;
+  bfgs(f1, g1, x0, C0_1, 1e-5, "1");
   bfgs(f1, g1, x0, C0_3, 1e-5, "3");
   return 0;
 }
