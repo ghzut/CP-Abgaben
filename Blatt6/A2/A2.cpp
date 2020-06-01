@@ -27,14 +27,13 @@ VectorXd g1(const VectorXd& x)
   {
     grad(0) = 2.* (-1. + x(0) + 200 * pow(x(0),3.) - 200 * x(0) * x(1));
     grad(1) = 200 * (x(1) - pow(x(0), 2.));
-    grad *= -1;
-    return grad;
+    return -grad;
   }
 }
 
 
 
-/*double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
+double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
 {
   if (x0.size() != 2)
   {
@@ -47,28 +46,32 @@ VectorXd g1(const VectorXd& x)
 
 double erste_ableitung(function<double(const VectorXd&, const VectorXd&, double)> f, double x, const VectorXd &x0, const VectorXd &b0)
 {
-    double h = 0.001;
+    double h = 0.0001;
 
     return (f(x0, b0, x+h) - f(x0, b0, x-h))/(2*h);
 }
 
 double zweite_ableitung(function<double(const VectorXd&, const VectorXd&, double)> f, double x, const VectorXd &x0, const VectorXd &b0)
 {
-    double h = 0.001;
+    double h = 0.0001;
 
     return (f(x0, b0, x+h) - 2*f(x0, b0, x) + f(x0, b0, x-h))/(h*h);
 }
 
 VectorXd newton(function<double(const VectorXd&, const VectorXd&, double)> f, const VectorXd &x0, const VectorXd &b0)
 {
-  double dx;
-  double l_0 = 4.;
+  double dx = 1e4;
+  double l_0 = 1./4.;
   VectorXd x_new(x0.size());
-  dx = erste_ableitung(f, l_0, x0, b0)/zweite_ableitung(f, l_0, x0, b0);
-  x_new = x0 + (l_0+dx) *b0;
+  while (dx > 0.01)
+  {
+    dx = erste_ableitung(f, l_0, x0, b0)/zweite_ableitung(f, l_0, x0, b0);
+    l_0+=dx;
+  }
+  x_new = x0 + l_0 * b0;
   return x_new;
 }
-*/
+
 void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&)> g, const VectorXd &x0, const MatrixXd &C0, const double epsilon, string init)
 {
   if(C0.rows() != C0.cols())
@@ -96,7 +99,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   VectorXd bk1;
   double rho;
   VectorXd bk = g(x0);
-  VectorXd xk = x0;
+  VectorXd xk = newton(f1_lambda, x0, bk);
   MatrixXd Ck = C0;
   int iter = 0;
   err = bk.norm();
@@ -117,7 +120,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
     yk = bk1 - bk;
     bk = bk1;
     rho = 1./(pk.transpose()*yk);
-    Ck = Ck - rho*(Ck*yk)*pk.transpose() + pk*(yk.transpose()*Ck) + pk*pk.transpose() * pow(rho,2.)* (yk.transpose()*(Ck*yk)) + rho*pk*pk.transpose();
+    Ck -= rho*(Ck*yk)*pk.transpose() - pk*(yk.transpose()*Ck) + pk*pk.transpose() * pow(rho,2.)* (yk.transpose()*(Ck*yk)) - rho*pk*pk.transpose();
     cout << Ck << endl << endl;
     err = bk.norm();
     outfile << iter << " " << err << "\n";
@@ -137,7 +140,7 @@ int main()
   MatrixXd I = MatrixXd::Zero(2,2);
   I << 1., 0., 0., 1.;
   double init_3 = f1(x0);
-  MatrixXd C0_3 = I/init_3;
+  MatrixXd C0_3 = I * init_3;
   bfgs(f1, g1, x0, C0_3, 1e-5, "3");
   return 0;
 }
