@@ -138,6 +138,6 @@ int main()
   I << 1., 0., 0., 1.;
   double init_3 = f1(x0);
   MatrixXd C0_3 = init_3 * I;
-  bfgs(f1, g1, x0, C0_3, 1e-5, "3");
+  bfgs(f1, g1, x0, I, 1e-5, "3");
   return 0;
 }
