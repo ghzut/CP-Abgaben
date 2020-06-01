@@ -109,7 +109,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   while (err > epsilon && iter < 10)
   {
     ++iter;
-    pk = Ck * bk;
+    pk = -Ck * bk;
     xk += pk;
     cout << xk << endl << endl;
     bk1 = g(xk);
