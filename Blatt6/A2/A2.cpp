@@ -162,8 +162,8 @@ int main()
   MatrixXd I = MatrixXd::Zero(2,2);
   I << 1., 0., 0., 1.;
   double init_3 = f1(x0);
-  MatrixXd C0_1 = hesse1(x0);
-  //C0_1 = C0_1.inverse();
+  MatrixXd C0_1 = 4*I;//hesse1(x0);
+  C0_1 = C0_1.inverse();
   MatrixXd C0_3 = I / init_3;
   bfgs(f1, g1, x0, C0_1, 1e-5, "1");
   bfgs(f1, g1, x0, C0_3, 1e-5, "3");
