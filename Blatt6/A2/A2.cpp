@@ -137,7 +137,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   rho = 1./(pk.transpose()*yk);
   int iter = 0;
   err = bk.norm();
-  outfile << iter << " " << err << r << "\n";
+  outfile << iter << " " << err << " " << r << "\n";
   while (err > epsilon)
   {
     ++iter;
@@ -160,7 +160,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
     rho = 1./(pk.transpose()*yk);
     Ck = Ck - rho * pk * (yk.transpose() * Ck) - rho * (Ck * yk) * pk.transpose() + pow(rho, 2.) * pk * (yk.transpose() * (Ck * yk)) * pk.transpose() + rho * pk * pk.transpose();
     err = bk.norm();
-    outfile << iter << " " << err << r << "\n";
+    outfile << iter << " " << err << " " << r << "\n";
   }
   outfile.flush();
   outfile.close();
