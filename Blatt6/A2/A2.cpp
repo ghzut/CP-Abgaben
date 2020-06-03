@@ -129,7 +129,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   MatrixXd Ck = C0;
   VectorXd bk = g(x0);
   VectorXd xk = newton(f1_lambda, x0, bk);
-  double r = (min-xk).norm(),
+  double r = (min-xk).norm();
   pk = xk - x0;
   bk1 = g(xk);
   yk = bk1 - bk;
@@ -153,7 +153,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
       pk = -Ck * bk;
       xk = xk + pk;
     }
-    r = (min-xk).norm()
+    r = (min-xk).norm();
     bk1 = g(xk);
     yk = bk1 - bk;
     bk = bk1;
