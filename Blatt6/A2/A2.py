@@ -1,45 +1,50 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+k1, err1, r1 = np.genfromtxt("A2/build/A2_1.txt",unpack=True)
+k2, err2, r2 = np.genfromtxt("A2/build/A2_2.txt",unpack=True)
+k3, err3, r3 = np.genfromtxt("A2/build/A2_3.txt",unpack=True)
 
-n, a, b, c = np.genfromtxt("A2/build/intervallhalbierung.txt", unpack=True)
 
-plt.plot(n[50:], a[50:], "rx", label=r"$a$")
-plt.plot(n[50:], b[50:], "bx", label=r"$b$")
-plt.plot(n[50:], c[50:], "gx", label=r"$c$")
-
-plt.xlabel(r"Anzahl der Interationen")
-plt.ylabel(r"$x$")
-
+plt.plot(k1, err1, "r-", label="Exakte Hesse Init.")
+plt.plot(k2, err2, "r-", label="Diag. Hesse Init.")
+plt.plot(k3, err3, "r-", label="Diag. f(x) Init.")
+plt.yscale("log")
+plt.xlabel(r'$k$')
+plt.ylabel(r'$|b_k|$')
 plt.tight_layout()
-plt.legend()
-plt.savefig("A2/build/intervallhalbierung2.pdf")
+plt.savefig("A2/build/A2.pdf")
 
-plt.clf()
-
-plt.plot(n[0:50], a[0:50], "rx", label=r"$a$")
-plt.plot(n[0:50], b[0:50], "bx", label=r"$b$")
-plt.plot(n[0:50], c[0:50], "gx", label=r"$c$")
-
-
-plt.xlabel(r"Anzahl der Interationen")
-plt.ylabel(r"$x$")
-
+plt.plot(k1, r1, "r-", label="Exakte Hesse Init.")
+plt.plot(k2, r2, "r-", label="Diag. Hesse Init.")
+plt.plot(k3, r3, "r-", label="Diag. f(x) Init.")
+plt.yscale("log")
+plt.xlabel(r'$k$')
+plt.ylabel(r'$r$')
 plt.tight_layout()
-plt.legend()
-plt.savefig("A2/build/intervallhalbierung.pdf")
-
-plt.clf()
+plt.savefig("A2/build/A2r.pdf")
 
 
-n, x_0 = np.genfromtxt("A2/build/newton.txt", unpack=True)
 
-plt.plot(n,x_0, "rx")
+k1, err1, r1 = np.genfromtxt("A2/build/A2_1_l.txt",unpack=True)
+k2, err2, r2 = np.genfromtxt("A2/build/A2_2_l.txt",unpack=True)
+k3, err3, r3 = np.genfromtxt("A2/build/A2_3_l.txt",unpack=True)
 
-plt.xlabel(r"Anzahl der Interationen")
-plt.ylabel(r"$x_0$")
 
+plt.plot(k1, err1, "r-", label="Exakte Hesse Init.")
+plt.plot(k2, err2, "r-", label="Diag. Hesse Init.")
+plt.plot(k3, err3, "r-", label="Diag. f(x) Init.")
+plt.yscale("log")
+plt.xlabel(r'$k$')
+plt.ylabel(r'$|b_k|$')
 plt.tight_layout()
-plt.savefig("A2/build/newton.pdf")
+plt.savefig("A2/build/A2_l.pdf")
 
-plt.clf()
+plt.plot(k1, r1, "r-", label="Exakte Hesse Init.")
+plt.plot(k2, r2, "r-", label="Diag. Hesse Init.")
+plt.plot(k3, r3, "r-", label="Diag. f(x) Init.")
+plt.yscale("log")
+plt.xlabel(r'$k$')
+plt.ylabel(r'$r$')
+plt.tight_layout()
+plt.savefig("A2/build/A2_lr.pdf")
