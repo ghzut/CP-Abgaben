@@ -129,7 +129,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   MatrixXd Ck = C0;
   VectorXd bk = g(x0);
   VectorXd xk = newton(f1_lambda, x0, bk);
-  double r = (min-xk).norm();
+  //double r = (min-xk).norm();
   pk = xk - x0;
   bk1 = g(xk);
   yk = bk1 - bk;
@@ -137,7 +137,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   rho = 1./(pk.transpose()*yk);
   int iter = 0;
   err = bk.norm();
-  outfile << iter << " " << err << " " << r << "\n";
+  outfile << iter << " " << err << "\n";// << " " << r << "\n";
   while (err > epsilon)
   {
     ++iter;
@@ -153,14 +153,14 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
       pk = -Ck * bk;
       xk = xk + pk;
   //  }
-    r = (min-xk).norm();
+//    r = (min-xk).norm();
     bk1 = g(xk);
     yk = bk1 - bk;
     bk = bk1;
     rho = 1./(pk.transpose()*yk);
     Ck = Ck - rho * pk * (yk.transpose() * Ck) - rho * (Ck * yk) * pk.transpose() + pow(rho, 2.) * pk * (yk.transpose() * (Ck * yk)) * pk.transpose() + rho * pk * pk.transpose();
     err = bk.norm();
-    outfile << iter << " " << err << " " << r << "\n";
+    outfile << iter << " " << err << "\n";// << " " << r << "\n";
   }
   outfile.flush();
   outfile.close();
