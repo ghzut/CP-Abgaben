@@ -141,18 +141,18 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   while (err > epsilon)
   {
     ++iter;
-    if(linie)//Zur Überprüfung, ob der Algorithmus mit zusätzlichem Liniensuchschritt besser konvergiert
-    {
-      VectorXd temp;
-      temp = newton(f1_lambda, xk, - Ck * bk);
-      pk = temp - xk;
-      xk = temp;
-    }
-    else
-    {
+  //  if(linie)//Zur Überprüfung, ob der Algorithmus mit zusätzlichem Liniensuchschritt besser konvergiert
+  //  {
+  //    VectorXd temp;
+  //    temp = newton(f1_lambda, xk, - Ck * bk);
+  //    pk = temp - xk;
+  //    xk = temp;
+  //  }
+  //  else
+  //  {
       pk = -Ck * bk;
       xk = xk + pk;
-    }
+  //  }
     r = (min-xk).norm();
     bk1 = g(xk);
     yk = bk1 - bk;
