@@ -88,7 +88,7 @@ double zweite_ableitung(function<double(const VectorXd&, const VectorXd&, double
 VectorXd newton(function<double(const VectorXd&, const VectorXd&, double)> f, const VectorXd &x0, const VectorXd &b0)
 {
   double dx = 1e4;
-  double l_0 = 0.;
+  double l_0 = 1.;
   VectorXd x_new(x0.size());
   while (dx > 0.1)
   {
@@ -99,7 +99,7 @@ VectorXd newton(function<double(const VectorXd&, const VectorXd&, double)> f, co
   return x_new;
 }
 
-void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&)> g, const VectorXd &x0, const MatrixXd &C0, const double epsilon, string init, bool linie=false)
+void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&)> g, const VectorXd &x0, const MatrixXd &C0, const double epsilon, string init)
 {
   if(C0.rows() != C0.cols())
   {
@@ -112,7 +112,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
     return;
   }
   ofstream outfile("build/A2_"+init+".txt", ofstream::trunc) ;
-  outfile << "# iter, bk, r\n";
+  outfile << "# iter, err\n";
   int n = C0.rows();
   double err;
   MatrixXd I = MatrixXd::Zero(n,n);
@@ -120,7 +120,6 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   {
     I(i,i) = 1.;
   }
-  Vector2d min; min << 1,1;
   // Ersten Liniensuchschritt anwenden.
   VectorXd pk;
   VectorXd yk;
@@ -129,7 +128,6 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   MatrixXd Ck = C0;
   VectorXd bk = g(x0);
   VectorXd xk = newton(f1_lambda, x0, bk);
-  //double r = (min-xk).norm();
   pk = xk - x0;
   bk1 = g(xk);
   yk = bk1 - bk;
@@ -137,35 +135,33 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   rho = 1./(pk.transpose()*yk);
   int iter = 0;
   err = bk.norm();
-  outfile << iter << " " << err << "\n";// << " " << r << "\n";
+
+  cout << xk << endl << endl;
+  cout << bk << endl << endl;
+  cout << Ck << endl << endl;
+
+  outfile << iter << " " << err << "\n";
   while (err > epsilon)
   {
     ++iter;
-  //  if(linie)//Zur Überprüfung, ob der Algorithmus mit zusätzlichem Liniensuchschritt besser konvergiert
-  //  {
-  //    VectorXd temp;
-  //    temp = newton(f1_lambda, xk, - Ck * bk);
-  //    pk = temp - xk;
-  //    xk = temp;
-  //  }
-  //  else
-  //  {
-      pk = -Ck * bk;
-      xk = xk + pk;
-  //  }
-//    r = (min-xk).norm();
+    pk = -Ck * bk;
+    xk += pk;
+    cout << xk << endl << endl;
     bk1 = g(xk);
+    cout << bk1 << endl << endl;
     yk = bk1 - bk;
     bk = bk1;
     rho = 1./(pk.transpose()*yk);
     Ck = Ck - rho * pk * (yk.transpose() * Ck) - rho * (Ck * yk) * pk.transpose() + pow(rho, 2.) * pk * (yk.transpose() * (Ck * yk)) * pk.transpose() + rho * pk * pk.transpose();
+    cout << Ck << endl << endl;
     err = bk.norm();
-    outfile << iter << " " << err << "\n";// << " " << r << "\n";
+    outfile << iter << " " << err << "\n";
   }
   outfile.flush();
   outfile.close();
   cout << "Der minimierte Vektor ist\n\n" << xk << endl;
 }
+
 
 
 
@@ -187,10 +183,6 @@ int main()
   bfgs(f1, g1, x0, C0_1, 1e-5, "1");
   bfgs(f1, g1, x0, C0_2, 1e-5, "2");
   bfgs(f1, g1, x0, C0_3, 1e-5, "3");
-
-  bfgs(f1, g1, x0, C0_1, 1e-5, "1_l", true);
-  bfgs(f1, g1, x0, C0_2, 1e-5, "2_l", true);
-  bfgs(f1, g1, x0, C0_3, 1e-5, "3_l", true);
 
   //Funktion 2
 
