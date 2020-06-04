@@ -37,12 +37,6 @@ double intervallhalbierung(double (*min)(double, double, double, double, double,
 {
     double d;
     int n = 0;
-
-    //ofstream file;
-    //file.open("build/intervallhalbierung.txt");
-    //file << "# n      a       b       c\n\n";
-    //file << n << "  " << a << "  " << b << "  " << c << "\n";
-
     
     while (c-a > x_c)
     {
@@ -78,10 +72,7 @@ double intervallhalbierung(double (*min)(double, double, double, double, double,
 
         n += 1;
 
-        //file << n << "  " << a << "  " << b << "  " << c << "\n";
     }
-
-    //file.close();
 
     return (c-a)/2;
 }
@@ -93,23 +84,25 @@ double minimize(double lambda, double x1, double x2, double g1, double g2, doubl
 
 void gradientenverfahren(double (*f)(double, double), Vector2d x_0)
 {
-    VectorXd g(x_0.size());
-    double lambda;
+    Vector2d g, x_analytisch;
+    double lambda, epsilon;
     int n=0;
+
+    x_analytisch << 1,1;
+    epsilon = (x_0-x_analytisch).squaredNorm();
 
     g(0) = erste_ableitung(f, x_0(0), x_0(1), 0)*(-1);
     g(1) = erste_ableitung(f, x_0(0), x_0(1), 1)*(-1);
 
     ofstream file;
     file.open("build/gradientenverfahren.txt");
-    file << "# n      x1       x2       g1      g2\n\n";
-    file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "\n";
+    file << "# n      x1       x2       g1      g2      eps\n\n";
+    file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "  " << epsilon << "\n";
 
 
-    while (g.norm() > 0.005)
+    while (g.squaredNorm() > 0.005*0.005)
     {
 
-    //for(int i = 0; i<1500000; i++){
         lambda = intervallhalbierung(minimize, rosenbrock, x_0(0), x_0(1), g(0), g(1), -50, 0, 50, 1e-6);
         x_0 = x_0 + lambda * g;
 
@@ -120,21 +113,26 @@ void gradientenverfahren(double (*f)(double, double), Vector2d x_0)
 
         if (n%10000==0)
         {
-            file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "\n";
+            epsilon = (x_0-x_analytisch).squaredNorm();
+            file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "  " << epsilon << "\n";
         }
     } 
   
-    file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "\n";
+    epsilon = (x_0-x_analytisch).squaredNorm();
+    file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "  " << epsilon << "\n";
 
     file.close();
   
 }
 
-void konjugiert(double (*f)(double, double), Vector2d x_0)
+void konjugiert(double (*f)(double, double), Vector2d x_0, string filename)
 {
-    Vector2d g, g_neu, p;
-    double lambda, mu;
+    Vector2d g, g_neu, p, x_analytisch;
+    double lambda, mu, epsilon;
     int n=0;
+
+    x_analytisch << 1,1;
+    epsilon = (x_0-x_analytisch).squaredNorm();
 
     g(0) = erste_ableitung(f, x_0(0), x_0(1), 0)*(-1);
     g(1) = erste_ableitung(f, x_0(0), x_0(1), 1)*(-1);
@@ -142,15 +140,14 @@ void konjugiert(double (*f)(double, double), Vector2d x_0)
     p = g;
 
     ofstream file;
-    file.open("build/konjugiert.txt");
-    file << "# n      x1       x2       g1      g2\n\n";
-    file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "\n";
+    file.open("build/konjugiert_"+filename+".txt");
+    file << "# n      x1       x2       g1      g2      eps\n\n";
+    file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "  " << epsilon << "\n";
 
 
-    while (g.norm() > 0.005)
+    while (g.squaredNorm() > 0.005*0.005)
     {
 
-    //for(int i = 0; i<1000000; i++){
         lambda = intervallhalbierung(minimize, rosenbrock, x_0(0), x_0(1), p(0), p(1), -50, 0, 50, 1e-6);
         x_0 = x_0 + lambda * p;
 
@@ -163,15 +160,10 @@ void konjugiert(double (*f)(double, double), Vector2d x_0)
         g = g_neu;
         p = g + mu * p;
 
-        //if (n%10000==0)
-        //{
-            file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "\n";
-        //}
+        epsilon = (x_0-x_analytisch).squaredNorm();
+        file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "  " << epsilon << "\n";
         
     } 
-
-    // file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "\n";
-  
 
     file.close();
 }
@@ -183,7 +175,20 @@ int main()
     x_0 << -1,-1;
 
     gradientenverfahren(&rosenbrock, x_0);
-    konjugiert(&rosenbrock, x_0);
+    konjugiert(&rosenbrock, x_0, "rosenbrock");
+
+    x_0 << 1.5, 2.3;
+
+    konjugiert(&f, x_0, "b1");
+    
+    x_0 << -1.7, -1.9;
+
+    konjugiert(&f, x_0, "b2");
+
+    x_0 << 0.5, 0.6;
+
+    konjugiert(&f, x_0, "b3");
+
 
     return 0;
 }
