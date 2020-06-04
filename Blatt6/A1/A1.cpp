@@ -106,9 +106,11 @@ void gradientenverfahren(double (*f)(double, double), Vector2d x_0)
     file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "\n";
 
 
-    while (g.norm() > 0.008)
+    while (g.norm() > 0.005)
     {
-        lambda = intervallhalbierung(minimize, rosenbrock, x_0(0), x_0(1), g(0), g(1), -10, 1, 10, 1e-6);
+
+    //for(int i = 0; i<1500000; i++){
+        lambda = intervallhalbierung(minimize, rosenbrock, x_0(0), x_0(1), g(0), g(1), -50, 0, 50, 1e-6);
         x_0 = x_0 + lambda * g;
 
         n += 1;
@@ -116,13 +118,62 @@ void gradientenverfahren(double (*f)(double, double), Vector2d x_0)
         g(0) = erste_ableitung(f, x_0(0), x_0(1), 0)*(-1);
         g(1) = erste_ableitung(f, x_0(0), x_0(1), 1)*(-1);
 
-        file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "\n";
-        cout << n << "\n";
+        if (n%10000==0)
+        {
+            file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "\n";
+        }
     } 
   
+    file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "\n";
 
     file.close();
   
+}
+
+void konjugiert(double (*f)(double, double), Vector2d x_0)
+{
+    Vector2d g, g_neu, p;
+    double lambda, mu;
+    int n=0;
+
+    g(0) = erste_ableitung(f, x_0(0), x_0(1), 0)*(-1);
+    g(1) = erste_ableitung(f, x_0(0), x_0(1), 1)*(-1);
+
+    p = g;
+
+    ofstream file;
+    file.open("build/konjugiert.txt");
+    file << "# n      x1       x2       g1      g2\n\n";
+    file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "\n";
+
+
+    while (g.norm() > 0.005)
+    {
+
+    //for(int i = 0; i<1000000; i++){
+        lambda = intervallhalbierung(minimize, rosenbrock, x_0(0), x_0(1), p(0), p(1), -50, 0, 50, 1e-6);
+        x_0 = x_0 + lambda * p;
+
+        n += 1;
+
+        g_neu(0) = erste_ableitung(f, x_0(0), x_0(1), 0)*(-1);
+        g_neu(1) = erste_ableitung(f, x_0(0), x_0(1), 1)*(-1);
+
+        mu = (g_neu.dot(g_neu))/(g.dot(g));
+        g = g_neu;
+        p = g + mu * p;
+
+        //if (n%10000==0)
+        //{
+            file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "\n";
+        //}
+        
+    } 
+
+    // file << n << "  " << x_0(0) << "  " << x_0(1) << "  " << g(0) << "  " << g(1) << "\n";
+  
+
+    file.close();
 }
 
 int main()
@@ -132,6 +183,7 @@ int main()
     x_0 << -1,-1;
 
     gradientenverfahren(&rosenbrock, x_0);
+    konjugiert(&rosenbrock, x_0);
 
     return 0;
 }
