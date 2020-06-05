@@ -215,7 +215,7 @@ int main()
 {
   //Funktion 1
   Vector2d x0(2);
-  x0 << -1.,1.;
+  x0 << -1.,-1.;
   Matrix2d I;
   I << 1., 0., 0., 1.;
   double init_3 = f1(x0);
