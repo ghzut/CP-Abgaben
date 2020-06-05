@@ -11,7 +11,6 @@ Dabei sind
 \vec{y}_k &= \vec{b}_{k+1} - \vec{b}_k = -\nabla(f(\vec{x}_{k+1})-f(\vec{x}_{k+1}))\\
 \vec{s}_k &= \vec{x}_{k+1} - \vec{x}_k = C_k \vec{b_{k}}
 \end{align*}
-Um einen geeigneten Startwert zu finden, wird zunächst ein Liniensuchschritt in Richtung des Gradienten $\vec{b}_0$ bestimmt, indem mit Hilfe des Newton-Verfahrens $\partial_{\lambda}f(\vec{x}_0+\lambda\vec{b}_0)$ bezüglich $\lambda$ minimiert wird. Für den neuen Ort gilt $\vec{x}_{1} = \vec{x}_0+\lambda\vec{b}_0$ und $\vec{b}_1= \nabla f(\vec{x}_1)$. Um das Konvergenzverhalten des BFGS-Verfahrens zu untersuchen, wird die Genauigkeit des 1. Liniensuchschritts auf $\Delta x < 0.1$ begrenzt.
 \subsection*{c)}
 \label{sec:c}
 Die Matrix $C_0$ zum Problem aus Gleichung\eqref{eq:1} mit dem Startvektor
@@ -39,28 +38,42 @@ entfernt (s.Abb.\ref{fig:2}).
 Dies kann verbessert werden indem nach jedem Schritt des BFGS-Verfahrens ein weiterer Liniensuchschritt durchgeführt wird um ein sinnvolles $\vec{s}_k = \lambda C_k \vec{b_{k}}$ zu finden.
 Die zugehörigen Gradientennorm und der Abstand zum Minimum in Abhängigkeit vom Iterationsschritt sind in Abbildung\ref{fig:3} und \ref{fig:4} abgebildet.
 Es zeigt sich, dass
-
-\subsection*{d)}
-Dieselben Verfahren aus Abschnitt \ref{sec:c} werden auf die Funktion \eqref{eq:2} durchgeführt.
-Für verschiedene Startvektoren
-\[
-\vec{x}_0 = \begin{pmatrix}
-1.5\\
-2.3
-\end{pmatrix},\begin{pmatrix}
--1.7\\
--1.9
-\end{pmatrix},\begin{pmatrix}
-0.5\\
-0.6
-\end{pmatrix}
-\]
-Die Gradientennorm und der Abstand zum Minimum
-\[
-\hat{\vec{x}}= \begin{pmatrix}
-
-\end{pmatrix}
-\]
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{A2/build/A2.pdf}
+\caption{$|b_k|$ in Abhängigkeit vom Iterationschritt.}
+\label{fig:1}
+\includegraphics[width=0.45\textwidth]{A2/build/A2r.pdf}
+\caption{Abweichung zum Minimum in Abhängigkeit vom Iterationschritt.}
+\label{fig:2}
+\includegraphics[width=0.45\textwidth]{A2/build/A2_l.pdf}
+\caption{$|b_k|$ in Abhängigkeit vom Iterationschritt.}
+\label{fig:1}
+\includegraphics[width=0.45\textwidth]{A2/build/A2_lr.pdf}
+\caption{Abweichung zum Minimum in Abhängigkeit vom Iterationschritt.}
+\label{fig:2}
+\end{figure}
+%\subsection*{d)}
+%Dieselben Verfahren aus Abschnitt \ref{sec:c} werden auf die Funktion \eqref{eq:2} durchgeführt.
+%Für verschiedene Startvektoren
+%\[
+%\vec{x}_0 = \begin{pmatrix}
+%1.5\\
+%2.3
+%\end{pmatrix},\begin{pmatrix}
+%-1.7\\
+%-1.9
+%\end{pmatrix},\begin{pmatrix}
+%0.5\\
+%0.6
+%\end{pmatrix}
+%\]
+%Die Gradientennorm und der Abstand zum Minimum
+%\[
+%\hat{\vec{x}}= \begin{pmatrix}
+%
+%\end{pmatrix}
+%\]
 
 
 

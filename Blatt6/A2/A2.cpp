@@ -48,7 +48,7 @@ MatrixXd hesse1(const VectorXd& x)
     return H;
   }
 }
-
+/*
 double f2(const VectorXd& x)
 {
   if (x.size() != 2)
@@ -57,9 +57,9 @@ double f2(const VectorXd& x)
     return -1.;
   }
   else return 1./(1. + exp(-10. * pow(x(0) * x(1) - 3., 2.))/(pow(x(0),2.) + pow(x(1),2.)));
-}
+}*/
 
-VectorXd g2(const VectorXd x)
+/*VectorXd g2(const VectorXd x)
 {
   VectorXd grad(2);
   if (x.size() != 2)
@@ -71,7 +71,7 @@ VectorXd g2(const VectorXd x)
   grad(0) = 2.*exp(10.*x(0)*x(1) + 30.)*(5.*pow(x(0),2.)*x(1) + x(0) + 5.*pow(x(1),3))/pow(exp(10.*x(0)*x(1))*(pow(x(0),2.) + pow(x(1),2.)) + exp(30.),2.);
   grad(1) = 2.*exp(10.*x(0)*x(1) + 30.)*(5.*(pow(x(0),2.)+pow(x(1),2.))*x(0) + x(1))/pow(exp(10.*x(0)*x(1))*(pow(x(0),2.) + pow(x(1),2.)) + exp(30.),2.);
   return grad;
-}
+}*/
 
 double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
 {
@@ -97,7 +97,7 @@ double zweite_ableitung(function<double(const VectorXd&, const VectorXd&, double
 
     return (f(x0, b0, x+h) - 2*f(x0, b0, x) + f(x0, b0, x-h))/(h*h);
 }
-
+/*
 VectorXd g2_to_h2(const VectorXd& x, bool x_or_y)
 {
   VectorXd h_vec;
@@ -124,7 +124,7 @@ MatrixXd hesse2(const VectorXd& x, bool diag)
   }
   return hesse2;
 }
-
+*/
 VectorXd newton(function<double(const VectorXd&, const VectorXd&, double)> f, const VectorXd &x0, const VectorXd &b0)
 {
   double dx = 1e4;
@@ -242,7 +242,7 @@ int main()
   bfgs(f1, g1, x0, C0_3, 1e-5, "3_l", true);
 
   //Aufgabenteil d)
-
+/*
   x0 << 1.5,2.3;
 
   MatrixXd C0_2_1 = hesse2(x0, false);
@@ -287,6 +287,6 @@ int main()
   bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_2_l", true);
   bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_2_l", true);
   bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_3_2_l", true);
-
+*/
   return 0;
 }
