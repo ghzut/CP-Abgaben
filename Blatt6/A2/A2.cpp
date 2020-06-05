@@ -83,6 +83,7 @@ double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
 }
 
 
+
 double erste_ableitung(function<double(const VectorXd&, const VectorXd&, double)> f, double x, const VectorXd &x0, const VectorXd &b0)
 {
     double h = 0.0001;
@@ -140,8 +141,8 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   double rho;
   MatrixXd Ck = C0;
   VectorXd bk = g(x0);
-  VectorXd xk
-  if(linie)
+  VectorXd xk;
+  if(linie)//Zur Überprüfung, ob der Algorithmus mit zusätzlichen Liniensuchschritten besser konvergiert
   {
   xk = newton(f1_lambda, x0, -C0*bk);
   pk = xk - x0;
@@ -158,7 +159,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   while (err > epsilon)
   {
     ++iter;
-    if(linie)//Zur Überprüfung, ob der Algorithmus mit zusätzlichem Liniensuchschritt besser konvergiert
+    if(linie)//Zur Überprüfung, ob der Algorithmus mit zusätzlichen Liniensuchschritten besser konvergiert
     {
       VectorXd temp;
       temp = newton(f1_lambda, xk, - Ck * bk);
