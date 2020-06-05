@@ -67,8 +67,8 @@ VectorXd g2(const VectorXd x)
     return -1.;
   }
   VectorXd grad(2);
-  grad(0) = (2.*exp(10.*x(0)*x(1) + 30.)*(5.*pow(x(0),2.)*x(1) + x(0) + 5.*pow(x(1),3))/pow(exp(10.*x(0)*x(1))*(pow(x(0),2.) + pow(x(1),2.)) + exp(30.)),2.);
-  grad(1) = (2.*exp(10.*x(0)*x(1) + 30.)*(5.*(pow(x(0),2.)+pow(x(1),2.))*x(0) + x(1) )/pow(exp(10.*x(0)*x(1))*(pow(x(0),2.) + pow(x(1),2.)) + exp(30.)),2.);
+  grad(0) = (2.*exp(10.*x(0)*x(1) + 30.)*(5.*pow(x(0),2.)*x(1) + x(0) + 5.*pow(x(1),3))/pow(exp(10.*x(0)*x(1))*(pow(x(0),2.) + pow(x(1),2.)) + exp(30.),2.);
+  grad(1) = (2.*exp(10.*x(0)*x(1) + 30.)*(5.*(pow(x(0),2.)+pow(x(1),2.))*x(0) + x(1) )/pow(exp(10.*x(0)*x(1))*(pow(x(0),2.) + pow(x(1),2.)) + exp(30.),2.);
   return grad;
 }
 
