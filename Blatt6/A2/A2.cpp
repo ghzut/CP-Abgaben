@@ -61,12 +61,13 @@ double f2(const VectorXd& x)
 
 VectorXd g2(const VectorXd x)
 {
+  VectorXd grad(2);
   if (x.size() != 2)
   {
     cerr << "Dieser Vektor ist nicht geeignet für diesen Gradienten." << endl;
-    return -1.;
+    grad << 0.,0.;
+    return grad;
   }
-  VectorXd grad(2);
   grad(0) = (2.*exp(10.*x(0)*x(1) + 30.)*(5.*pow(x(0),2.)*x(1) + x(0) + 5.*pow(x(1),3))/pow(exp(10.*x(0)*x(1))*(pow(x(0),2.) + pow(x(1),2.)) + exp(30.),2.);
   grad(1) = (2.*exp(10.*x(0)*x(1) + 30.)*(5.*(pow(x(0),2.)+pow(x(1),2.))*x(0) + x(1) )/pow(exp(10.*x(0)*x(1))*(pow(x(0),2.) + pow(x(1),2.)) + exp(30.),2.);
   return grad;
