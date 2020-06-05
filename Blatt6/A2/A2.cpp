@@ -259,9 +259,9 @@ int main()
 
   x0 << -1.7,-1.9;
 
-  MatrixXd C0_2_1 = hesse2(x0, false);
-  MatrixXd C0_2_2 = hesse2(x0, true);
-  MatrixXd C0_2_3 = I * f2(x0);
+  C0_2_1 = hesse2(x0, false);
+  C0_2_2 = hesse2(x0, true);
+  C0_2_3 = I * f2(x0);
 
   bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_1");
   bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_1");
@@ -274,9 +274,9 @@ int main()
 
   x0 << 0.5,0.6;
 
-  MatrixXd C0_2_1 = hesse2(x0, false);
-  MatrixXd C0_2_2 = hesse2(x0, true);
-  MatrixXd C0_2_3 = I * f2(x0);
+  C0_2_1 = hesse2(x0, false);
+  C0_2_2 = hesse2(x0, true);
+  C0_2_3 = I * f2(x0);
 
   bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_2");
   bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_2");
