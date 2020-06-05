@@ -3,7 +3,7 @@
 Mit Hilfe des BFGS-Verfahrens kann ein mehrdimensionales Nullstellen Problem einer Funktion $f(x_1,x_2...,x_N)$ mit Aufwand $\mathcal{O}(N^2)$ gelöst werden kann.
 Dazu wird eine inverse Hesse-Matrix $C_0$ initialisiert und über die folgende Form die Iterationen bestimmt:
 \begin{align*}
-C_{k+1} &= (\mathds{1} - \underbrace{\frac{1}{\vec{s}_k^T\vec{y}_k}_{=:\rho}\vec{s}_k\vec{y}_k^T)C_k(\mathds{1}-\frac{1}{\vec{s}_k^T\vec{y}_k}\vec{y}_k\vec{s}_k^T) +\frac{1}{\vec{s}_k^T\vec{y}_k}\vec{s}_k\vec{s}_k^T\\
+C_{k+1} &= (\mathds{1} - \underbrace{\frac{1}{\vec{s}_k^T\vec{y}_k}}_{=:\rho}\vec{s}_k\vec{y}_k^T)C_k(\mathds{1}-\frac{1}{\vec{s}_k^T\vec{y}_k}\vec{y}_k\vec{s}_k^T) +\frac{1}{\vec{s}_k^T\vec{y}_k}\vec{s}_k\vec{s}_k^T\\
 &= C_k - \rho ((C_k\vec{y}_k)\vec{s}_k^T + \vec{s}_k(\vec{y}_k^TC_k)) + \rho^2\vec{s}_k(\vec{y}_k^T(C_k\vec{y}_k))\vec{s}_k^T +\rho\vec{s}_k\vec{s}_k^T
 \end{align*}
 Dabei sind
