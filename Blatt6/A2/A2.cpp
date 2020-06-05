@@ -61,14 +61,15 @@ double f2(const VectorXd& x)
 
 VectorXd g2(const VectorXd x)
 {
+  VectorXd grad(2);
   if (x.size() != 2)
   {
     cerr << "Dieser Vektor ist nicht geeignet für diesen Gradienten." << endl;
-    return -1.;
+    grad << 0.,0.;
+    return grad;
   }
-  VectorXd grad(2);
-  grad(0) = (2*exp(10*x*y + 30.)*(5*pow(x,2)*y + x + 5*pow(y,3))/pow(exp(10*x*y)*(pow(x,2) + pow(y,2)) + exp(30)),2);
-  grad(1) = (2*exp(10*x*y + 30.)*(5*(pow(x,2)+pow(y,2))*x + y )/pow(exp(10*x*y)*(pow(x,2) + pow(y,2)) + exp(30)),2);
+  grad(0) = 2.*exp(10.*x(0)*x(1) + 30.)*(5.*pow(x(0),2.)*x(1) + x(0) + 5.*pow(x(1),3))/pow(exp(10.*x(0)*x(1))*(pow(x(0),2.) + pow(x(1),2.)) + exp(30.),2.);
+  grad(1) = 2.*exp(10.*x(0)*x(1) + 30.)*(5.*(pow(x(0),2.)+pow(x(1),2.))*x(0) + x(1))/pow(exp(10.*x(0)*x(1))*(pow(x(0),2.) + pow(x(1),2.)) + exp(30.),2.);
   return grad;
 }*/
 
@@ -96,6 +97,35 @@ double zweite_ableitung(function<double(const VectorXd&, const VectorXd&, double
 
     return (f(x0, b0, x+h) - 2*f(x0, b0, x) + f(x0, b0, x-h))/(h*h);
 }
+
+/*
+VectorXd g2_to_h2(const VectorXd& x, bool x_or_y)
+{
+  VectorXd h_vec;
+  double h = 0.0001;
+  if(x_or_y)
+  {
+    h_vec << h,0.;
+  }
+  else h_vec << 0.,h;
+  return (g2(x + h_vec)-g2(x + h_vec))/(2*h);
+}
+
+MatrixXd hesse2(const VectorXd& x, bool diag)
+{
+  MatrixXd hesse2(x.size(),x.size());
+  VectorXd hes_col = g2_to_h2(x, true);
+  hesse2.col(0) = hes_col;
+  hes_col = g2_to_h2(x, false);
+  hesse2.col(1) = hes_col;
+  if(diag)
+  {
+    hesse2(0,1) = 0.;
+    hesse2(1,0) = 0.;
+  }
+  return hesse2;
+}
+*/
 
 VectorXd newton(function<double(const VectorXd&, const VectorXd&, double)> f, const VectorXd &x0, const VectorXd &b0)
 {
@@ -205,7 +235,53 @@ int main()
   bfgs(f1, g1, x0, C0_2, 1e-5, "2_l", true);
   bfgs(f1, g1, x0, C0_3, 1e-5, "3_l", true);
 
-  //Funktion 2
+  //Aufgabenteil d)
+/*
+x0 << 1.5,2.3;
+
+MatrixXd C0_2_1 = hesse2(x0, false);
+MatrixXd C0_2_2 = hesse2(x0, true);
+MatrixXd C0_2_3 = I * f2(x0);
+
+bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_0");
+bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_0");
+bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_1_0");
+
+
+bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_0_l", true);
+bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_0_l", true);
+bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_3_0_l", true);
+
+x0 << -1.7,-1.9;
+
+C0_2_1 = hesse2(x0, false);
+C0_2_2 = hesse2(x0, true);
+C0_2_3 = I * f2(x0);
+
+bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_1");
+bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_1");
+bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_1_1");
+
+
+bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_1_l", true);
+bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_1_l", true);
+bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_3_1_l", true);
+
+x0 << 0.5,0.6;
+
+C0_2_1 = hesse2(x0, false);
+C0_2_2 = hesse2(x0, true);
+C0_2_3 = I * f2(x0);
+
+bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_2");
+bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_2");
+bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_1_2");
+
+
+bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_2_l", true);
+bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_2_l", true);
+bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_3_2_l", true);
+*/
 
   return 0;
 }
