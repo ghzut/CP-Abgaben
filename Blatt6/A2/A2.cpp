@@ -169,16 +169,13 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   MatrixXd Ck = C0;
   VectorXd bk = g(x0);
   VectorXd xk;
-  if(linie)//Zur Überprüfung, ob der Algorithmus mit zusätzlichen Liniensuchschritten besser konvergiert
-  {
+  // Ohne wenigstens diesen Liniensuchschritt gibt es keine Konvergenz
   xk = newton(f1_lambda, x0, -C0*bk);
   pk = xk - x0;
   bk1 = g(xk);
   yk = bk1 - bk;
   rho = 1./(pk.transpose()*yk);
   bk = bk1;
-  }
-  else xk = x0;
   int iter = 0;
   err = bk.norm();
   double r = (min-xk).norm();
