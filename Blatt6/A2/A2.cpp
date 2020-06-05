@@ -83,7 +83,6 @@ double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
 }
 
 
-
 double erste_ableitung(function<double(const VectorXd&, const VectorXd&, double)> f, double x, const VectorXd &x0, const VectorXd &b0)
 {
     double h = 0.0001;
@@ -141,25 +140,20 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   double rho;
   MatrixXd Ck = C0;
   VectorXd bk = g(x0);
-  VectorXd xk;
-  if(linie)//Zur Überprüfung, ob der Algorithmus mit zusätzlichen Liniensuchschritten besser konvergiert
-  {
-  xk = newton(f1_lambda, x0, -C0*bk);
+  VectorXd xk = newton(f1_lambda, x0, bk);
+  double r = (min-xk).norm();
   pk = xk - x0;
   bk1 = g(xk);
   yk = bk1 - bk;
-  rho = 1./(pk.transpose()*yk);
   bk = bk1;
-  }
-  else xk = x0;
+  rho = 1./(pk.transpose()*yk);
   int iter = 0;
   err = bk.norm();
-  double r = (min-xk).norm();
   outfile << iter << " " << err << " " << r << "\n";
   while (err > epsilon)
   {
     ++iter;
-    if(linie)//Zur Überprüfung, ob der Algorithmus mit zusätzlichen Liniensuchschritten besser konvergiert
+    if(linie)//Zur Überprüfung, ob der Algorithmus mit zusätzlichem Liniensuchschritt besser konvergiert
     {
       VectorXd temp;
       temp = newton(f1_lambda, xk, - Ck * bk);
@@ -191,7 +185,7 @@ int main()
 {
   //Funktion 1
   Vector2d x0(2);
-  x0 << -1.,-1.;
+  x0 << -1.,1.;
   Matrix2d I;
   I << 1., 0., 0., 1.;
   double init_3 = f1(x0);
