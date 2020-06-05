@@ -48,7 +48,7 @@ MatrixXd hesse1(const VectorXd& x)
     return H;
   }
 }
-
+/*
 double f2(const VectorXd& x)
 {
   if (x.size() != 2)
@@ -70,7 +70,7 @@ VectorXd g2(const VectorXd x)
   grad(0) = (2*exp(10*x*y + 30.)*(5*pow(x,2)*y + x + 5*pow(y,3))/pow(exp(10*x*y)*(pow(x,2) + pow(y,2)) + exp(30)),2);
   grad(1) = (2*exp(10*x*y + 30.)*(5*(pow(x,2)+pow(y,2))*x + y )/pow(exp(10*x*y)*(pow(x,2) + pow(y,2)) + exp(30)),2);
   return grad;
-}
+}*/
 
 double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
 {
