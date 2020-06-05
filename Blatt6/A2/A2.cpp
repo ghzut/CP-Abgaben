@@ -167,7 +167,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   double rho;
   MatrixXd Ck = C0;
   VectorXd bk = g(x0);
-  VectorXd xk
+  VectorXd xk;
   if(linie)//Zur Überprüfung, ob der Algorithmus mit zusätzlichen Liniensuchschritten besser konvergiert
   {
   xk = newton(f1_lambda, x0, -C0*bk);
