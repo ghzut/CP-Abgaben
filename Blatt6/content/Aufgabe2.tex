@@ -37,7 +37,7 @@ Die Entwicklung der Gradientennorm $|\vec{b}_k|$ in Abhängigkeit vom Iterations
 entfernt (s.Abb.\ref{fig:2}).
 Dies kann verbessert werden indem nach jedem Schritt des BFGS-Verfahrens ein weiterer Liniensuchschritt durchgeführt wird um ein sinnvolles $\vec{s}_k = \lambda C_k \vec{b_{k}}$ zu finden.
 Die zugehörigen Gradientennorm und der Abstand zum Minimum in Abhängigkeit vom Iterationsschritt sind in Abbildung\ref{fig:3} und \ref{fig:4} abgebildet.
-Es zeigt sich, dass
+Es zeigt sich, dass in diesem Fall alle Verfahren schneller konvergieren. Besonders die Methode der exakten Hesse-Matrix wird deutlich beschleunigt und ist jetzt gemeinsam mit der 2. Variante das schnellere Verfahren
 \begin{figure}
 \centering
 \includegraphics[width=0.45\textwidth]{A2/build/A2.pdf}
@@ -46,12 +46,15 @@ Es zeigt sich, dass
 \includegraphics[width=0.45\textwidth]{A2/build/A2r.pdf}
 \caption{Abweichung zum Minimum in Abhängigkeit vom Iterationschritt.}
 \label{fig:2}
+\end{figure}
+\begin{figure}
+\centering
 \includegraphics[width=0.45\textwidth]{A2/build/A2_l.pdf}
-\caption{$|b_k|$ in Abhängigkeit vom Iterationschritt.}
-\label{fig:1}
+\caption{$|b_k|$ in Abhängigkeit vom Iterationschritt mit Liniensuchschritten.}
+\label{fig:3}
 \includegraphics[width=0.45\textwidth]{A2/build/A2_lr.pdf}
-\caption{Abweichung zum Minimum in Abhängigkeit vom Iterationschritt.}
-\label{fig:2}
+\caption{Abweichung zum Minimum in Abhängigkeit vom Iterationschritt mit Liniensuchschritten.}
+\label{fig:4}
 \end{figure}
 %\subsection*{d)}
 %Dieselben Verfahren aus Abschnitt \ref{sec:c} werden auf die Funktion \eqref{eq:2} durchgeführt.
