@@ -48,7 +48,7 @@ MatrixXd hesse1(const VectorXd& x)
     return H;
   }
 }
-/*
+
 double f2(const VectorXd& x)
 {
   if (x.size() != 2)
@@ -57,21 +57,20 @@ double f2(const VectorXd& x)
     return -1.;
   }
   else return 1./(1. + exp(-10. * pow(x(0) * x(1) - 3., 2.))/(pow(x(0),2.) + pow(x(1),2.)));
-}*/
+}
 
-/*VectorXd g2(const VectorXd x)
+VectorXd g2(const VectorXd x)
 {
-  VectorXd grad(2);
   if (x.size() != 2)
   {
     cerr << "Dieser Vektor ist nicht geeignet für diesen Gradienten." << endl;
-    grad << 0.,0.;
-    return grad;
+    return -1.;
   }
-  grad(0) = 2.*exp(10.*x(0)*x(1) + 30.)*(5.*pow(x(0),2.)*x(1) + x(0) + 5.*pow(x(1),3))/pow(exp(10.*x(0)*x(1))*(pow(x(0),2.) + pow(x(1),2.)) + exp(30.),2.);
-  grad(1) = 2.*exp(10.*x(0)*x(1) + 30.)*(5.*(pow(x(0),2.)+pow(x(1),2.))*x(0) + x(1))/pow(exp(10.*x(0)*x(1))*(pow(x(0),2.) + pow(x(1),2.)) + exp(30.),2.);
+  VectorXd grad(2);
+  grad(0) = (2*exp(10*x*y + 30.)*(5*pow(x,2)*y + x + 5*pow(y,3))/pow(exp(10*x*y)*(pow(x,2) + pow(y,2)) + exp(30)),2);
+  grad(1) = (2*exp(10*x*y + 30.)*(5*(pow(x,2)+pow(y,2))*x + y )/pow(exp(10*x*y)*(pow(x,2) + pow(y,2)) + exp(30)),2);
   return grad;
-}*/
+}
 
 double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
 {
@@ -97,34 +96,7 @@ double zweite_ableitung(function<double(const VectorXd&, const VectorXd&, double
 
     return (f(x0, b0, x+h) - 2*f(x0, b0, x) + f(x0, b0, x-h))/(h*h);
 }
-/*
-VectorXd g2_to_h2(const VectorXd& x, bool x_or_y)
-{
-  VectorXd h_vec;
-  double h = 0.0001;
-  if(x_or_y)
-  {
-    h_vec << h,0.;
-  }
-  else h_vec << 0.,h;
-  return (g2(x + h_vec)-g2(x + h_vec))/(2*h);
-}
 
-MatrixXd hesse2(const VectorXd& x, bool diag)
-{
-  MatrixXd hesse2(x.size(),x.size());
-  VectorXd hes_col = g2_to_h2(x, true);
-  hesse2.col(0) = hes_col;
-  hes_col = g2_to_h2(x, false);
-  hesse2.col(1) = hes_col;
-  if(diag)
-  {
-    hesse2(0,1) = 0.;
-    hesse2(1,0) = 0.;
-  }
-  return hesse2;
-}
-*/
 VectorXd newton(function<double(const VectorXd&, const VectorXd&, double)> f, const VectorXd &x0, const VectorXd &b0)
 {
   double dx = 1e4;
@@ -168,14 +140,17 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   double rho;
   MatrixXd Ck = C0;
   VectorXd bk = g(x0);
-  VectorXd xk;
-  // Ohne wenigstens diesen Liniensuchschritt gibt es keine Konvergenz
+  VectorXd xk
+  if(linie)
+  {
   xk = newton(f1_lambda, x0, -C0*bk);
   pk = xk - x0;
   bk1 = g(xk);
   yk = bk1 - bk;
   rho = 1./(pk.transpose()*yk);
   bk = bk1;
+  }
+  else xk = x0;
   int iter = 0;
   err = bk.norm();
   double r = (min-xk).norm();
@@ -183,7 +158,7 @@ void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&
   while (err > epsilon)
   {
     ++iter;
-    if(linie)//Zur Überprüfung, ob der Algorithmus mit zusätzlichen Liniensuchschritten besser konvergiert
+    if(linie)//Zur Überprüfung, ob der Algorithmus mit zusätzlichem Liniensuchschritt besser konvergiert
     {
       VectorXd temp;
       temp = newton(f1_lambda, xk, - Ck * bk);
@@ -215,7 +190,7 @@ int main()
 {
   //Funktion 1
   Vector2d x0(2);
-  x0 << -1.,1.;
+  x0 << -1.,-1.;
   Matrix2d I;
   I << 1., 0., 0., 1.;
   double init_3 = f1(x0);
@@ -225,10 +200,7 @@ int main()
   C0_2(1,0) = 0.;
   C0_2(0,0) = 1./C0_2(0,0);
   C0_2(1,1) = 1./C0_2(1,1);
-
-  //Ich habe hier durch f(x0) geteilt weil sonst die Konvrgenz ohne Liniensuchschritt nicht gegeben war.
   Matrix2d C0_3 = I / init_3;
-
   bfgs(f1, g1, x0, C0_1, 1e-5, "1");
   bfgs(f1, g1, x0, C0_2, 1e-5, "2");
   bfgs(f1, g1, x0, C0_3, 1e-5, "3");
@@ -238,52 +210,7 @@ int main()
   bfgs(f1, g1, x0, C0_2, 1e-5, "2_l", true);
   bfgs(f1, g1, x0, C0_3, 1e-5, "3_l", true);
 
-  //Aufgabenteil d)
-/*
-  x0 << 1.5,2.3;
+  //Funktion 2
 
-  MatrixXd C0_2_1 = hesse2(x0, false);
-  MatrixXd C0_2_2 = hesse2(x0, true);
-  MatrixXd C0_2_3 = I * f2(x0);
-
-  bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_0");
-  bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_0");
-  bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_1_0");
-
-
-  bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_0_l", true);
-  bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_0_l", true);
-  bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_3_0_l", true);
-
-  x0 << -1.7,-1.9;
-
-  C0_2_1 = hesse2(x0, false);
-  C0_2_2 = hesse2(x0, true);
-  C0_2_3 = I * f2(x0);
-
-  bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_1");
-  bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_1");
-  bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_1_1");
-
-
-  bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_1_l", true);
-  bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_1_l", true);
-  bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_3_1_l", true);
-
-  x0 << 0.5,0.6;
-
-  C0_2_1 = hesse2(x0, false);
-  C0_2_2 = hesse2(x0, true);
-  C0_2_3 = I * f2(x0);
-
-  bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_2");
-  bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_2");
-  bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_1_2");
-
-
-  bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_2_l", true);
-  bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_2_l", true);
-  bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_3_2_l", true);
-*/
   return 0;
 }
