@@ -16,13 +16,13 @@ VectorXd get_v(double t, const VectorXd &r)
   return -r*cos(t);
 }
 
-VectorXd rk4(function<VectorXd(double, const VectorXd&)> func, const VectorXd &r0, double h, double t0)
+VectorXd rk4(function<VectorXd(double, const VectorXd&)> func, const VectorXd &y, double h, double t0)
 {
   VectorXd sum_k;
-  VectorXd k_1 = func(t0, r0);
-  VectorXd k_2 = func(t0 + h/2., r0 + k_1/2.);
-  VectorXd k_3 = func(t0 + h/2., r0 + k_2/2.);
-  VectorXd k_4 = func(t0 + h, r0 + k_3);
+  VectorXd k_1 = func(t0, y);
+  VectorXd k_2 = func(t0 + h/2., y + k_1/2.);
+  VectorXd k_3 = func(t0 + h/2., y + k_2/2.);
+  VectorXd k_4 = func(t0 + h, y + k_3);
   sum_k = k_1 + 2. * k_2 + 2. * k_3 + k_4;
   sum_k *= h/6.;
   return sum_k;
@@ -38,7 +38,7 @@ int main()
   double err = 10.;
   ofstream outfile("build/A1.txt", ofstream::trunc);
   outfile << "#h, i, err\n";
-  for(double h = 1.; h > 1e-8; h/=10.)
+/*  for(double h = 1.; h > 1e-8; h/=10.)
   {
     r0 << 1.,0.,0.;
     v0 << 0.,0.,0.;
@@ -54,7 +54,7 @@ int main()
       err = (rk-r0).norm();
       outfile << h << " " << k+1 << " " << err << "\n";
     }
-  }
+  }*/
   outfile.flush();
   outfile.close();
   return 0;
