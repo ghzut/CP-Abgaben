@@ -20,10 +20,10 @@ VectorXd rk4(function<VectorXd(double, const VectorXd&)> func, const VectorXd &y
 {
   VectorXd sum_k;
   VectorXd k_1 = func(t0, y);
-  VectorXd k_2 = func(t0 + h/2., y + k_1/2.);
-  VectorXd k_3 = func(t0 + h/2., y + k_2/2.);
-  VectorXd k_4 = func(t0 + h, y + k_3);
-  sum_k = k_1 + 2. * k_2 + 2. * k_3 + k_4;
+  //VectorXd k_2 = func(t0 + h/2., y + k_1/2.);
+  //VectorXd k_3 = func(t0 + h/2., y + k_2/2.);
+  //VectorXd k_4 = func(t0 + h, y + k_3);
+  sum_k = k_1,//+ 2. * k_2 + 2. * k_3 + k_4;
   sum_k *= h/6.;
   return sum_k;
 }
