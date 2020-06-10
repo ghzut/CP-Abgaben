@@ -44,7 +44,7 @@ int main()
   outfile << "#h, i, err\n";
   for(double h = 1.; h >= 1e-7; h/=10.)
   {
-    MatrixXd M = MatrixXd::Zero(3,8);
+    MatrixXd M = MatrixXd::Zero(3,10);
     r0 << 1.,0.,0.;
     v0 << 0.,0.,0.;
     k = 0;
@@ -52,14 +52,15 @@ int main()
     rk = r0 + rk4(get_r, vk, h, double(k));
     err = (rk - r0).norm();
     outfile << h << " " << k+1 << " " << err << "\n";
+    M.col(k) = rk;
     for(k = 1; k < 10; ++k)
     {
       vk += rk4(get_v, rk, h, double(k));
       rk += rk4(get_r, vk, h, double(k));
       err = (rk-r0).norm();
       outfile << h << " " << k+1 << " " << err << "\n";
+      M.col(k) = rk;
     }
-    M.col(int(log10(1./h))) = rk;
     outfile2 << M << "\n\n";
   }
   outfile.flush();
