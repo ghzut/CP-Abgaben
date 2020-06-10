@@ -32,7 +32,7 @@ Vector3d rk4(function<Vector3d(double, const Vector3d&)> func, const Vector3d &y
 
 int main()
 {
-  double t0 = 0.;
+  int k;
   MatrixXd M = MatrixXd::Zero(3,8);
   Vector3d rk;
   Vector3d vk;
@@ -45,15 +45,15 @@ int main()
   {
     r0 << 1.,0.,0.;
     v0 << 0.,0.,0.;
-    vk = v0 + rk4(get_v, r0, h, t0);
-    rk = r0 + rk4(get_r, vk, h, t0);
+    k = 0;
+    vk = v0 + rk4(get_v, r0, h, double(k));
+    rk = r0 + rk4(get_r, vk, h, double(k));
     err = (rk - r0).norm();
-    int k = 0;
     outfile << h << " " << k+1 << " " << err << "\n";
     for(k = 1; k < 10; ++k)
     {
-      vk += rk4(get_v, rk, h, t0);
-      rk += rk4(get_r, vk, h, t0);
+      vk += rk4(get_v, rk, h, double(k));
+      rk += rk4(get_r, vk, h, double(k));
       err = (rk-r0).norm();
       outfile << h << " " << k+1 << " " << err << "\n";
     }
