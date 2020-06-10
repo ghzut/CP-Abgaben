@@ -85,8 +85,8 @@ int main()
     ofstream outfile3("build/A1_c_"+to_string(i)+".txt", ofstream::trunc);
     outfile3 << "#k, E\n";
     outfile3 << 0 << " " << energy << "\n";
-    vk += rk4(get_v, r0, h, k*2*M_PI);
-    rk += rk4(get_r, vk, h, k*2*M_PI);
+    vk = v0 + rk4(get_v, r0, h, k*2*M_PI);
+    rk = r0 + rk4(get_r, vk, h, k*2*M_PI);
     energy = get_energy(rk, vk);
     outfile3 << 1 << " " << energy << "\n";
     for(k = 1; k < 20; ++k)
