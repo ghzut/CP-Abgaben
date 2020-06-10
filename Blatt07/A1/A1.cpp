@@ -38,7 +38,7 @@ int main()
   double err = 10.;
   ofstream outfile("build/A1.txt", ofstream::trunc);
   outfile << "#h, i, err\n";
-/*  for(double h = 1.; h > 1e-8; h/=10.)
+  for(double h = 1.; h > 1e-8; h/=10.)
   {
     r0 << 1.,0.,0.;
     v0 << 0.,0.,0.;
@@ -47,14 +47,14 @@ int main()
     err = (rk - r0).norm();
     int k = 0;
     outfile << h << " " << k+1 << " " << err << "\n";
-    for(k = 1; k < 10; ++k)
+    /*for(k = 1; k < 10; ++k)
     {
       vk += rk4(get_v, rk, h, t0);
       rk += rk4(get_r, vk, h, t0);
       err = (rk-r0).norm();
       outfile << h << " " << k+1 << " " << err << "\n";
-    }
-  }*/
+    }*/
+  }
   outfile.flush();
   outfile.close();
   return 0;
