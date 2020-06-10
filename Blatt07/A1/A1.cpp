@@ -5,10 +5,10 @@
 using namespace std;
 using namespace Eigen;
 
-/*double get_energy(const Vector3d &r)
+double get_energy(const Vector3d &r)
 {
   return pow(r.norm(),2)/2.;
-}*/
+}
 
 Vector3d get_r(double t, const Vector3d &v)
 {
@@ -46,10 +46,10 @@ int main()
   ofstream outfile2("build/A1_Mat.txt", ofstream::trunc);
   outfile2 << "#Matrix der Ergebnisvektoren\n";
   outfile << "#h, i, err\n";
-  r0 << 42.,42.,42.;
-  v0 << 0.,0.,0.;
   for(double h = 1.; h >= 1e-5; h/=10.)
   {
+    r0 << 42.,42.,42.;
+    v0 << 0.,0.,0.;
     MatrixXd M = MatrixXd::Zero(3,10);
     vk = v0 + rk4(get_v, r0, h, double(k));
     rk = r0 + rk4(get_r, vk, h, double(k));
