@@ -33,6 +33,7 @@ Vector3d rk4(function<Vector3d(double, const Vector3d&)> func, const Vector3d &y
 int main()
 {
   double t0 = 0.;
+  MatrixXd M = MatrixXd(3,8)
   Vector3d rk;
   Vector3d vk;
   Vector3d r0;
@@ -56,8 +57,13 @@ int main()
       err = (rk-r0).norm();
       outfile << h << " " << k+1 << " " << err << "\n";
     }
+    M.col(log(h)) = rk;
   }
   outfile.flush();
   outfile.close();
+  ofstream outfile2("build/A1_Mat.txt", ofstream::trunc);
+  outfile2 << "#Matrix der Ergebnisvektoren\n";
+  outfile2 << M << endl;
+  outfile2.close();
   return 0;
 }
