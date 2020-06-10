@@ -57,7 +57,6 @@ int main()
       err = (rk-r0).norm();
       outfile << h << " " << k+1 << " " << err << "\n";
     }
-    cout << log10(1./h) << endl;
     M.col(int(log10(1./h))) = rk;
   }
   outfile.flush();
