@@ -5,10 +5,10 @@
 using namespace std;
 using namespace Eigen;
 
-double get_energy(const Vector3d &r)
+/*double get_energy(const Vector3d &r)
 {
   return pow(r.norm(),2)/2.;
-}
+}*/
 
 Vector3d get_r(double t, const Vector3d &v)
 {
@@ -73,23 +73,23 @@ int main()
 
   //Aufgabenteil c) Energieerhaltung, es wird das maximale h verwendet das die Toleranz aus b erfüllt
   //Für die Energie wird eigentlich eine Masse benötigt wegen E_i = m/2 * omega^2 *C_i^2. Diese wird hier m=1 gesetzt.
-  double h = 1e-3;
-  double energy = 0;// get_energy(r0);
+  /*double h = 1e-3;
+  double energy = get_energy(r0);
   ofstream outfile3("build/A1_c.txt", ofstream::trunc);
   outfile3 << "#k, E\n";
   outfile3 << 0 << " " << energy << "\n";
   vk = v0 + rk4(get_v, r0, h, double(k));
   rk = r0 + rk4(get_r, vk, h, double(k));
-  //energy = get_energy(rk);
+  energy = get_energy(rk);
   outfile3 << 1 << " " << energy << "\n";
   for(k = 1; k < 20; ++k)
   {
     vk += rk4(get_v, rk, h, double(k));
     rk += rk4(get_r, vk, h, double(k));
-    //energy = get_energy(rk);
+    energy = get_energy(rk);
     outfile3 << k+1 << " " << energy << "\n";
   }
   outfile3.flush();
-  outfile3.close();
+  outfile3.close();*/
   return 0;
 }
