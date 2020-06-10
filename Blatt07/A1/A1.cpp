@@ -45,7 +45,7 @@ int main()
   for(double h = 1.; h >= 1e-7; h/=10.)
   {
     MatrixXd M = MatrixXd::Zero(3,10);
-    r0 << 1.,0.,0.;
+    r0 << 42.,42.,42.;
     v0 << 0.,0.,0.;
     k = 0;
     vk = v0 + rk4(get_v, r0, h, double(k));
