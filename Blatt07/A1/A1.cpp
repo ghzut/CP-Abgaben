@@ -76,7 +76,7 @@ int main()
   //Aufgabenteil c) Energieerhaltung, es wird das maximale h und das nächst kleinere verwendet, das die Toleranz aus b erfüllt
   //Für die Energie wird eigentlich eine Masse benötigt wegen E_i = m/2 * (v_i + omega^2 * x_i^2). Diese wird hier m=1 gesetzt.
   double h = 1e-3;
-  for(int i = 0; i <2; ++i; h/=10.)
+  for(int i = 0; i <2; ++i, h/=10.)
   {
     double energy = get_energy(r0, v0);
     ofstream outfile3("build/A1_c"+to_string(i)+".txt", ofstream::trunc);
