@@ -33,7 +33,7 @@ Vector3d rk4(function<Vector3d(double, const Vector3d&)> func, const Vector3d &y
 int main()
 {
   double t0 = 0.;
-  MatrixXd M = MatrixXd(3,8)
+  MatrixXd M = MatrixXd(3,8);
   Vector3d rk;
   Vector3d vk;
   Vector3d r0;
