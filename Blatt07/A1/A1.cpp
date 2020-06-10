@@ -58,7 +58,7 @@ int main()
       outfile << h << " " << k+1 << " " << err << "\n";
     }
     cout << log10(1./h) << endl;
-    //M.col(int(log10(1./h))) = rk;
+    M.col(int(log10(1./h))) = rk;
   }
   outfile.flush();
   outfile.close();
