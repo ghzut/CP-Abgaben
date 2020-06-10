@@ -6,23 +6,25 @@ using namespace std;
 using namespace Eigen;
 
 
-VectorXd get_r(double t, const VectorXd &v)
+Vector3d get_r(double t, const Vector3d &v)
 {
-  return -v*sin(t);
+  Vector3d new_v = -v*sin(t);
+  return new_v;
 }
 
-VectorXd get_v(double t, const VectorXd &r)
+Vector3d get_v(double t, const Vector3d &r)
 {
-  return -r*cos(t);
+  Vector3d new_v = -r*cos(t);
+  return new_v;
 }
 
-VectorXd rk4(function<VectorXd(double, const VectorXd&)> func, const VectorXd &y, double h, double t0)
+Vector3d rk4(function<Vector3d(double, const Vector3d&)> func, const Vector3d &y, double h, double t0)
 {
-  VectorXd sum_k;
-  VectorXd k_1 = func(t0, y);
-  //VectorXd k_2 = func(t0 + h/2., y + k_1/2.);
-  //VectorXd k_3 = func(t0 + h/2., y + k_2/2.);
-  //VectorXd k_4 = func(t0 + h, y + k_3);
+  Vector3d sum_k;
+  Vector3d k_1 = func(t0, y);
+  //Vector3d k_2 = func(t0 + h/2., y + k_1/2.);
+  //Vector3d k_3 = func(t0 + h/2., y + k_2/2.);
+  //Vector3d k_4 = func(t0 + h, y + k_3);
   sum_k = k_1,//+ 2. * k_2 + 2. * k_3 + k_4;
   sum_k *= h/6.;
   return sum_k;
@@ -31,10 +33,10 @@ VectorXd rk4(function<VectorXd(double, const VectorXd&)> func, const VectorXd &y
 int main()
 {
   double t0 = 0.;
-  VectorXd rk;
-  VectorXd vk;
-  VectorXd r0;
-  VectorXd v0;
+  Vector3d rk;
+  Vector3d vk;
+  Vector3d r0;
+  Vector3d v0;
   double err = 10.;
   ofstream outfile("build/A1.txt", ofstream::trunc);
   outfile << "#h, i, err\n";
