@@ -22,10 +22,10 @@ Vector3d rk4(function<Vector3d(double, const Vector3d&)> func, const Vector3d &y
 {
   Vector3d sum_k;
   Vector3d k_1 = func(t0, y);
-  //Vector3d k_2 = func(t0 + h/2., y + k_1/2.);
-  //Vector3d k_3 = func(t0 + h/2., y + k_2/2.);
-  //Vector3d k_4 = func(t0 + h, y + k_3);
-  sum_k = k_1,//+ 2. * k_2 + 2. * k_3 + k_4;
+  Vector3d k_2 = func(t0 + h/2., y + k_1/2.);
+  Vector3d k_3 = func(t0 + h/2., y + k_2/2.);
+  Vector3d k_4 = func(t0 + h, y + k_3);
+  sum_k = k_1 + 2. * k_2 + 2. * k_3 + k_4;
   sum_k *= h/6.;
   return sum_k;
 }
@@ -49,13 +49,13 @@ int main()
     err = (rk - r0).norm();
     int k = 0;
     outfile << h << " " << k+1 << " " << err << "\n";
-    /*for(k = 1; k < 10; ++k)
+    for(k = 1; k < 10; ++k)
     {
       vk += rk4(get_v, rk, h, t0);
       rk += rk4(get_r, vk, h, t0);
       err = (rk-r0).norm();
       outfile << h << " " << k+1 << " " << err << "\n";
-    }*/
+    }
   }
   outfile.flush();
   outfile.close();
