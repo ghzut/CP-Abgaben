@@ -80,13 +80,13 @@ int main()
   outfile3 << 0 << " " << energy << "\n";
   vk = v0 + rk4(get_v, r0, h, double(k));
   rk = r0 + rk4(get_r, vk, h, double(k));
-  enegy = get_energy(rk)
+  energy = get_energy(rk)
   outfile3 << 1 << " " << energy << "\n";
   for(k = 1; k < 20; ++k)
   {
     vk += rk4(get_v, rk, h, double(k));
     rk += rk4(get_r, vk, h, double(k));
-    enegy = get_energy(rk)
+    energy = get_energy(rk)
     outfile3 << k+1 << " " << energy << "\n";
   }
   outfile3.flush();
