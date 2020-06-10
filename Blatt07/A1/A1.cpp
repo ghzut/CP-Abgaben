@@ -57,7 +57,7 @@ int main()
       err = (rk-r0).norm();
       outfile << h << " " << k+1 << " " << err << "\n";
     }
-    M.col(log(h)) = rk;
+    M.col(int(log(h))) = rk;
   }
   outfile.flush();
   outfile.close();
