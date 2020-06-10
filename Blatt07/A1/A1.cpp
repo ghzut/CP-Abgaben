@@ -54,10 +54,11 @@ int main()
     MatrixXd M = MatrixXd::Zero(3,10);
     r0 << 42.,42.,42.;
     v0 << 0.,0.,0.;
-    vk = v0 + rk4(get_v, r0, h, 0.);
-    rk = r0 + rk4(get_r, vk, h, 0.);
+    k = 0;
+    vk = v0 + rk4(get_v, r0, h, k*2*M_PI);
+    rk = r0 + rk4(get_r, vk, h, k*2*M_PI);
     err = (rk - r0).norm();
-    outfile << h << " " << 1 << " " << err << "\n";
+    outfile << h << " " << k+1 << " " << err << "\n";
     M.col(k) = rk;
     for(k = 1; k < 10; ++k)
     {
@@ -83,8 +84,9 @@ int main()
     ofstream outfile3("build/A1_c_"+to_string(i)+".txt", ofstream::trunc);
     outfile3 << "#k, E\n";
     outfile3 << 0 << " " << energy << "\n";
-    vk = v0 + rk4(get_v, r0, h, 0.);
-    rk = r0 + rk4(get_r, vk, h, 0.);
+    k = 0;
+    vk = v0 + rk4(get_v, r0, h, k*2*M_PI);
+    rk = r0 + rk4(get_r, vk, h, k*2*M_PI);
     energy = get_energy(rk, vk);
     outfile3 << 1 << " " << energy << "\n";
     for(k = 1; k < 20; ++k)
