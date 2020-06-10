@@ -41,7 +41,7 @@ int main()
   double err = 10.;
   ofstream outfile("build/A1.txt", ofstream::trunc);
   outfile << "#h, i, err\n";
-  for(double h = 1.; h > 1e-8; h/=10.)
+  for(double h = 1.; h >= 1e-7; h/=10.)
   {
     r0 << 1.,0.,0.;
     v0 << 0.,0.,0.;
