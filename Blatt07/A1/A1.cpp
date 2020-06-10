@@ -73,26 +73,29 @@ int main()
   outfile2.flush();
   outfile2.close();
 
-  //Aufgabenteil c) Energieerhaltung, es wird das maximale h verwendet das die Toleranz aus b erfüllt
+  //Aufgabenteil c) Energieerhaltung, es wird das maximale h und das nächst kleinere verwendet, das die Toleranz aus b erfüllt
   //Für die Energie wird eigentlich eine Masse benötigt wegen E_i = m/2 * (v_i + omega^2 * x_i^2). Diese wird hier m=1 gesetzt.
-  double h = 1e-4;
-  double energy = get_energy(r0, v0);
-  ofstream outfile3("build/A1_c.txt", ofstream::trunc);
-  outfile3 << "#k, E\n";
-  outfile3 << 0 << " " << energy << "\n";
-  vk = v0 + rk4(get_v, r0, h, double(k));
-  rk = r0 + rk4(get_r, vk, h, double(k));
-  energy = get_energy(rk, vk);
-  outfile3 << 1 << " " << energy << "\n";
-  for(k = 1; k < 20; ++k)
+  double h = 1e-3;
+  for(int i = 0; i <2; ++i; h/=10.)
   {
-    vk += rk4(get_v, rk, h, double(k));
-    rk += rk4(get_r, vk, h, double(k));
+    double energy = get_energy(r0, v0);
+    ofstream outfile3("build/A1_c"+to_string(i)+".txt", ofstream::trunc);
+    outfile3 << "#k, E\n";
+    outfile3 << 0 << " " << energy << "\n";
+    vk = v0 + rk4(get_v, r0, h, double(k));
+    rk = r0 + rk4(get_r, vk, h, double(k));
     energy = get_energy(rk, vk);
-    outfile3 << k+1 << " " << energy << "\n";
+    outfile3 << 1 << " " << energy << "\n";
+    for(k = 1; k < 20; ++k)
+    {
+      vk += rk4(get_v, rk, h, double(k));
+      rk += rk4(get_r, vk, h, double(k));
+      energy = get_energy(rk, vk);
+      outfile3 << k+1 << " " << energy << "\n";
+    }
+    outfile3.flush();
+    outfile3.close();
   }
-  outfile3.flush();
-  outfile3.close();
 
   return 0;
 }
