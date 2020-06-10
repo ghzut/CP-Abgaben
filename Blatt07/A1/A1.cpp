@@ -49,11 +49,11 @@ int main()
   ofstream outfile2("build/A1_Mat.txt", ofstream::trunc);
   outfile2 << "#Matrix der Ergebnisvektoren\n";
   outfile << "#h, i, err\n";
+  r0 << 42.,42.,42.;
+  v0 << 0.,0.,0.;
   for(double h = 1.; h >= 1e-7; h/=10.)
   {
     MatrixXd M = MatrixXd::Zero(3,10);
-    r0 << 42.,42.,42.;
-    v0 << 0.,0.,0.;
     k = 0;
     vk = v0 + rk4(get_v, r0, h, k*2*M_PI);
     rk = r0 + rk4(get_r, vk, h, k*2*M_PI);
