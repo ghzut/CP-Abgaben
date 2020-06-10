@@ -6,17 +6,17 @@ using namespace std;
 using namespace Eigen;
 
 
-VectorXd get_r(double t, const VectorXd &v0)
+VectorXd get_r(double t, const VectorXd &v)
 {
-  return v0;
+  return -v*sin(t);
 }
 
-VectorXd get_v(function<VectorXd(double, const VectorXd& )> f, double t, const VectorXd &r0)
+VectorXd get_v(function<VectorXd(double, const VectorXd& )> f, double t, const VectorXd &r)
 {
-  return -r0;
+  return -r*cos(t);
 }
 
-VectorXd rk4(function<VectorXd(double, const VectorXd&)> func, const VectorXd &y0, double h)
+VectorXd rk4(function<VectorXd(double, const VectorXd&)> func, const VectorXd &y0, double h, double t0)
 {
   VectorXd sum_k;
   VectorXd k_1 = func(t0, r0);
@@ -30,6 +30,7 @@ VectorXd rk4(function<VectorXd(double, const VectorXd&)> func, const VectorXd &y
 
 int main()
 {
+  double t0 = 0;
   VectorXd rk;
   VectorXd vk;
   VectorXd r0;
@@ -39,17 +40,17 @@ int main()
   outfile << "#h, i, err\n"
   for(double h = 1.; h > 1e-8; h/=10.)
   {
-    r0 << 1.,1.;
-    v0 << 0.,0.;
-    vk = v0 + rk4(get_v, r0, h);
-    rk = r0 + rk4(get_r, vk, h);
+    r0 << 1.,0.,0.;
+    v0 << 0.,0.,0.;
+    vk = v0 + rk4(get_v, r0, h, t0);
+    rk = r0 + rk4(get_r, vk, h, t0);
     err = (rk - r0).abs();
     int k = 0;
     outfile << h << " " << k+1 << " " << err << "\n";
     for(k = 1; k < 10; ++k)
     {
-      vk += rk4(get_v, rk, h);
-      rk += rk4(get_r, vk, h);
+      vk += rk4(get_v, rk, h, t0);
+      rk += rk4(get_r, vk, h, t0);
       err = (rk-r0).abs();
       outfile << h << " " << k+1 << " " << err << "\n";
     }
