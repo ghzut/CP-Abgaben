@@ -1,16 +1,18 @@
 #include <iostream>
 #include <Eigen/Dense>
 #include <fstream>
+#include "math.h"
 
 using namespace std;
 using namespace Eigen;
 
+//Bestimme die Gesamtenergie des Systems
 double get_energy(const Vector3d &r, const Vector3d &v)
 {
   return (pow(r.norm(),2.) + pow(v.norm(),2.))/2.;
 }
 
-
+//Für r beliebig und v0=0 fallen in r alle sin-Anteile weg
 Vector3d get_r(double t, const Vector3d &v)
 {
   Vector3d new_v = -v*sin(t);
@@ -53,15 +55,15 @@ int main()
     r0 << 42.,42.,42.;
     v0 << 0.,0.,0.;
     k = 0;
-    vk = v0 + rk4(get_v, r0, h, double(k));
-    rk = r0 + rk4(get_r, vk, h, double(k));
+    vk = v0 + rk4(get_v, r0, h, k*2*M_PI);
+    rk = r0 + rk4(get_r, vk, h, k*2*M_PI);
     err = (rk - r0).norm();
     outfile << h << " " << k+1 << " " << err << "\n";
     M.col(k) = rk;
     for(k = 1; k < 10; ++k)
     {
-      vk += rk4(get_v, rk, h, double(k));
-      rk += rk4(get_r, vk, h, double(k));
+      vk += rk4(get_v, rk, h, k*2*M_PI);
+      rk += rk4(get_r, vk, h, k*2*M_PI);
       err = (rk-r0).norm();
       outfile << h << " " << k+1 << " " << err << "\n";
       M.col(k) = rk;
@@ -79,17 +81,17 @@ int main()
   for(int i = 0; i <2; ++i, h/=10.)
   {
     double energy = get_energy(r0, v0);
-    ofstream outfile3("build/A1_c"+to_string(i)+".txt", ofstream::trunc);
+    ofstream outfile3("build/A1_c_"+to_string(i)+".txt", ofstream::trunc);
     outfile3 << "#k, E\n";
     outfile3 << 0 << " " << energy << "\n";
-    vk = v0 + rk4(get_v, r0, h, double(k));
-    rk = r0 + rk4(get_r, vk, h, double(k));
+    vk += rk4(get_v, r0, h, k*2*M_PI);
+    rk += rk4(get_r, vk, h, k*2*M_PI);
     energy = get_energy(rk, vk);
     outfile3 << 1 << " " << energy << "\n";
     for(k = 1; k < 20; ++k)
     {
-      vk += rk4(get_v, rk, h, double(k));
-      rk += rk4(get_r, vk, h, double(k));
+      vk += rk4(get_v, rk, h, k*2*M_PI);
+      rk += rk4(get_r, vk, h, k*2*M_PI);
       energy = get_energy(rk, vk);
       outfile3 << k+1 << " " << energy << "\n";
     }
