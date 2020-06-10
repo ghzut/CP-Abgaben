@@ -49,16 +49,15 @@ int main()
   ofstream outfile2("build/A1_Mat.txt", ofstream::trunc);
   outfile2 << "#Matrix der Ergebnisvektoren\n";
   outfile << "#h, i, err\n";
-  r0 << 42.,42.,42.;
-  v0 << 0.,0.,0.;
   for(double h = 1.; h >= 1e-7; h/=10.)
   {
     MatrixXd M = MatrixXd::Zero(3,10);
-    k = 0;
-    vk = v0 + rk4(get_v, r0, h, k*2*M_PI);
-    rk = r0 + rk4(get_r, vk, h, k*2*M_PI);
+    r0 << 42.,42.,42.;
+    v0 << 0.,0.,0.;
+    vk = v0 + rk4(get_v, r0, h, 0.);
+    rk = r0 + rk4(get_r, vk, h, 0.);
     err = (rk - r0).norm();
-    outfile << h << " " << k+1 << " " << err << "\n";
+    outfile << h << " " << 1 << " " << err << "\n";
     M.col(k) = rk;
     for(k = 1; k < 10; ++k)
     {
@@ -78,15 +77,14 @@ int main()
   //Aufgabenteil c) Energieerhaltung, es wird das maximale h und das nächst kleinere verwendet, das die Toleranz aus b erfüllt
   //Für die Energie wird eigentlich eine Masse benötigt wegen E_i = m/2 * (v_i + omega^2 * x_i^2). Diese wird hier m=1 gesetzt.
   double h = 1e-3;
-  double energy;
   for(int i = 0; i <2; ++i, h/=10.)
   {
-    energy = get_energy(r0, v0);
+    double energy = get_energy(r0, v0);
     ofstream outfile3("build/A1_c_"+to_string(i)+".txt", ofstream::trunc);
     outfile3 << "#k, E\n";
     outfile3 << 0 << " " << energy << "\n";
-    vk = v0 + rk4(get_v, r0, h, k*2*M_PI);
-    rk = r0 + rk4(get_r, vk, h, k*2*M_PI);
+    vk = v0 + rk4(get_v, r0, h, 0.);
+    rk = r0 + rk4(get_r, vk, h, 0.);
     energy = get_energy(rk, vk);
     outfile3 << 1 << " " << energy << "\n";
     for(k = 1; k < 20; ++k)
