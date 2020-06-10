@@ -11,7 +11,7 @@ VectorXd get_r(double t, const VectorXd &v)
   return -v*sin(t);
 }
 
-VectorXd get_v(function<VectorXd(double, const VectorXd& )> f, double t, const VectorXd &r)
+VectorXd get_v(double t, const VectorXd &r)
 {
   return -r*cos(t);
 }
@@ -44,14 +44,14 @@ int main()
     v0 << 0.,0.,0.;
     vk = v0 + rk4(get_v, r0, h, t0);
     rk = r0 + rk4(get_r, vk, h, t0);
-    err = (rk - r0).abs();
+    err = (rk - r0).norm();
     int k = 0;
     outfile << h << " " << k+1 << " " << err << "\n";
     for(k = 1; k < 10; ++k)
     {
       vk += rk4(get_v, rk, h, t0);
       rk += rk4(get_r, vk, h, t0);
-      err = (rk-r0).abs();
+      err = (rk-r0).norm();
       outfile << h << " " << k+1 << " " << err << "\n";
     }
   }
