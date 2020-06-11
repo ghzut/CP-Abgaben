@@ -1,4 +1,4 @@
-all: A1 A2
+all: A2 #A1
 
 
 A1: A1/A1.cpp A1/build A1/A1.py A1/A1.py
@@ -11,7 +11,7 @@ A1: A1/A1.cpp A1/build A1/A1.py A1/A1.py
 A2: A2/A2.cpp A2/build
 	g++ -O3 -ffast-math -march=native -I /usr/include/eigen3 -Wall $< -o A2/$@
 	cd A2; ./$@ > log.txt
-	python A2/A2.py
+	#python A2/A2.py
 
 A1/build:
 	cd A1; mkdir -p build

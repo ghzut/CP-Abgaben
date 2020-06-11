@@ -1,287 +1,175 @@
 #include <iostream>
-#include <Eigen/Dense>
 #include <fstream>
+#include <iomanip>
+#include <Eigen/Dense>
+#include <math.h> 
+#include <time.h> 
 
 using namespace std;
 using namespace Eigen;
 
-double f1(const VectorXd& x)
-{
-  if (x.size() != 2)
-  {
-    cerr << "Dieser Vektor ist nicht geeignet für diese Funktion." << endl;
-    return -1.;
-  }
-  else return pow(1. - x(0), 2) + 100.*pow(x(1) - pow(x(0), 2.), 2.);
+double pot(VectorXd r){
+  double Pot = 0.5*r.dot(r);
+  return Pot;
 }
 
-VectorXd g1(const VectorXd& x)
-{
-  VectorXd grad = VectorXd::Zero(2);
-  if (x.size() != 2)
-  {
-    cerr << "Dieser Vektor ist nicht geeignet für diesen Gradienten." << endl;
-    return grad;
-  }
-  else
-  {
-    grad(0) = 2.* (-1. + x(0) + 200 * pow(x(0),3.) - 200 * x(0) * x(1));
-    grad(1) = 200 * (x(1) - pow(x(0), 2.));
-    return -grad;
-  }
+VectorXd dgl(VectorXd x,VectorXd x_punkt, double alpha){
+  VectorXd DGL = -x-alpha*x_punkt;
+  return DGL;
 }
 
-MatrixXd hesse1(const VectorXd& x)
-{
-  MatrixXd H = MatrixXd::Zero(x.size(),x.size());
-  if (x.size() != 2)
-  {
-    cerr << "Dieser Vektor ist nicht geeignet für diese Hesse-Matrix." << endl;
-    return H;
-  }
-  else
-  {
-    H(0,0) = 1200. * pow(x(0), 2.) - 400. * x(1) + 2.;
-    H(0,1) = -400. * x(0);
-    H(1,0) = H(0,1);
-    H(1,1) = 200.;
-    return H;
-  }
-}
-/*
-double f2(const VectorXd& x)
-{
-  if (x.size() != 2)
-  {
-    cerr << "Dieser Vektor ist nicht geeignet für diese Funktion." << endl;
-    return -1.;
-  }
-  else return 1./(1. + exp(-10. * pow(x(0) * x(1) - 3., 2.))/(pow(x(0),2.) + pow(x(1),2.)));
+VectorXd next_step(VectorXd y, double alpha){
+  unsigned int d = y.size()/2;
+  VectorXd temp(2*d);
+
+  temp.segment(0,d) = y.segment(d,d);
+  temp.segment(d,d) = dgl(y.segment(0,d), y.segment(d,d),alpha);
+  return temp; 
 }
 
-VectorXd g2(const VectorXd x)
-{
-  VectorXd grad(2);
-  if (x.size() != 2)
-  {
-    cerr << "Dieser Vektor ist nicht geeignet für diesen Gradienten." << endl;
-    grad << 0.,0.;
-    return grad;
+// Angepasste Runge-Kutta Methode
+MatrixXd runge_kutta(VectorXd (*f)(VectorXd, double), double T, int N, double alpha, const VectorXd& r, const VectorXd& v){
+  double h = T/N;
+  unsigned int d = r.size();
+  VectorXd tn(N+1), k1, k2, k3, k4, y(2*d), y_next(2*d);
+  MatrixXd ergebnis(2*d, N+1);
+
+  // Die Startwerte in die Matrix schreiben
+  ergebnis.col(0).segment(0,d) = r;
+  ergebnis.col(0).segment(d,d) = v;
+
+  // Erstellen der Zeiten tn und schreiben in ein file
+  for (int i = 0; i<=N; i++){
+    tn(i) = i*h;
   }
-  grad(0) = 2.*exp(10.*x(0)*x(1) + 30.)*(5.*pow(x(0),2.)*x(1) + x(0) + 5.*pow(x(1),3))/pow(exp(10.*x(0)*x(1))*(pow(x(0),2.) + pow(x(1),2.)) + exp(30.),2.);
-  grad(1) = 2.*exp(10.*x(0)*x(1) + 30.)*(5.*(pow(x(0),2.)+pow(x(1),2.))*x(0) + x(1))/pow(exp(10.*x(0)*x(1))*(pow(x(0),2.) + pow(x(1),2.)) + exp(30.),2.);
-  return grad;
-}*/
 
-double f1_lambda(const VectorXd &x0, const VectorXd &b0, double l0)
-{
-  if (x0.size() != 2)
-  {
-    cerr << "Dieser Vektor ist nicht geeignet für diese Funktion." << endl;
-    return -1.;
+  // Initialisieren des y-Vektors
+  y.segment(0,d) = r;
+  y.segment(d,d) = v;
+  // Schritt 0 ist schon gemacht
+  for (int i = 1; i < N+1; i++){
+    k1 = h*f(y, alpha);
+    k2 = h*f(y+0.5*k1, alpha);
+    k3 = h*f(y+0.5*k2, alpha);
+    k4 = h*f(y+k3, alpha);
+    y_next = y + 1.0/6.0*(k1 + 2*k2 + 2*k3 + k4);
+    y = y_next;
+    ergebnis.col(i) = y;
   }
-  return pow(1.-x0(0)-l0*b0(0), 2.) + 100*pow(-pow(b0(0)*l0,2.)-(2*x0(0)*b0(0)-b0(1))*l0 + x0(1) - pow(x0(0),2.), 2.);
-}
 
-
-double erste_ableitung(function<double(const VectorXd&, const VectorXd&, double)> f, double x, const VectorXd &x0, const VectorXd &b0)
-{
-    double h = 0.0001;
-
-    return (f(x0, b0, x+h) - f(x0, b0, x-h))/(2*h);
-}
-
-double zweite_ableitung(function<double(const VectorXd&, const VectorXd&, double)> f, double x, const VectorXd &x0, const VectorXd &b0)
-{
-    double h = 0.0001;
-
-    return (f(x0, b0, x+h) - 2*f(x0, b0, x) + f(x0, b0, x-h))/(h*h);
-}
-
-/*
-VectorXd g2_to_h2(const VectorXd& x, bool x_or_y)
-{
-  VectorXd h_vec;
-  double h = 0.0001;
-  if(x_or_y)
-  {
-    h_vec << h,0.;
-  }
-  else h_vec << 0.,h;
-  return (g2(x + h_vec)-g2(x + h_vec))/(2*h);
-}
-
-MatrixXd hesse2(const VectorXd& x, bool diag)
-{
-  MatrixXd hesse2(x.size(),x.size());
-  VectorXd hes_col = g2_to_h2(x, true);
-  hesse2.col(0) = hes_col;
-  hes_col = g2_to_h2(x, false);
-  hesse2.col(1) = hes_col;
-  if(diag)
-  {
-    hesse2(0,1) = 0.;
-    hesse2(1,0) = 0.;
-  }
-  return hesse2;
-}
-*/
-
-VectorXd newton(function<double(const VectorXd&, const VectorXd&, double)> f, const VectorXd &x0, const VectorXd &b0)
-{
-  double dx = 1e4;
-  double l_0 = 1.;
-  VectorXd x_new(x0.size());
-  while (dx > 0.1)
-  {
-    dx = erste_ableitung(f, l_0, x0, b0)/zweite_ableitung(f, l_0, x0, b0);
-    l_0-=dx;
-  }
-  x_new = x0 + l_0 * b0;
-  return x_new;
-}
-
-void bfgs(function<double(const VectorXd&)> f, function<VectorXd(const VectorXd&)> g, const VectorXd &x0, const MatrixXd &C0, const double epsilon, string init, bool linie=false)
-{
-  if(C0.rows() != C0.cols())
-  {
-    cerr << "Diese Startmatrix kann nicht symmetrish sein." << endl;
-    return;
-  }
-  if(C0.rows() != x0.size())
-  {
-    cerr << "Matrix und Vektor passen nicht zusammen." << endl;
-    return;
-  }
-  ofstream outfile("build/A2_"+init+".txt", ofstream::trunc) ;
-  outfile << "# iter, bk, r\n";
-  int n = C0.rows();
-  double err;
-  MatrixXd I = MatrixXd::Zero(n,n);
-  for(int i = 0; i < n; ++i)
-  {
-    I(i,i) = 1.;
-  }
-  Vector2d min; min << 1,1;
-  // Ersten Liniensuchschritt anwenden.
-  VectorXd pk;
-  VectorXd yk;
-  VectorXd bk1;
-  double rho;
-  MatrixXd Ck = C0;
-  VectorXd bk = g(x0);
-  VectorXd xk = newton(f1_lambda, x0, bk);
-  double r = (min-xk).norm();
-  pk = xk - x0;
-  bk1 = g(xk);
-  yk = bk1 - bk;
-  bk = bk1;
-  rho = 1./(pk.transpose()*yk);
-  int iter = 0;
-  err = bk.norm();
-  outfile << iter << " " << err << " " << r << "\n";
-  while (err > epsilon)
-  {
-    ++iter;
-    if(linie)//Zur Überprüfung, ob der Algorithmus mit zusätzlichem Liniensuchschritt besser konvergiert
-    {
-      VectorXd temp;
-      temp = newton(f1_lambda, xk, - Ck * bk);
-      pk = temp - xk;
-      xk = temp;
+  // Schreiben der Ergebnisse in ein File
+  for(int i = 0; i<ergebnis.rows()/2; i++){
+    for(int j = 0; j<ergebnis.cols(); j++){
+      //file << ergebnis(i, j) << " ";
     }
-    else
-    {
-      pk = -Ck * bk;
-      xk = xk + pk;
-    }
-    r = (min-xk).norm();
-    bk1 = g(xk);
-    yk = bk1 - bk;
-    bk = bk1;
-    rho = 1./(pk.transpose()*yk);
-    Ck = Ck - rho * pk * (yk.transpose() * Ck) - rho * (Ck * yk) * pk.transpose() + pow(rho, 2.) * pk * (yk.transpose() * (Ck * yk)) * pk.transpose() + rho * pk * pk.transpose();
-    err = bk.norm();
-    outfile << iter << " " << err << " " << r << "\n";
+    //file << endl;
   }
-  outfile.flush();
-  outfile.close();
-  cout << "Der minimierte Vektor ist\n\n" << xk << endl;
+  return ergebnis;
 }
 
 
+void adams_bashfort(VectorXd (*f)(VectorXd, double), double T, int N, double alpha, VectorXd& x, VectorXd& x_punkt, ofstream &file, VectorXd &energie){
+  double h = T/N;
+  unsigned int d = x.size();
+  VectorXd y(2*d), tn(N+1);
+  MatrixXd ergebnis(2*d, N+1), runge(2*d, 4);
 
-int main()
-{
-  //Funktion 1
-  Vector2d x0(2);
-  x0 << -1.,-1.;
-  Matrix2d I;
-  I << 1., 0., 0., 1.;
-  double init_3 = f1(x0);
-  Matrix2d C0_1 = hesse1(x0).inverse();
-  Matrix2d C0_2 = hesse1(x0);
-  C0_2(0,1) = 0.;
-  C0_2(1,0) = 0.;
-  C0_2(0,0) = 1./C0_2(0,0);
-  C0_2(1,1) = 1./C0_2(1,1);
-  Matrix2d C0_3 = I / init_3;
-  bfgs(f1, g1, x0, C0_1, 1e-5, "1");
-  bfgs(f1, g1, x0, C0_2, 1e-5, "2");
-  bfgs(f1, g1, x0, C0_3, 1e-5, "3");
+  y.segment(0,d) = x;
+  y.segment(d,d) = x_punkt;
+  runge = runge_kutta(next_step, T*3.0/N, 3, alpha, x, x_punkt);
 
+  // Schritte, in denen ich noch die Ergebnisse aus Runge-Kutta verwenden muss
+  ergebnis.col(0) = runge.col(3) + h/24.0*(55*f(runge.col(3), alpha) - 59*f(runge.col(2), alpha) +37*f(runge.col(1), alpha) -9*f(runge.col(0), alpha));
 
-  bfgs(f1, g1, x0, C0_1, 1e-5, "1_l", true);
-  bfgs(f1, g1, x0, C0_2, 1e-5, "2_l", true);
-  bfgs(f1, g1, x0, C0_3, 1e-5, "3_l", true);
+  ergebnis.col(1) = ergebnis.col(0) + h/24.0*(55*f(ergebnis.col(0), alpha) - 59*f(runge.col(3), alpha) +37*f(runge.col(2), alpha) -9*f(runge.col(1), alpha));
 
-  //Aufgabenteil d)
-/*
-x0 << 1.5,2.3;
+  ergebnis.col(2) = ergebnis.col(1) + h/24.0*(55*f(ergebnis.col(1), alpha) - 59*f(ergebnis.col(0), alpha) +37*f(runge.col(3), alpha) -9*f(runge.col(2), alpha));
 
-MatrixXd C0_2_1 = hesse2(x0, false);
-MatrixXd C0_2_2 = hesse2(x0, true);
-MatrixXd C0_2_3 = I * f2(x0);
+  ergebnis.col(3) = ergebnis.col(2) + h/24.0*(55*f(ergebnis.col(2), alpha) - 59*f(ergebnis.col(1), alpha) +37*f(ergebnis.col(0), alpha) -9*f(runge.col(3), alpha));
 
-bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_0");
-bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_0");
-bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_1_0");
+  // Energie für die ersten vier Schritte bestimmen
+  energie(0) = 0.5*ergebnis.col(0).segment(d,d).squaredNorm() + pot(ergebnis.col(0).segment(0,d));
+  energie(1) = 0.5*ergebnis.col(1).segment(d,d).squaredNorm() + pot(ergebnis.col(1).segment(0,d));
+  energie(2) = 0.5*ergebnis.col(2).segment(d,d).squaredNorm() + pot(ergebnis.col(2).segment(0,d));
+  energie(3) = 0.5*ergebnis.col(3).segment(d,d).squaredNorm() + pot(ergebnis.col(3).segment(0,d));
 
+  for(int i = 4; i < N+1; i++){
+    y = ergebnis.col(i-1) + h/24.0*(55*f(ergebnis.col(i-1), alpha) - 59*f(ergebnis.col(i-2), alpha) + 37*f(ergebnis.col(i-3), alpha) - 9*f(ergebnis.col(i-4), alpha));
+    ergebnis.col(i) = y;
+    energie(i) = 0.5*y.segment(d,d).squaredNorm()+ pot(y.segment(0,d));
+  }
 
-bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_0_l", true);
-bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_0_l", true);
-bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_3_0_l", true);
+  for (int i = 0; i<=N; i++){
+    tn(i) = i*h;
+    file << tn(i) << " ";
+  }
+  file << endl;
 
-x0 << -1.7,-1.9;
-
-C0_2_1 = hesse2(x0, false);
-C0_2_2 = hesse2(x0, true);
-C0_2_3 = I * f2(x0);
-
-bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_1");
-bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_1");
-bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_1_1");
+  for(int i = 0; i<ergebnis.rows()/2; i++){
+    for(int j = 0; j<ergebnis.cols(); j++){
+      file << ergebnis(i, j) << " ";
+    }
+    file << endl;
+  }
+}
 
 
-bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_1_l", true);
-bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_1_l", true);
-bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_3_1_l", true);
+int main() {
+  cout << "Beginn des Programms!\n" << endl;
 
-x0 << 0.5,0.6;
+  unsigned int d = 3;
+  double alpha = 0.1, T = 20.0;
+  int N = 300;
+  VectorXd x(d), x_punkt(d), y(2*d), energie(N+1);
+  ofstream file;
 
-C0_2_1 = hesse2(x0, false);
-C0_2_2 = hesse2(x0, true);
-C0_2_3 = I * f2(x0);
+  x << 1, 2, 3;
+  x_punkt << 0, 1, 0;
+  y.segment(0,d) = x;
+  y.segment(d,d) = x_punkt;
 
-bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_2");
-bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_2");
-bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_1_2");
+  // Aufgabenteil a)
+  file.open("build/aufg1_a1.txt", ios::trunc);
+  adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
+  file.close();
 
+  // Kurz Aufgabenteil b) eingeschoben, da gleiche Parameter alpha und T :)
+  file.open("build/aufg1_b.txt", ios::trunc);
+  file << "zeit energie" << endl;
+  for(int i=0; i<=N; i++)
+  {
+      file << setprecision(10) << i*T/N << " " << energie(i) << endl;
+  }
+  file.close();
 
-bfgs(f2, g2, x0, C0_2_1, 1e-5, "d_1_2_l", true);
-bfgs(f2, g2, x0, C0_2_2, 1e-5, "d_2_2_l", true);
-bfgs(f2, g2, x0, C0_2_3, 1e-5, "d_3_2_l", true);
-*/
+  alpha = -0.1;
+  file.open("build/aufg1_a2.txt", ios::trunc);
+  adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
+  file.close();
 
+  alpha = 0.0;
+  file.open("build/aufg1_a3.txt", ios::trunc);
+  adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
+  file.close();
+
+  // Aufgabenteil c)
+  double time_a = 0.0, time_r = 0.0, tstart;
+  T = 200.0, alpha = 0.1;
+  N = 3000;
+  VectorXd energie2(N+1);
+
+  tstart = clock();
+  adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie2);
+  time_a = clock() - tstart;
+  time_a = time_a/CLOCKS_PER_SEC;
+  cout << "Zeit Adams: " << time_a << ".sec" << endl;
+
+  tstart = clock();
+  runge_kutta(next_step, T, N, alpha, x, x_punkt);
+  time_r = clock() - tstart;
+  time_r = time_r/CLOCKS_PER_SEC;
+  cout << "Zeit Runge: " << time_r << ".sec" << endl;
+
+  cout << "\nEnde des Programms!" << endl;
   return 0;
 }

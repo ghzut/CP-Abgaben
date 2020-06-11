@@ -1,0 +1,6 @@
+Beginn des Programms!
+
+Zeit Adams: 0.001751.sec
+Zeit Runge: 0.001596.sec
+
+Ende des Programms!

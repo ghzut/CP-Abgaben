@@ -1,56 +1,47 @@
-import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+from mpl_toolkits import mplot3d
 
-k1, err1, r1 = np.genfromtxt("A2/build/A2_1.txt",unpack=True)
-k2, err2, r2 = np.genfromtxt("A2/build/A2_2.txt",unpack=True)
-k3, err3, r3 = np.genfromtxt("A2/build/A2_3.txt",unpack=True)
-
-
-plt.plot(k1, err1, "r-", label="Exakte Hesse Init.")
-plt.plot(k2, err2, "b-", label="Diag. Hesse Init.")
-plt.plot(k3, err3, "g-", label="Diag. f(x) Init.")
-plt.legend(loc="best")
-plt.yscale("log")
-plt.xlabel(r'$k$')
-plt.ylabel(r'$|b_k|$')
-plt.tight_layout()
-plt.savefig("A2/build/A2.pdf")
-
-plt.clf()
-plt.plot(k1, r1, "r-", label="Exakte Hesse Init.")
-plt.plot(k2, r2, "b-", label="Diag. Hesse Init.")
-plt.plot(k3, r3, "g-", label="Diag. f(x) Init.")
-plt.legend(loc="best")
-plt.yscale("log")
-plt.xlabel(r'$k$')
-plt.ylabel(r'$r$')
-plt.tight_layout()
-plt.savefig("A2/build/A2r.pdf")
+plt.rc('text', usetex=True)
+plt.rc('font', family='serif')
+plt.rc('axes.formatter', use_locale=True)
 
 
+def plot_traje(fname, winkel1, winkel2):
+    """Plotte die Datei, die in fname gegeben ist in einer 3D-Darstellung mit
+    dem Azimuth(?)-Winkel winkel."""
+    path = "A2/build/"+fname
+    Y = np.genfromtxt(path)
+    print("Plot "+fname)
+    fig = plt.figure()
+    ax = plt.axes(projection='3d')
+    ax.view_init(winkel1, winkel2)
+    p = ax.scatter3D(Y[1, :], Y[2, :], Y[3, :], c=Y[0, :], cmap='viridis')
+    # plt.xticks([1, 0.5, 0, -0.5, -1], ["1", "0,5", "0", "-0,5", "-1"])
+    cbar = fig.colorbar(p)
+    cbar.set_label(r'Zeitschritte $t_n$', rotation=270, labelpad=10)
+    fig.savefig(fname.split('.')[0]+'.pdf', bbox_inches='tight')
+    fig.clf()
 
-k1, err1, r1 = np.genfromtxt("A2/build/A2_1_l.txt",unpack=True)
-k2, err2, r2 = np.genfromtxt("A2/build/A2_2_l.txt",unpack=True)
-k3, err3, r3 = np.genfromtxt("A2/build/A2_3_l.txt",unpack=True)
 
-plt.clf()
-plt.plot(k1, err1, "r-", label="Exakte Hesse Init.")
-plt.plot(k2, err2, "b-", label="Diag. Hesse Init.")
-plt.plot(k3, err3, "g-", label="Diag. f(x) Init.")
-plt.legend(loc="best")
-plt.yscale("log")
-plt.xlabel(r'$k$')
-plt.ylabel(r'$|b_k|$')
-plt.tight_layout()
-plt.savefig("A2/build/A2_l.pdf")
+def plot_energie(fname):
+    print("Plot "+fname)
+    df = pd.read_csv(fname, decimal='.',
+                     delimiter=' ')
+    # df.energie = df.energie - df.energie[0]
 
-plt.clf()
-plt.plot(k1, r1, "r-", label="Exakte Hesse Init.")
-plt.plot(k2, r2, "b-", label="Diag. Hesse Init.")
-plt.plot(k3, r3, "g-", label="Diag. f(x) Init.")
-plt.legend(loc="best")
-plt.yscale("log")
-plt.xlabel(r'$k$')
-plt.ylabel(r'$r$')
-plt.tight_layout()
-plt.savefig("A2/build/A2_lr.pdf")
+    # print(df.energie)
+    fig = plt.figure()
+    plt.plot(df.zeit, df.energie, 'k-')
+    plt.xlabel(r'Zeit')
+    plt.ylabel(r'Energie')
+    # plt.yscale('log')
+    fig.savefig(fname.split('.')[0]+'.pdf', bbox_inches='tight')
+    fig.clf()
+
+
+plot_traje("build/aufg1_a1.txt", 40, 70)
+plot_traje("build/aufg1_a2.txt", 40, 70)
+plot_traje("build/aufg1_a3.txt", 40, 80)
+plot_energie("build/aufg1_b.txt")
