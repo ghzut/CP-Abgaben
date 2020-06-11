@@ -44,6 +44,9 @@ plt.plot(i_10, tol_10, 'g-', label=r'$h=10^{-3}$')
 tol_10 = tol[40:49]
 plt.plot(i_10, tol_10, 'y.')
 plt.plot(i_10, tol_10, 'y-', label=r'$h=10^{-4}$')
+tol_10 = tol[50:59]
+plt.plot(i_10, tol_10, 'm.')
+plt.plot(i_10, tol_10, 'm-', label=r'$h=10^{-5}$')
 plt.xlabel(r'$i$')
 plt.ylabel(r'$|r_i-r_0|$')
 plt.yscale('log')
@@ -52,5 +55,14 @@ plt.savefig('A1/build/ab_plot2.pdf')
 
 k,E = np.genfromtxt("A1/build/A1_c_0.txt", unpack=True)
 E-=E[0]
+plt.clf()
 plt.plot(k, E, 'r.')
-plt.plot(k,E)
+plt.plot(k, E, 'r-', label='Abweichung der Gesamtenergie, $h=10^{-3}$')
+k,E = np.genfromtxt("A1/build/A1_c_1.txt", unpack=True)
+E-=E[0]
+plt.plot(k, E, 'b.')
+plt.plot(k, E, 'b-', label='Abweichung der Gesamtenergie, $h=10^{-4}$')
+plt.xlabel(r'$i$')
+plt.ylabel(r'$\Delta E$')
+plt.legend(loc='best')
+plt.savefig('A1/build/E.pdf')
