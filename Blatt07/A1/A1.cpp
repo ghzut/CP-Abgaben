@@ -117,16 +117,16 @@ int main()
   double h = 1e-3;
   ofstream outfi("build/A1_Mat_komp.txt");
   outfi << "#Mat\n";
-  MatrixXd M_komp = MatrixXd::Zero(3,8);
+  MatrixXd M_komp = MatrixXd::Zero(3,10);
   k = 0;
   vk = v0 + rk4(get_v_1, r0, h, (k*2+1)*M_PI);
   rk = r0 + rk4(get_r_1, vk, h, (k*2+1)*M_PI);
-//  M_komp.col(k) = rk;
+  M_komp.col(k) = rk;
   for(k = 1; k < 10; ++k)
   {
     vk += rk4(get_v_1, rk, h, (k*2+1)*M_PI);
     rk += rk4(get_r_1, vk, h, (k*2+1)*M_PI);
-//    M_komp.col(k) = rk;
+    M_komp.col(k) = rk;
   }
   outfi <<  M_komp << endl;
   outfi.close();
