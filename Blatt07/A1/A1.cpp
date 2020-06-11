@@ -24,6 +24,7 @@ Vector3d get_v_1(double t, const Vector3d &r)
 {
   Vector3d new_v;
   new_v(0) = -r(0)*cos(t);
+  if(int(t/pi)%2==1) cout << cos(t) << endl << endl;
   return new_v;
 }
 
@@ -32,6 +33,7 @@ Vector3d get_r_2(double t, const Vector3d &v)
 {
   Vector3d new_r = -v*sin(t);
   new_r(1) = cos(t);
+  if(int(t/pi)%2==1) cout << sin(t) << endl << endl;
   return new_r;
 }
 
@@ -130,6 +132,7 @@ int main()
   }
   outfi <<  M_komp << endl;
   outfi.close();
+
   //Aufgabenteil c) Energieerhaltung, es wird das maximale h und das nächst kleinere verwendet, das die Toleranz aus b erfüllt
   //Für die Energie wird eigentlich eine Masse benötigt wegen E_i = m/2 * (v_i + omega^2 * x_i^2). Diese wird hier m=1 gesetzt.
   for(int i = 0; i <2; ++i, h/=10.)
