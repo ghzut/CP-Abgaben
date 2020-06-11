@@ -122,14 +122,14 @@ int main()
     outfile3 << "#k, E\n";
     outfile3 << 0 << " " << energy << "\n";
     k = 0;
-    vk = v0 + rk4(get_v, r0, h, k*2*M_PI);
-    rk = r0 + rk4(get_r, vk, h, k*2*M_PI);
+    vk = v0 + rk4(get_v_1, r0, h, k*2*M_PI);
+    rk = r0 + rk4(get_r_1, vk, h, k*2*M_PI);
     energy = get_energy(rk, vk);
     outfile3 << 1 << " " << energy << "\n";
     for(k = 1; k < 20; ++k)
     {
-      vk += rk4(get_v, rk, h, k*2*M_PI);
-      rk += rk4(get_r, vk, h, k*2*M_PI);
+      vk += rk4(get_v_1, rk, h, k*2*M_PI);
+      rk += rk4(get_r_1, vk, h, k*2*M_PI);
       energy = get_energy(rk, vk);
       outfile3 << k+1 << " " << energy << "\n";
     }
