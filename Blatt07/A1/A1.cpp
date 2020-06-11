@@ -17,7 +17,6 @@ double get_energy(const Vector3d &r, const Vector3d &v)
 Vector3d get_r_1(double t, const Vector3d &v)
 {
   Vector3d new_r = -v*sin(t);
-  if(int(t/M_PI)%2==1) cout << "r: " << new_r << endl << endl;
   return new_r;
 }
 
@@ -25,7 +24,6 @@ Vector3d get_v_1(double t, const Vector3d &r)
 {
   Vector3d new_v;
   new_v(0) = -r(0)*cos(t);
-  if(int(t/M_PI)%2==1) cout << "v" << new_v << endl << endl;
   return new_v;
 }
 
@@ -44,6 +42,7 @@ Vector3d get_v_2(double t, const Vector3d &r)
   return new_v;
 }
 
+//Das Runge-Kutta-Verfahren 4.Ordnung
 Vector3d rk4(function<Vector3d(double, const Vector3d&)> func, const Vector3d &y, double h, double t0)
 {
   Vector3d sum_k;
@@ -63,6 +62,7 @@ int main()
   Vector3d vk;
   Vector3d r0;
   Vector3d v0;
+  //Untersuche das Verhalten des Verfahrens mit unterschiedlichen Anfangsbedingungen
   for(int j = 0; j < 2; ++j)
   {
     double err = 10.;
@@ -113,25 +113,6 @@ int main()
     outfile2.flush();
     outfile2.close();
   }
-
-  //Um zu zeigen, dass tatsächlich ein harmonischer Oszillator wird außerdem der Vektor bei t = (2n+1)*pi bestimmz
-  v0 << 0.,0.,0.;
-  double h = 1e-3;
-  ofstream outfi("build/A1_Mat_komp.txt");
-  outfi << "#Mat\n";
-  MatrixXd M_komp = MatrixXd::Zero(3,10);
-  k = 0;
-  vk = v0 + rk4(get_v_1, r0, h, (k*2+1)*M_PI);
-  rk = r0 + rk4(get_r_1, vk, h, (k*2+1)*M_PI);
-  M_komp.col(k) = rk;
-  for(k = 1; k < 10; ++k)
-  {
-    vk += rk4(get_v_1, rk, h, (k*2+1)*M_PI);
-    rk += rk4(get_r_1, vk, h, (k*2+1)*M_PI);
-    M_komp.col(k) = rk;
-  }
-  outfi <<  M_komp << endl;
-  outfi.close();
 
   //Aufgabenteil c) Energieerhaltung, es wird das maximale h und das nächst kleinere verwendet, das die Toleranz aus b erfüllt
   //Für die Energie wird eigentlich eine Masse benötigt wegen E_i = m/2 * (v_i + omega^2 * x_i^2). Diese wird hier m=1 gesetzt.
