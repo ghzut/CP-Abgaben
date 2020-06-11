@@ -115,7 +115,7 @@ int main()
   //Um zu zeigen, dass tatsächlich ein harmonischer Oszillator wird außerdem der Vektor bei t = (2n+1)*pi bestimmz
   v0 << 0.,0.,0.;
   double h = 1e-3;
-  ofstream outfi("build/A1_Mat_komp.txt")
+  ofstream outfi("build/A1_Mat_komp.txt");
   outfi << "#Mat\n";
   MatrixXd M_komp = MatrixXd::Zero(3,8);
   k = 0;
