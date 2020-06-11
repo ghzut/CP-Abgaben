@@ -112,11 +112,27 @@ int main()
     outfile2.close();
   }
 
-  //Aufgabenteil c) Energieerhaltung, es wird das maximale h und das nächst kleinere verwendet, das die Toleranz aus b erfüllt
-  //
-  //Für die Energie wird eigentlich eine Masse benötigt wegen E_i = m/2 * (v_i + omega^2 * x_i^2). Diese wird hier m=1 gesetzt.
-  double h = 1e-3;
+  //Um zu zeigen, dass tatsächlich ein harmonischer Oszillator wird außerdem der Vektor bei t = (2n+1)*pi bestimmz
   v0 << 0.,0.,0.;
+  double h = 1e-3;
+  ofstream outfi("build/A1_Mat_komp.txt")
+  outfi << "#Mat\n";
+  MatrixXd M_komp = MatrixXd::Zero(3,8);
+  k = 0;
+  vk = v0 + rk4(get_v_1, r0, h, (k*2+1)*M_PI);
+  rk = r0 + rk4(get_r_1, vk, h, (k*2+1)*M_PI);
+  M_komp.col(k) = rk;
+
+  for(k = 1; k < 10; ++k)
+  {
+    vk += rk4(get_v_1, rk, h, (k*2+1)*M_PI);
+    rk += rk4(get_r_1, vk, h, (k*2+1)*M_PI);
+    M_komp.col(k) = rk;
+  }
+  outfi <<  M_komp << endl;
+  outfi.close();
+  //Aufgabenteil c) Energieerhaltung, es wird das maximale h und das nächst kleinere verwendet, das die Toleranz aus b erfüllt
+  //Für die Energie wird eigentlich eine Masse benötigt wegen E_i = m/2 * (v_i + omega^2 * x_i^2). Diese wird hier m=1 gesetzt.
   for(int i = 0; i <2; ++i, h/=10.)
   {
     double energy = get_energy(r0, v0);
