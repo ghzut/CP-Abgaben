@@ -24,7 +24,7 @@ Vector3d get_v_1(double t, const Vector3d &r)
 {
   Vector3d new_v;
   new_v(0) = -r(0)*cos(t);
-  if(int(t/M_PI)%2==0) cout << cos(t) << endl << endl;
+  if(int(t/M_PI)%2==1) cout << new_v << endl << endl;
   return new_v;
 }
 
