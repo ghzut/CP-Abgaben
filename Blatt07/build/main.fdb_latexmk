@@ -1,5 +1,5 @@
 # Fdb version 3
-["lualatex"] 1591922473 "main.tex" "build/main.pdf" "main" 1591922474
+["lualatex"] 1591929272 "main.tex" "build/main.pdf" "main" 1591929273
   "/home/lars/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf" 1480098679 111240 0af0b64d6d3df41bead3f9de314afbd4 ""
   "/home/lars/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf" 1480098679 111536 ae9d1b331000d544f47e5223081b7b54 ""
   "/home/lars/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf" 1480098679 107448 a9e5b7aaaf5f74194deee407f2fd1552 ""
@@ -120,15 +120,15 @@
   "/home/lars/.local/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-regular.luc" 1554839399 130234 98f239f19cca5508dc9070e33cccc5f2 ""
   "/home/lars/.local/texlive/2018/texmf-var/tex/generic/config/language.dat" 1556478617 6580 8509fce5ddb870030297c60436cc58e2 ""
   "/home/lars/.local/texlive/2018/texmf-var/web2c/luatex/lualatex.fmt" 1556478639 1370313 a45f781ac40e8c38daf426bcc97912b2 ""
-  "A2/build/Plots/Energie.pdf" 1591922239 9689 1000582432e4e879184a22cacbe4fea4 ""
-  "A2/build/Plots/aufg1_a1.pdf" 1591922238 87976 0a3c21f814ce5f80b3200b59da878218 ""
-  "A2/build/Plots/aufg1_a2.pdf" 1591922238 80382 e5d4a9c92f3df8836530e5343eeb475f ""
-  "A2/build/Plots/aufg1_a3.pdf" 1591922238 87251 d4db50d4405bc529f203e1e864d756c6 ""
-  "A2/build/Plots/aufg1_a4.pdf" 1591922238 87690 961974c00c0ab9bf905dcebc7f756c8e ""
-  "build/main.aux" 1591922474 1123 c63b2db25a7223b3d2c6ab5152746eb6 ""
-  "content/Aufgabe2.tex" 1591922468 2767 5bb8b2ede08f84eff44414aad5866f87 ""
+  "A2/plots/Energie.pdf" 1591929231 9342 129fe12648c3446c9b2c54aa17eb3453 ""
+  "A2/plots/aufg2_a1.pdf" 1591929230 87415 3a74965176e3fd33f1ab1ff652e35641 ""
+  "A2/plots/aufg2_a2.pdf" 1591929230 81079 4269bb02059ad99ebf7c5643e46ddb85 ""
+  "A2/plots/aufg2_a3.pdf" 1591929230 87196 9cc129965a63f436f4607e9d98ad220c ""
+  "A2/plots/aufg2_a4.pdf" 1591929231 87444 b7efa6d35f92fa838cbb9e5ae9a4afbb ""
+  "build/main.aux" 1591929273 1123 c63b2db25a7223b3d2c6ab5152746eb6 ""
+  "content/Aufgabe2.tex" 1591929263 2737 07a23d34bdf522b98e2dc98da73be806 ""
   "main.tex" 1591922289 1114 80a410f1a9db9cd30e9560fb6b48408a ""
   (generated)
-  "build/main.aux"
   "build/main.pdf"
   "build/main.log"
+  "build/main.aux"

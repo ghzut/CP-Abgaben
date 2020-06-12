@@ -30,8 +30,8 @@ def plot_energie(fname):
     fig.clf()
 
 
-plot_traje("aufg1_a1.txt", 20, 20)
-plot_traje("aufg1_a2.txt", 20, 20)
-plot_traje("aufg1_a3.txt", 20, 20)
-plot_traje("aufg1_a4.txt", 20, 20)
-plot_energie("A2/build/aufg1_b.txt")
+plot_traje("aufg2_a1.txt", 20, 20)
+plot_traje("aufg2_a2.txt", 20, 20)
+plot_traje("aufg2_a3.txt", 20, 20)
+plot_traje("aufg2_a4.txt", 20, 20)
+plot_energie("A2/build/aufg2_b.txt")

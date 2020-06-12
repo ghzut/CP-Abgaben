@@ -116,30 +116,30 @@ int main() {
   // Aufgabenteil a)
 
   //Harmonischer Oszilator
-  file.open("build/aufg1_a1.txt", ios::trunc);
+  file.open("build/aufg2_a1.txt", ios::trunc);
   adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
   file.close();
 
   //Aperiodischer Grenzfall
   alpha = 2;
-  file.open("build/aufg1_a2.txt", ios::trunc);
+  file.open("build/aufg2_a2.txt", ios::trunc);
   adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
   file.close();
 
   //Kriechfall
   alpha = 4;
-  file.open("build/aufg1_a3.txt", ios::trunc);
+  file.open("build/aufg2_a3.txt", ios::trunc);
   adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
   file.close();
 
   // Gedämpfte Schwingung
   alpha = 0.1;
-  file.open("build/aufg1_a4.txt", ios::trunc);
+  file.open("build/aufg2_a4.txt", ios::trunc);
   adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
   file.close();
 
   // Aufgabenteil b)
-  file.open("build/aufg1_b.txt", ios::trunc);
+  file.open("build/aufg2_b.txt", ios::trunc);
   file << "Zeit Energie" << endl;
   for(int i=0; i<=N; i++)
   {

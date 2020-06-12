@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.28)  12 JUN 2020 02:41
+This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.28)  12 JUN 2020 04:34
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.074 seconds
+luaotfload | main : initialization completed in 0.088 seconds
 (/home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2019/02/01 v3.26b KOMA-Script document class (article)
 (/home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrkbase.sty
@@ -878,37 +878,37 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 31.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (./content/Aufgabe2.tex
-<A2/build/Plots/aufg1_a1.pdf, id=1, 462.52798pt x 346.89601pt>
-File: A2/build/Plots/aufg1_a1.pdf Graphic file (type pdf)
-<use A2/build/Plots/aufg1_a1.pdf>
-Package luatex.def Info: A2/build/Plots/aufg1_a1.pdf  used on input line 30.
+<A2/plots/aufg2_a1.pdf, id=1, 462.52798pt x 346.89601pt>
+File: A2/plots/aufg2_a1.pdf Graphic file (type pdf)
+<use A2/plots/aufg2_a1.pdf>
+Package luatex.def Info: A2/plots/aufg2_a1.pdf  used on input line 30.
 (luatex.def)             Requested size: 323.76736pt x 242.82555pt.
-<A2/build/Plots/aufg1_a2.pdf, id=2, 462.52798pt x 346.89601pt>
-File: A2/build/Plots/aufg1_a2.pdf Graphic file (type pdf)
-<use A2/build/Plots/aufg1_a2.pdf>
-Package luatex.def Info: A2/build/Plots/aufg1_a2.pdf  used on input line 37.
+<A2/plots/aufg2_a2.pdf, id=2, 462.52798pt x 346.89601pt>
+File: A2/plots/aufg2_a2.pdf Graphic file (type pdf)
+<use A2/plots/aufg2_a2.pdf>
+Package luatex.def Info: A2/plots/aufg2_a2.pdf  used on input line 37.
 (luatex.def)             Requested size: 323.76736pt x 242.82555pt.
  [1
 
 {/home/lars/.local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<A2/build/Plots/aufg1_a3.pdf, id=17, 462.52798pt x 346.89601pt>
-File: A2/build/Plots/aufg1_a3.pdf Graphic file (type pdf)
-<use A2/build/Plots/aufg1_a3.pdf>
-Package luatex.def Info: A2/build/Plots/aufg1_a3.pdf  used on input line 44.
+<A2/plots/aufg2_a3.pdf, id=17, 462.52798pt x 346.89601pt>
+File: A2/plots/aufg2_a3.pdf Graphic file (type pdf)
+<use A2/plots/aufg2_a3.pdf>
+Package luatex.def Info: A2/plots/aufg2_a3.pdf  used on input line 44.
 (luatex.def)             Requested size: 323.76736pt x 242.82555pt.
- [2<./A2/build/Plots/aufg1_a1.pdf><./A2/build/Plots/aufg1_a2.pdf>]
-<A2/build/Plots/aufg1_a4.pdf, id=96, 462.52798pt x 346.89601pt>
-File: A2/build/Plots/aufg1_a4.pdf Graphic file (type pdf)
-<use A2/build/Plots/aufg1_a4.pdf>
-Package luatex.def Info: A2/build/Plots/aufg1_a4.pdf  used on input line 51.
+ [2<./A2/plots/aufg2_a1.pdf><./A2/plots/aufg2_a2.pdf>]
+<A2/plots/aufg2_a4.pdf, id=94, 462.52798pt x 346.89601pt>
+File: A2/plots/aufg2_a4.pdf Graphic file (type pdf)
+<use A2/plots/aufg2_a4.pdf>
+Package luatex.def Info: A2/plots/aufg2_a4.pdf  used on input line 51.
 (luatex.def)             Requested size: 323.76736pt x 242.82555pt.
- [3<./A2/build/Plots/aufg1_a3.pdf><./A2/build/Plots/aufg1_a4.pdf>]
-<A2/build/Plots/Energie.pdf, id=174, 462.52798pt x 346.89601pt>
-File: A2/build/Plots/Energie.pdf Graphic file (type pdf)
-<use A2/build/Plots/Energie.pdf>
-Package luatex.def Info: A2/build/Plots/Energie.pdf  used on input line 62.
+[3<./A2/plots/aufg2_a3.pdf><./A2/plots/aufg2_a4.pdf>]
+<A2/plots/Energie.pdf, id=170, 462.52798pt x 346.89601pt>
+File: A2/plots/Energie.pdf Graphic file (type pdf)
+<use A2/plots/Energie.pdf>
+Package luatex.def Info: A2/plots/Energie.pdf  used on input line 62.
 (luatex.def)             Requested size: 323.76736pt x 242.82555pt.
-) [4<./A2/build/Plots/Energie.pdf>] (./build/main.aux))
+) [4<./A2/plots/Energie.pdf>] (./build/main.aux))
 
 Here is how much of LuaTeX's memory you used:
  19595 strings out of 494383
@@ -931,9 +931,9 @@ fonts/type1/public/amsfonts/cm/cmr10.pfb></home/lars/.local/texlive/2018/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmr6.pfb></home/lars/.local/texlive/2018/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/lars/.local/texlive/2018/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (4 pages, 350343 bytes).
+Output written on main.pdf (4 pages, 350006 bytes).
 
-PDF statistics: 248 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 243 PDF objects out of 1000 (max. 8388607)
  118 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
