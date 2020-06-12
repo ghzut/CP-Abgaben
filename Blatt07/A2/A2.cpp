@@ -2,8 +2,7 @@
 #include <fstream>
 #include <iomanip>
 #include <Eigen/Dense>
-#include <math.h> 
-#include "profiler.cpp"
+#include <math.h>
 
 using namespace std;
 using namespace Eigen;
@@ -27,7 +26,6 @@ VectorXd next_step(const VectorXd& y, const double& alpha){
   return temp; 
 }
 
-// Angepasste Runge-Kutta Methode
 MatrixXd runge_kutta(VectorXd (*f)(const VectorXd& , const double&), double T, int N, double alpha, const VectorXd& r, const VectorXd& v){
   double h = T/N;
   unsigned int d = r.size();
@@ -38,12 +36,10 @@ MatrixXd runge_kutta(VectorXd (*f)(const VectorXd& , const double&), double T, i
   ergebnis.col(0).segment(0,d) = r;
   ergebnis.col(0).segment(d,d) = v;
 
-  // Erstellen der Zeiten tn und schreiben in ein file
   for (int i = 0; i<=N; i++){
     tn(i) = i*h;
   }
 
-  // Initialisieren des y-Vektors
   y.segment(0,d) = r;
   y.segment(d,d) = v;
   for (int i = 1; i < N+1; i++){
@@ -69,7 +65,6 @@ void adams_bashfort(VectorXd (*f)(const VectorXd&, const double&), double T, int
   y.segment(d,d) = x_punkt;
   runge = runge_kutta(next_step, T*3.0/N, 3, alpha, x, x_punkt);
 
-  // Schritte, in denen ich noch die Ergebnisse aus Runge-Kutta verwenden muss
   ergebnis.col(0) = runge.col(3) + h/24.0*(55*f(runge.col(3), alpha) - 59*f(runge.col(2), alpha) +37*f(runge.col(1), alpha) -9*f(runge.col(0), alpha));
 
   ergebnis.col(1) = ergebnis.col(0) + h/24.0*(55*f(ergebnis.col(0), alpha) - 59*f(runge.col(3), alpha) +37*f(runge.col(2), alpha) -9*f(runge.col(1), alpha));
@@ -112,8 +107,9 @@ int main() {
   VectorXd x(d), x_punkt(d), y(2*d), energie(N+1);
   ofstream file;
 
-  x << 1, 2, 3;
-  x_punkt << 0, 1, 0;
+  //Startvektoren
+  x << 1, 1, 1;
+  x_punkt << 1, 2, 1;
   y.segment(0,d) = x;
   y.segment(d,d) = x_punkt;
 
