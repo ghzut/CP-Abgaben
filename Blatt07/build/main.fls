@@ -1,239 +1,324 @@
-PWD /media/lars/Volume/Uni/Fächer/Physik/Computational_Physics/CP-Abgaben/Blatt07
-INPUT /home/lars/.local/texlive/2018/texmf-var/web2c/luatex/lualatex.fmt
-INPUT ./main.tex
-OUTPUT build/main.log
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/luatex/lualibs/lualibs-basic.lua
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/luatex/lualibs/lualibs-basic-merged.lua
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/luatex/lualibs/lualibs-compat.lua
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/luatex/lualibs/lualibs-extended.lua
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/luatex/lualibs/lualibs-extended-merged.lua
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrartcl.cls
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrartcl.cls
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrkbase.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrkbase.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrbase.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrbase.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrlfile.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrlfile.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/tocbasic.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/tocbasic.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrsize11pt.clo
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrsize11pt.clo
-INPUT /home/lars/.local/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/typearea.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/typearea.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/base/inputenc.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/base/inputenc.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel/babel.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel/babel.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel/switch.def
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel/luababel.def
-INPUT /home/lars/.local/texlive/2018/texmf-var/tex/generic/config/language.dat
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel-german/german.ldf
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel-german/german.ldf
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel-german/germanb.ldf
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel/babel.def
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel/luababel.def
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-de-1901.tex
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-de-1901.tex
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/natbib/natbib.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/natbib/natbib.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics-def/luatex.def
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics-def/luatex.def
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/float/float.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/float/float.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/siunitx/siunitx.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/siunitx/siunitx.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3-code.tex
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3-code.tex
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/unicode-data/UnicodeData.txt
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/unicode-data/UnicodeData.txt
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/unicode-data/CaseFolding.txt
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/unicode-data/CaseFolding.txt
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/unicode-data/SpecialCasing.txt
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/unicode-data/SpecialCasing.txt
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/tools/array.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/tools/array.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/translator/translator.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/translator/translator.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/translator/translator.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/placeins/placeins.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/placeins/placeins.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3packages/xfrac/xfrac.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3packages/xfrac/xfrac.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/base/textcomp.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/base/textcomp.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/base/ts1enc.def
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/base/ts1enc.def
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/doublestroke/dsfont.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/doublestroke/dsfont.sty
-INPUT build/main.aux
-INPUT build/main.aux
-OUTPUT build/main.aux
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/siunitx/siunitx-abbreviations.cfg
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
-INPUT /home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-regular.luc
-INPUT /home/lars/.local/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-bold.luc
-INPUT ./content/Aufgabe2.tex
-INPUT ./content/Aufgabe2.tex
-INPUT ./A2/plots/aufg2_a1.pdf
-INPUT ./A2/plots/aufg2_a1.pdf
-INPUT ./A2/plots/aufg2_a1.pdf
-INPUT /home/lars/.local/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr7.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr5.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi7.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy7.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy5.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-INPUT ./A2/plots/aufg2_a2.pdf
-INPUT ./A2/plots/aufg2_a2.pdf
-INPUT ./A2/plots/aufg2_a2.pdf
-OUTPUT build/main.pdf
-INPUT ./A2/plots/aufg2_a3.pdf
-INPUT ./A2/plots/aufg2_a3.pdf
-INPUT ./A2/plots/aufg2_a3.pdf
-INPUT ./A2/plots/aufg2_a4.pdf
-INPUT ./A2/plots/aufg2_a4.pdf
-INPUT ./A2/plots/aufg2_a4.pdf
-INPUT ./A2/plots/Energie.pdf
-INPUT ./A2/plots/Energie.pdf
-INPUT ./A2/plots/Energie.pdf
-INPUT build/main.aux
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
-INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+PWD C:\Users\Jonah\Desktop\Projekte\CP-Abgaben\Blatt07
+INPUT .\main.tex
+OUTPUT C:\Users\Jonah\Desktop\Projekte\CP-Abgaben\Blatt07\build\main.log
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\latexconfig\lualatexquotejobname.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\ltluatex.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-main.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-init.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\lualibs\lualibs.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\lualibs\lualibs-basic.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\lualibs\lualibs-basic-merged.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\lualibs\lualibs-compat.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\lualibs\lualibs-extended.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\lualibs\lualibs-extended-merged.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-log.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\fontloader-basics-gen.lua
+OUTPUT C:\Users\Jonah\AppData\Local\MiKTeX\2.9\m_t_x_t_e_s_t.tmp
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-parsers.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-configuration.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-status.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\fontloader-2020-05-06.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-fallback.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-multiscript.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-scripts.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\unicode-data\ScriptExtensions.txt
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\unicode-data\Scripts.txt
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-loaders.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-database.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-unicode.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\unicode-data\CaseFolding.txt
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\unicode-data\UnicodeData.txt
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-colors.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-resolvers.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-features.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-harf-define.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-harf-plug.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-letterspace.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-embolden.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-notdef.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\unicode-data\UnicodeData.txt
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\unicode-data\PropList.txt
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-suppress.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-szss.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-auxiliary.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\luatex\luaotfload\luaotfload-tounicode.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrartcl.cls
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrartcl.cls
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrartcl.cls
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrartcl.cls
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrkbase.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrkbase.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrkbase.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrkbase.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrbase.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrbase.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrbase.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrbase.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\tocbasic.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\tocbasic.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\tocbasic.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\tocbasic.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrsize11pt.clo
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrsize11pt.clo
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrsize11pt.clo
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrsize11pt.clo
+INPUT C:\Users\Jonah\AppData\Local\MiKTeX\2.9\luatex-cache\generic-dev\names\luaotfload-names.luc
+INPUT C:\Users\Jonah\AppData\Local\MiKTeX\2.9\luatex-cache\generic-dev\fonts\otl\lmroman10-regular.luc
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\typearea.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\typearea.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\typearea.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\typearea.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\luababel.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\luababel.def
+INPUT C:\Users\Jonah\AppData\Roaming\MiKTeX\2.9\tex\generic\config\language.dat
+INPUT C:\Users\Jonah\AppData\Roaming\MiKTeX\2.9\tex\generic\config\language.dat
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\luababel.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\luababel.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\german.ldf
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\german.ldf
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\german.ldf
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\german.ldf
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\germanb.ldf
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\germanb.ldf
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\hyph-utf8\loadhyph\loadhyph-de-1901.tex
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\hyph-utf8\loadhyph\loadhyph-de-1901.tex
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\hyph-utf8\patterns\tex\hyph-de-1901.tex
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\hyph-utf8\patterns\tex\hyph-de-1901.tex
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\luatex.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\luatex.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\luatex.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\luatex.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\siunitx\siunitx.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3backend\l3backend-pdfmode.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3backend\l3backend-pdfmode.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3backend\l3backend-pdfmode.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3backend\l3backend-pdfmode.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse-generic.tex
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse-generic.tex
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\l3keys2e\l3keys2e.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\l3keys2e\l3keys2e.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\l3keys2e\l3keys2e.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\l3keys2e\l3keys2e.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\placeins\placeins.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\placeins\placeins.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\placeins\placeins.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\placeins\placeins.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xfrac\xfrac.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xfrac\xfrac.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xfrac\xfrac.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xfrac\xfrac.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xtemplate\xtemplate.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xtemplate\xtemplate.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xtemplate\xtemplate.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xtemplate\xtemplate.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\doublestroke\dsfont.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\doublestroke\dsfont.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\doublestroke\dsfont.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\doublestroke\dsfont.sty
+INPUT C:\Users\Jonah\Desktop\Projekte\CP-Abgaben\Blatt07\build\main.aux
+INPUT C:\Users\Jonah\Desktop\Projekte\CP-Abgaben\Blatt07\build\main.aux
+INPUT C:\Users\Jonah\Desktop\Projekte\CP-Abgaben\Blatt07\build\main.aux
+INPUT C:\Users\Jonah\Desktop\Projekte\CP-Abgaben\Blatt07\build\main.aux
+OUTPUT C:\Users\Jonah\Desktop\Projekte\CP-Abgaben\Blatt07\build\main.aux
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd
+INPUT C:\Program Files\MiKTeX 2.9\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Program Files\MiKTeX 2.9\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Program Files\MiKTeX 2.9\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Program Files\MiKTeX 2.9\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX 2.9\scripts\pdftexcmds\pdftexcmds.lua
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-basic-dictionary-English.dict
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-basic-dictionary-English.dict
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-basic-dictionary-English.dict
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-basic-dictionary-English.dict
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\siunitx\siunitx-abbreviations.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\siunitx\siunitx-abbreviations.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\siunitx\siunitx-abbreviations.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\siunitx\siunitx-abbreviations.cfg
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr6.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr6.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmmi8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmmi8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmmi6.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmmi6.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsy8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsy8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsy6.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsy6.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmss10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmss10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmss8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmss8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmss8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmss8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmtt10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmtt10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmtt8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmtt8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmtt8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmtt8.tfm
+INPUT C:\Users\Jonah\AppData\Local\MiKTeX\2.9\luatex-cache\generic-dev\fonts\otl\lmsans10-regular.luc
+INPUT C:\Users\Jonah\AppData\Local\MiKTeX\2.9\luatex-cache\generic-dev\fonts\otl\lmsans10-bold.luc
+INPUT .\content\Aufgabe1.tex
+INPUT .\content\Aufgabe1.tex
+INPUT .\content\Aufgabe1.tex
+INPUT .\content\Aufgabe1.tex
+INPUT C:\Users\Jonah\AppData\Local\MiKTeX\2.9\luatex-cache\generic-dev\fonts\otl\lmroman10-bold.luc

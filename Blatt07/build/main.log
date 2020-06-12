@@ -1,97 +1,119 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.28)  12 JUN 2020 04:34
+This is LuaHBTeX, Version 1.12.0 (MiKTeX 2.9.7440 64-bit)  (format=lualatex 2020.6.12)  12 JUN 2020 10:38
  restricted system commands enabled.
 **main.tex
 (./main.tex
-LaTeX2e <2018-12-01>
-Lua module: luaotfload-main 2019-02-14 2.96 luaotfload entry point
-Lua module: luaotfload-init 2019-02-14 2.96 luaotfload submodule / initializatio
+LaTeX2e <2020-02-02> patch level 5
+Lua module: luaotfload-main 2020-05-06 3.14 luaotfload entry point
+Lua module: luaotfload-init 2020-05-06 3.14 luaotfload submodule / initializatio
 n
-Lua module: lualibs 2019-02-14 2.64 ConTeXt Lua standard libraries.
-Lua module: lualibs-extended 2019-02-14 2.64 ConTeXt Lua libraries -- extended c
+Lua module: lualibs 2020-05-01 2.71 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2020-05-01 2.71 ConTeXt Lua libraries -- extended c
 ollection.
-Lua module: luaotfload-log 2019-02-14 2.96 luaotfload submodule / logging
-Lua module: luaotfload-parsers 2019-02-14 2.96 luaotfload submodule / filelist
-Lua module: luaotfload-configuration 2019-02-14 2.96 luaotfload submodule / conf
+Lua module: luaotfload-log 2020-05-06 3.14 luaotfload submodule / logging
+Lua module: luaotfload-parsers 2020-05-06 3.14 luaotfload submodule / filelist
+Lua module: luaotfload-configuration 2020-05-06 3.14 luaotfload submodule / conf
 ig file reader
-luaotfload | conf : Root cache directory is /home/lars/.local/texlive/2018/texmf
--var/luatex-cache/generic/names.
-luaotfload | init : Loading fontloader “fontloader-2019-02-14.lua” from kpse
--resolved path “/home/lars/.local/texlive/2018/texmf-dist/tex/luatex/luaotfloa
-d/fontloader-2019-02-14.lua”.
-Lua-only attribute luaotfload@state = 1
-Lua-only attribute luaotfload@noligature = 2
-Lua-only attribute luaotfload@syllabe = 3
-luaotfload | init : Context OpenType loader version “3.107”
+luaotfload | conf : Root cache directory is "C:/Users/Jonah/AppData/Local/MiKTeX
+/2.9/luatex-cache/generic-dev/names".
+luaotfload | init : Loading fontloader "fontloader-2020-05-06.lua" from kpse-res
+olved path "C:/Program Files/MiKTeX 2.9/tex/luatex/luaotfload/fontloader-2020-05
+-06.lua".
+Lua-only attribute luaotfload@noligature = 1
+Lua-only attribute luaotfload@syllabe = 2
+luaotfload | init : Context OpenType loader version 0x1.8e353f7ced917p+1
+Lua module: luaotfload-fallback 2020-05-06 3.14 luaotfload submodule / fallback
+Lua module: luaotfload-multiscript 2020-05-06 3.14 luaotfload submodule / multis
+cript
+Lua module: luaotfload-script 2020-05-06 3.14 luaotfload submodule / Script help
+ers
 Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
 Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
-Lua module: luaotfload-loaders 2019-02-14 2.96 luaotfload submodule / callback h
+Lua module: luaotfload-loaders 2020-05-06 3.14 luaotfload submodule / callback h
 andling
 Inserting `luaotfload.define_font' at position 1 in `define_font'.
-Lua module: luaotfload-database 2019-02-14 2.96 luaotfload submodule / database
-Lua module: luaotfload-colors 2019-02-14 2.96 luaotfload submodule / color
-Lua-only attribute luaotfload_color_attribute = 4
-Lua module: luaotfload-resolvers 2019-02-14 2.96 luaotfload submodule / resolver
+Lua module: luaotfload-database 2020-05-06 3.14 luaotfload submodule / database
+Lua module: luaotfload-unicode 2020-05-06 3.14 luaotfload submodule / Unicode he
+lpers
+Lua module: luaotfload-colors 2020-05-06 3.14 luaotfload submodule / color
+Lua-only attribute luaotfload_color_attribute = 3
+Lua module: luaotfload-resolvers 2020-05-06 3.14 luaotfload submodule / resolver
 s
-luaotfload | conf : Root cache directory is /home/lars/.local/texlive/2018/texmf
--var/luatex-cache/generic/names.
-Lua module: luaotfload-features 2019-02-14 2.96 luaotfload submodule / features
-Lua module: luaotfload-letterspace 2019-02-14 2.96 luaotfload submodule / color
-Lua module: luaotfload-auxiliary 2019-02-14 2.96 luaotfload submodule / auxiliar
+luaotfload | conf : Root cache directory is "C:/Users/Jonah/AppData/Local/MiKTeX
+/2.9/luatex-cache/generic-dev/names".
+Lua module: luaotfload-features 2020-05-06 3.14 luaotfload submodule / features
+Lua module: luaotfload-harf-define 2020-05-06 3.14 luaotfload submodule / databa
+se
+Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_truetype_file'.
+Lua module: luaotfload-harf-plug 2020-05-06 3.14 luaotfload submodule / database
+Inserting `Harf pre_output_filter callback' at position 1 in `pre_output_filter'
+.
+Inserting `Harf wrapup_run callback' at position 1 in `wrapup_run'.
+Inserting `Harf finish_pdffile callback' at position 1 in `finish_pdffile'.
+Inserting `Harf glyph_info callback' at position 1 in `glyph_info'.
+Lua module: luaotfload-letterspace 2020-05-06 3.14 luaotfload submodule / color
+Lua module: luaotfload-embolden 2020-05-06 3.14 luaotfload submodule / color
+Lua module: luaotfload-notdef 2020-05-06 3.14 luaotfload submodule / color
+Lua module: luaotfload-suppress 2020-05-06 3.14 luaotfload submodule / suppress
+Lua module: luaotfload-szss 2020-05-06 3.14 luaotfload submodule / color
+Lua module: luaotfload-auxiliary 2020-05-06 3.14 luaotfload submodule / auxiliar
 y functions
 Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
 font'.
-Inserting `luaotfload.aux.patch_cambria_domh' at position 2 in `luaotfload.patch
+Inserting `luaotfload.aux.set_font_index' at position 2 in `luaotfload.patch_fon
+t'.
+Inserting `luaotfload.aux.patch_cambria_domh' at position 3 in `luaotfload.patch
 _font'.
 Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_fon
 t_unsafe'.
-Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
+Inserting `luaotfload.aux.set_capheight' at position 4 in `luaotfload.patch_font
 '.
-Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
-.
-luaotfload | main : initialization completed in 0.088 seconds
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrartcl.cls
-Document Class: scrartcl 2019/02/01 v3.26b KOMA-Script document class (article)
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrkbase.sty
-Package: scrkbase 2019/02/01 v3.26b KOMA-Script package (KOMA-Script-dependent b
+Inserting `luaotfload.aux.set_xheight' at position 5 in `luaotfload.patch_font'.
+Lua module: luaotfload-tounicode 2020-05-06 3.14 luaotfload submodule / tounicod
+e
+Inserting `luaotfload.rewrite_fontname' at position 6 in `luaotfload.patch_font'
+. L3 programming layer <2020-06-03>
+("C:/Program Files/MiKTeX 2.9/tex/latex/koma-script/scrartcl.cls"
+Document Class: scrartcl 2020/04/19 v3.30 KOMA-Script document class (article)
+("C:/Program Files/MiKTeX 2.9/tex/latex/koma-script/scrkbase.sty"
+Package: scrkbase 2020/04/19 v3.30 KOMA-Script package (KOMA-Script-dependent ba
+sics and keyval usage)
+
+("C:/Program Files/MiKTeX 2.9/tex/latex/koma-script/scrbase.sty"
+Package: scrbase 2020/04/19 v3.30 KOMA-Script package (KOMA-Script-independent b
 asics and keyval usage)
 
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrbase.sty
-Package: scrbase 2019/02/01 v3.26b KOMA-Script package (KOMA-Script-independent 
-basics and keyval usage)
-
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
+("C:/Program Files/MiKTeX 2.9/tex/latex/graphics/keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks14
+\KV@toks@=\toks15
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrlfile.sty
-Package: scrlfile 2019/02/01 v3.26b KOMA-Script package (loading files)
-))) (/home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/tocbasic.s
-ty
-Package: tocbasic 2019/02/01 v3.26b KOMA-Script package (handling toc-files)
-\scr@dte@tocline@numberwidth=\skip41
-\scr@dte@tocline@numbox=\box27
+("C:/Program Files/MiKTeX 2.9/tex/latex/koma-script/scrlfile.sty"
+Package: scrlfile 2020/04/19 v3.30 KOMA-Script package (loading files)
+)))
+("C:/Program Files/MiKTeX 2.9/tex/latex/koma-script/tocbasic.sty"
+Package: tocbasic 2020/04/19 v3.30 KOMA-Script package (handling toc-files)
+\scr@dte@tocline@numberwidth=\skip47
+\scr@dte@tocline@numbox=\box45
 )
-Package tocbasic Info: omitting babel extension for `toc'
-(tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `toc' on input line 134.
+Package tocbasic Info: babel extension for `toc' omitted
+(tocbasic)             because of missing \bbl@set@language on input line 135.
 Class scrartcl Info: File `scrsize11pt.clo' used instead of
-(scrartcl)           file `scrsize11.clo' to setup font sizes on input line 2162
+(scrartcl)           file `scrsize11.clo' to setup font sizes on input line 2212
 .
 
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrsize11pt.cl
-o
-File: scrsize11pt.clo 2019/02/01 v3.26b KOMA-Script font size class option (11pt
-)
-luaotfload | db : Font names database loaded from /home/lars/.local/texlive/2018
-/texmf-var/luatex-cache/generic/names/luaotfload-names.luc)
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/typearea.sty
-Package: typearea 2019/02/01 v3.26b KOMA-Script package (type area)
-\ta@bcor=\skip42
-\ta@div=\count80
-\ta@hblk=\skip43
-\ta@vblk=\skip44
-\ta@temp=\skip45
-\footheight=\skip46
+("C:/Program Files/MiKTeX 2.9/tex/latex/koma-script/scrsize11pt.clo"
+File: scrsize11pt.clo 2020/04/19 v3.30 KOMA-Script font size class option (11pt)
+
+luaotfload | db : Font names database loaded from C:/Users/Jonah/AppData/Local/M
+iKTeX/2.9/luatex-cache/generic-dev/names/luaotfload-names.luc)
+("C:/Program Files/MiKTeX 2.9/tex/latex/koma-script/typearea.sty"
+Package: typearea 2020/04/19 v3.30 KOMA-Script package (type area)
+\ta@bcor=\skip48
+\ta@div=\count163
+\ta@hblk=\skip49
+\ta@vblk=\skip50
+\ta@temp=\skip51
+\footheight=\skip52
 Package typearea Info: These are the values describing the layout:
 (typearea)             DIV  = 10
 (typearea)             BCOR = 0.0pt
@@ -108,503 +130,364 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 11.0pt
 (typearea)              \footskip       = 47.6pt
 (typearea)              \baselineskip   = 13.6pt
-(typearea)              on input line 1715.
+(typearea)              on input line 1738.
 )
-\c@part=\count81
-\c@section=\count82
-\c@subsection=\count83
-\c@subsubsection=\count84
-\c@paragraph=\count85
-\c@subparagraph=\count86
-\scr@dte@section@maxnumwidth=\skip47
+\c@part=\count164
+\c@section=\count165
+\c@subsection=\count166
+\c@subsubsection=\count167
+\c@paragraph=\count168
+\c@subparagraph=\count169
+\scr@dte@section@maxnumwidth=\skip53
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\section on input line 4489.
+(scrartcl)           for `\section on input line 4761.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\section on input line 4489.
-\scr@dte@part@maxnumwidth=\skip48
+(scrartcl)           for `\section on input line 4761.
+\scr@dte@part@maxnumwidth=\skip54
 Class scrartcl Info: using compatibility default `afterindent=false'
-(scrartcl)           for `\part on input line 4497.
-\scr@dte@subsection@maxnumwidth=\skip49
+(scrartcl)           for `\part on input line 4769.
+\scr@dte@subsection@maxnumwidth=\skip55
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\subsection on input line 4507.
+(scrartcl)           for `\subsection on input line 4779.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\subsection on input line 4507.
-\scr@dte@subsubsection@maxnumwidth=\skip50
+(scrartcl)           for `\subsection on input line 4779.
+\scr@dte@subsubsection@maxnumwidth=\skip56
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\subsubsection on input line 4517.
+(scrartcl)           for `\subsubsection on input line 4789.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\subsubsection on input line 4517.
-\scr@dte@paragraph@maxnumwidth=\skip51
+(scrartcl)           for `\subsubsection on input line 4789.
+\scr@dte@paragraph@maxnumwidth=\skip57
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\paragraph on input line 4527.
+(scrartcl)           for `\paragraph on input line 4799.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\paragraph on input line 4527.
-\scr@dte@subparagraph@maxnumwidth=\skip52
+(scrartcl)           for `\paragraph on input line 4799.
+\scr@dte@subparagraph@maxnumwidth=\skip58
 Class scrartcl Info: using compatibility default `runin=bysign'
-(scrartcl)           for `\subparagraph on input line 4537.
+(scrartcl)           for `\subparagraph on input line 4809.
 Class scrartcl Info: using compatibility default `afterindent=bysign'
-(scrartcl)           for `\subparagraph on input line 4537.
-\abovecaptionskip=\skip53
-\belowcaptionskip=\skip54
-\c@pti@nb@sid@b@x=\box28
-Package tocbasic Info: omitting babel extension for `lof'
-(tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `lof' on input line 5781.
-\scr@dte@figure@maxnumwidth=\skip55
-\c@figure=\count87
-Package tocbasic Info: omitting babel extension for `lot'
-(tocbasic)             because of feature `nobabel' available
-(tocbasic)             for `lot' on input line 5793.
-\scr@dte@table@maxnumwidth=\skip56
-\c@table=\count88
-Class scrartcl Info: Redefining `\numberline' on input line 5957.
-\bibindent=\dimen102
-) (/home/lars/.local/texlive/2018/texmf-dist/tex/latex/base/inputenc.sty
+(scrartcl)           for `\subparagraph on input line 4809.
+\abovecaptionskip=\skip59
+\belowcaptionskip=\skip60
+\c@pti@nb@sid@b@x=\box46
+Package tocbasic Info: babel extension for `lof' omitted
+(tocbasic)             because of missing \bbl@set@language on input line 6040.
+\scr@dte@figure@maxnumwidth=\skip61
+\c@figure=\count170
+Package tocbasic Info: babel extension for `lot' omitted
+(tocbasic)             because of missing \bbl@set@language on input line 6052.
+\scr@dte@table@maxnumwidth=\skip62
+\c@table=\count171
+Class scrartcl Info: Redefining `\numberline' on input line 6216.
+\bibindent=\dimen134
+)
+("C:/Program Files/MiKTeX 2.9/tex/latex/base/inputenc.sty"
 Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks15
-\inpenc@posthook=\toks16
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
 
 
 Package inputenc Warning: inputenc package ignored with utf8 based engines.
 
-) (/home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2018/11/13 3.27 The Babel package
+) ("C:/Program Files/MiKTeX 2.9/tex/generic/babel/babel.sty"
+Package: babel 2020/05/13 3.44 The Babel package
 
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel/switch.def
-File: switch.def 2018/11/13 3.27 Babel switching mechanism
+("C:/Program Files/MiKTeX 2.9/tex/generic/babel/babel.def"
+File: babel.def 2020/05/13 3.44 Babel common definitions
+
+("C:/Program Files/MiKTeX 2.9/tex/generic/babel/luababel.def"
+\bbl@readstream=\read2
+\l@afrikaans=\language2
+Package babel Info: Non-standard hyphenation setup on input line 117.
+\l@ancientgreek=\language3
+\l@arabic=\language4
+\l@armenian=\language5
+\l@assamese=\language6
+\l@basque=\language7
+\l@belarusian=\language8
+\l@bengali=\language9
+\l@bokmal=\language10
+\l@bulgarian=\language11
+\l@catalan=\language12
+\l@churchslavonic=\language13
+\l@classiclatin=\language14
+\l@coptic=\language15
+\l@croatian=\language16
+\l@czech=\language17
+\l@danish=\language18
+\l@dutch=\language19
+\l@esperanto=\language20
+\l@estonian=\language21
+\l@ethiopic=\language22
+\l@farsi=\language23
+\l@finnish=\language24
+\l@french=\language25
+\l@friulan=\language26
+\l@galician=\language27
+\l@georgian=\language28
+\l@german=\language29
+\l@german-x-2019-04-04=\language30
+\l@greek=\language31
+\l@gujarati=\language32
+\l@hindi=\language33
+\l@hungarian=\language34
+\l@icelandic=\language35
+\l@indonesian=\language36
+\l@interlingua=\language37
+\l@irish=\language38
+\l@italian=\language39
+\l@kannada=\language40
+\l@kurmanji=\language41
+\l@latin=\language42
+\l@latvian=\language43
+\l@lithuanian=\language44
+\l@liturgicallatin=\language45
+\l@macedonian=\language46
+\l@malayalam=\language47
+\l@marathi=\language48
+\l@mongolian=\language49
+\l@mongolianlmc=\language50
+\l@monogreek=\language51
+\l@ngerman=\language52
+\l@ngerman-x-2019-04-04=\language53
+\l@nynorsk=\language54
+\l@occitan=\language55
+\l@oriya=\language56
+\l@pali=\language57
+\l@panjabi=\language58
+\l@piedmontese=\language59
+\l@polish=\language60
+\l@portuguese=\language61
+\l@romanian=\language62
+\l@romansh=\language63
+\l@russian=\language64
+\l@sanskrit=\language65
+\l@serbian=\language66
+\l@serbianc=\language67
+\l@slovak=\language68
+\l@slovenian=\language69
+\l@spanish=\language70
+\l@swedish=\language71
+\l@swissgerman=\language72
+\l@tamil=\language73
+\l@telugu=\language74
+\l@thai=\language75
+\l@turkish=\language76
+\l@turkmen=\language77
+\l@ukenglish=\language78
+\l@ukrainian=\language79
+\l@uppersorbian=\language80
+\l@usenglishmax=\language81
+\l@welsh=\language82
+\babelcatcodetablenum=\catcodetable5
+\bbl@pattcodes=\catcodetable6
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel/luababel.def
-\l@dumylang=\language2
-Package babel Info: Non-standard hyphenation setup on input line 114.
-\l@nohyphenation=\language3
-\l@german-x-2018-03-31=\language4
-\l@ngerman-x-2018-03-31=\language5
-\l@afrikaans=\language6
-\l@ancientgreek=\language7
-\l@ibycus=\language8
-\l@arabic=\language9
-\l@armenian=\language10
-\l@basque=\language11
-\l@belarusian=\language12
-\l@bulgarian=\language13
-\l@catalan=\language14
-\l@pinyin=\language15
-\l@churchslavonic=\language16
-\l@coptic=\language17
-\l@croatian=\language18
-\l@czech=\language19
-\l@danish=\language20
-\l@dutch=\language21
-\l@ukenglish=\language22
-\l@usenglishmax=\language23
-\l@esperanto=\language24
-\l@estonian=\language25
-\l@ethiopic=\language26
-\l@farsi=\language27
-\l@finnish=\language28
-\l@french=\language29
-\l@friulan=\language30
-\l@galician=\language31
-\l@georgian=\language32
-\l@german=\language33
-\l@ngerman=\language34
-\l@swissgerman=\language35
-\l@monogreek=\language36
-\l@greek=\language37
-\l@hungarian=\language38
-\l@icelandic=\language39
-\l@assamese=\language40
-\l@bengali=\language41
-\l@gujarati=\language42
-\l@hindi=\language43
-\l@kannada=\language44
-\l@malayalam=\language45
-\l@marathi=\language46
-\l@oriya=\language47
-\l@panjabi=\language48
-\l@pali=\language49
-\l@tamil=\language50
-\l@telugu=\language51
-\l@indonesian=\language52
-\l@interlingua=\language53
-\l@irish=\language54
-\l@italian=\language55
-\l@kurmanji=\language56
-\l@latin=\language57
-\l@classiclatin=\language58
-\l@liturgicallatin=\language59
-\l@latvian=\language60
-\l@lithuanian=\language61
-\l@mongolian=\language62
-\l@mongolianlmc=\language63
-\l@bokmal=\language64
-\l@nynorsk=\language65
-\l@occitan=\language66
-\l@piedmontese=\language67
-\l@polish=\language68
-\l@portuguese=\language69
-\l@romanian=\language70
-\l@romansh=\language71
-\l@russian=\language72
-\l@sanskrit=\language73
-\l@serbian=\language74
-\l@serbianc=\language75
-\l@slovak=\language76
-\l@slovenian=\language77
-\l@spanish=\language78
-\l@swedish=\language79
-\l@thai=\language80
-\l@turkish=\language81
-\l@turkmen=\language82
-\l@ukrainian=\language83
-\l@uppersorbian=\language84
-\l@welsh=\language85
+\babel@savecnt=\count172
+\U@D=\dimen135
+\l@babelnohyphens=\language83
+
+("C:/Program Files/MiKTeX 2.9/tex/generic/babel/luababel.def"
+\bbl@attr@locale=\attribute4
+))
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:/Program Files/MiKTeX 2.9/tex/latex/arabi/bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of 
+babel
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel-german/german.ldf
+("C:/Program Files/MiKTeX 2.9/tex/latex/babel-german/german.ldf"
 Language: german 2018/12/08 v2.11 German support for babel (pre-1996 orthography
 )
 
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel-german/germanb.ldf
+("C:/Program Files/MiKTeX 2.9/tex/latex/babel-german/germanb.ldf"
 Language: germanb 2018/12/08 v2.11 German support for babel (pre-1996 orthograph
 y)
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2018/11/13 3.27 Babel common definitions
-\babel@savecnt=\count89
-\U@D=\dimen103
-
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/babel/luababel.def))
 Package babel Info: Making " an active character on input line 135.
 
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/hyph-utf8/loadhyph/loadh
-yph-de-1901.tex UTF-8 German hyphenation patterns (traditional orthography)
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/hyph-utf8/patterns/tex/h
-yph-de-1901.tex
-German Hyphenation Patterns (Traditional Orthography) `dehypht-x' 2018-03-31 (W
-L))))))
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2018/12/01 v2.17b AMS math features
-\@mathmargin=\skip57
+("C:/Program Files/MiKTeX 2.9/tex/generic/hyph-utf8/loadhyph/loadhyph-de-1901.t
+ex" UTF-8 German hyphenation patterns (traditional orthography)
+("C:/Program Files/MiKTeX 2.9/tex/generic/hyph-utf8/patterns/tex/hyph-de-1901.t
+ex"
+German Hyphenation Patterns (Traditional Orthography) `dehypht-x' 2019-04-04 (W
+L)))))) ("C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsmath.sty"
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip63
 
 For additional information on amsmath, use the `?' option.
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
+("C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amstext.sty"
 Package: amstext 2000/06/29 v2.01 AMS text
 
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
+("C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks17
-\ex@=\dimen104
+\@emptytoks=\toks18
+\ex@=\dimen136
 ))
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
+("C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen105
+\pmbraise@=\dimen137
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
+("C:/Program Files/MiKTeX 2.9/tex/latex/amsmath/amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count90
-LaTeX Info: Redefining \frac on input line 223.
-\uproot@=\count91
-\leftroot@=\count92
-LaTeX Info: Redefining \overline on input line 385.
-\classnum@=\count93
-\DOTSCASE@=\count94
-LaTeX Info: Redefining \ldots on input line 482.
-LaTeX Info: Redefining \dots on input line 485.
-LaTeX Info: Redefining \cdots on input line 606.
-\Mathstrutbox@=\box29
-\strutbox@=\box30
-\big@size=\dimen106
-LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
-\macc@depth=\count95
-\c@MaxMatrixCols=\count96
-\dotsspace@=\muskip10
-\c@parentequation=\count97
-\dspbrk@lvl=\count98
-\tag@help=\toks18
-\row@=\count99
-\column@=\count100
-\maxfields@=\count101
-\andhelp@=\toks19
-\eqnshift@=\dimen107
-\alignsep@=\dimen108
-\tagshift@=\dimen109
-\tagwidth@=\dimen110
-\totwidth@=\dimen111
-\lineht@=\dimen112
-\@envbody=\toks20
-\multlinegap=\skip58
-\multlinetaggap=\skip59
-\mathdisplay@stack=\toks21
-LaTeX Info: Redefining \[ on input line 2844.
-LaTeX Info: Redefining \] on input line 2845.
+\inf@bad=\count173
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count174
+\leftroot@=\count175
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count176
+\DOTSCASE@=\count177
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box47
+\strutbox@=\box48
+\big@size=\dimen138
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count178
+\c@MaxMatrixCols=\count179
+\dotsspace@=\muskip16
+\c@parentequation=\count180
+\dspbrk@lvl=\count181
+\tag@help=\toks19
+\row@=\count182
+\column@=\count183
+\maxfields@=\count184
+\andhelp@=\toks20
+\eqnshift@=\dimen139
+\alignsep@=\dimen140
+\tagshift@=\dimen141
+\tagwidth@=\dimen142
+\totwidth@=\dimen143
+\lineht@=\dimen144
+\@envbody=\toks21
+\multlinegap=\skip64
+\multlinetaggap=\skip65
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
+("C:/Program Files/MiKTeX 2.9/tex/latex/amsfonts/amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+("C:/Program Files/MiKTeX 2.9/tex/latex/amsfonts/amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/natbib/natbib.sty
+("C:/Program Files/MiKTeX 2.9/tex/latex/natbib/natbib.sty"
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip60
-\bibsep=\skip61
+\bibhang=\skip66
+\bibsep=\skip67
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count102
+\c@NAT@ctr=\count185
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+("C:/Program Files/MiKTeX 2.9/tex/latex/graphics/graphicx.sty"
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+("C:/Program Files/MiKTeX 2.9/tex/latex/graphics/graphics.sty"
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
 
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
+("C:/Program Files/MiKTeX 2.9/tex/latex/graphics/trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+("C:/Program Files/MiKTeX 2.9/tex/latex/graphics-cfg/graphics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: luatex.def on input line 99.
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/graphics-def/luatex.def
+Package graphics Info: Driver file: luatex.def on input line 105.
+
+("C:/Program Files/MiKTeX 2.9/tex/latex/graphics-def/luatex.def"
 File: luatex.def 2018/01/08 v1.0l Graphics/color driver for luatex
 ))
-\Gin@req@height=\dimen113
-\Gin@req@width=\dimen114
-) (/home/lars/.local/texlive/2018/texmf-dist/tex/latex/float/float.sty
+\Gin@req@height=\dimen145
+\Gin@req@width=\dimen146
+)
+("C:/Program Files/MiKTeX 2.9/tex/latex/float/float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count103
-\float@exts=\toks22
-\float@box=\box31
-\@float@everytoks=\toks23
-\@floatcapt=\box32
+\c@float@type=\count186
+\float@exts=\toks23
+\float@box=\box49
+\@float@everytoks=\toks24
+\@floatcapt=\box50
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
-Package: booktabs 2016/04/27 v1.618033 publication quality tables
-\heavyrulewidth=\dimen115
-\lightrulewidth=\dimen116
-\cmidrulewidth=\dimen117
-\belowrulesep=\dimen118
-\belowbottomsep=\dimen119
-\aboverulesep=\dimen120
-\abovetopsep=\dimen121
-\cmidrulesep=\dimen122
-\cmidrulekern=\dimen123
-\defaultaddspace=\dimen124
-\@cmidla=\count104
-\@cmidlb=\count105
-\@aboverulesep=\dimen125
-\@belowrulesep=\dimen126
-\@thisruleclass=\count106
-\@lastruleclass=\count107
-\@thisrulewidth=\dimen127
+("C:/Program Files/MiKTeX 2.9/tex/latex/booktabs/booktabs.sty"
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen147
+\lightrulewidth=\dimen148
+\cmidrulewidth=\dimen149
+\belowrulesep=\dimen150
+\belowbottomsep=\dimen151
+\aboverulesep=\dimen152
+\abovetopsep=\dimen153
+\cmidrulesep=\dimen154
+\cmidrulekern=\dimen155
+\defaultaddspace=\dimen156
+\@cmidla=\count187
+\@cmidlb=\count188
+\@aboverulesep=\dimen157
+\@belowrulesep=\dimen158
+\@thisruleclass=\count189
+\@lastruleclass=\count190
+\@thisrulewidth=\dimen159
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/siunitx/siunitx.sty
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2019-02-15 L3 programming layer (loader) 
+("C:/Program Files/MiKTeX 2.9/tex/latex/siunitx/siunitx.sty"
+("C:/Program Files/MiKTeX 2.9/tex/latex/l3kernel/expl3.sty"
+Package: expl3 2020-06-03 L3 programming layer (loader) 
 
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3-code.tex
-Package: expl3 2019-02-15 L3 programming layer (code)
-\ucharcat@table=\catcodetable5
-\c_max_int=\count108
-\l_tmpa_int=\count109
-\l_tmpb_int=\count110
-\g_tmpa_int=\count111
-\g_tmpb_int=\count112
-\g__kernel_prg_map_int=\count113
-\c_log_iow=\count114
-\l_iow_line_count_int=\count115
-\l__iow_line_target_int=\count116
-\l__iow_one_indent_int=\count117
-\l__iow_indent_int=\count118
-\c_zero_dim=\dimen128
-\c_max_dim=\dimen129
-\l_tmpa_dim=\dimen130
-\l_tmpb_dim=\dimen131
-\g_tmpa_dim=\dimen132
-\g_tmpb_dim=\dimen133
-\c_zero_skip=\skip62
-\c_max_skip=\skip63
-\l_tmpa_skip=\skip64
-\l_tmpb_skip=\skip65
-\g_tmpa_skip=\skip66
-\g_tmpb_skip=\skip67
-\c_zero_muskip=\muskip11
-\c_max_muskip=\muskip12
-\l_tmpa_muskip=\muskip13
-\l_tmpb_muskip=\muskip14
-\g_tmpa_muskip=\muskip15
-\g_tmpb_muskip=\muskip16
-\l_keys_choice_int=\count119
-\l__intarray_loop_int=\count120
-\c__intarray_sp_dim=\dimen134
-\g__intarray_font_int=\count121
-\c__fp_leading_shift_int=\count122
-\c__fp_middle_shift_int=\count123
-\c__fp_trailing_shift_int=\count124
-\c__fp_big_leading_shift_int=\count125
-\c__fp_big_middle_shift_int=\count126
-\c__fp_big_trailing_shift_int=\count127
-\c__fp_Bigg_leading_shift_int=\count128
-\c__fp_Bigg_middle_shift_int=\count129
-\c__fp_Bigg_trailing_shift_int=\count130
-\g__fp_array_int=\count131
-\l__fp_array_loop_int=\count132
-\l__sort_length_int=\count133
-\l__sort_min_int=\count134
-\l__sort_top_int=\count135
-\l__sort_max_int=\count136
-\l__sort_true_max_int=\count137
-\l__sort_block_int=\count138
-\l__sort_begin_int=\count139
-\l__sort_end_int=\count140
-\l__sort_A_int=\count141
-\l__sort_B_int=\count142
-\l__sort_C_int=\count143
-\l__tl_analysis_normal_int=\count144
-\l__tl_analysis_index_int=\count145
-\l__tl_analysis_nesting_int=\count146
-\l__tl_analysis_type_int=\count147
-\l__regex_internal_a_int=\count148
-\l__regex_internal_b_int=\count149
-\l__regex_internal_c_int=\count150
-\l__regex_balance_int=\count151
-\l__regex_group_level_int=\count152
-\l__regex_mode_int=\count153
-\c__regex_cs_in_class_mode_int=\count154
-\c__regex_cs_mode_int=\count155
-\l__regex_catcodes_int=\count156
-\l__regex_default_catcodes_int=\count157
-\c__regex_catcode_L_int=\count158
-\c__regex_catcode_O_int=\count159
-\c__regex_catcode_A_int=\count160
-\c__regex_all_catcodes_int=\count161
-\l__regex_show_lines_int=\count162
-\l__regex_min_state_int=\count163
-\l__regex_max_state_int=\count164
-\l__regex_left_state_int=\count165
-\l__regex_right_state_int=\count166
-\l__regex_capturing_group_int=\count167
-\l__regex_min_pos_int=\count168
-\l__regex_max_pos_int=\count169
-\l__regex_curr_pos_int=\count170
-\l__regex_start_pos_int=\count171
-\l__regex_success_pos_int=\count172
-\l__regex_curr_char_int=\count173
-\l__regex_curr_catcode_int=\count174
-\l__regex_last_char_int=\count175
-\l__regex_case_changed_char_int=\count176
-\l__regex_curr_state_int=\count177
-\l__regex_step_int=\count178
-\l__regex_min_active_int=\count179
-\l__regex_max_active_int=\count180
-\l__regex_replacement_csnames_int=\count181
-\l__regex_match_count_int=\count182
-\l__regex_min_submatch_int=\count183
-\l__regex_submatch_int=\count184
-\l__regex_zeroth_submatch_int=\count185
-\g__regex_trace_regex_int=\count186
-\c_empty_box=\box33
-\l_tmpa_box=\box34
-\l_tmpb_box=\box35
-\g_tmpa_box=\box36
-\g_tmpb_box=\box37
-\l__box_top_dim=\dimen135
-\l__box_bottom_dim=\dimen136
-\l__box_left_dim=\dimen137
-\l__box_right_dim=\dimen138
-\l__box_top_new_dim=\dimen139
-\l__box_bottom_new_dim=\dimen140
-\l__box_left_new_dim=\dimen141
-\l__box_right_new_dim=\dimen142
-\l__box_internal_box=\box38
-\l__coffin_internal_box=\box39
-\l__coffin_internal_dim=\dimen143
-\l__coffin_offset_x_dim=\dimen144
-\l__coffin_offset_y_dim=\dimen145
-\l__coffin_x_dim=\dimen146
-\l__coffin_y_dim=\dimen147
-\l__coffin_x_prime_dim=\dimen148
-\l__coffin_y_prime_dim=\dimen149
-\c_empty_coffin=\box40
-\l__coffin_aligned_coffin=\box41
-\l__coffin_aligned_internal_coffin=\box42
-\l_tmpa_coffin=\box43
-\l_tmpb_coffin=\box44
-\g_tmpa_coffin=\box45
-\g_tmpb_coffin=\box46
-\c__coffin_empty_coffin=\box47
-\l__coffin_display_coffin=\box48
-\l__coffin_display_coord_coffin=\box49
-\l__coffin_display_pole_coffin=\box50
-\l__coffin_display_offset_dim=\dimen150
-\l__coffin_display_x_dim=\dimen151
-\l__coffin_display_y_dim=\dimen152
-\g__file_internal_ior=\read1
-\l__coffin_bounding_shift_dim=\dimen153
-\l__coffin_left_corner_dim=\dimen154
-\l__coffin_right_corner_dim=\dimen155
-\l__coffin_bottom_corner_dim=\dimen156
-\l__coffin_top_corner_dim=\dimen157
-\l__coffin_scaled_total_height_dim=\dimen158
-\l__coffin_scaled_width_dim=\dimen159
-\l__seq_internal_a_int=\count187
-\l__seq_internal_b_int=\count188
-)
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
-File: l3pdfmode.def 2019-02-15 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count189
+("C:/Program Files/MiKTeX 2.9/tex/latex/l3backend/l3backend-pdfmode.def"
+File: l3backend-pdfmode.def 2020-06-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count191
+\l__pdf_internal_box=\box51
 ))
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3packages/xparse/xparse.s
-ty
-Package: xparse 2018-10-17 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count190
-\g__xparse_grabber_int=\count191
-\l__xparse_m_args_int=\count192
-\l__xparse_mandatory_args_int=\count193
-\l__xparse_v_nesting_int=\count194
-)
-Package: siunitx 2018/05/17 v2.7s A comprehensive (SI) units package
- (/home/lars/.local/texlive/2018/texmf-dist/tex/latex/tools/array.sty
-Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
+("C:/Program Files/MiKTeX 2.9/tex/latex/l3packages/xparse/xparse.sty"
+Package: xparse 2020-05-15 L3 Experimental document command parser
+
+("C:/Program Files/MiKTeX 2.9/tex/latex/l3packages/xparse/xparse-generic.tex"
+\l__xparse_current_arg_int=\count192
+\g__xparse_grabber_int=\count193
+\l__xparse_m_args_int=\count194
+\l__xparse_v_nesting_int=\count195
+))
+Package: siunitx 2020/02/25 v2.8b A comprehensive (SI) units package
+("C:/Program Files/MiKTeX 2.9/tex/latex/tools/array.sty"
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen160
-\ar@mcellbox=\box51
+\ar@mcellbox=\box52
 \extrarowheight=\dimen161
-\NC@list=\toks24
+\NC@list=\toks25
 \extratabsurround=\skip68
 \backup@length=\skip69
-\ar@cellbox=\box52
+\ar@cellbox=\box53
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys
-2e.sty
-Package: l3keys2e 2018-10-17 LaTeX2e option processing using LaTeX3 keys
+("C:/Program Files/MiKTeX 2.9/tex/latex/l3packages/l3keys2e/l3keys2e.sty"
+Package: l3keys2e 2020-05-15 LaTeX2e option processing using LaTeX3 keys
 )
-\l__siunitx_tmp_box=\box53
+\l__siunitx_tmp_box=\box54
 \l__siunitx_tmp_dim=\dimen162
-\l__siunitx_tmp_int=\count195
-\l__siunitx_number_mantissa_length_int=\count196
-\l__siunitx_number_uncert_length_int=\count197
-\l__siunitx_round_int=\count198
-\l__siunitx_process_decimal_int=\count199
-\l__siunitx_process_uncertainty_int=\count266
-\l__siunitx_process_fixed_int=\count267
-\l__siunitx_process_integer_min_int=\count268
-\l__siunitx_process_precision_int=\count269
-\l__siunitx_group_min_int=\count270
-\l__siunitx_angle_marker_box=\box54
-\l__siunitx_angle_unit_box=\box55
+\l__siunitx_tmp_int=\count196
+\l__siunitx_number_mantissa_length_int=\count197
+\l__siunitx_number_uncert_length_int=\count198
+\l__siunitx_round_int=\count199
+\l__siunitx_process_decimal_int=\count266
+\l__siunitx_process_uncertainty_int=\count267
+\l__siunitx_process_fixed_int=\count268
+\l__siunitx_process_integer_min_int=\count269
+\l__siunitx_process_precision_int=\count270
+\l__siunitx_group_min_int=\count271
+\l__siunitx_angle_marker_box=\box55
+\l__siunitx_angle_unit_box=\box56
 \l__siunitx_angle_marker_dim=\dimen163
 \l__siunitx_angle_unit_dim=\dimen164
-\l__siunitx_unit_int=\count271
-\l__siunitx_unit_denominator_int=\count272
-\l__siunitx_unit_numerator_int=\count273
-\l__siunitx_unit_prefix_int=\count274
-\l__siunitx_unit_prefix_base_int=\count275
-\l__siunitx_unit_prefix_gram_int=\count276
-\l__siunitx_number_product_int=\count277
+\l__siunitx_unit_int=\count272
+\l__siunitx_unit_denominator_int=\count273
+\l__siunitx_unit_numerator_int=\count274
+\l__siunitx_unit_prefix_int=\count275
+\l__siunitx_unit_prefix_base_int=\count276
+\l__siunitx_unit_prefix_gram_int=\count277
+\l__siunitx_number_product_int=\count278
 \c__siunitx_one_fill_skip=\skip70
 \l__siunitx_table_unit_align_skip=\skip71
 \l__siunitx_table_exponent_dim=\dimen165
@@ -616,27 +499,28 @@ Package: l3keys2e 2018-10-17 LaTeX2e option processing using LaTeX3 keys
 \l__siunitx_table_fill_pre_dim=\dimen171
 \l__siunitx_table_fill_post_dim=\dimen172
 \l__siunitx_table_fill_mid_dim=\dimen173
-\l__siunitx_table_pre_box=\box56
-\l__siunitx_table_post_box=\box57
-\l__siunitx_table_mantissa_box=\box58
-\l__siunitx_table_result_box=\box59
+\l__siunitx_table_pre_box=\box57
+\l__siunitx_table_post_box=\box58
+\l__siunitx_table_mantissa_box=\box59
+\l__siunitx_table_result_box=\box60
 \l__siunitx_table_number_align_skip=\skip72
 \l__siunitx_table_text_align_skip=\skip73
 
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/translator/translator.sty
-Package: translator 2018/01/04 v1.12 Easy translation of strings in LaTeX
-)) (/home/lars/.local/texlive/2018/texmf-dist/tex/latex/placeins/placeins.sty
+("C:/Program Files/MiKTeX 2.9/tex/latex/translator/translator.sty"
+Package: translator 2019-05-31 v1.12a Easy translation of strings in LaTeX
+))
+("C:/Program Files/MiKTeX 2.9/tex/latex/placeins/placeins.sty"
 Package: placeins 2005/04/18  v 2.2
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
+("C:/Program Files/MiKTeX 2.9/tex/latex/caption/subcaption.sty"
+Package: subcaption 2020/01/22 v1.3d Sub-captions (AR)
 
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
+("C:/Program Files/MiKTeX 2.9/tex/latex/caption/caption.sty"
+Package: caption 2020/05/10 v3.4j Customizing captions (AR)
 
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 64.
+("C:/Program Files/MiKTeX 2.9/tex/latex/caption/caption3.sty"
+Package: caption3 2020/05/10 v1.11 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 61.
 \captionmargin=\dimen174
 \captionmargin@=\dimen175
 \captionwidth=\dimen176
@@ -644,108 +528,30 @@ Package caption3 Info: TeX engine: e-TeX on input line 64.
 \caption@indent=\dimen178
 \caption@parindent=\dimen179
 \caption@hangindent=\dimen180
+Package caption Info: KOMA-Script document class detected.
 )
 Package caption Info: KOMA-Script document class.
-\c@caption@flags=\count278
-\c@ContinuedFloat=\count279
+\c@caption@flags=\count279
+\c@continuedfloat=\count280
 Package caption Info: float package is loaded.
 )
-\c@subfigure=\count280
-\c@subtable=\count281
+\c@subfigure=\count281
+\c@subtable=\count282
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3packages/xfrac/xfrac.sty
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/base/textcomp.sty
-Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
-Package textcomp Info: Sub-encoding information:
-(textcomp)               5 = only ISO-Adobe without \textcurrency
-(textcomp)               4 = 5 + \texteuro
-(textcomp)               3 = 4 + \textohm
-(textcomp)               2 = 3 + \textestimated + \textcurrency
-(textcomp)               1 = TS1 - \textcircled - \t
-(textcomp)               0 = TS1 (full)
-(textcomp)             Font families with sub-encoding setting implement
-(textcomp)             only a restricted character set as indicated.
-(textcomp)             Family '?' is the default used for unknown fonts.
-(textcomp)             See the documentation for details.
-Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
-
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/base/ts1enc.def
-File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+("C:/Program Files/MiKTeX 2.9/tex/latex/l3packages/xfrac/xfrac.sty"
+("C:/Program Files/MiKTeX 2.9/tex/latex/base/textcomp.sty"
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
-LaTeX Info: Redefining \oldstylenums on input line 334.
-Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
-Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
-Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
-Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
-Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
-Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
-Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
-Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
-Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
-Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
-Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
-Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
-Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
-Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
-Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
-Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
-Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
-Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
-Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
-Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
-Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
-Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
-Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
-Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
-Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
-Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
-Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
-Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
-Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
-Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
-Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
-Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
-Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
-Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
-Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
-Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
-Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
-Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
-Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
-Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
-Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
-Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
-Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
-Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
-Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
-Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
-Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
-Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
-Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
-Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
-Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
-Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
-Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
-Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
-Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
-Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
-Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
-Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
-Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
-Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
-Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
-)
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/l3packages/xtemplate/xtemp
-late.sty
-Package: xtemplate 2018-10-17 L3 Experimental prototype document functions
+("C:/Program Files/MiKTeX 2.9/tex/latex/l3packages/xtemplate/xtemplate.sty"
+Package: xtemplate 2020-05-15 L3 Experimental prototype document functions
 \l__xtemplate_tmp_dim=\dimen181
-\l__xtemplate_tmp_int=\count282
+\l__xtemplate_tmp_int=\count283
 \l__xtemplate_tmp_muskip=\muskip17
 \l__xtemplate_tmp_skip=\skip74
 )
-Package: xfrac 2018-10-17 L3 Experimental split-level fractions
-\l__xfrac_slash_box=\box60
-\l__xfrac_tmp_box=\box61
+Package: xfrac 2020-05-15 L3 Experimental split-level fractions
+\l__xfrac_slash_box=\box61
+\l__xfrac_tmp_box=\box62
 \l__xfrac_denominator_bot_sep_dim=\dimen182
 \l__xfrac_numerator_bot_sep_dim=\dimen183
 \l__xfrac_numerator_top_sep_dim=\dimen184
@@ -758,28 +564,36 @@ Package xtemplate Info: Declaring object type 'xfrac' taking 3 argument(s) on
 (xtemplate)             line 80.
 
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
-Package: enumitem 2019/02/04 v3.8 Customized lists
+("C:/Program Files/MiKTeX 2.9/tex/latex/enumitem/enumitem.sty"
+Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip75
 \enit@outerparindent=\dimen187
-\enit@toks=\toks25
-\enit@inbox=\box62
-\enit@count@id=\count283
-\enitdp@description=\count284
+\enit@toks=\toks26
+\enit@inbox=\box63
+\enit@count@id=\count284
+\enitdp@description=\count285
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/doublestroke/dsfont.sty
+("C:/Program Files/MiKTeX 2.9/tex/latex/doublestroke/dsfont.sty"
 Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 )
-(./build/main.aux)
+(C:/Users/Jonah/Desktop/Projekte/CP-Abgaben/Blatt07/build/main.aux)
 \openout1 = main.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
 LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 31
+.
+
+("C:/Program Files/MiKTeX 2.9/tex/latex/base/ts1cmr.fd"
+File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
 LaTeX Font Info:    ... okay on input line 31.
 LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
@@ -787,154 +601,153 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 31.
 
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    ... okay on input line 31.
-
-(/home/lars/.local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+("C:/Program Files/MiKTeX 2.9/tex/context/base/mkii/supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count285
+\scratchcounter=\count286
 \scratchdimen=\dimen188
-\scratchbox=\box63
-\nofMPsegments=\count286
-\nofMParguments=\count287
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count288
+\scratchbox=\box64
+\nofMPsegments=\count287
+\nofMParguments=\count288
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count289
 \MPscratchDim=\dimen189
-\MPnumerator=\count289
-\makeMPintoPDFobject=\count290
-\everyMPtoPDFconversion=\toks27
+\MPnumerator=\count290
+\makeMPintoPDFobject=\count291
+\everyMPtoPDFconversion=\toks28
+) ("C:/Program Files/MiKTeX 2.9/tex/latex/epstopdf-pkg/epstopdf-base.sty"
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
+5.
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvdefinekeys.st
-y
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
- (/home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-))) (/home/lars/.local/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX detected.
-))))
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO)
-
-
-(/home/lars/.local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
-)
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-\pdftexcmds@toks=\toks28
-)
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 43
-8.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG
-,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
-
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.c
-fg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-
-))
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/translator/translator-basi
-c-dictionary-English.dict
+("C:/Program Files/MiKTeX 2.9/tex/latex/translator/translator-basic-dictionary-
+English.dict"
 Dictionary: translator-basic-dictionary, Language: English 
 )
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/siunitx/siunitx-abbreviati
-ons.cfg
+("C:/Program Files/MiKTeX 2.9/tex/latex/siunitx/siunitx-abbreviations.cfg"
 File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 31.
- (/home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
+
+("C:/Program Files/MiKTeX 2.9/tex/latex/amsfonts/umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 31.
-(/home/lars/.local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
+LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
+
+("C:/Program Files/MiKTeX 2.9/tex/latex/amsfonts/umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-(./content/Aufgabe2.tex
-<A2/plots/aufg2_a1.pdf, id=1, 462.52798pt x 346.89601pt>
-File: A2/plots/aufg2_a1.pdf Graphic file (type pdf)
-<use A2/plots/aufg2_a1.pdf>
-Package luatex.def Info: A2/plots/aufg2_a1.pdf  used on input line 30.
-(luatex.def)             Requested size: 323.76736pt x 242.82555pt.
-<A2/plots/aufg2_a2.pdf, id=2, 462.52798pt x 346.89601pt>
-File: A2/plots/aufg2_a2.pdf Graphic file (type pdf)
-<use A2/plots/aufg2_a2.pdf>
-Package luatex.def Info: A2/plots/aufg2_a2.pdf  used on input line 37.
-(luatex.def)             Requested size: 323.76736pt x 242.82555pt.
- [1
+(./content/Aufgabe1.tex
+Underfull \hbox (badness 10000) detected at line 7
 
-{/home/lars/.local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<A2/plots/aufg2_a3.pdf, id=17, 462.52798pt x 346.89601pt>
-File: A2/plots/aufg2_a3.pdf Graphic file (type pdf)
-<use A2/plots/aufg2_a3.pdf>
-Package luatex.def Info: A2/plots/aufg2_a3.pdf  used on input line 44.
-(luatex.def)             Requested size: 323.76736pt x 242.82555pt.
- [2<./A2/plots/aufg2_a1.pdf><./A2/plots/aufg2_a2.pdf>]
-<A2/plots/aufg2_a4.pdf, id=94, 462.52798pt x 346.89601pt>
-File: A2/plots/aufg2_a4.pdf Graphic file (type pdf)
-<use A2/plots/aufg2_a4.pdf>
-Package luatex.def Info: A2/plots/aufg2_a4.pdf  used on input line 51.
-(luatex.def)             Requested size: 323.76736pt x 242.82555pt.
-[3<./A2/plots/aufg2_a3.pdf><./A2/plots/aufg2_a4.pdf>]
-<A2/plots/Energie.pdf, id=170, 462.52798pt x 346.89601pt>
-File: A2/plots/Energie.pdf Graphic file (type pdf)
-<use A2/plots/Energie.pdf>
-Package luatex.def Info: A2/plots/Energie.pdf  used on input line 62.
-(luatex.def)             Requested size: 323.76736pt x 242.82555pt.
-) [4<./A2/plots/Energie.pdf>] (./build/main.aux))
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 7
+
+ []
+
+
+LaTeX Warning: Reference `fig:1' on page 1 undefined on input line 10.
+
+
+LaTeX Warning: Reference `fig:2' on page 1 undefined on input line 10.
+
+
+LaTeX Warning: File `A1/build/ab_plot.pdf' not found on input line 34.
+
+
+! Package luatex.def Error: File `A1/build/ab_plot.pdf' not found: using draft 
+setting.
+
+See the luatex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.34 ...[width=0.45\textwidth]{A1/build/ab_plot.pdf}
+                                                  
 
 Here is how much of LuaTeX's memory you used:
- 19595 strings out of 494383
- 100000,552014 words of node,token memory allocated
- 607 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 glyph, 16 attribute, 63 glue_spec
-, 16 attribute_list, 1 write nodes
-   avail lists: 2:269,3:78,4:8,5:110,6:19,7:955,8:22,9:146,10:7,11:88
- 23294 multiletter control sequences out of 65536+600000
- 79 fonts using 9317031 bytes
- 51i,7n,71p,9109b,559s stack positions out of 5000i,500n,10000p,200000b,100000s
-</home/lars/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-bo
-ld.otf></home/lars/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmrom
-an10-regular.otf></home/lars/.local/texlive/2018/texmf-dist/fonts/opentype/publi
-c/lm/lmsans10-bold.otf></home/lars/.local/texlive/2018/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmex10.pfb></home/lars/.local/texlive/2018/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi10.pfb></home/lars/.local/texlive/2018/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi8.pfb></home/lars/.local/texlive/2018/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr10.pfb></home/lars/.local/texlive/2018/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr6.pfb></home/lars/.local/texlive/2018/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/lars/.local/texlive/2018/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (4 pages, 350006 bytes).
-
-PDF statistics: 243 PDF objects out of 1000 (max. 8388607)
- 118 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 131072)
- 1 words of extra memory for PDF output out of 10000 (max. 100000000)
-
+ 11253 strings out of 480885
+ 100000,662416 words of node,token memory allocated
+ 12032 words of node memory still in use:
+   136 hlist, 29 vlist, 15 rule, 84 disc, 8 local_par, 22 dir, 37 math, 266 glue
+, 96 kern, 33 penalty, 768 glyph, 258 attribute, 76 glue_spec, 131 attribute_lis
+t, 2 temp, 7 if_stack, 4 write nodes
+   avail lists: 2:3,3:7,4:7,5:1,7:6,8:15,10:3
+ 28517 multiletter control sequences out of 65536+200000
+ 54 fonts using 5406179 bytes
+ 48i,12n,65p,10125b,248s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!
