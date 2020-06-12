@@ -1,0 +1,2 @@
+Zeit Adams: 0.00476.sec
+Zeit Runge: 0.002077.sec

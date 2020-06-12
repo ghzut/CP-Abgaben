@@ -3,11 +3,6 @@ import pandas as pd
 import numpy as np
 from mpl_toolkits import mplot3d
 
-plt.rc('text', usetex=True)
-plt.rc('font', family='serif')
-plt.rc('axes.formatter', use_locale=True)
-
-
 def plot_traje(fname, winkel1, winkel2):
     """Plotte die Datei, die in fname gegeben ist in einer 3D-Darstellung mit
     dem Azimuth(?)-Winkel winkel."""
@@ -17,11 +12,11 @@ def plot_traje(fname, winkel1, winkel2):
     fig = plt.figure()
     ax = plt.axes(projection='3d')
     ax.view_init(winkel1, winkel2)
-    p = ax.scatter3D(Y[1, :], Y[2, :], Y[3, :], c=Y[0, :], cmap='viridis')
-    # plt.xticks([1, 0.5, 0, -0.5, -1], ["1", "0,5", "0", "-0,5", "-1"])
+    p = ax.scatter3D(Y[1, :], Y[2, :], Y[3, :], c=Y[0, :], cmap='inferno')
     cbar = fig.colorbar(p)
     cbar.set_label(r'Zeitschritte $t_n$', rotation=270, labelpad=10)
-    fig.savefig(fname.split('.')[0]+'.pdf', bbox_inches='tight')
+    destination = "A2/build/Plots/"+fname
+    fig.savefig(destination.split('.')[0]+'.pdf')
     fig.clf()
 
 
@@ -29,19 +24,16 @@ def plot_energie(fname):
     print("Plot "+fname)
     df = pd.read_csv(fname, decimal='.',
                      delimiter=' ')
-    # df.energie = df.energie - df.energie[0]
-
-    # print(df.energie)
     fig = plt.figure()
-    plt.plot(df.zeit, df.energie, 'k-')
-    plt.xlabel(r'Zeit')
-    plt.ylabel(r'Energie')
-    # plt.yscale('log')
-    fig.savefig(fname.split('.')[0]+'.pdf', bbox_inches='tight')
+    plt.plot(df.Zeit, df.Energie, 'r-')
+    plt.xlabel("Zeit")
+    plt.ylabel("Energie")
+    fig.savefig("A2/build/Plots/Energie.pdf")
     fig.clf()
 
 
-plot_traje("build/aufg1_a1.txt", 40, 70)
-plot_traje("build/aufg1_a2.txt", 40, 70)
-plot_traje("build/aufg1_a3.txt", 40, 80)
-plot_energie("build/aufg1_b.txt")
+plot_traje("aufg1_a1.txt", 20, 20)
+plot_traje("aufg1_a2.txt", 20, 20)
+plot_traje("aufg1_a3.txt", 20, 20)
+plot_traje("aufg1_a4.txt", 20, 20)
+plot_energie("A2/build/aufg1_b.txt")

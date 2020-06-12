@@ -3,22 +3,22 @@
 #include <iomanip>
 #include <Eigen/Dense>
 #include <math.h> 
-#include <time.h> 
+#include "profiler.cpp"
 
 using namespace std;
 using namespace Eigen;
 
-double pot(VectorXd r){
+double pot(const VectorXd& r){
   double Pot = 0.5*r.dot(r);
   return Pot;
 }
 
-VectorXd dgl(VectorXd x,VectorXd x_punkt, double alpha){
+VectorXd dgl(const VectorXd& x, const VectorXd& x_punkt,const double& alpha){
   VectorXd DGL = -x-alpha*x_punkt;
   return DGL;
 }
 
-VectorXd next_step(VectorXd y, double alpha){
+VectorXd next_step(const VectorXd& y, const double& alpha){
   unsigned int d = y.size()/2;
   VectorXd temp(2*d);
 
@@ -28,7 +28,7 @@ VectorXd next_step(VectorXd y, double alpha){
 }
 
 // Angepasste Runge-Kutta Methode
-MatrixXd runge_kutta(VectorXd (*f)(VectorXd, double), double T, int N, double alpha, const VectorXd& r, const VectorXd& v){
+MatrixXd runge_kutta(VectorXd (*f)(const VectorXd& , const double&), double T, int N, double alpha, const VectorXd& r, const VectorXd& v){
   double h = T/N;
   unsigned int d = r.size();
   VectorXd tn(N+1), k1, k2, k3, k4, y(2*d), y_next(2*d);
@@ -46,29 +46,20 @@ MatrixXd runge_kutta(VectorXd (*f)(VectorXd, double), double T, int N, double al
   // Initialisieren des y-Vektors
   y.segment(0,d) = r;
   y.segment(d,d) = v;
-  // Schritt 0 ist schon gemacht
   for (int i = 1; i < N+1; i++){
     k1 = h*f(y, alpha);
     k2 = h*f(y+0.5*k1, alpha);
     k3 = h*f(y+0.5*k2, alpha);
     k4 = h*f(y+k3, alpha);
-    y_next = y + 1.0/6.0*(k1 + 2*k2 + 2*k3 + k4);
+    y_next = y + 1./6.*(k1 + 2*k2 + 2*k3 + k4);
     y = y_next;
     ergebnis.col(i) = y;
-  }
-
-  // Schreiben der Ergebnisse in ein File
-  for(int i = 0; i<ergebnis.rows()/2; i++){
-    for(int j = 0; j<ergebnis.cols(); j++){
-      //file << ergebnis(i, j) << " ";
-    }
-    //file << endl;
   }
   return ergebnis;
 }
 
 
-void adams_bashfort(VectorXd (*f)(VectorXd, double), double T, int N, double alpha, VectorXd& x, VectorXd& x_punkt, ofstream &file, VectorXd &energie){
+void adams_bashfort(VectorXd (*f)(const VectorXd&, const double&), double T, int N, double alpha, VectorXd& x, VectorXd& x_punkt, ofstream &file, VectorXd &energie){
   double h = T/N;
   unsigned int d = x.size();
   VectorXd y(2*d), tn(N+1);
@@ -115,10 +106,8 @@ void adams_bashfort(VectorXd (*f)(VectorXd, double), double T, int N, double alp
 
 
 int main() {
-  cout << "Beginn des Programms!\n" << endl;
-
   unsigned int d = 3;
-  double alpha = 0.1, T = 20.0;
+  double alpha = 0., T = 20.;
   int N = 300;
   VectorXd x(d), x_punkt(d), y(2*d), energie(N+1);
   ofstream file;
@@ -129,47 +118,37 @@ int main() {
   y.segment(d,d) = x_punkt;
 
   // Aufgabenteil a)
+
+  //Harmonischer Oszilator
   file.open("build/aufg1_a1.txt", ios::trunc);
   adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
   file.close();
 
-  // Kurz Aufgabenteil b) eingeschoben, da gleiche Parameter alpha und T :)
+  //Aperiodischer Grenzfall
+  alpha = 2;
+  file.open("build/aufg1_a2.txt", ios::trunc);
+  adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
+  file.close();
+
+  //Kriechfall
+  alpha = 4;
+  file.open("build/aufg1_a3.txt", ios::trunc);
+  adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
+  file.close();
+
+  // Gedämpfte Schwingung
+  alpha = 0.1;
+  file.open("build/aufg1_a4.txt", ios::trunc);
+  adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
+  file.close();
+
+  // Aufgabenteil b)
   file.open("build/aufg1_b.txt", ios::trunc);
-  file << "zeit energie" << endl;
+  file << "Zeit Energie" << endl;
   for(int i=0; i<=N; i++)
   {
       file << setprecision(10) << i*T/N << " " << energie(i) << endl;
   }
   file.close();
-
-  alpha = -0.1;
-  file.open("build/aufg1_a2.txt", ios::trunc);
-  adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
-  file.close();
-
-  alpha = 0.0;
-  file.open("build/aufg1_a3.txt", ios::trunc);
-  adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
-  file.close();
-
-  // Aufgabenteil c)
-  double time_a = 0.0, time_r = 0.0, tstart;
-  T = 200.0, alpha = 0.1;
-  N = 3000;
-  VectorXd energie2(N+1);
-
-  tstart = clock();
-  adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie2);
-  time_a = clock() - tstart;
-  time_a = time_a/CLOCKS_PER_SEC;
-  cout << "Zeit Adams: " << time_a << ".sec" << endl;
-
-  tstart = clock();
-  runge_kutta(next_step, T, N, alpha, x, x_punkt);
-  time_r = clock() - tstart;
-  time_r = time_r/CLOCKS_PER_SEC;
-  cout << "Zeit Runge: " << time_r << ".sec" << endl;
-
-  cout << "\nEnde des Programms!" << endl;
   return 0;
 }

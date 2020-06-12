@@ -1,83 +1,76 @@
-\section*{Aufgabe 2: BFGS-Verfahren}
-
-Mit Hilfe des BFGS-Verfahrens kann ein mehrdimensionales Nullstellen Problem einer Funktion $f(x_1,x_2...,x_N)$ mit Aufwand $\mathcal{O}(N^2)$ gelöst werden kann.
-Dazu wird eine inverse Hesse-Matrix $C_0$ initialisiert und über die folgende Form die Iterationen bestimmt:
-\begin{align*}
-C_{k+1} &= (\mathds{1} - \underbrace{\frac{1}{\vec{s}_k^T\vec{y}_k}}_{=:\rho}\vec{s}_k\vec{y}_k^T)C_k(\mathds{1}-\frac{1}{\vec{s}_k^T\vec{y}_k}\vec{y}_k\vec{s}_k^T) +\frac{1}{\vec{s}_k^T\vec{y}_k}\vec{s}_k\vec{s}_k^T\\
-&= C_k - \rho ((C_k\vec{y}_k)\vec{s}_k^T + \vec{s}_k(\vec{y}_k^TC_k)) + \rho^2\vec{s}_k(\vec{y}_k^T(C_k\vec{y}_k))\vec{s}_k^T +\rho\vec{s}_k\vec{s}_k^T
-\end{align*}
-Dabei sind
-\begin{align*}
-\vec{y}_k &= \vec{b}_{k+1} - \vec{b}_k = -\nabla(f(\vec{x}_{k+1})-f(\vec{x}_{k+1}))\\
-\vec{s}_k &= \vec{x}_{k+1} - \vec{x}_k = C_k \vec{b_{k}}
-\end{align*}
-\subsection*{c)}
-\label{sec:c}
-Die Matrix $C_0$ zum Problem aus Gleichung\eqref{eq:1} mit dem Startvektor
-\[
-\vec{x}_0 = \begin{pmatrix}
--1\\
-1
-\end{pmatrix}
-\]
-wird auf drei verschiedene Arten initialisiert:
+\section*{Aufgabe 1}
+\subsection*{a)}
+Die Differentialgleichung (DGL) 
+\begin{equation}
+    \ddot{x} + \alpha \dot{x} + x = 0
+\end{equation}
+beschreibt einen harmonischen Oszillator mit Dämpfung $\alpha$.
+Gelöst wird die DGL über den Ansatz 
+\begin{equation}
+    x(t) = e^{\lambda t}
+\end{equation}
+und führt zur Lösung 
+\begin{equation}
+    x(t) = c_1 e^{\lambda_1 t} + c_2 e^{\lambda_2 t}
+\end{equation}
+mit 
+\begin{equation}
+    \lambda_{1,2} = - \frac{\alpha}{2} \pm \sqrt{ \frac{\alpha^2}{4} -1 }.
+\end{equation}
+Es ergeben sich folgende Fälle:
 \begin{enumerate}
-\item Die exakte inverse Hesse-Matrix.
-\item Eine Diagonalmatrix mit den inversen Hauptdiagonalelementen der Hesse-Matrix.
-\item Eine Diagonalmatrix in der Größenordnung von $f$.
+    \item $\alpha = 0$ : Harmonischer Oszialltor (Abbildung \ref{fig:harmonisch}).
+    \item $\frac{\alpha^2}{4} > \omega^2 = 1$: Kriechfall (Abbildung \ref{fig:Kriech}).
+    \item $\frac{\alpha^2}{4} = \omega^2 = 1$: Aperiodischer Grenzfall (Abbildung \ref{fig:Aperiodisch}).
+    \item $\frac{\alpha^2}{4} < \omega^2 = 1$: Gedämpfte Schwingung (Abbildung \ref{fig:gedämpft}).
 \end{enumerate}
-Beim letzten Punkt wurde hier $C_0 = \frac{1}{f(\vec{x}_0}\mathds{1}$ gesetzt.
-Die Entwicklung der Gradientennorm $|\vec{b}_k|$ in Abhängigkeit vom Iterationsschritt $k$ für die drei verschiedenen Startmatrizen bis zu einer Genauigkeit $\epsilon < 10^{-5}$ ist in Abbildung \ref{fig:1} zu sehen. Dabei benötigt erstaunlicherweise die exakte Hesse-Matrix die meisten Iterationsschritte. Es zeigt sich außerdem, dass es besonders für Methode 1. und 3. zu starken Ausreißern in der Gradientennorm kommt, sodass sich der Algorithmus wieder vom Minimum 
-\[
-\hat{\vec{x}} = \begin{pmatrix}
-1 \\
-1
-\end{pmatrix}
-\]
-entfernt (s.Abb.\ref{fig:2}).
-Dies kann verbessert werden indem nach jedem Schritt des BFGS-Verfahrens ein weiterer Liniensuchschritt durchgeführt wird um ein sinnvolles $\vec{s}_k = \lambda C_k \vec{b_{k}}$ zu finden.
-Die zugehörigen Gradientennorm und der Abstand zum Minimum in Abhängigkeit vom Iterationsschritt sind in Abbildung\ref{fig:3} und \ref{fig:4} abgebildet.
-Es zeigt sich, dass in diesem Fall alle Verfahren schneller konvergieren. Besonders die Methode der exakten Hesse-Matrix wird deutlich beschleunigt und ist jetzt gemeinsam mit der 2. Variante das schnellere Verfahren
+Zur Darstellung des Oszillationsverhaltens wurden dabei 3D-Scatter-Plots gewählt.
 \begin{figure}
-\centering
-\includegraphics[width=0.45\textwidth]{A2/build/A2.pdf}
-\caption{$|b_k|$ in Abhängigkeit vom Iterationschritt.}
-\label{fig:1}
-\includegraphics[width=0.45\textwidth]{A2/build/A2r.pdf}
-\caption{Abweichung zum Minimum in Abhängigkeit vom Iterationschritt.}
-\label{fig:2}
+  \centering
+  \includegraphics[scale=0.7]{A2/build/Plots/aufg1_a1.pdf}
+  \caption{Trajektorie eines Harmonischen Oszilators ($\alpha = 0$).}
+  \label{fig:harmonisch}
 \end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.7]{A2/build/Plots/aufg1_a2.pdf}
+  \caption{Trajektorie den aperiodischen Grenzfall für $\alpha = 2$.}
+  \label{fig:Aperiodisch}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.7]{A2/build/Plots/aufg1_a3.pdf}
+  \caption{Trajektorie den Kriechfall für $\alpha = 4$.}
+  \label{fig:Kriech}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.7]{A2/build/Plots/aufg1_a4.pdf}
+  \caption{Trajektorie die gedämpfte Schwingung $\alpha = 0.1$.}
+  \label{fig:gedämpft}
+\end{figure}
+
+\subsection*{b)}
+Die Gesamtenergie $E_{Ges} = E_{kin} + E_{pot}$ ist für einen harmoschen Oszialltor erhalten. Da wir hier jedoch einen Oszialltor mit Dämpfung betrachten, geht durch die Dämpfung imemr ein Teil der Gesamtenergie verloren.
+In Abbildung \ref{fig:energie} ist die Gesamtenergie pro Zeit dargestellt.
+
 \begin{figure}
-\centering
-\includegraphics[width=0.45\textwidth]{A2/build/A2_l.pdf}
-\caption{$|b_k|$ in Abhängigkeit vom Iterationschritt mit Liniensuchschritten.}
-\label{fig:3}
-\includegraphics[width=0.45\textwidth]{A2/build/A2_lr.pdf}
-\caption{Abweichung zum Minimum in Abhängigkeit vom Iterationschritt mit Liniensuchschritten.}
-\label{fig:4}
+  \centering
+  \includegraphics[scale=0.7]{A2/build/Plots/Energie.pdf}
+  \caption{Verlauf der Gesamtenergie für ein harmonisches Potential.}
+  \label{fig:energie}
 \end{figure}
-%\subsection*{d)}
-%Dieselben Verfahren aus Abschnitt \ref{sec:c} werden auf die Funktion \eqref{eq:2} durchgeführt.
-%Für verschiedene Startvektoren
-%\[
-%\vec{x}_0 = \begin{pmatrix}
-%1.5\\
-%2.3
-%\end{pmatrix},\begin{pmatrix}
-%-1.7\\
-%-1.9
-%\end{pmatrix},\begin{pmatrix}
-%0.5\\
-%0.6
-%\end{pmatrix}
-%\]
-%Die Gradientennorm und der Abstand zum Minimum
-%\[
-%\hat{\vec{x}}= \begin{pmatrix}
+
+%\subsection*{c)}
 %
-%\end{pmatrix}
-%\]
-
-
-
-%♥
+%
+%Zeit Adams: 0.003271.sec
+%Zeit Runge: 0.003343.sec
+%Zeit Adams 2 : 0.0042.sec
+%Zeit Runge 2 : 0.003325.sec
+%
+%Für ein Zeitintervall von $1000$ und eine Schrittweite von $30000$ ergibt sich für das Adams-Bashforth-Verfahren eine Laufzeit %von \SI{0.519792}{\s}, während sich für das Runge-Kutta-Verfahren eine Zeit von \SI{0.543176}{\s} ergibt.
+%Somit ist das Adams-Bashforth-Verfahren etwas schneller. 
