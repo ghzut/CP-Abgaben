@@ -27,14 +27,14 @@ und
 0
 \end{pmatrix}\label{eq:2}
 \end{equation}
-Es zeigt sich, dass mit zunehmender Zeit die Bestimmung des Ortes schlechter wird. Um eine Toleranz von $10^-5$ erreichen, wird für die 1. Anfangsbedingung eine Schrittweite $h \leq 10^-3$ benötigt, während bei der 2. $h \leq 10^-6$ erforderlich ist.
+Es zeigt sich, dass mit zunehmender Zeit die Bestimmung des Ortes schlechter wird. Um eine Toleranz von $10^{-5}$ erreichen, wird für die 1. Anfangsbedingung eine Schrittweite $h \leq 10^{-3}$ benötigt, während bei der 2. $h \leq 10^{-6}$ erforderlich ist.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.45\textwidth]{A1/build/ab_plot.pdf}
+\includegraphics[width=0.75\textwidth]{A1/build/ab_plot.pdf}
 \caption{Toleranz bei Anfangsbedingung \eqref{eq:1}.}
 \label{fig:1}
-\includegraphics[width=0.45\textwidth]{A1/build/ab_plot2.pdf}
+\includegraphics[width=0.75\textwidth]{A1/build/ab_plot2.pdf}
 \caption{Toleranz bei Anfangsbedingung \eqref{eq:2}.}
 \label{fig:2}
 \end{figure}
@@ -42,9 +42,10 @@ Es zeigt sich, dass mit zunehmender Zeit die Bestimmung des Ortes schlechter wir
 \FloatBarrier
 
 \subsection*{c)}
-In Abbildung \ref{fig:3} ist die Abweichung von der Energie des Anfangszustandes nach $i$ Iterationen bei AB\eqref{eq:1} für $h=10^-3$ und $h=10^-4$ aufgetragen.
-Anhand von Abbildung \ref{fig:1} ist ersichtlich, dass die Abweichung bei $h=10^4$ um drei Größenordnungen kleiner und liegt unterhalb von $10^-10$. Dies führt dazu, dass auch die Energie genauer bestimmt werden kann. In Abb.\ref{fig:3} äußert sich das darin, dass für diese Schrittweite die Energieerhaltung gilt, während eine größere Schrittweite dies nicht gewährleistet.
+In Abbildung \ref{fig:3} ist die Abweichung von der Energie des Anfangszustandes nach $i$ Iterationen bei AB\eqref{eq:1} für $h=10^{-3}$ und $h=10^{-4}$ aufgetragen.
+Anhand von Abbildung \ref{fig:1} ist ersichtlich, dass die Abweichung bei $h=10^{-4}$ um drei Größenordnungen kleiner und liegt unterhalb von $10^{-10}$. Dies führt dazu, dass auch die Energie genauer bestimmt werden kann. In Abb.\ref{fig:3} äußert sich das darin, dass für diese Schrittweite die Energieerhaltung gilt, während eine größere Schrittweite dies nicht gewährleistet.
 \begin{figure}[h]
 \includegraphics[width=0.8\textwidth]{A1/build/E.pdf}
 \caption{Abweichungen von der Gesamtenergie mit AB\eqref{eq:1}.}
+\label{fig:3}
 \end{figure}

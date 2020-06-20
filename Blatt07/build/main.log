@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.12.0 (MiKTeX 2.9.7440 64-bit)  (format=lualatex 2020.6.12)  12 JUN 2020 10:38
+This is LuaHBTeX, Version 1.12.0 (MiKTeX 2.9.7440 64-bit)  (format=lualatex 2020.6.12)  12 JUN 2020 11:40
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -719,35 +719,84 @@ Underfull \hbox (badness 10000) detected at line 7
 
  []
 
+<A1/build/ab_plot.pdf, id=1, 462.528pt x 346.896pt>
+File: A1/build/ab_plot.pdf Graphic file (type pdf)
+<use A1/build/ab_plot.pdf>
+Package luatex.def Info: A1/build/ab_plot.pdf  used on input line 34.
+(luatex.def)             Requested size: 313.69167pt x 235.27744pt.
+<A1/build/ab_plot2.pdf, id=2, 462.528pt x 346.896pt>
+File: A1/build/ab_plot2.pdf Graphic file (type pdf)
+<use A1/build/ab_plot2.pdf>
+Package luatex.def Info: A1/build/ab_plot2.pdf  used on input line 37.
+(luatex.def)             Requested size: 313.69167pt x 235.27744pt.
 
-LaTeX Warning: Reference `fig:1' on page 1 undefined on input line 10.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
+[1
 
-LaTeX Warning: Reference `fig:2' on page 1 undefined on input line 10.
+{C:/Users/Jonah/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2<./A1/buil
+d/ab_plot.pdf><./A1/build/ab_plot2.pdf>]
+<A1/build/E.pdf, id=89, 462.528pt x 346.896pt>
+File: A1/build/E.pdf Graphic file (type pdf)
+<use A1/build/E.pdf>
+Package luatex.def Info: A1/build/E.pdf  used on input line 48.
+(luatex.def)             Requested size: 334.60571pt x 250.96648pt.
+) (./content/Aufgabe2.tex [3
 
-
-LaTeX Warning: File `A1/build/ab_plot.pdf' not found on input line 34.
-
-
-! Package luatex.def Error: File `A1/build/ab_plot.pdf' not found: using draft 
-setting.
-
-See the luatex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.34 ...[width=0.45\textwidth]{A1/build/ab_plot.pdf}
-                                                  
+<./A1/build/E.pdf>]
+<A2/plots/aufg2_a1.pdf, id=144, 462.528pt x 346.896pt>
+File: A2/plots/aufg2_a1.pdf Graphic file (type pdf)
+<use A2/plots/aufg2_a1.pdf>
+Package luatex.def Info: A2/plots/aufg2_a1.pdf  used on input line 30.
+(luatex.def)             Requested size: 323.76738pt x 242.82553pt.
+<A2/plots/aufg2_a2.pdf, id=145, 462.528pt x 346.896pt>
+File: A2/plots/aufg2_a2.pdf Graphic file (type pdf)
+<use A2/plots/aufg2_a2.pdf>
+Package luatex.def Info: A2/plots/aufg2_a2.pdf  used on input line 37.
+(luatex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [4<./A2/plots/aufg2_a1.pdf>]
+<A2/plots/aufg2_a3.pdf, id=182, 462.528pt x 346.896pt>
+File: A2/plots/aufg2_a3.pdf Graphic file (type pdf)
+<use A2/plots/aufg2_a3.pdf>
+Package luatex.def Info: A2/plots/aufg2_a3.pdf  used on input line 44.
+(luatex.def)             Requested size: 323.76738pt x 242.82553pt.
+<A2/plots/aufg2_a4.pdf, id=183, 462.528pt x 346.896pt>
+File: A2/plots/aufg2_a4.pdf Graphic file (type pdf)
+<use A2/plots/aufg2_a4.pdf>
+Package luatex.def Info: A2/plots/aufg2_a4.pdf  used on input line 51.
+(luatex.def)             Requested size: 323.76738pt x 242.82553pt.
+ [5<./A2/plots/aufg2_a2.pdf><./A2/plots/aufg2_a3.pdf>]
+<A2/plots/Energie.pdf, id=257, 462.528pt x 346.896pt>
+File: A2/plots/Energie.pdf Graphic file (type pdf)
+<use A2/plots/Energie.pdf>
+Package luatex.def Info: A2/plots/Energie.pdf  used on input line 62.
+(luatex.def)             Requested size: 323.76738pt x 242.82553pt.
+) [6<./A2/plots/aufg2_a4.pdf>] [7<./A2/plots/Energie.pdf>]
+(C:/Users/Jonah/Desktop/Projekte/CP-Abgaben/Blatt07/build/main.aux))
 
 Here is how much of LuaTeX's memory you used:
- 11253 strings out of 480885
+ 11322 strings out of 480885
  100000,662416 words of node,token memory allocated
- 12032 words of node memory still in use:
-   136 hlist, 29 vlist, 15 rule, 84 disc, 8 local_par, 22 dir, 37 math, 266 glue
-, 96 kern, 33 penalty, 768 glyph, 258 attribute, 76 glue_spec, 131 attribute_lis
-t, 2 temp, 7 if_stack, 4 write nodes
-   avail lists: 2:3,3:7,4:7,5:1,7:6,8:15,10:3
- 28517 multiletter control sequences out of 65536+200000
- 54 fonts using 5406179 bytes
- 48i,12n,65p,10125b,248s stack positions out of 5000i,500n,10000p,200000b,50000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 622 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 1 dir, 2 glue, 4 kern, 1 glyph, 33 attribute, 63 gl
+ue_spec, 18 attribute_list, 1 write nodes
+   avail lists: 2:492,3:67,4:18,5:165,6:13,7:1223,8:19,9:216,10:12,11:102
+ 28572 multiletter control sequences out of 65536+200000
+ 79 fonts using 7026963 bytes
+ 48i,12n,65p,10125b,559s stack positions out of 5000i,500n,10000p,200000b,50000s
+<//?/c:/program files/miktex 2.9/fonts/opentype/public/lm/lmroman10-bold.otf><//
+?/c:/program files/miktex 2.9/fonts/opentype/public/lm/lmroman10-regular.otf><//
+?/c:/program files/miktex 2.9/fonts/opentype/public/lm/lmsans10-bold.otf><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on main.pdf (7 pages, 489132 bytes).
+
+PDF statistics: 365 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 131072)
+ 1 words of extra memory for PDF output out of 10000 (max. 100000000)
+
