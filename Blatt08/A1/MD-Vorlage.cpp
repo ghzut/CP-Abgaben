@@ -65,12 +65,15 @@ class PotentialLJ: public Potential
 // Für Potential reicht das Quadrat der Vektorlänge, womit eine Wurzelberechnung gespart wird
 double PotentialLJ::V ( double r2 ) const
 {
-    /*TODO*/
+    double L = 8.;
+    if(r2 <= L/2.) return 4*(1./pow(r2,6.)-1./pow(r2,6))
+    else return 0.;
 }
 
 Vector2d PotentialLJ::F ( Vector2d r ) const
 {
-    /*TODO*/
+    double r2 = r.squaredNorm();
+    return 24*r*(1./pow(r2,4)-1./pow(r2,7));
 }
 
 // ------------------------------ Ende Potential-Klasse ------------------------------------------
@@ -302,4 +305,3 @@ int main(void)
 
     return 0;
 }
-
