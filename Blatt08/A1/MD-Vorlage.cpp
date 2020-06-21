@@ -66,14 +66,16 @@ class PotentialLJ: public Potential
 double PotentialLJ::V ( double r2 ) const
 {
     double L = 8.;
-    if(r2 <= L/2.) return 4*(1./pow(r2,6.)-1./pow(r2,6))
+    double r6 = 1./pow(r2,3.);
+    if(r2 <= L/2.) return 4*(pow(r6,2.)-r6)
     else return 0.;
 }
 
 Vector2d PotentialLJ::F ( Vector2d r ) const
 {
     double r2 = r.squaredNorm();
-    return 24*r*(1./pow(r2,4)-1./pow(r2,7));
+    double r6 = 1./pow(r2,3.);
+    return 24*r*(r6/r2-pow(r6,2.)/r2);
 }
 
 // ------------------------------ Ende Potential-Klasse ------------------------------------------
