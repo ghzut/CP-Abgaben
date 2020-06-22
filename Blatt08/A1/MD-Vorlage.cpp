@@ -65,7 +65,6 @@ class PotentialLJ: public Potential
 // Für Potential reicht das Quadrat der Vektorlänge, womit eine Wurzelberechnung gespart wird
 double PotentialLJ::V ( double r2 ) const
 {
-    double L = 8.;
     double r6 = 1./pow(r2,3.);
     if(r2 <= L/2.) return 4*(pow(r6,2.)-r6)
     else return 0.;
