@@ -5,6 +5,24 @@
 using namespace std;
 using namespace Eigen;
 
+Vector2d verlet(function<Vector2d(Vector2d)> F, Vector4d y, Vector4d y_m_1, double &c)
+{
+  double m = 1.;
+  double h = 0.01;
+  Vector4d ret;
+  Vector2d r_n_m_1 << y_m_1(0),y_m_1(1);
+  Vector2d r_n << y(0), y(1);
+  Vector2d v_n_m_1 << y_m_1(2),y_m_1(3);
+  Vector2d v_n << y(2), y(3);
+  Vector2d a_n = F(r_n)/m;
+  Vector2d r_n_p_1 = 2 * r_n - r_n_m_1 + a_n * pow(h,2.);
+  Vector2d v_n_p_1 = r_n_p_1 - r_n_m_1;
+  v_n_p_1 /= 2*h;
+  ret << r_n_p_1(0), r_n_p_1(1), v_n_p_1(0), v_n_p_1(1);
+  ++c;
+  return ret;
+}
+
 // =================================================================================================
 //                      PROGRAMMSTRUKTUR
 //
@@ -139,12 +157,37 @@ Data::Data( uint n, uint numBins, double binSize ):
     g( numBins, 0. ),
     r( 0 )
 {
-    /*TODO*/
 }
 
 void Data::save ( const string& filenameSets, const string& filenameG, const string& filenameR ) const
 {
-    /*TODO*/
+    ofstream out_set(filenameSets, ofstream::trunc);
+    ofstream out_g(filenameG, ofstream::trunc);
+    ofstream out_r(filenameR, ofstream::trunc);
+    out_set << "#t, T, Ekin, Epot, vS";
+    out_g << "#g\n";
+    out_r << "#r"
+    for(int i = 0; i < datasets.size(); ++i)
+    {
+      RowVector2d r_vS = datasets.at(i).vS;
+      out_set << datasets.at(i).t << " " << datasets.at(i).T << " " << datasets.at(i).Ekin << " " << datasets.at(i).Epot << " " << r_vS<< "\n";
+    }
+    out_set.flush()
+    out_set.close()
+
+    for(int i = 0; i< g.size(); ++i)
+    {
+      out_g << g.at(i) << "\n";
+    }
+    out_g.flush();
+    out_g.close();
+    MatrixXd M(2,r.size());
+    for(int i = 0; i < r.size(); ++i)
+    {
+      M.col(i) = r.at(i);
+    }
+    out_r << M << endl;
+    out_r.close();
 }
 
 // ------------------------------ Ende Data-Structs ------------------------------------------
@@ -200,7 +243,7 @@ MD::MD( double L, uint N, uint particlesPerRow, double T,
     potential( potential ),
     thermostat( thermostat ),
     numBins( numBins ),
-    binSize( /*TODO*/ )
+    binSize( L/(2*numBins) )
 {
     /*TODO*/
 }
@@ -218,27 +261,56 @@ Data MD::measure ( const double dt, const unsigned int n )
 
 void MD::centerParticles()
 {
-    /*TODO*/
+    for(uint i = 0; i < r.size(); ++i)
+    {
+      for(uint j = 0; j < r.at(i); ++j)
+      {
+        if(r.at(i)(j) > L) r.at(i)(j) = fmod(r.at(i)(j), L);
+        if(r.at(i)(j) < 0) r.at(i)(j) = fmod(r.at(i)(j), L) +L;
+      }
+    }
 }
 
 double MD::calcT() const
 {
-    /*TODO*/
+//    return calcEkin()*(2./((2*N-2)*1.3806503*pow(10.,-23.)));// mit k_B
+    return calcEkin()*(2./((2*N-2));
 }
 
 double MD::calcEkin() const
 {
-    /*TODO*/
+    double m = 1.;
+    double ekin = 0.;
+    for(uint i = 0; i < v.size(); ++i)
+    {
+      ekin += m*v.at(i).squaredNorm();
+    }
+    return ekin/2.;
 }
 
 double MD::calcEpot() const
 {
-    /*TODO*/
+    double epot = 0.;
+    double r2;
+    Vector2d dr;
+    for(uint i = 0; i < r.size()-1; ++i)
+    {
+        for(uint j = i+1; j < r.size(); ++i)
+        dr = calcDistanceVec(i,j);
+        r2 = dr.squaredNorm();
+        epot += potential(r2);
+    }
+    return epot;
 }
 
 Vector2d MD::calcvS() const
 {
-    /*TODO*/
+    Vector2d vs = Vector2d::Zero();
+    for(int i = 0; i < v.size(); ++i)
+    {
+      vs += v.at(i);
+    }
+    return vs;
 }
 
 Dataset MD::calcDataset() const
@@ -248,7 +320,7 @@ Dataset MD::calcDataset() const
 
 Vector2d MD::calcDistanceVec( uint i, uint j ) const
 {
-    /*TODO*/
+    return r.at(i)-r.at(j);
 }
 
 vector<Vector2d> MD::calcAcc( vector<double>& hist ) const
@@ -265,9 +337,9 @@ int main(void)
     NoThermostat     noThermo;
     IsokinThermostat isoThermo;
 
-    const uint partPerRow       = /*TODO*/;
-    const uint N                = /*TODO*/;
-    const double L              = /*TODO*/;
+    const uint partPerRow       = 4;
+    const uint N                = 16;
+    const double L              = 8;
     const int numBins           = /*TODO*/;
 
     // b) Äquilibrierungstest
@@ -284,7 +356,7 @@ int main(void)
     string TstringVec[3] = { "0.01", "1", "100" };
     for ( auto& Tstring: TstringVec )
     {
-        const double T          = stoi(Tstring);
+        const double T          = stod(Tstring);
         const double dt         = /*TODO*/;
         const uint equiSteps    = /*TODO*/;
         const uint steps        = /*TODO*/;
