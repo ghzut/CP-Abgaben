@@ -6,24 +6,36 @@
 using namespace std;
 using namespace Eigen;
 
-double PotentialLJ(double r2)
+double PotentialLJ(const Vector2d &r, double rc)
 {
+    double r2 = r.squaredNorm();
     double r6 = 1/pow(r2,3);
-    return 4 * (r6*r6 - r6);
+    double pot;
+    if (r2 > rc*rc){
+        pot = 0;
+    }
+    else {
+        pot = 4 * (r6*r6 - r6);
+    }
+    return pot;
 }
 
-double KraftLJ(Vector2d r, double rc)
+Vector2d KraftLJ(const Vector2d &r, double rc)
 {
     double r2 = r.squaredNorm();
     double r6 = 1./pow(r2,3);
     Vector2d kraft;
 
-    if (r2 > rc)
+    if (r2 > rc*rc)
     {
         kraft = Vector2d::Zero();
     }
+    else 
+    {
+            kraft = 48*r*((r6*r6)/r2 - 0.5*r6/r2);
+    }
 
-    return 48*r*((r6*r6)/r2 - 0.5*r6/r2);
+    return kraft
 }
 
 void periodische_RB(vector<Vector2d> &r, double L)
@@ -40,7 +52,7 @@ void periodische_RB(vector<Vector2d> &r, double L)
     }
 }
 
-Vector2d v_schwer(const vector<Vector2d> &v, int N)
+Vector2d v_center(const vector<Vector2d> &v, int N)
 {
     Vector2d vs = Vector2d::Zero();
     for(int i = 0; i < v.size(); ++i)
@@ -62,7 +74,16 @@ double ekin(const vector<Vector2d> &v)
     return ekin/2.;
 }
 
-vector<Vector2d> init(double L, int N, double particlesPerRow, double T)
+double T (const vector<Vector2d> &v, uint N)
+{
+    double Nf = 2N-2;
+    double T = 2*ekin(v)/Nf;
+    return T;
+}
+
+
+
+auto init(double L, int N, double particlesPerRow, double T)
 {
     vector<Vector2d> r, v;
     
@@ -84,7 +105,7 @@ vector<Vector2d> init(double L, int N, double particlesPerRow, double T)
       v.push_back(v_vec);
     }
 
-    Vector2d v_s = v_schwer(v, N);
+    Vector2d v_s = v_center(v, N);
     for (Vector2d& n : v)
     {
         n -= v_s;
@@ -94,14 +115,19 @@ vector<Vector2d> init(double L, int N, double particlesPerRow, double T)
     double skal = T*Nf/(2*ekin(v));
     for (int n=0; n<N; n++)
     {
-        v.col(n) = sqrt(skal)*v.col(n);
+        v.at(n) = skal*v.at(n);
     }
+    struct vecs{
+        vector<Vector2d> Ort, Geschwindigkeit;
+    };
+    return vecs{r, v};
 }
 
-vector<Vector2d> verlet_r(vector<Vector2d> r_n, vector<Vector2d> r_nminus1, double h, int N)
+vector<Vector2d> verlet_r(Vector2d (*f)(Vector2d &, double &), double (*pot)(const Vector2d &, double), const vector<Vector2d> &r_n, vector<Vector2d> r_nminus1, double h, int N, double L, double &Epot)
 {
     vector<Vector2d> r_nplus1;
-    Vector2d r_nplus1_vec;
+    Vector2d r_nplus1_vec, a;
+    a = beschleunigung(f, pot, r_n, N, L, Epot );
 
     for (int i = 0; i < N; i++)
     {
@@ -126,8 +152,9 @@ vector<Vector2d> verlet_v(vector<Vector2d> r_nminus1, vector<Vector2d> r_nplus1,
     return v_n;
 }
 
-vector<Vector2d> beschleunigung(const vector<Vector2d> &r_n, int N, double L)
-{
+vector<Vector2d> Beschleunigung(Vector2d (*f)(Vector2d &, double &), double (*pot)(const Vector2d &, double), const vector<Vector2d> &r_n, int N, double L, double &Epot)
+{   
+    double rc = L/2;
     Vector2d xx;
     xx << 0,0;
 
@@ -150,12 +177,32 @@ vector<Vector2d> beschleunigung(const vector<Vector2d> &r_n, int N, double L)
                         shift(1) = l*L;
 
                         Vector2d temp=r.at(i)-(r.at(j)+shift);
-						A.col(x)+=f(rel, rc);
+						a.at(i)+=f(rel, rc);
+
+                        if(i < j){
+                            Epot += pot(rel, rc);
+                        }
                     }
                 }
             }
         }
     }
+    return a;
+}
+
+void Aequilibrierung(Vector2d (*f)(const Vector2d &, double), double (*pot)(const Vector2d &, double), int N, double L, double particlesPerRow, double T, Vector2d, uint steps, double h ){
+    auto rn, vn = init (L, N, particlesPerRow, T);
+    vector<Vector2d> r_minus1, an;
+    Vector2d r_temp;
+    double Epot = 0;
+    an = Beschleunigung(f, pot, rn, N, L, Epot );
+
+    for(int i = 0; i < N; ++i){
+        r_temp = rn.at(i)-vn.at(i)*h + 0.5 * an.at(i)*h*h;
+        r_minus1.push_back(r_temp);
+
+    }
+
 }
 
 
