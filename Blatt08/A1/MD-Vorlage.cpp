@@ -270,17 +270,21 @@ MD::MD( double L, uint N, uint particlesPerRow, double T,
         r.push_back(r_vec);
       }
     }
+
     Vector2d v_vec;
     for(int i = 0; i < N; ++i)
     {
       v_vec << double(rand()%10), double(rand()%10);
       v.push_back(v_vec);
     }
+
     Vector2d v_s = calcvS();
+
     for (Vector2d& n : v)
     {
         n -= v_s;
     }
+
     r_vec.resize(0);
     v_vec.resize(0);
     v_s.resize(0);
@@ -348,7 +352,7 @@ Vector2d MD::calcvS() const
     {
       vs += v.at(i);
     }
-    return vs;
+    return vs/N;
 }
 
 Dataset MD::calcDataset() const
@@ -413,8 +417,8 @@ int main(void)
     // b) Äquilibrierungstest
     {
         const double T          = 1.;
-        const double dt         = /*TODO*/;
-        const uint steps        = /*TODO*/;
+        const double dt         = 0.01;
+        const uint steps        = 1000;
 
         MD md( L, N, partPerRow, T, LJ, noThermo, numBins );
         md.measure( dt, steps ).save( "b)set.dat", "b)g.dat", "b)r.dat" );
