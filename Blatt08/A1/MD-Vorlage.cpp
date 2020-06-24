@@ -262,9 +262,9 @@ MD::MD( double L, uint N, uint particlesPerRow, double T,
     binSize( L/(2*numBins) )
 {
     Vector2d r_vec;
-    for(int n = 0; n < particlesPerRow - 1; ++n)
+    for(int n = 0; n < particlesPerRow; ++n)
     {
-      for(int m = 0; m < particlesPerRow - 1; ++n)
+      for(int m = 0; m < particlesPerRow; ++m)
       {
         r_vec << 1 + 2 * n, 1 + 2 * m;
         r.push_back(r_vec);
