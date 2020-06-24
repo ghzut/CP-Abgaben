@@ -271,6 +271,7 @@ MD::MD( double L, uint N, uint particlesPerRow, double T,
       }
     }
 
+    srand(42);
     Vector2d v_vec;
     for(int i = 0; i < N; ++i)
     {
@@ -279,11 +280,17 @@ MD::MD( double L, uint N, uint particlesPerRow, double T,
     }
 
     Vector2d v_s = calcvS();
-
     for (Vector2d& n : v)
     {
         n -= v_s;
     }
+
+    double Nf = 2*N-2;                              // Anzahl Freiheitsgrade
+    double skal = T*Nf/(2*calcEkin());
+    for (int n=0; n<N; n++)
+    {
+        v.col(n) = sqrt(skal)*v.col(n);
+    }    
 
     r_vec.resize(0);
     v_vec.resize(0);
@@ -305,10 +312,13 @@ void MD::centerParticles()
 {
     for(uint i = 0; i < r.size(); ++i)
     {
-      for(uint j = 0; j < r.at(i); ++j)
+      for(uint j = 0; j < r.at(i).size(); ++j)
       {
-        if(r.at(i)(j) > L) r.at(i)(j) = fmod(r.at(i)(j), L);
-        if(r.at(i)(j) < 0) r.at(i)(j) = fmod(r.at(i)(j), L) +L;
+        if(r.at(i)(j) > L || r.at(i)(j) < 0) 
+        {
+            r.at(i)(j) -= floor(r.at(i)(j)/L) * L;
+        }
+        //if() r.at(i)(j) += floor(r.at(i)(j)/ L) * L;
       }
     }
 }
@@ -335,13 +345,17 @@ double MD::calcEpot() const
     double epot = 0.;
     double r2;
     Vector2d dr;
+    
     for(uint i = 0; i < r.size()-1; ++i)
     {
         for(uint j = i+1; j < r.size(); ++i)
-        dr = calcDistanceVec(i,j);
-        r2 = dr.squaredNorm();
-        epot += potential(r2);
+        {
+            dr = calcDistanceVec(i,j);
+            r2 = dr.squaredNorm();
+            epot += potential(r2);
+        }
     }
+
     return epot;
 }
 
@@ -369,12 +383,16 @@ Dataset MD::calcDataset() const
 Vector2d MD::calcDistanceVec( uint i, uint j ) const
 {
     double r_cut = L/2.;
+
     MatrixXd M(2,4);
     M << 0, L, L, L,
          L, 0, L, -L;
+
     Vector2d vec_shift;
     Vector2d vec_dr;
+
     bool br = false;
+
     for(uint i = 0; i < M.cols(); ++i)
     {
       vec_shift = M.col(i);
@@ -384,15 +402,24 @@ Vector2d MD::calcDistanceVec( uint i, uint j ) const
         br = true;
         break;
       }
+
       vec_dr = r.at(i)-(r.at(j)-vec_shift)
+    
       if(vec_dr < r_cut)
       {
         br = true;
         break;
       }
     }
-    if(br) return vec_dr;
-    else return r.at(i) - r.at(j);
+
+    //if(br) 
+    //{
+    //  return vec_dr;
+    //}
+    //
+    //else return r.at(i) - r.at(j);
+
+    return vec_dr;
 }
 
 vector<Vector2d> MD::calcAcc( vector<double>& hist ) const
