@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <Eigen/Dense>
+#include <stdlib.h>
 
 using namespace std;
 using namespace Eigen;
@@ -183,7 +184,7 @@ void Data::save ( const string& filenameSets, const string& filenameG, const str
     for(int i = 0; i < datasets.size(); ++i)
     {
       set = datasets.at(i);
-      M.col(i) << set.t, set.T, set.Ekin, set.Epot, set.vS(0), set.vS(1);
+      M_set.col(i) << set.t, set.T, set.Ekin, set.Epot, set.vS(0), set.vS(1);
     }
     out_set << M << endl;
     out_set.close();
@@ -202,6 +203,8 @@ void Data::save ( const string& filenameSets, const string& filenameG, const str
     }
     out_r << M_r << endl;
     out_r.close();
+    M_set.resize(0,0);
+    M_r.resize(0,0);
 }
 
 // ------------------------------ Ende Data-Structs ------------------------------------------
@@ -259,7 +262,29 @@ MD::MD( double L, uint N, uint particlesPerRow, double T,
     numBins( numBins ),
     binSize( L/(2*numBins) )
 {
-    /*TODO*/
+    Vector2d r_vec;
+    for(int n = 0; n < particlesPerRow - 1; ++n)
+    {
+      for(int m = 0; m < particlesPerRow - 1; ++n)
+      {
+        r_vec << 1 + 2 * n, 1 + 2 * m;
+        r.push_back(r_vec);
+      }
+    }
+    Vector2d v_vec;
+    for(int i = 0; i < N; ++i)
+    {
+      v_vec << double(rand()%10), double(rand()%10);
+      v.push_back(v_vec);
+    }
+    Vector2d v_s = calcvS();
+    for (Vector2d& n : v)
+    {
+        n -= v_s;
+    }
+    r_vec.resize(0);
+    v_vec.resize(0);
+    v_s.resize(0);
 }
 
 // Integration ohne Datenaufnahme zur reinen Äquilibrierung
