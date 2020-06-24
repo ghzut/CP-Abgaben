@@ -121,7 +121,17 @@ class IsokinThermostat: public Thermostat
 
 void IsokinThermostat::rescale( vector<Vector2d>& v, double T ) const
 {
-    /*TODO*/
+    double v_sum = 0.;
+    for (Vector2d& n : v)
+    {
+        v_sum += n.squaredNorm();
+    }
+    double scale = 2*(N-1)*T/v_sum;
+    scale = sqrt(scale);
+    for (uint i = 0; i < v.size(); i++)
+    {
+        v.at() *= scale;
+    }
 }
 
 // ------------------------------ Ende Thermostat-Klasse ------------------------------------------
@@ -157,6 +167,7 @@ Data::Data( uint n, uint numBins, double binSize ):
     g( numBins, 0. ),
     r( 0 )
 {
+  /*TODO*/
 }
 
 void Data::save ( const string& filenameSets, const string& filenameG, const string& filenameR ) const
@@ -167,12 +178,14 @@ void Data::save ( const string& filenameSets, const string& filenameG, const str
     out_set << "#t, T, Ekin, Epot, vS";
     out_g << "#g\n";
     out_r << "#r"
+    MatrixXd M_set(6,datasets.size());
+    Dataset set;
     for(int i = 0; i < datasets.size(); ++i)
     {
-      RowVector2d r_vS = datasets.at(i).vS;
-      out_set << datasets.at(i).t << " " << datasets.at(i).T << " " << datasets.at(i).Ekin << " " << datasets.at(i).Epot << " " << r_vS<< "\n";
+      set = datasets.at(i);
+      M.col(i) << set.t, set.T, set.Ekin, set.Epot, set.vS(0), set.vS(1);
     }
-    out_set.flush()
+    out_set << M << endl;
     out_set.close()
 
     for(int i = 0; i< g.size(); ++i)
@@ -181,12 +194,12 @@ void Data::save ( const string& filenameSets, const string& filenameG, const str
     }
     out_g.flush();
     out_g.close();
-    MatrixXd M(2,r.size());
+    MatrixXd M_r(2,r.size());
     for(int i = 0; i < r.size(); ++i)
     {
-      M.col(i) = r.at(i);
+      M_r.col(i) = r.at(i);
     }
-    out_r << M << endl;
+    out_r << M_r << endl;
     out_r.close();
 }
 
@@ -315,12 +328,42 @@ Vector2d MD::calcvS() const
 
 Dataset MD::calcDataset() const
 {
-    /*TODO*/
+    Dataset set;
+    set.t = t;
+    set.T = calcT();
+    set.Ekin = calcEkin();
+    set.Epot = calcEpot();
+    set.vS = calcvS();
+    return set;
 }
 
 Vector2d MD::calcDistanceVec( uint i, uint j ) const
 {
-    return r.at(i)-r.at(j);
+    double r_cut = L/2.;
+    MatrixXd M(2,4);
+    M << 0, L, L, L,
+         L, 0, L, -L;
+    Vector2d vec_shift;
+    Vector2d vec_dr;
+    bool br = false;
+    for(uint i = 0; i < M.cols(); ++i)
+    {
+      vec_shift = M.col(i);
+      vec_dr = r.at(i)-(r.at(j)+vec_shift)
+      if(vec_dr < r_cut)
+      {
+        br = true;
+        break;
+      }
+      vec_dr = r.at(i)-(r.at(j)-vec_shift)
+      if(vec_dr < r_cut)
+      {
+        br = true;
+        break;
+      }
+    }
+    if(br) return vec_dr;
+    else return r.at(i) - r.at(j);
 }
 
 vector<Vector2d> MD::calcAcc( vector<double>& hist ) const
@@ -344,7 +387,7 @@ int main(void)
 
     // b) Äquilibrierungstest
     {
-        const double T          = /*TODO*/;
+        const double T          = 1.;
         const double dt         = /*TODO*/;
         const uint steps        = /*TODO*/;
 
