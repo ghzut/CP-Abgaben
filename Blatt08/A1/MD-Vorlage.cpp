@@ -175,9 +175,9 @@ void Data::save ( const string& filenameSets, const string& filenameG, const str
     ofstream out_set(filenameSets, ofstream::trunc);
     ofstream out_g(filenameG, ofstream::trunc);
     ofstream out_r(filenameR, ofstream::trunc);
-    out_set << "#t, T, Ekin, Epot, vS";
-    out_g << "#g\n";
-    out_r << "#r"
+    out_set << "#t, T, Ekin, Epot, vS \n\n";
+    out_g << "#g \n\n";
+    out_r << "#r \n\n";
     MatrixXd M_set(6,datasets.size());
     Dataset set;
     for(int i = 0; i < datasets.size(); ++i)
@@ -186,7 +186,7 @@ void Data::save ( const string& filenameSets, const string& filenameG, const str
       M.col(i) << set.t, set.T, set.Ekin, set.Epot, set.vS(0), set.vS(1);
     }
     out_set << M << endl;
-    out_set.close()
+    out_set.close();
 
     for(int i = 0; i< g.size(); ++i)
     {
@@ -194,6 +194,7 @@ void Data::save ( const string& filenameSets, const string& filenameG, const str
     }
     out_g.flush();
     out_g.close();
+    
     MatrixXd M_r(2,r.size());
     for(int i = 0; i < r.size(); ++i)
     {
