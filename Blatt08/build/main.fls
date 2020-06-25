@@ -236,6 +236,13 @@ INPUT ./A1/build/aequi1_V.pdf
 INPUT ./A1/build/aequi1_VV.pdf
 INPUT ./A1/build/aequi1_VV.pdf
 INPUT ./A1/build/aequi1_VV.pdf
+INPUT /home/julia/.local/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmmono10-regular.luc
+INPUT ./A1/build/aequi_isokinetisch001_E.pdf
+INPUT ./A1/build/aequi_isokinetisch001_E.pdf
+INPUT ./A1/build/aequi_isokinetisch001_E.pdf
+INPUT ./A1/build/aequi_isokinetisch001_EE.pdf
+INPUT ./A1/build/aequi_isokinetisch001_EE.pdf
+INPUT ./A1/build/aequi_isokinetisch001_EE.pdf
 INPUT build/main.aux
 INPUT /home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb

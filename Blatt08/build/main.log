@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.27)  26 JUN 2020 00:10
+This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.27)  26 JUN 2020 00:21
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.082 seconds
+luaotfload | main : initialization completed in 0.079 seconds
 (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2019/02/01 v3.26b KOMA-Script document class (article)
 (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrkbase.sty
@@ -906,48 +906,74 @@ Package luatex.def Info: A1/build/aequi1_TT.pdf  used on input line 88.
 <A1/build/aequi1_V.pdf, id=22, 462.52798pt x 346.89601pt>
 File: A1/build/aequi1_V.pdf Graphic file (type pdf)
 <use A1/build/aequi1_V.pdf>
-Package luatex.def Info: A1/build/aequi1_V.pdf  used on input line 96.
+Package luatex.def Info: A1/build/aequi1_V.pdf  used on input line 95.
 (luatex.def)             Requested size: 188.21371pt x 141.15906pt.
 <A1/build/aequi1_VV.pdf, id=23, 462.52798pt x 346.89601pt>
 File: A1/build/aequi1_VV.pdf Graphic file (type pdf)
 <use A1/build/aequi1_VV.pdf>
-Package luatex.def Info: A1/build/aequi1_VV.pdf  used on input line 97.
+Package luatex.def Info: A1/build/aequi1_VV.pdf  used on input line 96.
 (luatex.def)             Requested size: 188.21371pt x 141.15906pt.
  [2<./A1/build/aequi1_E.pdf><./A1/build/aequi1_EE.pdf>] [3<./A1/build/aequi1_T.p
 df><./A1/build/aequi1_TT.pdf><./A1/build/aequi1_V.pdf><./A1/build/aequi1_VV.pdf>
-]) (./build/main.aux))
+]
+
+LaTeX Warning: Reference `fig:thermostat_equi_energy' on page 4 undefined on inp
+ut line 157.
+
+
+LaTeX Warning: Reference `fig:endkonfig' on page 4 undefined on input line 164.
+
+<A1/build/aequi_isokinetisch001_E.pdf, id=150, 462.52798pt x 346.89601pt>
+File: A1/build/aequi_isokinetisch001_E.pdf Graphic file (type pdf)
+<use A1/build/aequi_isokinetisch001_E.pdf>
+Package luatex.def Info: A1/build/aequi_isokinetisch001_E.pdf  used on input lin
+e 169.
+(luatex.def)             Requested size: 188.21371pt x 141.15906pt.
+<A1/build/aequi_isokinetisch001_EE.pdf, id=151, 462.52798pt x 346.89601pt>
+File: A1/build/aequi_isokinetisch001_EE.pdf Graphic file (type pdf)
+<use A1/build/aequi_isokinetisch001_EE.pdf>
+Package luatex.def Info: A1/build/aequi_isokinetisch001_EE.pdf  used on input li
+ne 170.
+(luatex.def)             Requested size: 188.21371pt x 141.15906pt.
+) [4<./A1/build/aequi_isokinetisch001_E.pdf><./A1/build/aequi_isokinetisch001_EE
+.pdf>] (./build/main.aux)
+
+LaTeX Warning: There were undefined references.
+
+)
 
 Here is how much of LuaTeX's memory you used:
- 19608 strings out of 494383
+ 19635 strings out of 494383
  100000,552014 words of node,token memory allocated
  585 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 4 sub_mlist, 1 glyph, 14 attribute,
  62 glue_spec, 14 attribute_list, 1 write nodes
-   avail lists: 2:452,3:106,4:11,5:208,6:14,7:1497,8:74,9:406,10:4,11:110
- 23297 multiletter control sequences out of 65536+600000
- 83 fonts using 9843751 bytes
+   avail lists: 2:452,3:105,4:14,5:208,6:13,7:1497,8:74,9:406,10:11,11:110
+ 23310 multiletter control sequences out of 65536+600000
+ 85 fonts using 10101511 bytes
  51i,12n,71p,9109b,558s stack positions out of 5000i,500n,10000p,200000b,100000s
-</home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman7-re
+</home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmmono10-re
 gular.otf></home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/l
-mroman10-bold.otf></home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/pub
-lic/lm/lmroman8-regular.otf></home/julia/.local/texlive/2018/texmf-dist/fonts/op
-entype/public/lm/lmroman10-regular.otf></home/julia/.local/texlive/2018/texmf-di
-st/fonts/opentype/public/lm/lmsans10-bold.otf></home/julia/.local/texlive/2018/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/julia/.local/texlive/
-2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/julia/.local/te
-xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/julia/.loc
-al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/julia
-/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></home/j
-ulia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></ho
-me/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-</home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy8.pfb></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
-ts/symbols/msbm10.pfb>
-Output written on main.pdf (3 pages, 533970 bytes).
+mroman7-regular.otf></home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/p
+ublic/lm/lmroman10-bold.otf></home/julia/.local/texlive/2018/texmf-dist/fonts/op
+entype/public/lm/lmroman8-regular.otf></home/julia/.local/texlive/2018/texmf-dis
+t/fonts/opentype/public/lm/lmroman10-regular.otf></home/julia/.local/texlive/201
+8/texmf-dist/fonts/opentype/public/lm/lmsans10-bold.otf></home/julia/.local/texl
+ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/julia/.loca
+l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/julia
+/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/
+julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pf
+b></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+7.pfb></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr8.pfb></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy8.pfb></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/pub
+lic/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (4 pages, 589332 bytes).
 
-PDF statistics: 213 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
+PDF statistics: 262 PDF objects out of 1000 (max. 8388607)
+ 152 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
