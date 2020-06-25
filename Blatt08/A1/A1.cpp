@@ -2,11 +2,11 @@
 #include <fstream>
 #include <iomanip>
 #include <Eigen/Dense>
-#include <math.h> 
+#include <math.h>
 #include <random>
 #include <string>
 
- 
+
 using namespace std;
 using namespace Eigen;
 
@@ -33,7 +33,7 @@ VectorXd naechsterNachbar(VectorXd r1, VectorXd r2, double L)
 {
     double rc = L/2;
     VectorXd shift = VectorXd::Zero(2, 1);
-    VectorXd diff = VectorXd::Zero(2, 1);   
+    VectorXd diff = VectorXd::Zero(2, 1);
 
     // Bildraum rechts
     shift << L, 0;
@@ -93,9 +93,9 @@ void update_kraft(MatrixXd &r, MatrixXd &F, int N, double L)
     double rc = L/2;
     F.setZero();
 
-    Vector2d delta_r = Vector2d::Zero();     
-    Vector2d r_next = Vector2d::Zero();     
-    Vector2d F_temp = Vector2d::Zero();    
+    Vector2d delta_r = Vector2d::Zero();
+    Vector2d r_next = Vector2d::Zero();
+    Vector2d F_temp = Vector2d::Zero();
     for (int i=0; i<(N-1); i++)
     {
         for (int j=i+1; j<N; j++)   // Keine Selbstwecheelwirkung oder Doppelzaehlung
@@ -122,7 +122,7 @@ void periodische_RB(MatrixXd &r, int N, double L)
     //{
     //  for(int j = 0; j < N; ++j)
     //  {
-    //    if(r(i,j) > L || r(i,j) < 0) 
+    //    if(r(i,j) > L || r(i,j) < 0)
     //    {
     //        r(i,j) -= floor(r(i,j)/L) * L;
     //    }
@@ -132,22 +132,22 @@ void periodische_RB(MatrixXd &r, int N, double L)
     for (int n=0; n<N; n++)
     {
         // Teilchen nach links abgedriftet
-        if(r(0,n) < 0) 
+        if(r(0,n) < 0)
         {
             r(0,n) += L;
         }
         // Teilchen nach rechts abgedriftet
-        if(r(0,n) > L) 
+        if(r(0,n) > L)
         {
             r(0,n) -= L;
         }
         // Teilchen nach unten abgedriftet
-        if(r(1,n) < 0) 
+        if(r(1,n) < 0)
         {
             r(1,n) += L;
         }
         // Teilchen nach oben abgedriftet
-        if(r(1,n) > L) 
+        if(r(1,n) > L)
         {
             r(1,n) -= L;
         }
@@ -179,7 +179,7 @@ void init(int N, double L, MatrixXd &r, MatrixXd &v, double Tinit)
         v.col(n) = (v.col(n) - vmean);
     }
 
-    double Nf = 2*N-2;                              
+    double Nf = 2*N-2;
     double skal = Tinit*Nf/v.colwise().squaredNorm().sum();
     for (int n=0; n<N; n++)
     {
@@ -191,7 +191,7 @@ void init(int N, double L, MatrixXd &r, MatrixXd &v, double Tinit)
 double pot(MatrixXd &r, int N, double L)
 {
     double rc = L/2;
-    VectorXd delta_r = VectorXd::Zero(2, 1);     
+    VectorXd delta_r = VectorXd::Zero(2, 1);
     VectorXd r_next = VectorXd::Zero(2, 1);
     double Epot = 0.;
 
@@ -225,7 +225,7 @@ auto aequilibrierung(int N, double L, double T0, double t_aequi, double h, bool 
     }
 
     file.precision(10);
-    file << "t vsx vsy Ekin Epot T \n\n";
+    file << "#t vsx vsy Ekin Epot T \n\n";
 
     int Nf = 2*N-2;            // Anzahl Freiheitsgrade (in 2D)
     MatrixXd r = MatrixXd::Zero(2, N);
@@ -233,7 +233,7 @@ auto aequilibrierung(int N, double L, double T0, double t_aequi, double h, bool 
 
     init(N, L, r, v, T0);
 
-    double t, Ekin, Epot, T; 
+    double t, Ekin, Epot, T;
     Vector2d vS;
     t = 0;
 
@@ -322,7 +322,7 @@ void simulation(int N, double L, double T0, double t_aequi, double t_max, double
     double t = t_aequi;
 
     auto [r, v, F] = aequilibrierung(N, L, T0, t_aequi, h, thermo, filename);
-    int Nf = 2*N-2; 
+    int Nf = 2*N-2;
     MatrixXd F_alt;
 
     if (thermo)
@@ -335,7 +335,8 @@ void simulation(int N, double L, double T0, double t_aequi, double t_max, double
     }
 
     file.precision(10);
-    file << "t  T \n";
+    file << "#t  T \n";
+    
     while (t < t_max+t_aequi)
     {
         file << t-t_aequi;
@@ -375,25 +376,25 @@ void simulation(int N, double L, double T0, double t_aequi, double t_max, double
 int main()
 {
     unsigned int N = 16;
-    double L = 8;          
-    double h = 0.01;            
-    double t_aequi = 500;     
-    double t_max = 5000;      
+    double L = 8;
+    double h = 0.01;
+    double t_aequi = 500;
+    double t_max = 5000;
 
-    double T0 = 1;  
+    double T0 = 1;
 
     simulation(N, L, T0, t_aequi, t_max, h, false, "1");
     simulation(N, L, T0, t_aequi, t_max, h, true, "1");
 
     T0 = 0.01;
 
-    simulation(N, L, T0, t_aequi, t_max, h, false, "0.01");
-    simulation(N, L, T0, t_aequi, t_max, h, true, "0.01");
+    simulation(N, L, T0, t_aequi, t_max, h, false, "001");
+    simulation(N, L, T0, t_aequi, t_max, h, true, "001");
 
     T0 = 100;
 
     simulation(N, L, T0, t_aequi, t_max, h, false, "100");
     simulation(N, L, T0, t_aequi, t_max, h, true, "100");
-    
+
     return 0;
 }
