@@ -88,3 +88,23 @@ T_mean = np.mean(T)
 T_std = np.std(T)
 
 print(T_mean, " +- ", T_std)
+
+t, vx, vy, ekin, epot, T = np.genfromtxt("A1/build/aequi_isokinetisch001.txt", unpack=True)
+
+plt.plot(t, ekin)
+plt.plot(t, epot)
+plt.plot(t, ekin+epot)
+
+plt.savefig("A1/build/aequi1_E.pdf")
+
+plt.clf()
+
+E = ekin+epot
+
+plt.plot(t[:50], ekin[:50])
+plt.plot(t[:50], epot[:50])
+plt.plot(t[:50], E[:50])
+
+plt.savefig("A1/build/aequi1_EE.pdf")
+
+plt.clf()
