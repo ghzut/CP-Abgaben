@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.27)  25 JUN 2020 22:58
+This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.27)  25 JUN 2020 23:36
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.076 seconds
+luaotfload | main : initialization completed in 0.303 seconds
 (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2019/02/01 v3.26b KOMA-Script document class (article)
 (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrkbase.sty
@@ -951,9 +951,9 @@ me/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
 0.pfb></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmsy8.pfb></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
 ts/symbols/msbm10.pfb>
-Output written on main.pdf (4 pages, 239615 bytes).
+Output written on main.pdf (4 pages, 538130 bytes).
 
-PDF statistics: 217 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 216 PDF objects out of 1000 (max. 8388607)
  126 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)

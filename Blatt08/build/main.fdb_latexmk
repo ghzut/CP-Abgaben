@@ -1,5 +1,5 @@
 # Fdb version 3
-["lualatex"] 1593118729 "main.tex" "build/main.pdf" "main" 1593118730
+["lualatex"] 1593120989 "main.tex" "build/main.pdf" "main" 1593120993
   "/home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf" 1480098679 111240 0af0b64d6d3df41bead3f9de314afbd4 ""
   "/home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf" 1480098679 111536 ae9d1b331000d544f47e5223081b7b54 ""
   "/home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf" 1480098679 110792 5c4b6a3d7f194f073a529b5124a181af ""
@@ -129,16 +129,16 @@
   "/home/julia/.local/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmsans10-regular.luc" 1556375765 130235 bb7a73867a1598b38d0159338753ccfc ""
   "/home/julia/.local/texlive/2018/texmf-var/tex/generic/config/language.dat" 1556373322 6602 6dcee75a2c99a98e568d143ab404f702 ""
   "/home/julia/.local/texlive/2018/texmf-var/web2c/luatex/lualatex.fmt" 1556373377 1370329 636103ccd82549bbddb8bbc12ef1abf0 ""
-  "A1/build/aequi1_E.pdf" 1593118683 49583 2e09091dda13053bc6a63953cf8de23a ""
-  "A1/build/aequi1_EE.pdf" 1593118683 7081 9b9bb35b787a63e3d8af9d6b82c204e8 ""
-  "A1/build/aequi1_T.pdf" 1593118683 24670 ad9a5f8310a83e88ecddacb1e85abbde ""
-  "A1/build/aequi1_TT.pdf" 1593118683 6288 b99c81115c9d93e7551a4b3ba0303768 ""
-  "A1/build/aequi1_V.pdf" 1593118684 54492 c3ffcee4899d71390a3ead4ef4f73b89 ""
-  "A1/build/aequi1_VV.pdf" 1593118684 7445 e7a28f04cc8d06610de78fb562f253dc ""
-  "build/main.aux" 1593118730 729 82b7156354c393ea35be67384f683097 ""
-  "content/Aufgabe1.tex" 1593118724 9279 95ad8cf1237edecd084383aa3748f549 ""
-  "main.tex" 1593117612 1115 f67eeb56e682b7806a1eedbc24b265ce ""
+  "A1/build/aequi1_E.pdf" 1593120895 218365 5f5b84ccd948443a6a7437f03072fb67 ""
+  "A1/build/aequi1_EE.pdf" 1593120895 7081 6c53726181b5b71eaace6bca236e7c58 ""
+  "A1/build/aequi1_T.pdf" 1593120895 83232 3d937bd49e7e9ea84dd37900e5b66307 ""
+  "A1/build/aequi1_TT.pdf" 1593120895 6288 620fb682894b16e00c03f5e781045d9f ""
+  "A1/build/aequi1_V.pdf" 1593120895 125601 a0d5bc78c7ed80cd978a0024a443feed ""
+  "A1/build/aequi1_VV.pdf" 1593120895 7445 8cb61a96dd664b2b55d0d4ca5044a396 ""
+  "build/main.aux" 1593120993 729 82b7156354c393ea35be67384f683097 ""
+  "content/Aufgabe1.tex" 1593118991 9279 95ad8cf1237edecd084383aa3748f549 ""
+  "main.tex" 1593118991 1115 f67eeb56e682b7806a1eedbc24b265ce ""
   (generated)
   "build/main.aux"
-  "build/main.pdf"
   "build/main.log"
+  "build/main.pdf"

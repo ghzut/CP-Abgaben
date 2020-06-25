@@ -396,10 +396,10 @@ int main()
             simulation(N, L, T0, t_aequi, t_max, h, true, "1");
 
         #pragma omp section
-            simulation(N, L, T1, t_aequi, t_max, h, false, "0.01");
+            simulation(N, L, T1, t_aequi, t_max, h, false, "001");
 
         #pragma omp section
-            simulation(N, L, T1, t_aequi, t_max, h, true, "0.01");
+            simulation(N, L, T1, t_aequi, t_max, h, true, "001");
         
         #pragma omp section
             simulation(N, L, T2, t_aequi, t_max, h, false, "100");
