@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.27)  25 JUN 2020 23:36
+This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.27)  26 JUN 2020 00:10
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.303 seconds
+luaotfload | main : initialization completed in 0.082 seconds
 (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2019/02/01 v3.26b KOMA-Script document class (article)
 (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrkbase.sty
@@ -883,55 +883,48 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (./content/Aufgabe1.tex [1
 
 {/home/julia/.local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-Overfull \hbox (31.81126pt too wide) in paragraph at lines 46--50
-\TU/lmr/m/n/10.95 Nach der In-itia-li-sie-rung wird die Dy-na-mik des Sy-stems 
-un-ter Ver-wen-dung des Geschwindigkeits-
- []
-
-<A1/build/aequi1_E.pdf, id=15, 462.52798pt x 346.89601pt>
+<A1/build/aequi1_E.pdf, id=18, 462.52798pt x 346.89601pt>
 File: A1/build/aequi1_E.pdf Graphic file (type pdf)
 <use A1/build/aequi1_E.pdf>
-Package luatex.def Info: A1/build/aequi1_E.pdf  used on input line 94.
+Package luatex.def Info: A1/build/aequi1_E.pdf  used on input line 79.
 (luatex.def)             Requested size: 188.21371pt x 141.15906pt.
-<A1/build/aequi1_EE.pdf, id=16, 462.52798pt x 346.89601pt>
+<A1/build/aequi1_EE.pdf, id=19, 462.52798pt x 346.89601pt>
 File: A1/build/aequi1_EE.pdf Graphic file (type pdf)
 <use A1/build/aequi1_EE.pdf>
-Package luatex.def Info: A1/build/aequi1_EE.pdf  used on input line 95.
+Package luatex.def Info: A1/build/aequi1_EE.pdf  used on input line 80.
 (luatex.def)             Requested size: 188.21371pt x 141.15906pt.
-[2]
-<A1/build/aequi1_T.pdf, id=23, 462.52798pt x 346.89601pt>
+<A1/build/aequi1_T.pdf, id=20, 462.52798pt x 346.89601pt>
 File: A1/build/aequi1_T.pdf Graphic file (type pdf)
 <use A1/build/aequi1_T.pdf>
-Package luatex.def Info: A1/build/aequi1_T.pdf  used on input line 105.
+Package luatex.def Info: A1/build/aequi1_T.pdf  used on input line 87.
 (luatex.def)             Requested size: 188.21371pt x 141.15906pt.
-<A1/build/aequi1_TT.pdf, id=24, 462.52798pt x 346.89601pt>
+<A1/build/aequi1_TT.pdf, id=21, 462.52798pt x 346.89601pt>
 File: A1/build/aequi1_TT.pdf Graphic file (type pdf)
 <use A1/build/aequi1_TT.pdf>
-Package luatex.def Info: A1/build/aequi1_TT.pdf  used on input line 106.
+Package luatex.def Info: A1/build/aequi1_TT.pdf  used on input line 88.
 (luatex.def)             Requested size: 188.21371pt x 141.15906pt.
-<A1/build/aequi1_V.pdf, id=25, 462.52798pt x 346.89601pt>
+<A1/build/aequi1_V.pdf, id=22, 462.52798pt x 346.89601pt>
 File: A1/build/aequi1_V.pdf Graphic file (type pdf)
 <use A1/build/aequi1_V.pdf>
-Package luatex.def Info: A1/build/aequi1_V.pdf  used on input line 117.
+Package luatex.def Info: A1/build/aequi1_V.pdf  used on input line 96.
 (luatex.def)             Requested size: 188.21371pt x 141.15906pt.
-<A1/build/aequi1_VV.pdf, id=26, 462.52798pt x 346.89601pt>
+<A1/build/aequi1_VV.pdf, id=23, 462.52798pt x 346.89601pt>
 File: A1/build/aequi1_VV.pdf Graphic file (type pdf)
 <use A1/build/aequi1_VV.pdf>
-Package luatex.def Info: A1/build/aequi1_VV.pdf  used on input line 118.
+Package luatex.def Info: A1/build/aequi1_VV.pdf  used on input line 97.
 (luatex.def)             Requested size: 188.21371pt x 141.15906pt.
- [3<./A1/build/aequi1_E.pdf><./A1/build/aequi1_EE.pdf><./A1/build/aequi1_T.pdf><
-./A1/build/aequi1_TT.pdf>]) [4<./A1/build/aequi1_V.pdf><./A1/build/aequi1_VV.pdf
->] (./build/main.aux))
+ [2<./A1/build/aequi1_E.pdf><./A1/build/aequi1_EE.pdf>] [3<./A1/build/aequi1_T.p
+df><./A1/build/aequi1_TT.pdf><./A1/build/aequi1_V.pdf><./A1/build/aequi1_VV.pdf>
+]) (./build/main.aux))
 
 Here is how much of LuaTeX's memory you used:
- 19612 strings out of 494383
+ 19608 strings out of 494383
  100000,552014 words of node,token memory allocated
  585 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 4 sub_mlist, 1 glyph, 14 attribute,
  62 glue_spec, 14 attribute_list, 1 write nodes
-   avail lists: 2:469,3:95,4:11,5:248,6:15,7:2353,8:64,9:391,10:5,11:216
- 23301 multiletter control sequences out of 65536+600000
+   avail lists: 2:452,3:106,4:11,5:208,6:14,7:1497,8:74,9:406,10:4,11:110
+ 23297 multiletter control sequences out of 65536+600000
  83 fonts using 9843751 bytes
  51i,12n,71p,9109b,558s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/julia/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman7-re
@@ -951,10 +944,10 @@ me/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
 0.pfb></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmsy8.pfb></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
 ts/symbols/msbm10.pfb>
-Output written on main.pdf (4 pages, 538130 bytes).
+Output written on main.pdf (3 pages, 533970 bytes).
 
-PDF statistics: 216 PDF objects out of 1000 (max. 8388607)
- 126 compressed objects within 2 object streams
+PDF statistics: 213 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
