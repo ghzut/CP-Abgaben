@@ -2,6 +2,7 @@
 #include <vector>
 #include <Eigen/Dense>
 #include <stdlib.h>
+#include <fstream>
 
 using namespace std;
 using namespace Eigen;
@@ -35,7 +36,7 @@ Vector2d KraftLJ(const Vector2d &r, double rc)
             kraft = 48*r*((r6*r6)/r2 - 0.5*r6/r2);
     }
 
-    return kraft
+    return kraft;
 }
 
 void periodische_RB(vector<Vector2d> &r, double L)
@@ -55,7 +56,7 @@ void periodische_RB(vector<Vector2d> &r, double L)
 Vector2d v_center(const vector<Vector2d> &v, int N)
 {
     Vector2d vs = Vector2d::Zero();
-    for(int i = 0; i < v.size(); ++i)
+    for(uint i = 0; i < v.size(); ++i)
     {
       vs += v.at(i);
     }
@@ -76,7 +77,7 @@ double ekin(const vector<Vector2d> &v)
 
 double T (const vector<Vector2d> &v, uint N)
 {
-    double Nf = 2N-2;
+    double Nf = 2*N-2;
     double T = 2*ekin(v)/Nf;
     return T;
 }
@@ -117,17 +118,57 @@ auto init(double L, int N, double particlesPerRow, double T)
     {
         v.at(n) = skal*v.at(n);
     }
+
     struct vecs{
         vector<Vector2d> Ort, Geschwindigkeit;
     };
+
     return vecs{r, v};
 }
 
-vector<Vector2d> verlet_r(Vector2d (*f)(Vector2d &, double &), double (*pot)(const Vector2d &, double), const vector<Vector2d> &r_n, vector<Vector2d> r_nminus1, double h, int N, double L, double &Epot)
+vector<Vector2d> Beschleunigung(Vector2d (*f)(const Vector2d &, double), double (*pot)(const Vector2d &, double), const vector<Vector2d> &r_n, int N, double L, double &Epot)
+{   
+    double rc = L/2;
+    Vector2d xx;
+    xx << 0,0;
+
+    vector<Vector2d> a(N, xx);
+
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            if (i != j)
+            {
+                Vector2d shift = Vector2d::Zero();
+
+                for (int k = -1; k <= 1; k++)
+                {
+                    shift(0) = k*L;
+
+                    for (int l = -1; l <= 1; l++)
+                    {
+                        shift(1) = l*L;
+
+                        Vector2d temp=r_n.at(i)-(r_n.at(j)+shift);
+						a.at(i)+=f(temp, rc);
+
+                        if(i < j){
+                            Epot += pot(temp, rc);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return a;
+}
+
+vector<Vector2d> verlet_r(Vector2d (*f)(const Vector2d &, double), double (*pot)(const Vector2d &, double), const vector<Vector2d> &r_n, vector<Vector2d> r_nminus1, double h, int N, double L, double &Epot)
 {
-    vector<Vector2d> r_nplus1;
-    Vector2d r_nplus1_vec, a;
-    a = beschleunigung(f, pot, r_n, N, L, Epot );
+    vector<Vector2d> r_nplus1, a;
+    Vector2d r_nplus1_vec;
+    a = Beschleunigung(f, pot, r_n, N, L, Epot );
 
     for (int i = 0; i < N; i++)
     {
@@ -152,65 +193,69 @@ vector<Vector2d> verlet_v(vector<Vector2d> r_nminus1, vector<Vector2d> r_nplus1,
     return v_n;
 }
 
-vector<Vector2d> Beschleunigung(Vector2d (*f)(Vector2d &, double &), double (*pot)(const Vector2d &, double), const vector<Vector2d> &r_n, int N, double L, double &Epot)
-{   
-    double rc = L/2;
-    Vector2d xx;
-    xx << 0,0;
 
-    vector<Vector2d> a(N, xx);
+void Aequilibrierung(Vector2d (*f)(const Vector2d &, double), double (*pot)(const Vector2d &, double), int N, double L, double particlesPerRow, double T0, uint steps, double h )
+{
+    ofstream file;
+    file.open("build/aequi.txt");
+    file << "t  Ekin    Epot    T   vs_x    vs_y \n\n";
 
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-        {
-            if (i != j)
-            {
-                Vector2d shift = Vector2d::Zero();
-
-                for (int k = -1; k <= 1; k++)
-                {
-                    shift(0) = k*L;
-
-                    for (int l = -1; l <= 1; l++)
-                    {
-                        shift(1) = l*L;
-
-                        Vector2d temp=r.at(i)-(r.at(j)+shift);
-						a.at(i)+=f(rel, rc);
-
-                        if(i < j){
-                            Epot += pot(rel, rc);
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return a;
-}
-
-void Aequilibrierung(Vector2d (*f)(const Vector2d &, double), double (*pot)(const Vector2d &, double), int N, double L, double particlesPerRow, double T, Vector2d, uint steps, double h ){
-    auto rn, vn = init (L, N, particlesPerRow, T);
-    vector<Vector2d> r_minus1, an;
+    auto [r_n, v_n] = init(L, N, particlesPerRow, T0);
+    vector<Vector2d> r_minus1, a_n, r_nplus1;
     Vector2d r_temp;
     double Epot = 0;
-    an = Beschleunigung(f, pot, rn, N, L, Epot );
+    a_n = Beschleunigung(f, pot, r_n, N, L, Epot );
+
+    file << 0 << "\t" << ekin(v_n) << "\t" << Epot << "\t" << T0 << "\t" << 0 << "\t" << 0 << "\n";
 
     for(int i = 0; i < N; ++i){
-        r_temp = rn.at(i)-vn.at(i)*h + 0.5 * an.at(i)*h*h;
+        r_temp = r_n.at(i)-v_n.at(i)*h + 0.5 * a_n.at(i)*h*h;
         r_minus1.push_back(r_temp);
+        //cout << r_temp << "\n\n";
+    }
+
+    for (uint i = 1; i < steps; i++)
+    {
+        cout << "i = " << i << "\n\n"; 
+
+        r_nplus1 = verlet_r(f, pot, r_n, r_minus1, h, N, L, Epot);
+        //for (int i = 1; i<N; i++)
+        //{
+        //    cout << r_nplus1.at(i) << "\n\n";
+//
+        //}
+        periodische_RB(r_nplus1, L);
+        v_n = verlet_v(r_minus1, r_nplus1, h, N);
+
+        Vector2d vs = v_center(v_n, N);
+        double vs_x, vs_y;
+        vs_x = vs(0);
+        vs_y = vs(1);
+
+
+        file << i*steps << "\t" << ekin(v_n) << "\t" << Epot << "\t" << T(v_n, N) << "\t" << vs_x << "\t" << vs_y << "\t" << "\n";
 
     }
 
+    file.close();
+
 }
 
-
+ 
 
 
 int main()
 {
+    int N = 16;
+    double L, particlesPerRow, T, h;
+    L = 8;
+    particlesPerRow = 4;
+    T = 1;
+    h = 0.01;
+    uint steps = 10;
 
+
+    Aequilibrierung(KraftLJ, PotentialLJ, N, L, particlesPerRow, T, steps, h);
 
     return 0;
 }
