@@ -15,7 +15,7 @@
 
 \subsection*{a) Initialisierung}
 
-Zu Beginn werden die Orte und Geschwindigkeiten der Teilchen in einer $[0,L] \cdot [0,L]$ Box initialisiert.
+Zu Beginn werden die Orte und Geschwindigkeiten der Teilchen in einer $[0,L] \times [0,L]$ Box initialisiert.
 Dabei werden zufällige Startgeschwindigkeiten im Bereich \([0, 10]\) gewählt.
 Zusätzlich wird die Schwerpunktsbewegung der Teilchen auf Null gesetzt.
 Um die Geschwindigkeiten entsprechend der Temperatur umskalieren zu können, wird folgende Rechnung betrachtet:
@@ -70,7 +70,7 @@ die Temperatur $T$, die potentielle und die kinetische Energie
 \end{align*}
 berechnet.
 
-Diese genannten größen werden in Abbildung \ref{fig:T1}, \ref{fig:v1} und \ref{fig:e1}
+Diese genannten Größen werden in Abbildung \ref{fig:T1}, \ref{fig:v1} und \ref{fig:e1}
 dargestellt. Da sich die Temperatur aus der kinetischen Energie berechnet, zeigen sie
 denselben Verlauf.
 
@@ -78,7 +78,7 @@ denselben Verlauf.
     \centering
     \includegraphics[width=0.45\textwidth]{A1/build/aequi1_E.pdf}
     \includegraphics[width=0.45\textwidth]{A1/build/aequi1_EE.pdf}
-    \caption{ $T_0 = 1\:\varepsilon$.}
+    \caption{Energieverlauf der Äquilibrierungsphase bei $T_0 = 1\:\varepsilon$.}
     \label{fig:e1}
 \end{figure}
 
@@ -86,7 +86,7 @@ denselben Verlauf.
     \centering
     \includegraphics[width=0.45\textwidth]{A1/build/aequi1_T.pdf}
     \includegraphics[width=0.45\textwidth]{A1/build/aequi1_TT.pdf}
-    \caption{$T_\text{0} = 1\:\varepsilon$.}
+    \caption{Temperaturverlauf der Äquilibrierungsphase bei $T_\text{0} = 1\:\varepsilon$.}
     \label{fig:T1}
 \end{figure}
 
@@ -94,14 +94,15 @@ denselben Verlauf.
     \centering
     \includegraphics[width=0.45\textwidth]{A1/build/aequi1_V.pdf}
     \includegraphics[width=0.45\textwidth]{A1/build/aequi1_VV.pdf}
-    \caption{$T_\text{0} = 1\:\varepsilon$.}
+    \caption{Geschwindigkeitsverlauf der Äquilibrierungsphase bei $T_\text{0} = 1\:\varepsilon$.}
     \label{fig:v1}
 \end{figure}
 
 \FloatBarrier
-<<<<<<< HEAD
+
+
 \subsection*{c) Messung}
-Die Mittelung der Temperaturen für $5\cdot 10^5$ Schritten ergibt für die jeweiligen Temperaturen:
+Die Mittelung der Temperaturen nach $5\cdot 10^5$ Schritten ergibt für die jeweiligen Temperaturen:
 
 \begin{align}
     \text{ T1:  } &  1.4791  \pm  0.1287 \\
@@ -114,20 +115,21 @@ bei verschiedenen Starttemperaturen dargestellt.
 
 \begin{figure}
     \centering
-    \includegraphics[height=8cm]{build/messung_T1_temp.jpg}
-    \caption{Temperaturverlauf der Messung bei $T_\text{init} = 1\:\varepsilon$.}
+    \includegraphics[width=0.8\textwidth]{A1/build/messung1_T.pdf}
+
+    \caption{Temperaturverlauf der Messung bei $T_0 = 1\:\varepsilon$.}
     \label{fig:messung_T=1_temp}
 \end{figure}
 \begin{figure}
     \centering
-    \includegraphics[height=8cm]{build/messung_T1e2_temp.jpg}
-    \caption{Temperaturverlauf der Messung bei $T_\text{init} = 100\:\varepsilon$.}
+    \includegraphics[width=0.8\textwidth]{A1/build/messung001_T.pdf}
+    \caption{Temperaturverlauf der Messung bei $T_0 = 100\:\varepsilon$.}
     \label{fig:messung_T=1e2_temp}
 \end{figure}
 \begin{figure}
     \centering
-    \includegraphics[height=8cm]{build/messung_T1e-2_temp.jpg}
-    \caption{Temperaturverlauf der Messung bei $T_\text{init} = 0.01\:\varepsilon$.}
+    \includegraphics[width=0.8\textwidth]{A1/build/messung100_T.pdf}
+    \caption{Temperaturverlauf der Messung bei $T_0 = 0.01\:\varepsilon$.}
     \label{fig:messung_T=1e-2_temp}
 \end{figure}
 
@@ -136,172 +138,15 @@ bei verschiedenen Starttemperaturen dargestellt.
  \subsection*{d) Thermostat}
 
 Für den Fall, dass ein isokinetisches Thermostat verwendet wird, werden nach jedem Schritt die Geschwindigkeiten so skaliert, dass das System wieder die Ursprungstemperatur gehalten wird.
-Der Verlauf der Energien während der Äquilibrierungsphase für $T_\text{init} = 0.01$ ist in Abbildung \ref{fig:thermostat_equi_energy}   dargestellt.
+Der Verlauf der Energien während der Äquilibrierungsphase für $T_0 = 0.01$ ist in Abbildung \ref{fig:thermostat_equi_energy}   dargestellt.
 
 Da die Temperatur recht klein gewählt ist, bewegen sich die Teilchen nicht viel
 und sollten eine periodische Anordnung einnehmen.
-In Abbildung \ref{fig:endkonfig} ist die Konfiguration nach der Messung dargestellt.
-Es zeigt sich, dass kleinere Muster erkennbar sind.
-Dies spricht für eine feste Phase der Teilchen.
-\begin{figure}
-    \centering
-    \includegraphics[height=8cm]{build/thermostat_equi_energy.jpg}
-    \caption{Energieverlauf während der Äquilibrierungsphase bei isokinetischem Thermostat.}
-    \label{fig:thermostat_equi_energy}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[height=6cm]{build/endkonfig.jpg}
-    \caption{Endkonfiguration mit 16 Teilchen bei isokinetischem Thermostat.}
-    \label{fig:endkonfig}
-\end{figure}
-||||||| merged common ancestors
-% \subsection*{c) Messung}
-%
-% Nach der Äquilibrierungsphase wird die Dynamik des Systems für \num{5e4} Zeitschritte
-% berechnet. Diese Berechnung funktioniert analog zur Äquilibrierung.
-% In jedem Schritt wird wieder die Temperatur bestimmt und abgespeichert, das
-% python skript ermittelt dann den Mittelwert der Temperatur.
-% Aus Zeitgründen wurde auf eine Berechnung der Paarkorrelation verzichtet.
-%
-% In den Abbildungen \ref{fig:messung_T=1_temp} bis \ref{fig:messung_T=1e-2_temp}
-% sind die zeitlichen Verläufe der Temperatur
-% bei verschiedenen Starttemperaturen dargestellt.
-% Hierbei ist zu beachten, dass bei $T = 100\:\frac{\varepsilon}{k_\text{B}}$
-% die Startgeschwindigkeiten so groß sind, dass die Schrittweite von \num{0.01}
-% auf \num{0.001} verringert wurde.
-% \begin{figure}
-%     \centering
-%     \includegraphics[height=8cm]{build/messung_T1_temp.jpg}
-%     \caption{Temperaturverlauf der Messung bei $T_\text{init} = 1\:\varepsilon$.}
-%     \label{fig:messung_T=1_temp}
-% \end{figure}
-% \begin{figure}
-%     \centering
-%     \includegraphics[height=8cm]{build/messung_T1e2_temp.jpg}
-%     \caption{Temperaturverlauf der Messung bei $T_\text{init} = 100\:\varepsilon$.}
-%     \label{fig:messung_T=1e2_temp}
-% \end{figure}
-% \begin{figure}
-%     \centering
-%     \includegraphics[height=8cm]{build/messung_T1e-2_temp.jpg}
-%     \caption{Temperaturverlauf der Messung bei $T_\text{init} = 0.01\:\varepsilon$.}
-%     \label{fig:messung_T=1e-2_temp}
-% \end{figure}
-%
-% Die Mittelwerte der Temperaturen ergaben sich zu
-% \begin{align*}
-%     T_\text{init} = 10^0: \quad T_\text{mean} &= \num{1.48(13)} \\
-%     T_\text{init} = 10^2: \quad T_\text{mean} &= \num{96(5)} \\
-%     T_\text{init} = 10^{-2}: \quad T_\text{mean} &= \num{0.7(1)} \\
-% \end{align*}
-% Die Temperaturen weichen nur wenig von der Starttemperatur ab.
-% Dies ist auch sinnvoll, da keine weitere Energie in das System hinein oder aus dem
-% System heraus geflossen ist. Aufgrund der surrealen Startkonfiguration verändert sich
-% jedoch die potentielle Energie und damit ist aufgrund der Energieerhaltung auch eine
-% kleine Abweichung der kinetischen Energie und damit Temperatur von dem initialen Wert
-% zu erwarten.
-%
-% \FloatBarrier
-% \subsection*{d) Thermostat}
-%
-% Der Übergabewert \texttt{thermostat} an die Funktion \texttt{md\_simulation} legt fest,
-% ob ein isokinetischer Thermostat in das System eingebaut werden soll.
-% Ist dies der Fall, werden nach jedem Schritt die Geschwindigkeiten so skaliert, dass
-% das System wieder auf der initialen Temperatur gehalten wird.
-% In Abbildung \ref{fig:thermostat_equi_energy} ist der Verlauf der Energien während der
-% Äquilibrierungsphase für $T_\text{init} = 0.01$ dargestellt.
-% Durch die Anpassung der Geschwindigkeiten gilt keine Energieerhaltung mehr
-% und die potentielle Energie wird im Laufe der Zeit minimiert.
-%
-% Da die Temperatur recht klein gewählt ist, bewegen sich die Teilchen nicht viel
-% und sollten eine periodische Anordnung einnehmen.
-% In Abbildung \ref{fig:endkonfig} ist die Konfiguration nach der Messung dargestellt.
-% Es zeigt sich, dass kleinere Muster erkennbar sind.
-% Dies spricht für eine feste Phase der Teilchen.
-% \begin{figure}
-%     \centering
-%     \includegraphics[height=8cm]{build/thermostat_equi_energy.jpg}
-%     \caption{Energieverlauf während der Äquilibrierungsphase bei isokinetischem Thermostat.}
-%     \label{fig:thermostat_equi_energy}
-% \end{figure}
-% \begin{figure}
-%     \centering
-%     \includegraphics[height=6cm]{build/endkonfig.jpg}
-%     \caption{Endkonfiguration mit 16 Teilchen bei isokinetischem Thermostat.}
-%     \label{fig:endkonfig}
-% \end{figure}
-=======
-% \subsection*{c) Messung}
-%
-% Nach der Äquilibrierungsphase wird die Dynamik des Systems für \num{5e4} Zeitschritte
-% berechnet. Diese Berechnung funktioniert analog zur Äquilibrierung.
-% In jedem Schritt wird wieder die Temperatur bestimmt und abgespeichert, das
-% python skript ermittelt dann den Mittelwert der Temperatur.
-% Aus Zeitgründen wurde auf eine Berechnung der Paarkorrelation verzichtet.
-%
-% In den Abbildungen \ref{fig:messung_T=1_temp} bis \ref{fig:messung_T=1e-2_temp}
-% sind die zeitlichen Verläufe der Temperatur
-% bei verschiedenen Starttemperaturen dargestellt.
-% Hierbei ist zu beachten, dass bei $T = 100\:\frac{\varepsilon}{k_\text{B}}$
-% die Startgeschwindigkeiten so groß sind, dass die Schrittweite von \num{0.01}
-% auf \num{0.001} verringert wurde.
-% \begin{figure}
-%     \centering
-%     \includegraphics[height=8cm]{build/messung_T1_temp.jpg}
-%     \caption{Temperaturverlauf der Messung bei $T_\text{init} = 1\:\varepsilon$.}
-%     \label{fig:messung_T=1_temp}
-% \end{figure}
-% \begin{figure}
-%     \centering
-%     \includegraphics[height=8cm]{build/messung_T1e2_temp.jpg}
-%     \caption{Temperaturverlauf der Messung bei $T_\text{init} = 100\:\varepsilon$.}
-%     \label{fig:messung_T=1e2_temp}
-% \end{figure}
-% \begin{figure}
-%     \centering
-%     \includegraphics[height=8cm]{build/messung_T1e-2_temp.jpg}
-%     \caption{Temperaturverlauf der Messung bei $T_\text{init} = 0.01\:\varepsilon$.}
-%     \label{fig:messung_T=1e-2_temp}
-% \end{figure}
-%
-% Die Mittelwerte der Temperaturen ergaben sich zu
-% \begin{align*}
-%     T_\text{init} = 10^0: \quad T_\text{mean} &= \num{1.48(13)} \\
-%     T_\text{init} = 10^2: \quad T_\text{mean} &= \num{96(5)} \\
-%     T_\text{init} = 10^{-2}: \quad T_\text{mean} &= \num{0.7(1)} \\
-% \end{align*}
-% Die Temperaturen weichen nur wenig von der Starttemperatur ab.
-% Dies ist auch sinnvoll, da keine weitere Energie in das System hinein oder aus dem
-% System heraus geflossen ist. Aufgrund der surrealen Startkonfiguration verändert sich
-% jedoch die potentielle Energie und damit ist aufgrund der Energieerhaltung auch eine
-% kleine Abweichung der kinetischen Energie und damit Temperatur von dem initialen Wert
-% zu erwarten.
-%
-% \FloatBarrier
-\subsection*{d) Thermostat}
 
-
-
-Der Übergabewert \texttt{thermostat} an die Funktion \texttt{md\_simulation} legt fest,
-ob ein isokinetischer Thermostat in das System eingebaut werden soll.
-Ist dies der Fall, werden nach jedem Schritt die Geschwindigkeiten so skaliert, dass
-das System wieder auf der initialen Temperatur gehalten wird.
-In Abbildung \ref{fig:thermostat_equi_energy} ist der Verlauf der Energien während der
-Äquilibrierungsphase für $T_\text{init} = 0.01$ dargestellt.
-Durch die Anpassung der Geschwindigkeiten gilt keine Energieerhaltung mehr
-und die potentielle Energie wird im Laufe der Zeit minimiert.
-
-Da die Temperatur recht klein gewählt ist, bewegen sich die Teilchen nicht viel
-und sollten eine periodische Anordnung einnehmen.
-In Abbildung \ref{fig:endkonfig} ist die Konfiguration nach der Messung dargestellt.
-Es zeigt sich, dass kleinere Muster erkennbar sind.
-Dies spricht für eine feste Phase der Teilchen.
 \begin{figure}
     \centering
     \includegraphics[width=0.45\textwidth]{A1/build/aequi_isokinetisch001_E.pdf}
     \includegraphics[width=0.45\textwidth]{A1/build/aequi_isokinetisch001_EE.pdf}
-    \caption{$T_\text{0} = 1\:\varepsilon$.}
-    \label{fig:isoE}
+    \caption{Temperaturverlauf der Messung bei $T_0 = 0.01\:\varepsilon$.}
+    \label{fig:thermostat_equi_energy}
 \end{figure}
->>>>>>> .

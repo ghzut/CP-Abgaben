@@ -124,6 +124,8 @@ plt.plot(t, ekin+epot, label=r"$E$")
 plt.xlabel("t")
 plt.ylabel("E")
 
+plt.legend()
+
 plt.savefig("A1/build/aequi_isokinetisch001_E.pdf")
 
 plt.clf()
@@ -136,6 +138,8 @@ plt.plot(t[:200], E[:200], label=r"$E$")
 
 plt.xlabel("t")
 plt.ylabel("E")
+
+plt.legend()
 
 plt.savefig("A1/build/aequi_isokinetisch001_EE.pdf")
 
