@@ -412,12 +412,12 @@ Vector2d MD::calcDistanceVec( uint i, uint j ) const
       }
     }
 
-    //if(br) 
-    //{
-    //  return vec_dr;
-    //}
-    //
-    //else return r.at(i) - r.at(j);
+    if(br) 
+    {
+      return vec_dr;
+    }
+    
+    else return r.at(i) - r.at(j);
 
     return vec_dr;
 }
