@@ -44,89 +44,47 @@ plt.plot(t[:50], vy[:50])
 plt.savefig("A1/build/aequi1_VV.pdf")
 
 
+plt.clf()
 
-t, vx, vy, ekin, epot, T = np.genfromtxt("A1/build/aequi001.txt", unpack=True)
+t, T = np.genfromtxt("A1/build/messung1.txt", unpack=True)
 
 plt.plot(t, T)
-plt.savefig("A1/build/aequi001_T.pdf")
+
+plt.savefig("A1/build/messung1_T.pdf")
 
 plt.clf()
 
-plt.plot(t[:200], T[:200])
-plt.savefig("A1/build/aequi001_TT.pdf")
+T_mean = np.mean(T)
+T_std = np.std(T)
+
+print(T_mean, " +- ", T_std)
 
 plt.clf()
 
-plt.plot(t, ekin)
-plt.plot(t, epot)
-plt.plot(t, ekin+epot)
-
-plt.savefig("A1/build/aequi001_E.pdf")
-
-plt.clf()
-
-E = ekin+epot
-
-plt.plot(t[:200], ekin[:200])
-plt.plot(t[:200], epot[:200])
-plt.plot(t[:200], E[:200])
-
-plt.savefig("A1/build/aequi001_EE.pdf")
-
-plt.clf()
-
-plt.plot(t, vx)
-plt.plot(t, vy)
-
-plt.savefig("A1/build/aequi001_V.pdf")
-
-plt.clf()
-
-plt.plot(t[:200], vx[:200])
-plt.plot(t[:200], vy[:200])
-
-plt.savefig("A1/build/aequi001_VV.pdf")
-
-
-
-t, vx, vy, ekin, epot, T = np.genfromtxt("A1/build/aequi100.txt", unpack=True)
+t, T = np.genfromtxt("A1/build/messung001.txt", unpack=True)
 
 plt.plot(t, T)
-plt.savefig("A1/build/aequi100_T.pdf")
+
+plt.savefig("A1/build/messung001_T.pdf")
 
 plt.clf()
 
-plt.plot(t[:200], T[:200])
-plt.savefig("A1/build/aequi100_TT.pdf")
+T_mean = np.mean(T)
+T_std = np.std(T)
+
+print(T_mean, " +- ", T_std)
 
 plt.clf()
 
-plt.plot(t, ekin)
-plt.plot(t, epot)
-plt.plot(t, ekin+epot)
+t, T = np.genfromtxt("A1/build/messung100.txt", unpack=True)
 
-plt.savefig("A1/build/aequi100_E.pdf")
+plt.plot(t, T)
 
-plt.clf()
-
-E = ekin+epot
-
-plt.plot(t[:200], ekin[:200])
-plt.plot(t[:200], epot[:200])
-plt.plot(t[:200], E[:200])
-
-plt.savefig("A1/build/aequi100_EE.pdf")
+plt.savefig("A1/build/messung100_T.pdf")
 
 plt.clf()
 
-plt.plot(t, vx)
-plt.plot(t, vy)
+T_mean = np.mean(T)
+T_std = np.std(T)
 
-plt.savefig("A1/build/aequi100_V.pdf")
-
-plt.clf()
-
-plt.plot(t[:200], vx[:200])
-plt.plot(t[:200], vy[:200])
-
-plt.savefig("A1/build/aequi100_VV.pdf")
+print(T_mean, " +- ", T_std)

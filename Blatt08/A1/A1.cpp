@@ -114,43 +114,15 @@ void update_kraft(MatrixXd &r, MatrixXd &F, int N, double L)
 
 void periodische_RB(MatrixXd &r, int N, double L)
 {
-
-
-    /* Das funktioniert bei T=100 leider nicht mehr */
-
-    //for(int i = 0; i < 2; ++i)
-    //{
-    //  for(int j = 0; j < N; ++j)
-    //  {
-    //    if(r(i,j) > L || r(i,j) < 0)
-    //    {
-    //        r(i,j) -= floor(r(i,j)/L) * L;
-    //    }
-    //  }
-    //}
-
-    for (int n=0; n<N; n++)
+    for(int i = 0; i < 2; ++i)
     {
-        // Teilchen nach links abgedriftet
-        if(r(0,n) < 0)
+      for(int j = 0; j < N; ++j)
+      {
+        if(r(i,j) > L || r(i,j) < 0)
         {
-            r(0,n) += L;
+            r(i,j) -= floor(r(i,j)/L) * L;
         }
-        // Teilchen nach rechts abgedriftet
-        if(r(0,n) > L)
-        {
-            r(0,n) -= L;
-        }
-        // Teilchen nach unten abgedriftet
-        if(r(1,n) < 0)
-        {
-            r(1,n) += L;
-        }
-        // Teilchen nach oben abgedriftet
-        if(r(1,n) > L)
-        {
-            r(1,n) -= L;
-        }
+      }
     }
 }
 
@@ -287,33 +259,6 @@ auto aequilibrierung(int N, double L, double T0, double t_aequi, double h, bool 
 
 }
 
-VectorXd Paarkorrelation(const MatrixXd &r, const MatrixXd &v, double L, int N, int N_h) {
-    VectorXd g = VectorXd::Zero(N_h);
-	double dr=L/(2*N_h);
-
-	for (int j = 0; j < N; j++)
-	{
-		for (int i = 0; i < j; i++)
-		{
-			Vector2d shift=Vector2d::Zero();
-			for (int i = -1; i <= 1; ++i)
-			{
-				shift(0)=i*L;
-				for (int j = -1; j <= 1; ++j)
-				{
-					shift(1)=j*L;
-					VectorXd rel=r.col(i)-(r.col(j)+shift);
-					double r =rel.norm();
-					if (r<L/2)
-					{
-						int l = (int) (r/dr);
-						g(l)+=L*L/(N*N*M_PI*(-(l*dr)*(l*dr)+((l+1)*dr)*((l+1)*dr)));
-					}
-				}
-			}
-		}
-	}
-}
 
 void simulation(int N, double L, double T0, double t_aequi, double t_max, double h, bool thermo, string filename)
 {
@@ -385,6 +330,11 @@ int main()
     double T1 = 0.01;
     double T2 = 100;
 
+    double h2, t_aequi2, t_max2;
+    h2 = 0.001;
+    t_aequi2 = 50;
+    t_max2 = 500;
+
     omp_set_num_threads(6);
 
     #pragma omp parallel sections
@@ -402,10 +352,11 @@ int main()
             simulation(N, L, T1, t_aequi, t_max, h, true, "001");
         
         #pragma omp section
-            simulation(N, L, T2, t_aequi, t_max, h, false, "100");
+            
+            simulation(N, L, T2, t_aequi2, t_max2, h2, false, "100");
 
         #pragma omp section
-            simulation(N, L, T2, t_aequi, t_max, h, true, "100");
+            simulation(N, L, T2, t_aequi2, t_max2, h2, true, "100");
     }
 
     return 0;
