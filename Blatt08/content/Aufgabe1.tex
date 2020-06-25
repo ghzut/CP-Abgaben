@@ -1,28 +1,24 @@
 \section*{Aufgabe 1}
 
-Die Simulationen wurden folgende Einstellungen verwendet, sofern nicht anders
-gekennzeichnet:
-\begin{itemize}
-    \item $N = 16$
-    \item $r_\text{c} = \frac{L}{2}$
-    \item $h = \num{0,01}$
-    \item $k_\text{B} = 1$
-    \item $m_\text{i} = 1 \quad \forall i = 1, ..., N$
-    \item Anzahl Freiheitsgrade $N_\text{f} = 2 N - 2$
-\end{itemize}
-Längen werden zudem in Einheiten von $\sigma$ und Zeiten in Einheiten von $\tau$ gemessen.
-Energien und $k_\text{B} T$ werden in Einheiten von $\varepsilon$ gemessen.
+%Die Simulationen wurden folgende Einstellungen verwendet, sofern nicht anders
+%gekennzeichnet:
+%\begin{itemize}
+%    \item $N = 16$
+%    \item $r_\text{c} = \frac{L}{2}$
+%    \item $h = \num{0,01}$
+%    \item $k_\text{B} = 1$
+%    \item $m_\text{i} = 1 \quad \forall i = 1, ..., N$
+%    \item Anzahl Freiheitsgrade $N_\text{f} = 2 N - 2$
+%\end{itemize}
+%Längen werden zudem in Einheiten von $\sigma$ und Zeiten in Einheiten von $\tau$ gemessen.
+%Energien und $k_\text{B} T$ werden in Einheiten von $\varepsilon$ gemessen.
 
 \subsection*{a) Initialisierung}
 
-Zu Beginn werden die Orte und Geschwindigkeiten der Teilchen initialisiert.
-Dabei werden die Teilchen auf einem Gitter innerhalb der Box $[0,L] \cdot [0,L]$ verteilt.
-
-Die Geschwindigkeiten werden mit Zufallszahlen im Bereich von \([0, 10]\) initialisiert. Physikalisch interessante Prozesse betreffen jedoch die Relativgeschwindigkeiten
-der Teilchen untereinander, sodass die Schwerpunktsbewegung der Teilchen auf
-Null gesetzt wird.
-Um mit einer beliebigen Temperatur $\tilde{T}$ zu starten, werden die Geschwindigkeiten der
-Teilchen anschließend skaliert. Die initiale Temperatur berechnet sich nach
+Zu Beginn werden die Orte und Geschwindigkeiten der Teilchen in einer $[0,L] \cdot [0,L]$ Box initialisiert.
+Dabei werden zufällige Startgeschwindigkeiten im Bereich \([0, 10]\) gewählt. 
+Zusätzlich wird die Schwerpunktsbewegung der Teilchen auf Null gesetzt.
+Um die Geschwindigkeiten entsprechend der Temperatur umskalieren zu können, wird folgende Rechnung betrachtet:
 \begin{align*}
     T_0 &=
     \frac{2}{k_\text{B} N_\text{f}} \sum_{i=1}^N \frac{\vec{p}_\text{i}^2}{2 m_\text{i}} \\
@@ -31,10 +27,9 @@ Teilchen anschließend skaliert. Die initiale Temperatur berechnet sich nach
         \left(a^2 \tilde{v}_\text{x}^2 + a^2 \tilde{v}_\text{y}^2\right) \\
     &= a^2 \frac{1}{N_\text{f}} \sum_{i=1}^N
         \left(\tilde{v}_\text{x}^2 + \tilde{v}_\text{y}^2\right) \\
-    &= a^2 \tilde{T}
+    &= a^2 \tilde{T}.
 \end{align*}
-mit den anfangs genannten Bedingungen.
-Daraus ergibt sich, dass die Geschwindigkeiten mit dem Faktor
+Aus ihr folgt, dass die Geschwindigkeiten mit 
 \begin{equation*}
     \frac{1}{a} = \sqrt{\!\left(\frac{\tilde{T}}{T}\right)}
 \end{equation*}
@@ -43,14 +38,9 @@ skaliert werden müssen.
 \FloatBarrier
 \subsection*{b) Äquilibrierung}
 
-Nach der Initialisierung wird die Dynamik des Systems unter Verwendung des
-Geschwindigkeits-Verlet-Algorithmus ermittelt.
-Während einer Äquilibrierungsphase nehmen die Teilchen einen "natürlichen" Zustand ein,
-der sich bei Temperaturen $\neq 0$ stark von der Gittersymmetrie unterscheidet.
-
-Die Beschleunigung der einzelnen Teilchen ergibt sich aufgrund normierter Massen von 1
-direkt aus der Kraft.
-Die Kraft auf das Teilchen i berechnet sich wiederum aus dem Lennard-Jones Potential nach
+Die Dynamik des Systems wird nun mithilfe des Geschwindigkeits-Verlet-Algorithmus ermittelt.
+Die dabei benötigte Beschleunigung der einzelnen Teilchen ergibt sich aufgrund normierter Massen von 1
+direkt aus der Kraft, welches sich wiederum aus dem Lennard-Jones Potential
 \begin{align*}
     \vec{F}_\text{i}
     &= \sum_{i \neq j} \vec{F}_\text{ij}
@@ -64,16 +54,13 @@ Die Kraft auf das Teilchen i berechnet sich wiederum aus dem Lennard-Jones Poten
     = - 24 \frac{\vec{r}}{r^2}
         \left[2 \left(\frac{1}{r}\right)^{-12} - \left(\frac{1}{r}\right)^{-6}\right]
 \end{align*}
-Der Cutoff $r_\text{c}$ ist genau so gesetzt, dass ein Teilchen i nur einmal mit j
-wechselwirkt, also entweder mit dem realen Teilchen j oder mit dem nächstgelegenen
-Bildteilchen j. Ist ein Bildteilchen j näher als $\frac{L}{2}$ am Teilchen i,
-so muss das reale Teilchen sowie alle anderen Bildteilchen weiter als $\frac{L}{2}$
-entfernt sein.
+ergibt.
+Dabei stellt der Cutoff $r_\text{c}$ sicher, dass ein Teilchen $i$ nur einmal mit einem (Bild)Teilchen $j$
+wechselwirkt.
 
-Während der Äquilibrierung wurden die Schwerpunktsgeschwindigkeit $\vec{v}_\text{S}$,
+Die während der Äquilibrierung ergeben sich die Schwerpunktsgeschwindigkeit $\vec{v}_\text{S}$,
 die Temperatur $T$, die potentielle und die kinetische Energie
-($E_\text{pot}$, $E_\text{kin}$) in Abhängigkeit von der Zeit berechnet.
-In jedem Zeitschritt ergeben sich diese nach
+($E_\text{pot}$, $E_\text{kin}$) mithilfe von
 \begin{align*}
     \vec{v}_\text{S} &= \frac{1}{N} \sum_{i=1}^N \vec{v}_\text{i} \\
     E_\text{pot} &= \sum_{i=1}^N \sum_{j=i+1}^N
@@ -81,14 +68,12 @@ In jedem Zeitschritt ergeben sich diese nach
     E_\text{kin} &= \sum_{i=1}^N \frac{1}{2} \vec{v}_\text{i} \\
     T &= \frac{2}{N_\text{f}} E_\text{kin}
 \end{align*}
-mit den anfangs genannten Bedingungen.
+berechnet.
 
-In der Abbildung \ref{fig:e1} ist der Energieverlauf während der
-Äquilibrierung dargestellt.
-Hierbei zeigt sich die Eigenschaft der Gesamtenergieerhaltung des Verlet-Algorithmus.
-Kinetische und Potentielle Energie fluktuieren hauptsächlich um ihren Mittelwert,
-sodass eine Äquilibrierungsphase nur schwer aus zu machen ist. In den ersten
-Zeitschritten sinkt die potentielle Energie, während die kinetische Energie etwas zunimmt.
+Diese genannten größen werden in Abbildung \ref{fig:T1}, \ref{fig:v1} und \ref{fig:e1}
+dargestellt. Da sich die Temperatur aus der kinetischen Energie berechnet, zeigen sie
+denselben Verlauf.
+
 \begin{figure}
     \centering
     \includegraphics[width=0.45\textwidth]{A1/build/aequi1_E.pdf}
@@ -97,9 +82,6 @@ Zeitschritten sinkt die potentielle Energie, während die kinetische Energie etw
     \label{fig:e1}
 \end{figure}
 
-Die Temperatur während der Äquilibrierung ist in Abbildung \ref{fig:T1}
-dargestellt. Da sich die Temperatur aus der kinetischen Energie berechnet, zeigt sie
-den selben Verlauf.
 \begin{figure}
     \centering
     \includegraphics[width=0.45\textwidth]{A1/build/aequi1_T.pdf}
@@ -108,9 +90,6 @@ den selben Verlauf.
     \label{fig:T1}
 \end{figure}
 
-Schließlich ist in den Abbildung \ref{fig:v1} die Schwerpunktsgeschwindigkeit während der Äquilibrierung
-dargestellt. Da bei der Initialisierung diese auf Null gesetzt wurde, verändert sie sich
-auch nicht im Laufe der Zeit und fluktuiert lediglich im numerischen Limit von
 \num{1e-15}.
 \begin{figure}
     \centering
