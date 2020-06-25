@@ -382,19 +382,31 @@ int main()
     double t_max = 5000;
 
     double T0 = 1;
+    double T1 = 0.01;
+    double T2 = 100;
 
-    simulation(N, L, T0, t_aequi, t_max, h, false, "1");
-    simulation(N, L, T0, t_aequi, t_max, h, true, "1");
+    omp_set_num_threads(6);
 
-    T0 = 0.01;
+    #pragma omp parallel sections
+    {
+        #pragma omp section
+            simulation(N, L, T0, t_aequi, t_max, h, false, "1");
 
-    simulation(N, L, T0, t_aequi, t_max, h, false, "001");
-    simulation(N, L, T0, t_aequi, t_max, h, true, "001");
+        #pragma omp section
+            simulation(N, L, T0, t_aequi, t_max, h, true, "1");
 
-    T0 = 100;
+        #pragma omp section
+            simulation(N, L, T1, t_aequi, t_max, h, false, "0.01");
 
-    simulation(N, L, T0, t_aequi, t_max, h, false, "100");
-    simulation(N, L, T0, t_aequi, t_max, h, true, "100");
+        #pragma omp section
+            simulation(N, L, T1, t_aequi, t_max, h, true, "0.01");
+        
+        #pragma omp section
+            simulation(N, L, T2, t_aequi, t_max, h, false, "100");
+
+        #pragma omp section
+            simulation(N, L, T2, t_aequi, t_max, h, true, "100");
+    }
 
     return 0;
 }
