@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.27)  26 JUN 2020 00:51
+This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.27)  26 JUN 2020 08:21
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.093 seconds
+luaotfload | main : initialization completed in 0.246 seconds
 (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2019/02/01 v3.26b KOMA-Script document class (article)
 (/home/julia/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrkbase.sty
@@ -916,30 +916,30 @@ Package luatex.def Info: A1/build/aequi1_VV.pdf  used on input line 96.
  [2<./A1/build/aequi1_E.pdf><./A1/build/aequi1_EE.pdf>] [3<./A1/build/aequi1_T.p
 df><./A1/build/aequi1_TT.pdf><./A1/build/aequi1_V.pdf><./A1/build/aequi1_VV.pdf>
 ]
-<A1/build/messung1_T.pdf, id=193, 462.52798pt x 346.89601pt>
+<A1/build/messung1_T.pdf, id=196, 462.52798pt x 346.89601pt>
 File: A1/build/messung1_T.pdf Graphic file (type pdf)
 <use A1/build/messung1_T.pdf>
 Package luatex.def Info: A1/build/messung1_T.pdf  used on input line 118.
 (luatex.def)             Requested size: 334.60571pt x 250.96649pt.
-<A1/build/messung001_T.pdf, id=194, 462.52798pt x 346.89601pt>
+<A1/build/messung001_T.pdf, id=197, 462.52798pt x 346.89601pt>
 File: A1/build/messung001_T.pdf Graphic file (type pdf)
 <use A1/build/messung001_T.pdf>
 Package luatex.def Info: A1/build/messung001_T.pdf  used on input line 125.
 (luatex.def)             Requested size: 334.60571pt x 250.96649pt.
-<A1/build/messung100_T.pdf, id=195, 462.52798pt x 346.89601pt>
+<A1/build/messung100_T.pdf, id=198, 462.52798pt x 346.89601pt>
 File: A1/build/messung100_T.pdf Graphic file (type pdf)
 <use A1/build/messung100_T.pdf>
 Package luatex.def Info: A1/build/messung100_T.pdf  used on input line 131.
 (luatex.def)             Requested size: 334.60571pt x 250.96649pt.
  [4<./A1/build/messung1_T.pdf>] [5<./A1/build/messung001_T.pdf><./A1/build/messu
 ng100_T.pdf>]
-<A1/build/aequi_isokinetisch001_E.pdf, id=270, 462.52798pt x 346.89601pt>
+<A1/build/aequi_isokinetisch001_E.pdf, id=273, 462.52798pt x 346.89601pt>
 File: A1/build/aequi_isokinetisch001_E.pdf Graphic file (type pdf)
 <use A1/build/aequi_isokinetisch001_E.pdf>
 Package luatex.def Info: A1/build/aequi_isokinetisch001_E.pdf  used on input lin
 e 148.
 (luatex.def)             Requested size: 188.21371pt x 141.15906pt.
-<A1/build/aequi_isokinetisch001_EE.pdf, id=271, 462.52798pt x 346.89601pt>
+<A1/build/aequi_isokinetisch001_EE.pdf, id=274, 462.52798pt x 346.89601pt>
 File: A1/build/aequi_isokinetisch001_EE.pdf Graphic file (type pdf)
 <use A1/build/aequi_isokinetisch001_EE.pdf>
 Package luatex.def Info: A1/build/aequi_isokinetisch001_EE.pdf  used on input li
@@ -975,9 +975,9 @@ me/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
 0.pfb></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmsy8.pfb></home/julia/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
 ts/symbols/msbm10.pfb>
-Output written on main.pdf (6 pages, 891055 bytes).
+Output written on main.pdf (6 pages, 891667 bytes).
 
-PDF statistics: 400 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 403 PDF objects out of 1000 (max. 8388607)
  209 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)

@@ -88,7 +88,7 @@ VectorXd naechsterNachbar(VectorXd r1, VectorXd r2, double L)
 }
 
 
-void update_kraft(MatrixXd &r, MatrixXd &F, int N, double L)
+void beschleunigung(MatrixXd &r, MatrixXd &F, int N, double L)
 {
     double rc = L/2;
     F.setZero();
@@ -144,13 +144,14 @@ void init(int N, double L, MatrixXd &r, MatrixXd &v, double Tinit)
         }
     }
 
-    // Nun Schwerpunktsbewegung auf Null setzen
+    // Schwerpunktsbewegung auf Null setzen
     Vector2d vmean = 1./N * v.rowwise().sum();
     for (int n=0; n<N; n++)
     {
         v.col(n) = (v.col(n) - vmean);
     }
 
+    // Skalierung auf T0
     double Nf = 2*N-2;
     double skal = Tinit*Nf/v.colwise().squaredNorm().sum();
     for (int n=0; n<N; n++)
@@ -186,7 +187,6 @@ auto aequilibrierung(int N, double L, double T0, double t_aequi, double h, bool 
 {
     ofstream file;
 
-    setprecision(2);
     if (thermo)
     {
         file.open("build/aequi_isokinetisch"+filename+".txt", ios::trunc);
@@ -212,7 +212,7 @@ auto aequilibrierung(int N, double L, double T0, double t_aequi, double h, bool 
     MatrixXd F_alt, F;
 
     F = MatrixXd::Zero(2,N);
-    update_kraft(r, F, N, L);
+    beschleunigung(r, F, N, L);
 
     while (t < t_aequi)
     {
@@ -230,13 +230,14 @@ auto aequilibrierung(int N, double L, double T0, double t_aequi, double h, bool 
         }
 
         periodische_RB(r, N, L);
-        update_kraft(r, F, N, L);
+        beschleunigung(r, F, N, L);
 
         for (int i=0; i<N; i++)
         {
             v.col(i) = v.col(i)+0.5*h*(F.col(i)+F_alt.col(i));
         }
 
+        // Isokinetisches Thermostat
         if (thermo)
         {
             double skal = T0*Nf/v.colwise().squaredNorm().sum();
@@ -281,13 +282,12 @@ void simulation(int N, double L, double T0, double t_aequi, double t_max, double
 
     file.precision(10);
     file << "#t  T \n";
-    
+
     while (t < t_max+t_aequi)
     {
         file << t-t_aequi;
         double T = v.colwise().squaredNorm().sum()/Nf;
         file << " " << T << "\n";
-        // TODO: Paarkorrelationsfunktion
 
         F_alt = F;
         for (int i=0; i<N; i++)
@@ -295,7 +295,7 @@ void simulation(int N, double L, double T0, double t_aequi, double t_max, double
             r.col(i) = r.col(i)+v.col(i)*h+0.5*h*h*F.col(i);
         }
         periodische_RB(r, N, L);
-        update_kraft(r, F, N, L);
+        beschleunigung(r, F, N, L);
         for (int i=0; i<N; i++)
         {
             v.col(i) = v.col(i)+0.5*h*(F.col(i)+F_alt.col(i));
@@ -350,9 +350,9 @@ int main()
 
         #pragma omp section
             simulation(N, L, T1, t_aequi, t_max, h, true, "001");
-        
+
         #pragma omp section
-            
+
             simulation(N, L, T2, t_aequi2, t_max2, h2, false, "100");
 
         #pragma omp section

@@ -38,6 +38,9 @@ plt.plot(t[:50], ekin[:50], label=r"$E_\mathrm{kin}$")
 plt.plot(t[:50], epot[:50], label=r"$E_\mathrm{pot}$")
 plt.plot(t[:50], E[:50], label=r"$E$")
 
+plt.xlabel("t")
+plt.ylabel("E")
+
 plt.legend()
 
 plt.savefig("A1/build/aequi1_EE.pdf")
@@ -58,6 +61,9 @@ plt.clf()
 
 plt.plot(t[:50], vx[:50], label=r"$v_x$")
 plt.plot(t[:50], vy[:50], label=r"$v_y$")
+
+plt.xlabel("t")
+plt.ylabel("v")
 
 plt.legend()
 
