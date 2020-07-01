@@ -1,11 +1,11 @@
-all: A2 A1
+all: A1
 
 
 A1: A1/A1.cpp A1/build A1/A1.py
 	g++ -O3 -ffast-math -march=native -I /usr/include/eigen3 -Wall $< -o A1/$@
 	cd A1; ./$@ > log.txt
 	python A1/A1.py
-	
+
 
 
 A2: A2/A2.cpp A2/build
