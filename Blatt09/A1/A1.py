@@ -7,9 +7,9 @@ def f(x):
     return np.tanh(x)
 
 x = np.linspace(-5,5, 10000)
-plt.plot(x, f(x), "r-", label=r"$\tanh{(\beta H)}$")
 
 plt.plot(h, m, "b-", label=r"Monte-Carlo")
+plt.plot(x, f(x), "r--", label=r"$\tanh{(\beta H)}$")
 
 plt.xlabel(r"$H$")
 plt.ylabel(r"$m$")
