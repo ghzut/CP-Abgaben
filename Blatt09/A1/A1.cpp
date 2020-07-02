@@ -10,15 +10,12 @@ using namespace Eigen;
 
 double monte_carlo(int spin0, int schritte, double H)
 {
-  // random_device rd;
-  mt19937 generator(2);
-
-
+  mt19937 generator(2); //Zufallszahlen-Generator mit konstantem Seed
   uniform_real_distribution<double> distribution(0, 1);
 
-  bool akzeptanz = false;
+  bool akzeptanz = false; //Variable, die speichert, ob der Vorschlag akzeptiert wird oder nicht
   int spin;
-  double E=0., m=0.;
+  double E=0., m=0.; // E: Engergiedifferenz, m: Magnetisierung
 
 
   for (int i = 0; i < schritte; i++)
