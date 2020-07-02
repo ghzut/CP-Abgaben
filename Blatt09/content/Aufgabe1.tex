@@ -1,51 +1,36 @@
 \section*{Aufgabe 1}
 
-Das Runge-Kutta-Verfahren 4. Ordnung wird für die Newtonschen Bewegungsgleichungen eines beliebigen Kraftfeldes untersucht
-\begin{align*}
-\dot{\vec{x}} &= \vec{v}\\
-\dot{\vec{v}} &= \frac{\vec{F}(\vec{r})}{m}
-\end{align*}
-\subsection*{a)+b)}
-Es wird für einen harmonischen Oszillator $\vec{F}= -\vec{r}m\omega^2$ mit Frequenz $\omega=1$ der Ort der Masse nach den ersten 10 Schwingungen und die Abweichung vom Startwert $|\vec{r}_i-\vec{r}_0|$ bei verschiedenen Schrittweiten bestimmt.
-Die Abbildungen \ref{fig:1} und \ref{fig:2} zeigen die Toleranz in Abhängigkeit von der Schwingung bei den Anfangsbedingungen
-\begin{equation}
-\vec{r}_0 = \begin{pmatrix}
-42\\
-42\\
-42
-\end{pmatrix}, \vec{v}_0 = \vec{0}\label{eq:1}
-\end{equation}
-und
-\begin{equation}
-\vec{r}_0 = \begin{pmatrix}
-42\\
-42\\
-42
-\end{pmatrix}, \vec{v}_0 = \begin{pmatrix}
-0\\
-1\\
-0
-\end{pmatrix}\label{eq:2}
-\end{equation}
-Es zeigt sich, dass mit zunehmender Zeit die Bestimmung des Ortes schlechter wird. Um eine Toleranz von $10^{-5}$ erreichen, wird für die 1. Anfangsbedingung eine Schrittweite $h \leq 10^{-3}$ benötigt, während bei der 2. $h \leq 10^{-6}$ erforderlich ist.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.75\textwidth]{A1/build/ab_plot.pdf}
-\caption{Toleranz bei Anfangsbedingung \eqref{eq:1}.}
-\label{fig:1}
-\includegraphics[width=0.75\textwidth]{A1/build/ab_plot2.pdf}
-\caption{Toleranz bei Anfangsbedingung \eqref{eq:2}.}
-\label{fig:2}
+Es soll mithilfe des Metropolis-Algorithmus ein einzelner Spin \(\sigma = \pm 1\) mit der Energie \(E = -\sigma H\) im äußeren Magnetfeld \(H\) simuliert werden.
+Die Vorschlagswarscheinlichkeit für einen Spin-Flip \(\sigma \rightarrow -\sigma\) ist dabei \(V_{\uparrow \downarrow} = V_{\downarrow \uparrow} = 1\). Die Akzeptanzwahrscheinlichkeit ergibt sich aus
+\begin{equation*}
+  A_{\uparrow \downarrow} = \min{\left(1, \frac{P_\downarrow}{P_\uparrow} \right)}.
+\end{equation*}
+Mit \(k_\text{B}T = 1\) wird numerisch die Magnetisierung
+\begin{equation*}
+  \langle m \rangle = \frac{1}{N} \sum_{k=0}^N m_{i_\text{N}}
+\end{equation*}
+bestimmt, wobei \(N\) die Anzahl der Schritte des Metropolis-Algorithmus ist.
+Dies wird für \(\num{1e4}\) Werte von \(H \in [-5,5]\) mit jeweils \(\num{1e5}\) Schritten durchgeführt und anschließend mit dem analytischen Ergebnis
+\begin{equation*}
+  m_\text{analytisch} = \tanh{\!(H)}
+\end{equation*}
+verglichen.
+In Abbildung \ref{fig:vergleich} sind die numerischen und analytischen Werte für die Magnetisierung aufgetragen. Dabei ist zu sehen, dass die beiden Verläufe genau aufeinander liegen.
+\begin{figure}
+  \includegraphics[width=0.8\textwidth]{A1/build/vergleich.pdf}
+  \caption{Vergleich der analytischen und numerischen Magnetisierung.}
+  \label{fig:vergleich}
 \end{figure}
-
-\FloatBarrier
-
-\subsection*{c)}
-In Abbildung \ref{fig:3} ist die Abweichung von der Energie des Anfangszustandes nach $i$ Iterationen bei AB\eqref{eq:1} für $h=10^{-3}$ und $h=10^{-4}$ aufgetragen.
-Anhand von Abbildung \ref{fig:1} ist ersichtlich, dass die Abweichung bei $h=10^{-4}$ um drei Größenordnungen kleiner und liegt unterhalb von $10^{-10}$. Dies führt dazu, dass auch die Energie genauer bestimmt werden kann. In Abb.\ref{fig:3} äußert sich das darin, dass für diese Schrittweite die Energieerhaltung gilt, während eine größere Schrittweite dies nicht gewährleistet.
-\begin{figure}[h]
-\includegraphics[width=0.8\textwidth]{A1/build/E.pdf}
-\caption{Abweichungen von der Gesamtenergie mit AB\eqref{eq:1}.}
-\label{fig:3}
+Da mit dem bloßen Auge keine Abweichungen zu erkennen sind, ist in Abbildung \ref{fig:differenz} die relative Differenz
+\begin{equation*}
+  \frac{m_\text{analytisch} - m_\text{MC}}{m_\text{MC}}
+\end{equation*}
+aufgetragen.
+\begin{figure}
+  \includegraphics[width=0.8\textwidth]{A1/build/rel_differenz.pdf}
+  \caption{Relative Differenz von \(m_\text{analytisch}\) und \(m_\text{MC}\) bei einem Seed von \(2\).}
+  \label{fig:differenz}
 \end{figure}
+Hier ist zu sehen, dass tatsächlich Abweichungen vorliegen. Diese betragen aber im Wesentlichen weniger als \(\SI{2}{\%}\) und sind damit vernachlässigbar klein.
+Nur bei \(H=0\) ergibt sich eine größere Abweichung, da es statistisch sehr unwahrscheinlich ist, dass sich die Spins exakt wegheben.
+Der Verlauf der Abweichungen variiert natürlich je nachdem welcher Seed gewählt wird, die absoluten Größenordnungen bleiben aber ungefähr gleich.
