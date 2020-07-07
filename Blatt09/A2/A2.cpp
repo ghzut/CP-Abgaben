@@ -1,150 +1,333 @@
-#include <iostream>
-#include <fstream>
-#include <iomanip>
-#include <Eigen/Dense>
-#include <math.h>
-
+#include<iostream>
+#include<random>
+#include<time.h>
+#include<fstream>
 using namespace std;
-using namespace Eigen;
 
-double pot(const VectorXd& r){
-  double Pot = 0.5*r.dot(r);
-  return Pot;
+int spin[100][100];		//Spin-Array
+
+double summe() {
+	double summe = 0;
+	for (int i = 0; i < 100; i++) {
+		for (int j = 0; j < 100; j++) {
+			summe += spin[i][j];
+		}
+	}
+	return summe;
 }
 
-VectorXd dgl(const VectorXd& x, const VectorXd& x_punkt,const double& alpha){
-  VectorXd DGL = -x-alpha*x_punkt;
-  return DGL;
+void print(string s) {
+	ofstream stream;
+	stream.open(s + ".txt");
+	for (int i = 0; i < 100; i++) {		//Array speichern
+		for (int j = 0; j < 100; j++) {
+			stream << spin[i][j] << "\t";
+		}
+		stream << endl;
+	}
+	stream.close();
+
 }
 
-VectorXd next_step(const VectorXd& y, const double& alpha){
-  unsigned int d = y.size()/2;
-  VectorXd temp(2*d);
+void iniFest() {
+	for (int i = 0; i < 100; i++) {
+		for (int j = 0; j < 100; j++) {
+			spin[i][j] = -1;
+		}
+	}
 
-  temp.segment(0,d) = y.segment(d,d);
-  temp.segment(d,d) = dgl(y.segment(0,d), y.segment(d,d),alpha);
-  return temp; 
 }
 
-MatrixXd runge_kutta(VectorXd (*f)(const VectorXd& , const double&), double T, int N, double alpha, const VectorXd& r, const VectorXd& v){
-  double h = T/N;
-  unsigned int d = r.size();
-  VectorXd tn(N+1), k1, k2, k3, k4, y(2*d), y_next(2*d);
-  MatrixXd ergebnis(2*d, N+1);
+void iniZufall(mt19937 rng, uniform_real_distribution<> dist) {
+	for (int i = 0; i < 100; i++) {		//Array initialisieren mit -1=down
+		for (int j = 0; j < 100; j++) {
+			double zufallsSpin = dist(rng);
 
-  // Die Startwerte in die Matrix schreiben
-  ergebnis.col(0).segment(0,d) = r;
-  ergebnis.col(0).segment(d,d) = v;
+			if (zufallsSpin < 0.5) {
+				spin[i][j] = -1;
+			} else {
+				spin[i][j] = 1;
+			}
+		}
+	}
 
-  for (int i = 0; i<=N; i++){
-    tn(i) = i*h;
-  }
-
-  y.segment(0,d) = r;
-  y.segment(d,d) = v;
-  for (int i = 1; i < N+1; i++){
-    k1 = h*f(y, alpha);
-    k2 = h*f(y+0.5*k1, alpha);
-    k3 = h*f(y+0.5*k2, alpha);
-    k4 = h*f(y+k3, alpha);
-    y_next = y + 1./6.*(k1 + 2*k2 + 2*k3 + k4);
-    y = y_next;
-    ergebnis.col(i) = y;
-  }
-  return ergebnis;
 }
 
+double energie() {
+	double e = 0;
+	int spinOben = 0, spinUnten = 0, spinRechts = 0, spinLinks = 0, spinMitte =
+			0;
+	for (int i = 0; i < 100; i++) {			//äußere Summe über I
+		for (int j = 0; j < 100; j++) {
 
-void adams_bashfort(VectorXd (*f)(const VectorXd&, const double&), double T, int N, double alpha, VectorXd& x, VectorXd& x_punkt, ofstream &file, VectorXd &energie){
-  double h = T/N;
-  unsigned int d = x.size();
-  VectorXd y(2*d), tn(N+1);
-  MatrixXd ergebnis(2*d, N+1), runge(2*d, 4);
+			spinOben = spin[i - 1][j];		//nächste Nachbarn
+			spinUnten = spin[i + 1][j];
+			spinLinks = spin[i][j - 1];
+			spinRechts = spin[i][j + 1];
 
-  y.segment(0,d) = x;
-  y.segment(d,d) = x_punkt;
-  runge = runge_kutta(next_step, T*3.0/N, 3, alpha, x, x_punkt);
+			switch (i) {
+			case 0:
+				spinOben = spin[99][j];
+				break;
+			case 99:
+				spinUnten = spin[0][j];
+				break;
+			}
+			switch (j) {
+			case 0:
+				spinLinks = spin[i][99];
+				break;
+			case 99:
+				spinRechts = spin[i][0];
+				break;
+			}
 
-  ergebnis.col(0) = runge.col(3) + h/24.0*(55*f(runge.col(3), alpha) - 59*f(runge.col(2), alpha) +37*f(runge.col(1), alpha) -9*f(runge.col(0), alpha));
-
-  ergebnis.col(1) = ergebnis.col(0) + h/24.0*(55*f(ergebnis.col(0), alpha) - 59*f(runge.col(3), alpha) +37*f(runge.col(2), alpha) -9*f(runge.col(1), alpha));
-
-  ergebnis.col(2) = ergebnis.col(1) + h/24.0*(55*f(ergebnis.col(1), alpha) - 59*f(ergebnis.col(0), alpha) +37*f(runge.col(3), alpha) -9*f(runge.col(2), alpha));
-
-  ergebnis.col(3) = ergebnis.col(2) + h/24.0*(55*f(ergebnis.col(2), alpha) - 59*f(ergebnis.col(1), alpha) +37*f(ergebnis.col(0), alpha) -9*f(runge.col(3), alpha));
-
-  // Energie fÃ¼r die ersten vier Schritte bestimmen
-  energie(0) = 0.5*ergebnis.col(0).segment(d,d).squaredNorm() + pot(ergebnis.col(0).segment(0,d));
-  energie(1) = 0.5*ergebnis.col(1).segment(d,d).squaredNorm() + pot(ergebnis.col(1).segment(0,d));
-  energie(2) = 0.5*ergebnis.col(2).segment(d,d).squaredNorm() + pot(ergebnis.col(2).segment(0,d));
-  energie(3) = 0.5*ergebnis.col(3).segment(d,d).squaredNorm() + pot(ergebnis.col(3).segment(0,d));
-
-  for(int i = 4; i < N+1; i++){
-    y = ergebnis.col(i-1) + h/24.0*(55*f(ergebnis.col(i-1), alpha) - 59*f(ergebnis.col(i-2), alpha) + 37*f(ergebnis.col(i-3), alpha) - 9*f(ergebnis.col(i-4), alpha));
-    ergebnis.col(i) = y;
-    energie(i) = 0.5*y.segment(d,d).squaredNorm()+ pot(y.segment(0,d));
-  }
-
-  for (int i = 0; i<=N; i++){
-    tn(i) = i*h;
-    file << tn(i) << " ";
-  }
-  file << endl;
-
-  for(int i = 0; i<ergebnis.rows()/2; i++){
-    for(int j = 0; j<ergebnis.cols(); j++){
-      file << ergebnis(i, j) << " ";
-    }
-    file << endl;
-  }
+			spinMitte = spin[i][j];
+			e += spinMitte * spinOben + spinMitte * spinUnten
+					+ spinMitte * spinLinks + spinMitte * spinRechts; //Summe über nächste Nachbarn
+		}
+	}
+	return -e;
 }
 
+double deltaEnergie(int i, int j, int spin_old) {
+	double deltaE = 0;
+	int spinOben = spin[i - 1][j], spinUnten = spin[i + 1][j], spinRechts =
+			spin[i][j + 1], spinLinks = spin[i][j - 1], spinMitte = spin[i][j];
+	switch (i) {
+	case 0:
+		spinOben = spin[99][j];
+		break;
+	case 99:
+		spinUnten = spin[0][j];
+		break;
+	}
+	switch (j) {
+	case 0:
+		spinLinks = spin[i][99];
+		break;
+	case 99:
+		spinRechts = spin[i][0];
+		break;
+	}
+
+	deltaE = (spin_old - spinMitte)
+			* (spinOben + spinUnten + spinLinks + spinRechts);
+
+	return deltaE;
+}
+
+void warmUp(mt19937 rng, uniform_real_distribution<> dist, double beta) {
+	for (int n = 0; n < pow(10,4); n++) {
+		int zX = dist(rng) * 100;
+		int zY = dist(rng) * 100;
+
+		//zufälligen Spin flippen
+
+		int spin_old = spin[zX][zY];
+		spin[zX][zY] *= -1;   //Spin Flip
+
+		double deltaE = deltaEnergie(zX, zY, spin_old);
+
+		if (deltaE < 0 || dist(rng) < exp(-beta * deltaE)) {
+
+		} else {
+			spin[zX][zY] = spin_old;
+		}
+
+	}
+}
 
 int main() {
-  unsigned int d = 3;
-  double alpha = 0., T = 20.;
-  int N = 300;
-  VectorXd x(d), x_punkt(d), y(2*d), energie(N+1);
-  ofstream file;
+	mt19937 rng;				//Zufallszahlengenerator
+	rng.seed(time(NULL));
+	uniform_real_distribution<> dist(0, 1);
+	iniZufall(rng, dist);
+	print("ini");
 
-  //Startvektoren
-  x << 1, 1, 1;
-  x_punkt << 1, 2, 1;
-  y.segment(0,d) = x;
-  y.segment(d,d) = x_punkt;
+	int zX = 0, zY = 0; 		//Zufallszahlenspeicher für x,y
 
-  // Aufgabenteil a)
+	int spin_old = 0;
 
-  //Harmonischer Oszilator
-  file.open("build/aufg2_a1.txt", ios::trunc);
-  adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
-  file.close();
+	double deltaE = 0;
+	double beta = 1;
 
-  //Aperiodischer Grenzfall
-  alpha = 2;
-  file.open("build/aufg2_a2.txt", ios::trunc);
-  adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
-  file.close();
+	//Aufgabentteil a)
 
-  //Kriechfall
-  alpha = 4;
-  file.open("build/aufg2_a3.txt", ios::trunc);
-  adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
-  file.close();
+	for (int b = 1; b <= 3; b += 2) {
+		beta = 1 / b;
 
-  // GedÃ¤mpfte Schwingung
-  alpha = 0.1;
-  file.open("build/aufg2_a4.txt", ios::trunc);
-  adams_bashfort(next_step, T, N, alpha, x, x_punkt, file, energie);
-  file.close();
+		//Sweeps
+		for (int s = 0; s < 100000; s++) {
+			for (int n = 0; n < pow(10, 4); n++) {
+				zX = dist(rng) * 100;
+				zY = dist(rng) * 100;
 
-  // Aufgabenteil b)
-  file.open("build/aufg2_b.txt", ios::trunc);
-  file << "Zeit Energie" << endl;
-  for(int i=0; i<=N; i++)
-  {
-      file << setprecision(10) << i*T/N << " " << energie(i) << endl;
-  }
-  file.close();
-  return 0;
+				//zufälligen Spin flippen
+
+				spin_old = spin[zX][zY];
+				spin[zX][zY] *= -1;   //Spin Flip
+
+				deltaE = deltaEnergie(zX, zY, spin_old);
+
+				if (deltaE < 0 || dist(rng) < exp(-beta * deltaE)) {
+
+				} else {
+					spin[zX][zY] = spin_old;
+				}
+
+			}
+
+		}
+		if (b == 1) {
+			print("1kbt");
+			cout << "1kbt" << endl;
+		} else {
+			print("3kbt");
+			cout << "3kbt" << endl;
+		}
+
+		iniZufall(rng, dist);
+	}
+	cout << "a) fertig" << endl;
+
+	//Aufgabenteil b)
+	ofstream stream;
+	for (int s = 0; s < 2; s++) {
+		for (int b = 1; b <= 3; b++) {
+			if (s == 0) {
+				iniZufall(rng, dist);
+			} else {
+				iniFest();
+			}
+
+			beta = 1 / b;
+			double E = energie();
+			double eSum=0;
+
+
+			if (s == 0) {
+				switch (b) {
+				case 1:
+					stream.open("1kbt-b-zufall.txt");
+					break;
+				case 2:
+					stream.open("2kbt-b-zufall.txt");
+					break;
+				case 3:
+					stream.open("3kbt-b-zufall.txt");
+				}
+			} else {
+				switch (b) {
+				case 1:
+					stream.open("1kbt-b-fest.txt");
+					break;
+				case 2:
+					stream.open("2kbt-b-fest.txt");
+					break;
+				case 3:
+					stream.open("3kbt-b-fest.txt");
+				}
+			}
+
+			for (int n = 0; n < 4*pow(10, 5); n++) {
+				zX = dist(rng) * 100;
+				zY = dist(rng) * 100;
+
+				//zufälligen Spin flippen
+
+				spin_old = spin[zX][zY];
+				spin[zX][zY] *= -1;   //Spin Flip
+
+				deltaE = deltaEnergie(zX, zY, spin_old);
+
+				if (deltaE < 0 || dist(rng) < exp(-beta * deltaE)) {
+					E += deltaE;
+				} else {
+					spin[zX][zY] = spin_old;
+				}
+				eSum+=E;
+				stream << eSum / (10000 * (n + 1)) << "\t" << n + 1 << endl;
+
+			}
+			stream.close();
+
+		}
+	}
+	cout << "b) fertig" << endl;
+
+	//Aufgabenteil c)
+	double temperatur[] = { 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.21, 2.22, 2.23,
+			2.24, 2.25, 2.26, 2.27, 2.28, 2.29, 2.3, 2.31, 2.32, 2.33, 2.34,
+			2.35, 2.35, 2.36, 2.36, 2.37, 2.38, 2.39, 2.4, 2.6, 2.8, 3 };
+	ofstream streamMT, streamcT;
+	streamMT.open("m(T).txt");
+	streamcT.open("c(T).txt");
+	for (unsigned int b = 0; b < 32; b++) {
+		iniZufall(rng, dist);
+		//Aufwärmphase
+		double beta = 1 / temperatur[b];
+		warmUp(rng, dist, beta);
+		double E = 0;
+		double eSum=0;
+		double sum=0;
+		ofstream streamMt, streamE;
+		if (temperatur[b] == 1) {
+			streamMt.open("m(t)-1kbt.txt");
+			streamE.open("e(t)-1kbt.txt");
+			E = energie();
+		} else if (temperatur[b] == 2) {
+			streamMt.open("m(t)-2kbt.txt");
+			streamE.open("e(t)-2kbt.txt");
+			E = energie();
+		} else if (temperatur[b] == 3) {
+			streamMt.open("m(t)-3kbt.txt");
+			streamE.open("e(t)-3kbt.txt");
+			E = energie();
+		}
+		//Sweeps
+		for (int s = 0; s < 100000; s++) {
+			for (int n = 0; n < pow(10, 4); n++) {
+				zX = dist(rng) * 100;
+				zY = dist(rng) * 100;
+
+				//zufälligen Spin flippen
+
+				spin_old = spin[zX][zY];
+				spin[zX][zY] *= -1;   //Spin Flip
+
+				deltaE = deltaEnergie(zX, zY, spin_old);
+
+				if (deltaE < 0 || dist(rng) < exp(-beta * deltaE)) {
+					E += deltaE;
+				} else {
+					spin[zX][zY] = spin_old;
+				}
+
+			}
+			eSum+=E;
+			sum+=summe();
+			if (temperatur[b] == 1 || temperatur[b] == 2
+					|| temperatur[b] == 3) { //Magnetisierung/zeit und Energie/Zeit
+
+				streamMt << sum / (10000 * (s + 1)) << "\t"
+						<< abs(sum / (10000 * (s + 1))) << "\t" << s + 1
+						<< endl;
+
+				streamE << eSum / (10000 * (s + 1)) << "\t" << s + 1 << endl;
+			}
+		}
+		streamMt.close();
+		streamE.close();
+		streamMT << sum / (10000 * 100000) << "\t"
+				<< abs(sum / (10000 * 100000)) << "\t" << temperatur[b]
+				<< endl;
+		streamcT << pow(eSum, 2) / (100000) << "\t" << eSum / (100000) << "\t"
+				<< temperatur[b] << endl;		//Aufgabenteil d)
+		cout << temperatur[b] << endl;
+	}
+	streamMT.close();
+	streamcT.close();
+
 }
+
