@@ -1,76 +1,82 @@
 \section*{Aufgabe 2}
+
+%Die Energie ist gegeben durch 
+%\begin{equation}
+%  \mathcal{H} = - J \sum_{i, j n.N.} s_i s_j
+%\end{equation}
+%\begin{center}
+%  \tiny{\left( $s \hat{=} \text{Spin}$, $\text{n.N.} \hat{=} \text{nächster Nachbar}$ \right)}
+%\end{center}
+%Die Energieänderung für einen Spinflip ergibt sich damit zu
+%\begin{align}
+%  \mathcal{H}_2-\mathcal{H}_1 &= - J \sum_{i, j n.N.} s^{(2)}_i s^{(2)}_j + J \sum_{i, j n.N.} s^{(1)}_i s^{(1)}_j \\
+%                              &= - J \sum_{i, j n.N.} \left( s^{(2)}_i - s^{(1)}_i \right) s_j
+%\end{align}
 \subsection*{a)}
-Die Differentialgleichung (DGL) 
-\begin{equation}
-    \ddot{x} + \alpha \dot{x} + x = 0
-\end{equation}
-beschreibt einen harmonischen Oszillator mit Dämpfung $\alpha$.
-Gelöst wird die DGL über den Ansatz 
-\begin{equation}
-    x(t) = e^{\lambda t}
-\end{equation}
-und führt zur Lösung 
-\begin{equation}
-    x(t) = c_1 e^{\lambda_1 t} + c_2 e^{\lambda_2 t}
-\end{equation}
-mit 
-\begin{equation}
-    \lambda_{1,2} = - \frac{\alpha}{2} \pm \sqrt{ \frac{\alpha^2}{4} -1 }.
-\end{equation}
-Es ergeben sich folgende Fälle:
-\begin{enumerate}
-    \item $\alpha = 0$ : Harmonischer Oszialltor (Abbildung \ref{fig:harmonisch}).
-    \item $\frac{\alpha^2}{4} > \omega^2 = 1$: Kriechfall (Abbildung \ref{fig:Kriech}).
-    \item $\frac{\alpha^2}{4} = \omega^2 = 1$: Aperiodischer Grenzfall (Abbildung \ref{fig:Aperiodisch}).
-    \item $\frac{\alpha^2}{4} < \omega^2 = 1$: Gedämpfte Schwingung (Abbildung \ref{fig:gedämpft}).
-\end{enumerate}
-Zur Darstellung des Oszillationsverhaltens wurden dabei 3D-Scatter-Plots gewählt.
+Die Momentaufnahmen für $k_B T = 1$ und $k_B T = 3$ befinden sich in Abbildung \ref{fig:fixOne}, \ref{fig:randomOne}, \ref{fig:fixThree} und \ref{fig:randomThree}. \\
+
+In Abbildung \ref{fig:fixOne} fällt auf, dass sich Anfangs- und Endzustand kaum voneinader unterscheiden und nur einige wenige Spins geflipt sind. Dagegen ist in Abbildung \ref{fig:randomOne} zu beobachten, dass sich die zufällig verteilten Spins größenteils orden. \\
+
+Das Gegenteil ist dagegen in Abbildung \ref{fig:fixThree} zubeobachten. Dort geht der geordnete Zustand in einen zufällig verteilten Zustand über. In Abbildung \ref{fig:fixThree} ist allerdings sowohl für Anfang als auch Ende ein eher zufälliges Muster zu beobachten.
+
 \begin{figure}
-  \centering
-  \includegraphics[scale=0.7]{A2/plots/aufg2_a1.pdf}
-  \caption{Trajektorie eines Harmonischen Oszilators ($\alpha = 0$).}
-  \label{fig:harmonisch}
+  \begin{subfigure}{0.48\textwidth}
+    \includegraphics[width = 0.8\textwidth]{A2/build/1kbt-a-fest_anfang.pdf}
+    \caption{Anfang}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \includegraphics[width = 0.8\textwidth]{A2/build/1kbt-a-fest_ende.pdf}
+    \caption{Ende}
+  \end{subfigure}
+  \caption{Momentaufnahme für feste Spins $k_B T =1$ am Anfang und Ende der Simulation. }
+  \label{fig:fixOne}
 \end{figure}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.7]{A2/plots/aufg2_a2.pdf}
-  \caption{Trajektorie den aperiodischen Grenzfall für $\alpha = 2$.}
-  \label{fig:Aperiodisch}
+\begin{figure}
+  \begin{subfigure}{0.48\textwidth}
+    \includegraphics[width = 0.8\textwidth]{A2/build/1kbt-a-zufall_anfang.pdf}
+    \caption{Anfang}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \includegraphics[width = 0.8\textwidth]{A2/build/1kbt-a-zufall_ende.pdf}
+    \caption{Ende}
+  \end{subfigure}
+  \caption{Momentaufnahme für zufällige Spins mit $k_B T =1$ am Anfang und Ende der Simulation.}
+  \label{fig:randomOne}
 \end{figure}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.7]{A2/plots/aufg2_a3.pdf}
-  \caption{Trajektorie den Kriechfall für $\alpha = 4$.}
-  \label{fig:Kriech}
+\begin{figure}
+  \begin{subfigure}{0.48\textwidth}
+    \includegraphics[width = 0.8\textwidth]{A2/build/3kbt-a-fest_anfang.pdf}
+    \caption{Anfang}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \includegraphics[width = 0.8\textwidth]{A2/build/3kbt-a-fest_ende.pdf}
+    \caption{Ende}
+  \end{subfigure}
+  \caption{Momentaufnahme für feste Spins mit $k_B T = 3$ am Anfang und Ende der Simulation.}
+  \label{fig:fixThree}
 \end{figure}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[scale=0.7]{A2/plots/aufg2_a4.pdf}
-  \caption{Trajektorie die gedämpfte Schwingung $\alpha = 0.1$.}
-  \label{fig:gedämpft}
+\begin{figure}
+  \begin{subfigure}{0.48\textwidth}
+    \includegraphics[width = 0.8\textwidth]{A2/build/3kbt-a-zufall_anfang.pdf}
+    \caption{Anfang}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \includegraphics[width = 0.8\textwidth]{A2/build/3kbt-a-zufall_ende.pdf}
+    \caption{Ende}
+  \end{subfigure}
+  \caption{Momentaufnahme für zufällige Spins mit $k_B T = 3$ am Anfang und Ende der Simulation.}
+  \label{fig:randomThree}
 \end{figure}
 
 \subsection*{b)}
-Die Gesamtenergie $E_{Ges} = E_{kin} + E_{pot}$ ist für einen harmoschen Oszialltor erhalten. Da wir hier jedoch einen Oszialltor mit Dämpfung betrachten, geht durch die Dämpfung imemr ein Teil der Gesamtenergie verloren.
-In Abbildung \ref{fig:energie} ist die Gesamtenergie pro Zeit dargestellt.
+In Abbildung \ref{fig:b} ist die mittlere Energie pro Spin gegen die Simulationszeit $t$ aufgetragen. Dabei ist zu erkennen, dass verschiedene Startbedingungen zu unterschiedlichen Zuständen führen. Besonders auffällig sind dabei die Energien für $k_B T = 3$, die zu divergieren scheinen. Dies entspricht nicht unserer Erwartung  – wir erwarten, dass ich eine Äquilibrierung einstellt –, weshalb wir einen Fehler im Code vermuten, den wir leider nicht mehr finden konnten. 
 
 \begin{figure}
   \centering
-  \includegraphics[scale=0.7]{A2/plots/Energie.pdf}
-  \caption{Verlauf der Gesamtenergie für ein harmonisches Potential.}
-  \label{fig:energie}
+  \includegraphics[width = 0.8\textwidth ]{A2/build/plot_b.pdf}
+  \caption{Mittlere Energie pro Spin für die einzelnen Startbedingungen aufgetragen gegen die Zeit.}
+  \label{fig:b}
 \end{figure}
-
-%\subsection*{c)}
-%
-%
-%Zeit Adams: 0.003271.sec
-%Zeit Runge: 0.003343.sec
-%Zeit Adams 2 : 0.0042.sec
-%Zeit Runge 2 : 0.003325.sec
-%
-%Für ein Zeitintervall von $1000$ und eine Schrittweite von $30000$ ergibt sich für das Adams-Bashforth-Verfahren eine Laufzeit %von \SI{0.519792}{\s}, während sich für das Runge-Kutta-Verfahren eine Zeit von \SI{0.543176}{\s} ergibt.
-%Somit ist das Adams-Bashforth-Verfahren etwas schneller. 
