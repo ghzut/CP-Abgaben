@@ -1,7 +1,52 @@
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 import numpy as np
 
+#Aufgabenteil a)
+
+arr = np.genfromtxt("A2/build/1kbt-a-fest_anfang.txt", unpack=True)
+
+cmap = mpl.colors.ListedColormap(['darkblue','darkred'])
+bounds=[-1, 0, 1]
+norm = mpl.colors.BoundaryNorm(bounds, cmap.N)
+
+img = plt.imshow(arr,cmap = cmap,norm=norm)
+
+plt.colorbar(img,cmap=cmap,norm=norm,boundaries=bounds,ticks=[-5,0,5])
+
+plt.savefig("A2/build/1kbt-a-fest_anfang.pdf")
+
+arr = np.genfromtxt("A2/build/1kbt-a-fest_ende.txt", unpack=True)
+img = plt.imshow(arr,cmap = cmap, norm=norm)
+plt.savefig("A2/build/1kbt-a-fest_ende.pdf")
+
+arr = np.genfromtxt("A2/build/3kbt-a-fest_anfang.txt", unpack=True)
+img = plt.imshow(arr,cmap = cmap, norm=norm)
+plt.savefig("A2/build/3kbt-a-fest_anfang.pdf")
+
+arr = np.genfromtxt("A2/build/3kbt-a-fest_ende.txt", unpack=True)
+img = plt.imshow(arr,cmap = cmap, norm=norm)
+plt.savefig("A2/build/3kbt-a-fest_ende.pdf")
+
+arr = np.genfromtxt("A2/build/1kbt-a-zufall_anfang.txt", unpack=True)
+img = plt.imshow(arr,cmap = cmap, norm=norm)
+plt.savefig("A2/build/1kbt-a-zufall_anfang.pdf")
+
+arr = np.genfromtxt("A2/build/1kbt-a-zufall_ende.txt", unpack=True)
+img = plt.imshow(arr,cmap = cmap, norm=norm)
+plt.savefig("A2/build/1kbt-a-zufall_ende.pdf")
+
+arr = np.genfromtxt("A2/build/3kbt-a-zufall_anfang.txt", unpack=True)
+img = plt.imshow(arr,cmap = cmap, norm=norm)
+plt.savefig("A2/build/3kbt-a-zufall_anfang.pdf")
+
+arr = np.genfromtxt("A2/build/3kbt-a-zufall_ende.txt", unpack=True)
+img = plt.imshow(arr,cmap = cmap, norm=norm)
+plt.savefig("A2/build/3kbt-a-zufall_ende.pdf")
+
 # Aufgabenteil b)
+
+plt.clf()
 
 t_1f, e_1f = np.genfromtxt('A2/build/15kbt-b-fest.txt', unpack=True)
 t_1z, e_1z = np.genfromtxt('A2/build/15kbt-b-zufall.txt', unpack=True)

@@ -10,7 +10,7 @@ A1: A1/A1.cpp A1/build A1/A1.py
 
 A2: A2/A2.cpp A2/build A2/A2.py
 	g++ -O3 -ffast-math -march=native -I /usr/include/eigen3 -fopenmp $< -o A2/$@
-	cd A2; ./$@ > log.txt
+	cd A2; ./$@ #> log.txt
 	python A2/A2.py
 
 A1/build:

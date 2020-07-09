@@ -92,6 +92,47 @@ double energie()
 }
 
 
+
+void momentaufnahme(double beta, int sweeps, bool zufall, string filename)
+{
+  cout << "Start!\n";
+
+  ofstream file;
+  file.open("build/"+filename+"_anfang.txt");
+
+  double dE;
+
+  init(zufall);
+
+  file << spin << "\n\n";
+  file.close();
+
+  for (int i = 0; i < sweeps; i++)
+  {
+    for(int j = 0; j < 10000; j++)
+    {
+      auto x = distribution(generator) * 100;
+      auto y = distribution(generator) * 100;
+
+      // Spin-Flip anbieten
+      dE = 2 * spin(x, y) * (rb(x, y+1) + rb(x-1, y) + rb(x, y-1) + rb(x+1, y));
+
+      if (dE <= 0 || distribution(generator) < exp(-beta * dE))
+      {
+        spin(x, y) *= -1;
+      }
+    }
+  }
+
+  file.open("build/"+filename+"_ende.txt");
+  file << spin << "\n\n";
+
+  file.close();
+
+  cout << "Fertig!\n\n";
+
+}
+
 void ising(double beta, bool zufall, string filename)
 {
   ofstream file;
@@ -138,11 +179,21 @@ void ising(double beta, bool zufall, string filename)
 
 int main()
 {
+
+  // a)
+
+  momentaufnahme(1, 100000, false, "1kbt-a-fest");
+  momentaufnahme(1, 100000, true, "1kbt-a-zufall");
+  momentaufnahme(1/3, 100000, false, "3kbt-a-fest");
+  momentaufnahme(1/3, 100000, true, "3kbt-a-zufall");
+
   // b)
 
   double Tc;
+  int sweeps;
 
   Tc = 2 / log(1 + sqrt(2));
+  sweeps = 30;
 
   ising(1/1.5, false, "15kbt-b-fest");
   ising(1/1.5, true, "15kbt-b-zufall");
