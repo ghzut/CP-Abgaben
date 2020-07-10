@@ -239,10 +239,10 @@ INPUT ./A2/build/3kbt-a-zufall_anfang.pdf
 INPUT ./A2/build/3kbt-a-zufall_ende.pdf
 INPUT ./A2/build/3kbt-a-zufall_ende.pdf
 INPUT ./A2/build/3kbt-a-zufall_ende.pdf
+INPUT ./A2/build/plot_b.pdf
+INPUT ./A2/build/plot_b.pdf
+INPUT ./A2/build/plot_b.pdf
 OUTPUT build/main.pdf
-INPUT ./A2/build/plot_b.pdf
-INPUT ./A2/build/plot_b.pdf
-INPUT ./A2/build/plot_b.pdf
 INPUT build/main.aux
 INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /home/lars/.local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb

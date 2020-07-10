@@ -1,5 +1,5 @@
 # Fdb version 3
-["lualatex"] 1594327019 "main.tex" "build/main.pdf" "main" 1594327020
+["lualatex"] 1594365289 "main.tex" "build/main.pdf" "main" 1594365291
   "/home/lars/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf" 1480098679 111240 0af0b64d6d3df41bead3f9de314afbd4 ""
   "/home/lars/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf" 1480098679 111536 ae9d1b331000d544f47e5223081b7b54 ""
   "/home/lars/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman9-bold.otf" 1480098679 113040 97646768b80c4c82be4499ab1d090e1d ""
@@ -130,10 +130,10 @@
   "A2/build/3kbt-a-zufall_anfang.pdf" 1594324975 12002 6fd211bf9363f7fa027ea0172ae4029b ""
   "A2/build/3kbt-a-zufall_ende.pdf" 1594324975 12096 948f0a8f56938650b2edc14e0b9ef664 ""
   "A2/build/plot_b.pdf" 1594324975 17959 9f758e77eea37802f83c5779aac41b4d ""
-  "build/main.aux" 1594327020 1266 f1f1be413c09bee6a5d10f8e3c3eed7a ""
-  "content/Aufgabe2.tex" 1594327015 3827 fce7611715dc7963c116f7c502bacdbe ""
+  "build/main.aux" 1594365290 1266 b0159e3684bacededbc21e0c9b84a4b0 ""
+  "content/Aufgabe2.tex" 1594365275 4142 e878b0ce027f6e8fb495a9c3cf74421c ""
   "main.tex" 1594326926 1114 ec843a92d2c69089f14a07f26b0bb3b6 ""
   (generated)
   "build/main.aux"
-  "build/main.pdf"
   "build/main.log"
+  "build/main.pdf"

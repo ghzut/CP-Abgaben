@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.28)  9 JUL 2020 22:36
+This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2019.4.28)  10 JUL 2020 09:14
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.076 seconds
+luaotfload | main : initialization completed in 0.073 seconds
 (/home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrartcl.cls
 Document Class: scrartcl 2019/02/01 v3.26b KOMA-Script document class (article)
 (/home/lars/.local/texlive/2018/texmf-dist/tex/latex/koma-script/scrkbase.sty
@@ -933,20 +933,19 @@ File: A2/build/3kbt-a-zufall_ende.pdf Graphic file (type pdf)
 Package luatex.def Info: A2/build/3kbt-a-zufall_ende.pdf  used on input line 67.
 
 (luatex.def)             Requested size: 160.6093pt x 120.45735pt.
-[1
-
-{/home/lars/.local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./
-A2/build/1kbt-a-fest_anfang.pdf><./A2/build/1kbt-a-fest_ende.pdf><./A2/build/1kb
-t-a-zufall_anfang.pdf><./A2/build/1kbt-a-zufall_ende.pdf>] [2<./A2/build/3kbt-a-
-fest_anfang.pdf><./A2/build/3kbt-a-fest_ende.pdf><./A2/build/3kbt-a-zufall_anfan
-g.pdf><./A2/build/3kbt-a-zufall_ende.pdf>]
-<A2/build/plot_b.pdf, id=170, 462.52798pt x 346.89601pt>
+<A2/build/plot_b.pdf, id=9, 462.52798pt x 346.89601pt>
 File: A2/build/plot_b.pdf Graphic file (type pdf)
 <use A2/build/plot_b.pdf>
 Package luatex.def Info: A2/build/plot_b.pdf  used on input line 79.
 (luatex.def)             Requested size: 334.60571pt x 250.96649pt.
-) [3<./A2/build/plot_b.pdf>]
-(./build/main.aux))
+) [1
+
+{/home/lars/.local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./
+A2/build/1kbt-a-fest_anfang.pdf><./A2/build/1kbt-a-fest_ende.pdf>]
+[2<./A2/build/1kbt-a-zufall_anfang.pdf><./A2/build/1kbt-a-zufall_ende.pdf><./A2/
+build/3kbt-a-fest_anfang.pdf><./A2/build/3kbt-a-fest_ende.pdf><./A2/build/3kbt-a
+-zufall_anfang.pdf><./A2/build/3kbt-a-zufall_ende.pdf>] [3<./A2/build/plot_b.pdf
+>] (./build/main.aux))
 
 Here is how much of LuaTeX's memory you used:
  19642 strings out of 494383
@@ -954,10 +953,10 @@ Here is how much of LuaTeX's memory you used:
  570 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 glyph, 8 attribute, 62 glue_spec,
  8 attribute_list, 1 write nodes
-   avail lists: 2:461,3:150,4:14,5:108,6:44,7:1975,8:51,9:201,10:8,11:203
+   avail lists: 2:507,3:167,4:14,5:154,6:47,7:2433,8:51,9:223,10:8,11:257
  23315 multiletter control sequences out of 65536+600000
  81 fonts using 9580391 bytes
- 51i,7n,71p,9109b,559s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 51i,8n,71p,9109b,562s stack positions out of 5000i,500n,10000p,200000b,100000s
 </home/lars/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-bo
 ld.otf></home/lars/.local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmrom
 an9-regular.otf></home/lars/.local/texlive/2018/texmf-dist/fonts/opentype/public
@@ -968,7 +967,7 @@ public/lm/lmroman10-regular.otf></home/lars/.local/texlive/2018/texmf-dist/fonts
 -dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></home/lars/.local/texlive/2018/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/lars/.local/texlive/20
 18/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on main.pdf (3 pages, 118243 bytes).
+Output written on main.pdf (3 pages, 119018 bytes).
 
 PDF statistics: 272 PDF objects out of 1000 (max. 8388607)
  151 compressed objects within 2 object streams
